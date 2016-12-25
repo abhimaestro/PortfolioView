@@ -116,7 +116,7 @@ class DashboardViewController: UIViewController {
             array.append(TKChartDataPoint(x:calendar.date(from: dateTimeComponents), y: random))
         }
         
-        let series = TKChartSplineAreaSeries(items:array)
+        let series = TKChartAreaSeries(items:array)
         series.selection = TKChartSeriesSelection.series
         
         dateTimeComponents.month = 1
@@ -141,7 +141,8 @@ class DashboardViewController: UIViewController {
 
         chart.yAxis!.style.majorTickStyle.ticksHidden = true
         chart.yAxis!.style.lineHidden = true
-       // chart.yAxis!.style.labelStyle.lastLabelTextAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.bottom.rawValue)
+       chart.yAxis!.labelFormat = "%.0f%%"
+        // chart.yAxis!.style.labelStyle.lastLabelTextAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.bottom.rawValue)
         
         chart.xAxis!.style.majorTickStyle.ticksHidden = true
         chart.xAxis!.style.lineHidden = true
