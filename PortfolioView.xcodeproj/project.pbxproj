@@ -12,6 +12,7 @@
 		B4F0DF04ADE8AD2B00F6BBC2 /* Pods_PortfolioViewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8A821C29DF7EE4D6FD9F85 /* Pods_PortfolioViewUITests.framework */; };
 		C2335A521E1001DC00760234 /* TelerikUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2335A511E1001DC00760234 /* TelerikUI.framework */; };
 		C2335A591E100F4500760234 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A581E100F4500760234 /* Extensions.swift */; };
+		C2335A5B1E103BDE00760234 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A5A1E103BDE00760234 /* Transitions.swift */; };
 		C24FCBB61E08D8D4008E2C76 /* AAPL.json in Resources */ = {isa = PBXBuildFile; fileRef = C24FCBB51E08D8D4008E2C76 /* AAPL.json */; };
 		C2F71B2B1E02CDAE00A99298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */; };
 		C2F71B321E02CDAF00A99298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F71B301E02CDAF00A99298 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		C2335A511E1001DC00760234 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
 		C2335A571E10062B00760234 /* TelerikUI-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TelerikUI-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2335A581E100F4500760234 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C2335A5A1E103BDE00760234 /* Transitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
 		C24FCBB51E08D8D4008E2C76 /* AAPL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AAPL.json; sourceTree = "<group>"; };
 		C2F71B271E02CDAE00A99298 /* PortfolioView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				C2F71B381E02CDAF00A99298 /* Info.plist */,
 				C2F71B5A1E038AEA00A99298 /* DashboardViewController.swift */,
 				C2335A581E100F4500760234 /* Extensions.swift */,
+				C2335A5A1E103BDE00760234 /* Transitions.swift */,
 			);
 			path = PortfolioView;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 			files = (
 				C2F71B2B1E02CDAE00A99298 /* AppDelegate.swift in Sources */,
 				C2335A591E100F4500760234 /* Extensions.swift in Sources */,
+				C2335A5B1E103BDE00760234 /* Transitions.swift in Sources */,
 				C2F71B5B1E038AEA00A99298 /* DashboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
