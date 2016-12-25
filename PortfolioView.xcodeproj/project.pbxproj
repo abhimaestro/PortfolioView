@@ -10,6 +10,8 @@
 		2A1EDE91D9D1B40CC43EE916 /* Pods_PortfolioView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9F35707F488D25B0BC415D /* Pods_PortfolioView.framework */; };
 		868FB282E91D6CD817F1F8F6 /* Pods_PortfolioViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801B948EFB453E7B7F6B27BD /* Pods_PortfolioViewTests.framework */; };
 		B4F0DF04ADE8AD2B00F6BBC2 /* Pods_PortfolioViewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8A821C29DF7EE4D6FD9F85 /* Pods_PortfolioViewUITests.framework */; };
+		C2335A521E1001DC00760234 /* TelerikUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2335A511E1001DC00760234 /* TelerikUI.framework */; };
+		C2335A591E100F4500760234 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A581E100F4500760234 /* Extensions.swift */; };
 		C24FCBB61E08D8D4008E2C76 /* AAPL.json in Resources */ = {isa = PBXBuildFile; fileRef = C24FCBB51E08D8D4008E2C76 /* AAPL.json */; };
 		C2F71B2B1E02CDAE00A99298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */; };
 		C2F71B321E02CDAF00A99298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F71B301E02CDAF00A99298 /* Main.storyboard */; };
@@ -46,6 +48,9 @@
 		7788AB0E5B366FA0B8C90319 /* Pods-PortfolioViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewTests/Pods-PortfolioViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		801B948EFB453E7B7F6B27BD /* Pods_PortfolioViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		907C060298334BF28D095050 /* Pods-PortfolioView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView/Pods-PortfolioView.release.xcconfig"; sourceTree = "<group>"; };
+		C2335A511E1001DC00760234 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
+		C2335A571E10062B00760234 /* TelerikUI-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TelerikUI-Bridging-Header.h"; sourceTree = "<group>"; };
+		C2335A581E100F4500760234 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C24FCBB51E08D8D4008E2C76 /* AAPL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AAPL.json; sourceTree = "<group>"; };
 		C2F71B271E02CDAE00A99298 /* PortfolioView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A1EDE91D9D1B40CC43EE916 /* Pods_PortfolioView.framework in Frameworks */,
+				C2335A521E1001DC00760234 /* TelerikUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +100,7 @@
 		0A12C63C86F245437CD5F59E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2335A511E1001DC00760234 /* TelerikUI.framework */,
 				6D9F35707F488D25B0BC415D /* Pods_PortfolioView.framework */,
 				801B948EFB453E7B7F6B27BD /* Pods_PortfolioViewTests.framework */,
 				DC8A821C29DF7EE4D6FD9F85 /* Pods_PortfolioViewUITests.framework */,
@@ -139,6 +146,7 @@
 		C2F71B291E02CDAE00A99298 /* PortfolioView */ = {
 			isa = PBXGroup;
 			children = (
+				C2335A571E10062B00760234 /* TelerikUI-Bridging-Header.h */,
 				C24FCBB51E08D8D4008E2C76 /* AAPL.json */,
 				C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */,
 				C2F71B301E02CDAF00A99298 /* Main.storyboard */,
@@ -146,6 +154,7 @@
 				C2F71B351E02CDAF00A99298 /* LaunchScreen.storyboard */,
 				C2F71B381E02CDAF00A99298 /* Info.plist */,
 				C2F71B5A1E038AEA00A99298 /* DashboardViewController.swift */,
+				C2335A581E100F4500760234 /* Extensions.swift */,
 			);
 			path = PortfolioView;
 			sourceTree = "<group>";
@@ -451,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2F71B2B1E02CDAE00A99298 /* AppDelegate.swift in Sources */,
+				C2335A591E100F4500760234 /* Extensions.swift in Sources */,
 				C2F71B5B1E038AEA00A99298 /* DashboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +563,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "./PortfolioView/TelerikUI-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -596,6 +607,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "./PortfolioView/TelerikUI-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -607,6 +619,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PortfolioView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = algolic.PortfolioView;
@@ -621,6 +637,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PortfolioView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = algolic.PortfolioView;

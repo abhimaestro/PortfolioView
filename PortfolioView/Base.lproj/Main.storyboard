@@ -36,7 +36,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4J-Hj-3Ho" userLabel="bottomContainer">
+                                <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="m60-Qr-1H9">
+                                        <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="currentPageIndicatorTintColor" red="0.48241429790000001" green="0.63677553200000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </pageControl>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="m60-Qr-1H9" firstAttribute="centerX" secondItem="h4J-Hj-3Ho" secondAttribute="centerX" id="91a-M3-xiF"/>
+                                    <constraint firstItem="m60-Qr-1H9" firstAttribute="top" secondItem="h4J-Hj-3Ho" secondAttribute="top" constant="-10" id="gzc-C8-4K6"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P9I-Ps-UI5" userLabel="topContainer">
                                 <subviews>
@@ -118,7 +128,7 @@
                                             <constraint firstAttribute="height" constant="25" id="wlM-va-5k4"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZH2-ZI-SmU" customClass="Chart" customModule="SwiftChart">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZH2-ZI-SmU">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -146,7 +156,7 @@
                         <constraints>
                             <constraint firstItem="P9I-Ps-UI5" firstAttribute="leading" secondItem="qd5-Ls-gxE" secondAttribute="leading" id="31A-96-KeA"/>
                             <constraint firstItem="P9I-Ps-UI5" firstAttribute="top" secondItem="qd5-Ls-gxE" secondAttribute="top" id="B0O-5b-8O0"/>
-                            <constraint firstItem="h4J-Hj-3Ho" firstAttribute="top" secondItem="P9I-Ps-UI5" secondAttribute="bottom" constant="5" id="Gqm-jd-QI3"/>
+                            <constraint firstItem="h4J-Hj-3Ho" firstAttribute="top" secondItem="P9I-Ps-UI5" secondAttribute="bottom" constant="10" id="Gqm-jd-QI3"/>
                             <constraint firstAttribute="trailing" secondItem="h4J-Hj-3Ho" secondAttribute="trailing" id="HZD-Qe-WnT"/>
                             <constraint firstItem="h4J-Hj-3Ho" firstAttribute="leading" secondItem="qd5-Ls-gxE" secondAttribute="leading" id="HhR-bC-Wkd"/>
                             <constraint firstAttribute="trailing" secondItem="P9I-Ps-UI5" secondAttribute="trailing" id="QrF-0i-a7S"/>
@@ -157,7 +167,8 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Portfolio Summary" id="beQ-pj-elz"/>
                     <connections>
-                        <outlet property="chart" destination="ZH2-ZI-SmU" id="ZTt-Mq-d5w"/>
+                        <outlet property="bottomContainer" destination="h4J-Hj-3Ho" id="uH9-YL-zco"/>
+                        <outlet property="topChartContainer" destination="ZH2-ZI-SmU" id="SYs-Qi-tio"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZqJ-HT-7ez" userLabel="First Responder" sceneMemberID="firstResponder"/>
