@@ -51,6 +51,8 @@ class DashboardViewController: UIViewController {
         
         initializePerformanceChart()
 
+        initializeValueOverTimeChart()
+        
         initializeGoalChart()
     
         initializeAllocationChart()
@@ -183,6 +185,80 @@ class DashboardViewController: UIViewController {
         chart.insets = UIEdgeInsets.zero
 
     }
+    
+    func initializeValueOverTimeChart() {
+        let chart = TKChart(frame: valueOverTimeChartContainer.bounds)
+        chart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
+        valueOverTimeChartContainer.addSubview(chart)
+        
+        let calendar = Calendar(identifier:Calendar.Identifier.gregorian)
+        var dateTimeComponents = DateComponents()
+        dateTimeComponents.year = 2013
+        dateTimeComponents.day = 1
+        
+        
+        chart.gridStyle.horizontalFill = nil
+        
+        var array = [TKChartDataPoint]()
+
+        for i in 1...12 {
+            dateTimeComponents.month = i
+            let random = unsafeRandomIntFrom(start: 100000, to: 300000)
+            array.append(TKChartDataPoint(x:calendar.date(from: dateTimeComponents), y: random))
+        }
+        
+        let series = TKChartAreaSeries(items:array)
+        series.selection = TKChartSeriesSelection.series
+        
+        
+        series.style.palette = TKChartPalette()
+        let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
+        let fillBlueColor = UIColor(red: 216/255.0, green: 231/255.0, blue: 255/255.0, alpha: 0.5)
+        let paletteItem = TKChartPaletteItem()
+        paletteItem.stroke = TKStroke(color: selectedBlueColor)
+        paletteItem.fill = TKLinearGradientFill(colors: [fillBlueColor, UIColor.white])
+        series.style.palette!.addItem(paletteItem)
+        
+        dateTimeComponents.month = 1
+        let minDate = calendar.date(from: dateTimeComponents)!
+        dateTimeComponents.month = 12
+        let maxDate = calendar.date(from: dateTimeComponents)!
+        
+        // >> chart-axis-datetime-swift
+        let xAxis = TKChartDateTimeAxis(minimumDate: minDate, andMaximumDate: maxDate)
+        //xAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.custom
+        xAxis.majorTickInterval = 4
+        xAxis.style.labelStyle.font = UIFont(name:"HelveticaNeue-Light", size:9.0)!
+        xAxis.setPlotMode(TKChartAxisPlotMode.onTicks)
+        xAxis.style.majorTickStyle.ticksHidden = true
+        xAxis.style.lineHidden = true
+        xAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.top.rawValue)
+        xAxis.style.labelStyle.textOffset = UIOffset(horizontal: 0, vertical: -2)
+        
+        chart.xAxis = xAxis
+        
+        let yAxis = TKChartNumericAxis(minimum: 100000, andMaximum: 300000)
+        yAxis.style.labelStyle.font = UIFont(name:"HelveticaNeue-Light", size:8.0)!
+        yAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.bottom.rawValue)
+        
+        yAxis.style.majorTickStyle.ticksHidden = true
+        yAxis.style.lineHidden = true
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.maximumFractionDigits = 0
+        
+        yAxis.labelFormatter = currencyFormatter
+        yAxis.style.lineStroke = TKStroke(color:UIColor(white:0.85, alpha:1.0), width:2)
+        yAxis.style.labelStyle.firstLabelTextAlignment = .left
+        chart.yAxis = yAxis
+        
+        
+        chart.addSeries(series)
+        
+        chart.insets = UIEdgeInsets.zero
+        
+    }
+
     
     func initializeGoalChart() {
         
