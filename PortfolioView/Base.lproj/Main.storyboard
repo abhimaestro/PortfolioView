@@ -368,6 +368,7 @@
                         <outlet property="goalChartContainer" destination="gEZ-Vu-ZmI" id="kNl-oy-oD1"/>
                         <outlet property="performanceChartContainer" destination="ZH2-ZI-SmU" id="szw-5K-i4q"/>
                         <outlet property="performanceChartLegendContainer" destination="xn4-nc-YPK" id="dFO-5v-TZa"/>
+                        <outlet property="topContainer" destination="P9I-Ps-UI5" id="zbb-iM-982"/>
                         <outlet property="valueOverTimeChartContainer" destination="Etu-sH-iR2" id="CnN-sm-l7E"/>
                         <outlet property="valueOverTimeChartLegendContainer" destination="51k-Oz-yyH" id="UWl-su-kA1"/>
                     </connections>

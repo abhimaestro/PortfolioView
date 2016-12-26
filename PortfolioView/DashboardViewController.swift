@@ -9,10 +9,11 @@
 import UIKit
 import Foundation
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController, TKChartDelegate {
 
     @IBOutlet weak var performanceChartContainer: UIView!
     @IBOutlet weak var valueOverTimeChartContainer: UIView!
+    @IBOutlet weak var topContainer: UIView!
     @IBOutlet weak var bottomContainer: UIView!
     @IBOutlet weak var allocationChartContainer: UIView!
     @IBOutlet weak var goalChartContainer: UIView!
@@ -137,10 +138,12 @@ class DashboardViewController: UIViewController {
         
         let series = TKChartLineSeries(items:array)
         series.selection = TKChartSeriesSelection.series
-
+        series.title = "Your Portfolio"
+        
         let series2 = TKChartLineSeries(items:array2)
         series2.selection = TKChartSeriesSelection.series
-        
+        series2.title = "S&P 500"
+
         series.style.palette = TKChartPalette()
         let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.00)
         let paletteItem = TKChartPaletteItem()
@@ -182,8 +185,43 @@ class DashboardViewController: UIViewController {
         chart.addSeries(series)
         chart.addSeries(series2)
         
+        chart.allowTrackball = true
+        chart.trackball.snapMode = TKChartTrackballSnapMode.allClosestPoints
+        chart.delegate = self
+        chart.trackball.tooltip.style.textAlignment = NSTextAlignment.left
+        chart.trackball.tooltip.style.font = UIFont(name:"HelveticaNeue-Light", size:9.0)!
+        
         chart.insets = UIEdgeInsets.zero
 
+    }
+    
+    func chart(_ chart: TKChart, trackballDidTrackSelection selection: [Any]) {
+        let str = NSMutableString()
+        var i = 0
+        let count = selection.count
+        
+        let allDate = selection as! [TKChartSelectionInfo]
+        let xDate = allDate[0].dataPoint!.dataXValue as! Date
+        let dateformatter = DateFormatter()
+        dateformatter.dateStyle = .short
+        
+        let dateString = dateformatter.string(from: xDate)
+        
+        str.append("\(dateString)\n")
+        
+        for info in allDate {
+            let data = info.dataPoint as TKChartData!
+           
+            
+            str.append("\(info.series!.title!): \(data!.dataYValue as! Int)%")
+            // str.append("\(data?.dataYValue as! Float)")
+            if (i<count-1) {
+                str.append("\n");
+            }
+            i += 1
+        }
+
+        chart.trackball.tooltip.text = str as String
     }
     
     func initializeValueOverTimeChart() {
@@ -262,7 +300,7 @@ class DashboardViewController: UIViewController {
     
     func initializeGoalChart() {
         
-        radialGauge.labelTitleOffset = CGPoint(x: radialGauge.labelTitle.bounds.origin.x, y: radialGauge.labelTitle.bounds.origin.y - 80)
+        radialGauge.labelTitleOffset = CGPoint(x: radialGauge.labelTitle.bounds.origin.x, y: radialGauge.labelTitle.bounds.origin.y - 60)
         radialGauge.labelTitle.text = "80%"
         radialGauge.labelSubtitle.text = "on track"
         goalChartContainer.addSubview(radialGauge)
@@ -368,33 +406,65 @@ class DashboardViewController: UIViewController {
     }
     
     private func addGestures(){
-        let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.bottomContainerSwipe(swipeGesture:)))
-        swipeRightGesture.direction = .right
-        bottomContainer.addGestureRecognizer(swipeRightGesture)
+        let bottomContainerSwipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.bottomContainerSwipe(swipeGesture:)))
+        bottomContainerSwipeRightGesture.direction = .right
+        bottomContainer.addGestureRecognizer(bottomContainerSwipeRightGesture)
         
-        let  swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.bottomContainerSwipe(swipeGesture:)))
-        swipeLeftGesture.direction = .left
-        bottomContainer.addGestureRecognizer(swipeLeftGesture)
+        let  bottomContainerSwipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.bottomContainerSwipe(swipeGesture:)))
+        bottomContainerSwipeLeftGesture.direction = .left
+        bottomContainer.addGestureRecognizer(bottomContainerSwipeLeftGesture)
+        
+            let topContainerSwipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.topContainerSwipe(swipeGesture:)))
+        topContainerSwipeRightGesture.direction = .right
+        topContainer.addGestureRecognizer(topContainerSwipeRightGesture)
+        
+        let  topContainerSwipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.topContainerSwipe(swipeGesture:)))
+        topContainerSwipeLeftGesture.direction = .left
+        topContainer.addGestureRecognizer(topContainerSwipeLeftGesture)
 
     }
     
     @IBAction func chartTypeValueChanged(_ sender: UISegmentedControl) {
-        changeTopPage(selectedViewName: TopContainerViewName(rawValue: sender.selectedSegmentIndex)!)
+        
+        if sender.selectedSegmentIndex == 0 {
+            changeTopPage(direction: .right)
+        }
+        else {
+            changeTopPage(direction: .left)
+        }
     }
     
-    private func changeTopPage(selectedViewName: TopContainerViewName){
-        switch selectedViewName {
+    private func changeTopPage(direction: UISwipeGestureRecognizerDirection) {
+        
+        
+        switch direction {
+        case UISwipeGestureRecognizerDirection.left:
 
+            switch _topContainerViewName {
             case .Performance:
-                toggleBetweenViews(viewsToShow: [performanceChartContainer, performanceChartLegendContainer], viewsToHide: [valueOverTimeChartContainer, valueOverTimeChartLegendContainer], toLeft: false)
-                _topContainerViewName = .Performance
-            case .ValueOverTime:
                 toggleBetweenViews(viewsToShow: [valueOverTimeChartContainer, valueOverTimeChartLegendContainer], viewsToHide: [performanceChartContainer, performanceChartLegendContainer], toLeft: true)
                 _topContainerViewName = .ValueOverTime
+            case .ValueOverTime:
                 break
-            default:
+            }
+            
+        case UISwipeGestureRecognizerDirection.right:
+            
+            switch _topContainerViewName {
+            case .Performance:
+                break
+            case .ValueOverTime:
+                toggleBetweenViews(viewsToShow: [performanceChartContainer, performanceChartLegendContainer], viewsToHide: [valueOverTimeChartContainer, valueOverTimeChartLegendContainer], toLeft: false)
+                _topContainerViewName = .Performance
+                break
+            }
+        default:
             break
         }
+    }
+
+    func topContainerSwipe(swipeGesture: UISwipeGestureRecognizer) {
+        changeTopPage(direction: swipeGesture.direction)
     }
     
     func bottomContainerSwipe(swipeGesture: UISwipeGestureRecognizer) {
