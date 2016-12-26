@@ -233,14 +233,20 @@
                                             <constraint firstAttribute="height" constant="25" id="wlM-va-5k4"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Etu-sH-iR2">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZH2-ZI-SmU">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Etu-sH-iR2" firstAttribute="top" secondItem="ZH2-ZI-SmU" secondAttribute="top" id="2LK-uc-niC"/>
                                     <constraint firstItem="ZH2-ZI-SmU" firstAttribute="leading" secondItem="P9I-Ps-UI5" secondAttribute="leading" id="6we-vI-en7"/>
+                                    <constraint firstItem="Etu-sH-iR2" firstAttribute="bottom" secondItem="ZH2-ZI-SmU" secondAttribute="bottom" id="9ht-50-NbS"/>
                                     <constraint firstItem="ZH2-ZI-SmU" firstAttribute="top" secondItem="xn4-nc-YPK" secondAttribute="bottom" constant="5" id="E8A-fN-2b4"/>
+                                    <constraint firstItem="Etu-sH-iR2" firstAttribute="leading" secondItem="ZH2-ZI-SmU" secondAttribute="leading" id="EIr-mg-z12"/>
                                     <constraint firstItem="xn4-nc-YPK" firstAttribute="top" secondItem="EQ4-lA-gO6" secondAttribute="bottom" constant="10" id="Ghq-0x-MUO"/>
                                     <constraint firstItem="EQ4-lA-gO6" firstAttribute="leading" secondItem="P9I-Ps-UI5" secondAttribute="leading" id="HLq-XF-WYb"/>
                                     <constraint firstItem="5Ks-p3-OZU" firstAttribute="centerX" secondItem="P9I-Ps-UI5" secondAttribute="centerX" id="LG0-fr-YTU"/>
@@ -248,6 +254,7 @@
                                     <constraint firstAttribute="bottom" secondItem="TAF-hG-X3z" secondAttribute="bottom" id="O1b-gZ-W4g"/>
                                     <constraint firstAttribute="trailing" secondItem="ZH2-ZI-SmU" secondAttribute="trailing" id="RkK-0F-fUL"/>
                                     <constraint firstItem="TAF-hG-X3z" firstAttribute="leading" secondItem="P9I-Ps-UI5" secondAttribute="leading" id="SwJ-Tk-IZm"/>
+                                    <constraint firstItem="Etu-sH-iR2" firstAttribute="trailing" secondItem="ZH2-ZI-SmU" secondAttribute="trailing" id="VYr-Te-3IZ"/>
                                     <constraint firstItem="EQ4-lA-gO6" firstAttribute="top" secondItem="5Ks-p3-OZU" secondAttribute="bottom" constant="10" id="ZS7-2j-tlW"/>
                                     <constraint firstItem="xn4-nc-YPK" firstAttribute="leading" secondItem="P9I-Ps-UI5" secondAttribute="leading" id="cA7-g4-15c"/>
                                     <constraint firstItem="5Ks-p3-OZU" firstAttribute="top" secondItem="P9I-Ps-UI5" secondAttribute="top" constant="5" id="hjd-up-2LB"/>
@@ -277,7 +284,8 @@
                         <outlet property="bottomContainerPageControl" destination="m60-Qr-1H9" id="9jW-zh-2xE"/>
                         <outlet property="chartTypeSegmentedControl" destination="uAd-jO-UjX" id="lBt-Yw-U6H"/>
                         <outlet property="goalChartContainer" destination="gEZ-Vu-ZmI" id="kNl-oy-oD1"/>
-                        <outlet property="topChartContainer" destination="ZH2-ZI-SmU" id="SYs-Qi-tio"/>
+                        <outlet property="performanceChartContainer" destination="ZH2-ZI-SmU" id="szw-5K-i4q"/>
+                        <outlet property="valueOverTimeChartContainer" destination="Etu-sH-iR2" id="CnN-sm-l7E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZqJ-HT-7ez" userLabel="First Responder" sceneMemberID="firstResponder"/>

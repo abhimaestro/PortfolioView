@@ -11,7 +11,8 @@ import Foundation
 
 class DashboardViewController: UIViewController {
 
-    @IBOutlet weak var topChartContainer: UIView!
+    @IBOutlet weak var performanceChartContainer: UIView!
+    @IBOutlet weak var valueOverTimeChartContainer: UIView!
     @IBOutlet weak var bottomContainer: UIView!
     @IBOutlet weak var allocationChartContainer: UIView!
     @IBOutlet weak var goalChartContainer: UIView!
@@ -20,10 +21,20 @@ class DashboardViewController: UIViewController {
 
     let radialGauge = TKRadialGauge()
     
+    private enum TopContainerViewName: Int {
+        case Performance = 0
+        case ValueOverTime = 1
+    }
+    
     private enum BottomContainerViewName: Int {
         case Goal = 0
-
         case Allocation = 1
+    }
+
+    private var _topContainerViewName = TopContainerViewName.Performance {
+        didSet {
+            chartTypeSegmentedControl.selectedSegmentIndex = _topContainerViewName.rawValue
+        }
     }
     
     private var _bottomContainerViewName = BottomContainerViewName.Goal {
@@ -70,11 +81,14 @@ class DashboardViewController: UIViewController {
         let chartTypeSegmentedControlHeight = chartTypeSegmentedControl.frame.size.height
         let helveticsNeue13 = UIFont(name:"Helvetica-Bold", size:13.0)!
         let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.00)
+        let imageWithColorOrigin = CGPoint(x: 0, y: chartTypeSegmentedControlHeight - 1)
+        let imageWithColorSize = CGSize(width: 1, height: chartTypeSegmentedControlHeight)
+
         chartTypeSegmentedControl.setTitleTextAttributes([NSFontAttributeName: helveticsNeue13,NSForegroundColorAttributeName:UIColor.lightGray], for:UIControlState.normal)
         chartTypeSegmentedControl.setTitleTextAttributes([NSFontAttributeName:helveticsNeue13,NSForegroundColorAttributeName: selectedBlueColor], for:UIControlState.selected)
-        chartTypeSegmentedControl.setDividerImage(UIImage.imageWithColor(color: UIColor.clear, size: CGSize(width: 1, height: chartTypeSegmentedControlHeight)), forLeftSegmentState: UIControlState.normal, rightSegmentState: UIControlState.normal, barMetrics: UIBarMetrics.default)
-        chartTypeSegmentedControl.setBackgroundImage(UIImage.imageWithColor(color: UIColor.lightGray, size: CGSize(width: 1, height: chartTypeSegmentedControlHeight)), for:UIControlState.normal, barMetrics:UIBarMetrics.default)
-        chartTypeSegmentedControl.setBackgroundImage(UIImage.imageWithColor(color: selectedBlueColor, size: CGSize(width: 1, height: chartTypeSegmentedControlHeight)), for:UIControlState.selected, barMetrics:UIBarMetrics.default);
+        chartTypeSegmentedControl.setDividerImage(UIImage.imageWithColor(color: UIColor.clear, origin: imageWithColorOrigin, size: imageWithColorSize), forLeftSegmentState: UIControlState.normal, rightSegmentState: UIControlState.normal, barMetrics: UIBarMetrics.default)
+        chartTypeSegmentedControl.setBackgroundImage(UIImage.imageWithColor(color: UIColor.lightGray, origin: imageWithColorOrigin, size: imageWithColorSize), for:UIControlState.normal, barMetrics:UIBarMetrics.default)
+        chartTypeSegmentedControl.setBackgroundImage(UIImage.imageWithColor(color: selectedBlueColor, origin: imageWithColorOrigin, size: imageWithColorSize), for:UIControlState.selected, barMetrics:UIBarMetrics.default);
      
        // setChartTypeBorder()
 
@@ -93,14 +107,10 @@ class DashboardViewController: UIViewController {
         }
     }
     
-    @IBAction func chartTypeValueChanged(_ sender: UISegmentedControl) {
-
-    }
-    
     func initializePerformanceChart() {
-        let chart = TKChart(frame: topChartContainer.bounds)
+        let chart = TKChart(frame: performanceChartContainer.bounds)
         chart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
-        topChartContainer.addSubview(chart)
+        performanceChartContainer.addSubview(chart)
     
         let calendar = Calendar(identifier:Calendar.Identifier.gregorian)
         var dateTimeComponents = DateComponents()
@@ -260,20 +270,39 @@ class DashboardViewController: UIViewController {
 
     }
     
+    @IBAction func chartTypeValueChanged(_ sender: UISegmentedControl) {
+        changeTopPage(selectedViewName: TopContainerViewName(rawValue: sender.selectedSegmentIndex)!)
+    }
+    
+    private func changeTopPage(selectedViewName: TopContainerViewName){
+        switch selectedViewName {
+
+            case .Performance:
+                toggleBetweenViews(viewsToShow: [performanceChartContainer], viewsToHide: [valueOverTimeChartContainer], toLeft: false)
+                _topContainerViewName = .Performance
+            case .ValueOverTime:
+                toggleBetweenViews(viewsToShow: [valueOverTimeChartContainer], viewsToHide: [performanceChartContainer], toLeft: true)
+                _topContainerViewName = .ValueOverTime
+                break
+            default:
+            break
+        }
+    }
+    
     func bottomContainerSwipe(swipeGesture: UISwipeGestureRecognizer) {
-        changePage(direction: swipeGesture.direction)
+        changeBottomPage(direction: swipeGesture.direction)
     }
     
     @IBAction func bottomContainerPageChange(_ sender: AnyObject) {
         if sender.currentPage > _bottomContainerViewName.rawValue {
-            changePage(direction: .left)
+            changeBottomPage(direction: .left)
         }
         else if sender.currentPage < _bottomContainerViewName.rawValue {
-            changePage(direction: .right)
+            changeBottomPage(direction: .right)
         }
     }
     
-    private func changePage(direction: UISwipeGestureRecognizerDirection){
+    private func changeBottomPage(direction: UISwipeGestureRecognizerDirection){
         switch direction {
         case UISwipeGestureRecognizerDirection.left:
             switch _bottomContainerViewName {

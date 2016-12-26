@@ -21,7 +21,7 @@ extension Int {
 }
 
 public extension UIImage {
-    static func imageWithColor(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+    static func imageWithColor(color: UIColor, origin: CGPoint = CGPoint.zero, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
         
         let rect = CGRect(origin: .init(x: 0, y: size.height - 1), size: size)
         UIGraphicsBeginImageContext(rect.size)
