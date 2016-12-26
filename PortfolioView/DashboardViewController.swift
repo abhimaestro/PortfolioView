@@ -280,19 +280,29 @@ class DashboardViewController: UIViewController {
                        TKRange(minimum: 71, andMaximum: 90),
                        TKRange(minimum: 91, andMaximum: 100) ]
         
-        let colors = [ UIColor(red: 255/255.0, green: 130/255.0, blue: 130/255.0, alpha: 1.00),
-                       UIColor(red: 0.38, green: 0.73, blue: 0.00, alpha: 1.00),
+        let colors = [ UIColor(red: 255/255.0, green: 200/255.0, blue: 200/255.0, alpha: 1.00), //light red
+                       UIColor(red: 0.38, green: 0.73, blue: 0.00, alpha: 1.00), //dark green
                        UIColor(red: 1.00, green: 0.85, blue: 0.00, alpha: 1.00),
-                       UIColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.00),
-                       UIColor(red: 0.77, green: 1.00, blue: 0.00, alpha: 1.00),
+                       UIColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.00), // light red
+                       UIColor(red: 0.77, green: 1.00, blue: 0.00, alpha: 1.00), // dark green
                        UIColor(red: 0.96, green: 0.56, blue: 0.00, alpha: 1.00)
                         ]
         
         for i in 0..<ranges.count {
             
             let gradientSegment = TKGaugeSegment(range: ranges[i])
+            
+            if i == 1 {
+                let darkGreen =  UIColor(red: 0.38, green: 0.73, blue: 0.00, alpha: 1.00)
+                let lightGreen = UIColor(red: 0.77, green: 1.00, blue: 0.00, alpha: 1.00)
+                gradientSegment.fill = TKLinearGradientFill(colors: [lightGreen, darkGreen, lightGreen])
+
+            }
+            else {
             gradientSegment.fill = TKLinearGradientFill(colors: [colors[i], colors[i + 3]])
-           // gradientSegment.cap = TKGaugeSegmentCap.round
+           
+            }
+            // gradientSegment.cap = TKGaugeSegmentCap.round
             gradientSegment.width = 0.2
             gradientSegment.cap = .edge
           //  gradientSegment.location = 0.5 + CGFloat(i) * 0.25
