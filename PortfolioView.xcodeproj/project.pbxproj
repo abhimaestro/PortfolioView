@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A1EDE91D9D1B40CC43EE916 /* Pods_PortfolioView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D9F35707F488D25B0BC415D /* Pods_PortfolioView.framework */; };
-		868FB282E91D6CD817F1F8F6 /* Pods_PortfolioViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801B948EFB453E7B7F6B27BD /* Pods_PortfolioViewTests.framework */; };
-		B4F0DF04ADE8AD2B00F6BBC2 /* Pods_PortfolioViewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8A821C29DF7EE4D6FD9F85 /* Pods_PortfolioViewUITests.framework */; };
 		C2335A521E1001DC00760234 /* TelerikUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2335A511E1001DC00760234 /* TelerikUI.framework */; };
 		C2335A591E100F4500760234 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A581E100F4500760234 /* Extensions.swift */; };
 		C2335A5B1E103BDE00760234 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A5A1E103BDE00760234 /* Transitions.swift */; };
@@ -44,10 +41,8 @@
 		066E3B17F2E6FBB1A3EEB9EC /* Pods-PortfolioViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewUITests/Pods-PortfolioViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4AF53D2FF6381B2914EA3EC6 /* Pods-PortfolioViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewUITests/Pods-PortfolioViewUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5D5F9A526FFEEE84ABA4DD59 /* Pods-PortfolioViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewTests/Pods-PortfolioViewTests.release.xcconfig"; sourceTree = "<group>"; };
-		6D9F35707F488D25B0BC415D /* Pods_PortfolioView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E9986017C8F7009D38308C /* Pods-PortfolioView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView/Pods-PortfolioView.debug.xcconfig"; sourceTree = "<group>"; };
 		7788AB0E5B366FA0B8C90319 /* Pods-PortfolioViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewTests/Pods-PortfolioViewTests.debug.xcconfig"; sourceTree = "<group>"; };
-		801B948EFB453E7B7F6B27BD /* Pods_PortfolioViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		907C060298334BF28D095050 /* Pods-PortfolioView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView/Pods-PortfolioView.release.xcconfig"; sourceTree = "<group>"; };
 		C2335A511E1001DC00760234 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
 		C2335A571E10062B00760234 /* TelerikUI-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TelerikUI-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -67,7 +62,6 @@
 		C2F71B4C1E02CDAF00A99298 /* PortfolioViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewUITests.swift; sourceTree = "<group>"; };
 		C2F71B4E1E02CDAF00A99298 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2F71B5A1E038AEA00A99298 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		DC8A821C29DF7EE4D6FD9F85 /* Pods_PortfolioViewUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioViewUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A1EDE91D9D1B40CC43EE916 /* Pods_PortfolioView.framework in Frameworks */,
 				C2335A521E1001DC00760234 /* TelerikUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,7 +77,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				868FB282E91D6CD817F1F8F6 /* Pods_PortfolioViewTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4F0DF04ADE8AD2B00F6BBC2 /* Pods_PortfolioViewUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,9 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				C2335A511E1001DC00760234 /* TelerikUI.framework */,
-				6D9F35707F488D25B0BC415D /* Pods_PortfolioView.framework */,
-				801B948EFB453E7B7F6B27BD /* Pods_PortfolioViewTests.framework */,
-				DC8A821C29DF7EE4D6FD9F85 /* Pods_PortfolioViewUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -625,6 +613,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WEWC6Q3ZN7;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -644,6 +633,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WEWC6Q3ZN7;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

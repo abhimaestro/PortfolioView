@@ -18,6 +18,8 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var goalChartContainer: UIView!
     @IBOutlet weak var bottomContainerPageControl: UIPageControl!
     @IBOutlet weak var chartTypeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var performanceChartLegendContainer: UIView!
+    @IBOutlet weak var valueOverTimeChartLegendContainer: UIView!
 
     let radialGauge = TKRadialGauge()
     
@@ -118,16 +120,31 @@ class DashboardViewController: UIViewController {
         dateTimeComponents.day = 1
 
        
+        chart.gridStyle.horizontalFill = nil
         
         var array = [TKChartDataPoint]()
+        var array2 = [TKChartDataPoint]()
         for i in 1...12 {
             dateTimeComponents.month = i
             let random = unsafeRandomIntFrom(start: -10, to: 40)
             array.append(TKChartDataPoint(x:calendar.date(from: dateTimeComponents), y: random))
+            
+            let random2 = unsafeRandomIntFrom(start: -10, to: 80)
+            array2.append(TKChartDataPoint(x:calendar.date(from: dateTimeComponents), y: random2))
         }
         
-        let series = TKChartAreaSeries(items:array)
+        let series = TKChartLineSeries(items:array)
         series.selection = TKChartSeriesSelection.series
+
+        let series2 = TKChartLineSeries(items:array2)
+        series2.selection = TKChartSeriesSelection.series
+        
+        series.style.palette = TKChartPalette()
+        let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.00)
+        let paletteItem = TKChartPaletteItem()
+        paletteItem.stroke = TKStroke(color: selectedBlueColor)
+        paletteItem.fill = TKLinearGradientFill(colors: [selectedBlueColor, UIColor.white])
+        series.style.palette!.addItem(paletteItem)
         
         dateTimeComponents.month = 1
         let minDate = calendar.date(from: dateTimeComponents)!
@@ -138,28 +155,33 @@ class DashboardViewController: UIViewController {
         let xAxis = TKChartDateTimeAxis(minimumDate: minDate, andMaximumDate: maxDate)
         //xAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.custom
         xAxis.majorTickInterval = 4
-        //xAxis.setMajorTickCount(3)
-        // xAxis.customLabels = [100:  UIColor.blue, 200: UIColor(red: 0.96, green: 0.00, blue: 0.22, alpha: 1.0), 400: UIColor(red: 0.00, green: 0.90, blue: 0.42, alpha: 1.0)]        // << chart-axis-datetime-swift
-        
-        // >> chart-category-plot-onticks-swift
+        xAxis.style.labelStyle.font = UIFont(name:"HelveticaNeue-Light", size:9.0)!
         xAxis.setPlotMode(TKChartAxisPlotMode.onTicks)
-        // << chart-category-plot-onticks-swift
+        xAxis.style.majorTickStyle.ticksHidden = true
+        xAxis.style.lineHidden = true
+        xAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.top.rawValue)
+        xAxis.style.labelStyle.textOffset = UIOffset(horizontal: 0, vertical: -2)
         
         chart.xAxis = xAxis
-        chart.addSeries(series)
-        chart.yAxis!.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.bottom.rawValue)
+       
+        let yAxis = TKChartNumericAxis(minimum: -10, andMaximum: 80)
+        yAxis.style.labelStyle.font = UIFont(name:"HelveticaNeue-Light", size:8.0)!
+        yAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.bottom.rawValue)
+        
+        yAxis.style.majorTickStyle.ticksHidden = true
+        yAxis.style.lineHidden = true
+        yAxis.labelFormat = "%.0f%%"
+        yAxis.style.lineStroke = TKStroke(color:UIColor(white:0.85, alpha:1.0), width:2)
+        yAxis.style.labelStyle.firstLabelTextAlignment = .left
+        chart.yAxis = yAxis
 
-        chart.yAxis!.style.majorTickStyle.ticksHidden = true
-        chart.yAxis!.style.lineHidden = true
-       chart.yAxis!.labelFormat = "%.0f%%"
-        // chart.yAxis!.style.labelStyle.lastLabelTextAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.bottom.rawValue)
+
         
-        chart.xAxis!.style.majorTickStyle.ticksHidden = true
-        chart.xAxis!.style.lineHidden = true
-        chart.xAxis!.style.labelStyle.firstLabelTextAlignment = .right
-        chart.xAxis!.style.labelStyle.lastLabelTextAlignment = .left
+        chart.addSeries(series)
+        chart.addSeries(series2)
         
-       chart.insets = UIEdgeInsets.zero
+        chart.insets = UIEdgeInsets.zero
+
     }
     
     func initializeGoalChart() {
@@ -278,10 +300,10 @@ class DashboardViewController: UIViewController {
         switch selectedViewName {
 
             case .Performance:
-                toggleBetweenViews(viewsToShow: [performanceChartContainer], viewsToHide: [valueOverTimeChartContainer], toLeft: false)
+                toggleBetweenViews(viewsToShow: [performanceChartContainer, performanceChartLegendContainer], viewsToHide: [valueOverTimeChartContainer, valueOverTimeChartLegendContainer], toLeft: false)
                 _topContainerViewName = .Performance
             case .ValueOverTime:
-                toggleBetweenViews(viewsToShow: [valueOverTimeChartContainer], viewsToHide: [performanceChartContainer], toLeft: true)
+                toggleBetweenViews(viewsToShow: [valueOverTimeChartContainer, valueOverTimeChartLegendContainer], viewsToHide: [performanceChartContainer, performanceChartLegendContainer], toLeft: true)
                 _topContainerViewName = .ValueOverTime
                 break
             default:
