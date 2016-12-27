@@ -231,7 +231,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         chart.trackball.tooltip.style.font = UIFont(name:"HelveticaNeue-Light", size:11.0)!
         
         chart.insets = UIEdgeInsets.zero
-
+        chart.gridStyle.horizontalFill = nil
     }
     
     func chart(_ chart: TKChart, trackballDidTrackSelection selection: [Any]) {
@@ -293,7 +293,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         let fillBlueColor = UIColor(red: 216/255.0, green: 231/255.0, blue: 255/255.0, alpha: 0.5)
         let paletteItem = TKChartPaletteItem()
         paletteItem.stroke = TKStroke(color: selectedBlueColor)
-        paletteItem.fill = TKLinearGradientFill(colors: [fillBlueColor, UIColor.white])
+        paletteItem.fill = TKLinearGradientFill(colors: [selectedBlueColor, fillBlueColor, UIColor.white])
         series.style.palette!.addItem(paletteItem)
         
         dateTimeComponents.month = 1
