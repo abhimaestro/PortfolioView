@@ -112,40 +112,23 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         }
     }
     
-    func getPerformanceData() -> (portfolioInceptionDate: Date, endDate: Date, portfolioReturns: [TKChartDataPoint], indexReturns: [TKChartDataPoint], minReturnValue: Int, maxReturnValue: Int) {
-        let today = Date()
-        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)
-        var portfolioInceptionDate = Calendar.current.date(from: DateComponents(year: 2010, month: 2, day: 15))!
-        var date = portfolioInceptionDate
+    func getPerformanceData() -> (portfolioInceptionDate: Date, endDate: Date, portfolioReturns: [TKChartDataPoint], indexReturns: [TKChartDataPoint], minReturnValue: Double, maxReturnValue: Double) {
+
         var portfolioReturns = [TKChartDataPoint]()
         var indexReturns = [TKChartDataPoint]()
+        var maxReturnValue: Double = 0.0, minReturnValue: Double = 0.0
+
+        let portfolioData = PortfolioData.load()
         
-        var cummulativePortfolioReturn = 0
-        var cummulativeIndexReturn = 0
-        var maxReturnValue = 0, minReturnValue = 0
-        
-        while date <= today {
+        for portfolioDataItem in (portfolioData?.portfolioDataItems)! {
+           portfolioReturns.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.portfolioReturnPercent))
+            indexReturns.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.indexReturnPercent))
 
-            let dailyPortfolioReturn = unsafeRandomIntFrom(start: -1, to: 1)
-            cummulativePortfolioReturn += dailyPortfolioReturn
-            portfolioReturns.append(TKChartDataPoint(x: date, y: cummulativePortfolioReturn))
-
-            let indexPortfolioReturn = unsafeRandomIntFrom(start: -1, to: 1)
-            cummulativeIndexReturn += indexPortfolioReturn
-            indexReturns.append(TKChartDataPoint(x: date, y: cummulativeIndexReturn))
-
-            minReturnValue = min(minReturnValue, cummulativePortfolioReturn, cummulativeIndexReturn)
-            maxReturnValue = max(maxReturnValue, cummulativePortfolioReturn, cummulativeIndexReturn)
-            
-            if cummulativeIndexReturn > maxReturnValue {
-                maxReturnValue = cummulativeIndexReturn
-            }
-            
-            date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
+            minReturnValue = min(minReturnValue, portfolioDataItem.portfolioReturnPercent, portfolioDataItem.indexReturnPercent)
+            maxReturnValue = max(maxReturnValue, portfolioDataItem.portfolioReturnPercent, portfolioDataItem.indexReturnPercent)
         }
        
-       
-        return (portfolioInceptionDate, today, portfolioReturns, indexReturns, minReturnValue, maxReturnValue)
+        return ((portfolioData?.inceptionDate)!, (portfolioData?.endDate)!, portfolioReturns, indexReturns, minReturnValue, maxReturnValue)
     }
     
     func initializePerformanceChart() {
@@ -154,27 +137,11 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         performanceChartContainer.addSubview(chart)
     
        
-//        let calendar = Calendar(identifier:Calendar.Identifier.gregorian)
-//        var dateTimeComponents = DateComponents()
-//        dateTimeComponents.year = 2013
-//        dateTimeComponents.day = 1
-//
-//       
-//        chart.gridStyle.horizontalFill = nil
-//        
-//        var array = [TKChartDataPoint]()
-//        var array2 = [TKChartDataPoint]()
-//        for i in 1...12 {
-//            dateTimeComponents.month = i
-//            let random = unsafeRandomIntFrom(start: -10, to: 40)
-//            array.append(TKChartDataPoint(x:calendar.date(from: dateTimeComponents), y: random))
-//            
-//            let random2 = unsafeRandomIntFrom(start: -10, to: 80)
-//            array2.append(TKChartDataPoint(x:calendar.date(from: dateTimeComponents), y: random2))
-//        }
-        
+       
         let performanceData = getPerformanceData()
-        let series = TKChartLineSeries(items:performanceData.portfolioReturns)
+        
+       
+        let series = TKChartAreaSeries(items:performanceData.portfolioReturns)
         series.selection = TKChartSeriesSelection.series
         series.title = "Your Portfolio"
         
@@ -247,7 +214,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
             let data = info.dataPoint as TKChartData!
            
             
-            str.append("\(info.series!.title!): \(data!.dataYValue as! Int)%")
+            str.append("\(info.series!.title!): \(data!.dataYValue as! Double)%")
             // str.append("\(data?.dataYValue as! Float)")
             if (i<count-1) {
                 str.append("\n");

@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12D5750DE9B609560702031B /* Pods_PortfolioView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18BE8FF50FDAE8F2CF63FA5 /* Pods_PortfolioView.framework */; };
+		C23208181E12A7E200E54844 /* PortfolioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208171E12A7E200E54844 /* PortfolioData.swift */; };
+		C23208291E12B57B00E54844 /* portfolioData_Inception.json in Resources */ = {isa = PBXBuildFile; fileRef = C23208281E12B57B00E54844 /* portfolioData_Inception.json */; };
 		C2335A521E1001DC00760234 /* TelerikUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2335A511E1001DC00760234 /* TelerikUI.framework */; };
 		C2335A591E100F4500760234 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A581E100F4500760234 /* Extensions.swift */; };
 		C2335A5B1E103BDE00760234 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A5A1E103BDE00760234 /* Transitions.swift */; };
-		C24FCBB61E08D8D4008E2C76 /* AAPL.json in Resources */ = {isa = PBXBuildFile; fileRef = C24FCBB51E08D8D4008E2C76 /* AAPL.json */; };
 		C2F71B2B1E02CDAE00A99298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */; };
 		C2F71B321E02CDAF00A99298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F71B301E02CDAF00A99298 /* Main.storyboard */; };
 		C2F71B341E02CDAF00A99298 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F71B331E02CDAF00A99298 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 		C2F71B421E02CDAF00A99298 /* PortfolioViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F71B411E02CDAF00A99298 /* PortfolioViewTests.swift */; };
 		C2F71B4D1E02CDAF00A99298 /* PortfolioViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F71B4C1E02CDAF00A99298 /* PortfolioViewUITests.swift */; };
 		C2F71B5B1E038AEA00A99298 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F71B5A1E038AEA00A99298 /* DashboardViewController.swift */; };
+		E2738F2007961ACACAB10BE1 /* Pods_PortfolioViewUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811029D797500E3B9F1006F5 /* Pods_PortfolioViewUITests.framework */; };
+		ED5A44665489E400EB733ECD /* Pods_PortfolioViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 473AEACE6415AFD757B22352 /* Pods_PortfolioViewTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,16 +43,20 @@
 
 /* Begin PBXFileReference section */
 		066E3B17F2E6FBB1A3EEB9EC /* Pods-PortfolioViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewUITests/Pods-PortfolioViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		473AEACE6415AFD757B22352 /* Pods_PortfolioViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF53D2FF6381B2914EA3EC6 /* Pods-PortfolioViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewUITests/Pods-PortfolioViewUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5D5F9A526FFEEE84ABA4DD59 /* Pods-PortfolioViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewTests/Pods-PortfolioViewTests.release.xcconfig"; sourceTree = "<group>"; };
 		75E9986017C8F7009D38308C /* Pods-PortfolioView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView/Pods-PortfolioView.debug.xcconfig"; sourceTree = "<group>"; };
 		7788AB0E5B366FA0B8C90319 /* Pods-PortfolioViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewTests/Pods-PortfolioViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		811029D797500E3B9F1006F5 /* Pods_PortfolioViewUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioViewUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		907C060298334BF28D095050 /* Pods-PortfolioView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView/Pods-PortfolioView.release.xcconfig"; sourceTree = "<group>"; };
+		A18BE8FF50FDAE8F2CF63FA5 /* Pods_PortfolioView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C23208171E12A7E200E54844 /* PortfolioData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioData.swift; sourceTree = "<group>"; };
+		C23208281E12B57B00E54844 /* portfolioData_Inception.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_Inception.json; sourceTree = "<group>"; };
 		C2335A511E1001DC00760234 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
 		C2335A571E10062B00760234 /* TelerikUI-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TelerikUI-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2335A581E100F4500760234 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C2335A5A1E103BDE00760234 /* Transitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
-		C24FCBB51E08D8D4008E2C76 /* AAPL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AAPL.json; sourceTree = "<group>"; };
 		C2F71B271E02CDAE00A99298 /* PortfolioView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F71B311E02CDAF00A99298 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,6 +78,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2335A521E1001DC00760234 /* TelerikUI.framework in Frameworks */,
+				12D5750DE9B609560702031B /* Pods_PortfolioView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED5A44665489E400EB733ECD /* Pods_PortfolioViewTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2738F2007961ACACAB10BE1 /* Pods_PortfolioViewUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				C2335A511E1001DC00760234 /* TelerikUI.framework */,
+				A18BE8FF50FDAE8F2CF63FA5 /* Pods_PortfolioView.framework */,
+				473AEACE6415AFD757B22352 /* Pods_PortfolioViewTests.framework */,
+				811029D797500E3B9F1006F5 /* Pods_PortfolioViewUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -137,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				C2335A571E10062B00760234 /* TelerikUI-Bridging-Header.h */,
-				C24FCBB51E08D8D4008E2C76 /* AAPL.json */,
 				C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */,
 				C2F71B301E02CDAF00A99298 /* Main.storyboard */,
 				C2F71B331E02CDAF00A99298 /* Assets.xcassets */,
@@ -146,6 +159,8 @@
 				C2F71B5A1E038AEA00A99298 /* DashboardViewController.swift */,
 				C2335A581E100F4500760234 /* Extensions.swift */,
 				C2335A5A1E103BDE00760234 /* Transitions.swift */,
+				C23208171E12A7E200E54844 /* PortfolioData.swift */,
+				C23208281E12B57B00E54844 /* portfolioData_Inception.json */,
 			);
 			path = PortfolioView;
 			sourceTree = "<group>";
@@ -286,9 +301,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2F71B371E02CDAF00A99298 /* LaunchScreen.storyboard in Resources */,
+				C23208291E12B57B00E54844 /* portfolioData_Inception.json in Resources */,
 				C2F71B341E02CDAF00A99298 /* Assets.xcassets in Resources */,
 				C2F71B321E02CDAF00A99298 /* Main.storyboard in Resources */,
-				C24FCBB61E08D8D4008E2C76 /* AAPL.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2F71B2B1E02CDAE00A99298 /* AppDelegate.swift in Sources */,
+				C23208181E12A7E200E54844 /* PortfolioData.swift in Sources */,
 				C2335A591E100F4500760234 /* Extensions.swift in Sources */,
 				C2335A5B1E103BDE00760234 /* Transitions.swift in Sources */,
 				C2F71B5B1E038AEA00A99298 /* DashboardViewController.swift in Sources */,
