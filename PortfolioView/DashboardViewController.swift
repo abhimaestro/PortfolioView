@@ -208,7 +208,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         xAxis.style.lineHidden = true
         xAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.top.rawValue)
         xAxis.style.labelStyle.textOffset = UIOffset(horizontal: 0, vertical: -2)
-        xAxis.style.labelStyle.firstLabelTextAlignment = .left
+      //  xAxis.style.labelStyle.firstLabelTextAlignment = .left
         
         chart.xAxis = xAxis
        
@@ -332,7 +332,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         xAxis.style.lineHidden = true
         xAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.top.rawValue)
         xAxis.style.labelStyle.textOffset = UIOffset(horizontal: 0, vertical: -2)
-        xAxis.style.labelStyle.firstLabelTextAlignment = .left //hide to left
+       // xAxis.style.labelStyle.firstLabelTextAlignment = .left //hide to left
         
         chart.xAxis = xAxis
         
