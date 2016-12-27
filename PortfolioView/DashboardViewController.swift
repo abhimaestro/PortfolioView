@@ -39,7 +39,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     let trailingPeriodButtonSelectedFont = FontHelper.getDefaultFont(size: 13.0, bold: true)
     
     let radialGauge = TKRadialGauge()
-    
+    let donutChart = TKChart()
+
     private enum TopContainerViewName: Int {
         case Performance = 0
         case ValueOverTime = 1
@@ -474,40 +475,59 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     }
     
     func initializeAllocationChart() {
-        let donutChart = TKChart()
+
         
         let bounds = bottomContainer.bounds
 
-        donutChart.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width, height: bounds.size.height).insetBy(dx: 10, dy: 10)
+        donutChart.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width, height: bounds.size.height).insetBy(dx: 10, dy: 0)
         donutChart.autoresizingMask = UIViewAutoresizing(rawValue:~UIViewAutoresizing().rawValue)
+
         donutChart.allowAnimations = true
         donutChart.legend.isHidden = false
-        donutChart.legend.style.position = TKChartLegendPosition.right
-        
+        donutChart.legend.style.position = .right
+
         donutChart.legend.style.insets = UIEdgeInsets.zero
         donutChart.legend.style.offset = UIOffset.zero
         allocationChartContainer.addSubview(donutChart)
-        
+
+
+
         let array:[TKChartDataPoint] = [
             TKChartDataPoint(name: "Equity", value: 70),
             TKChartDataPoint(name: "Fixed Income", value: 15),
             TKChartDataPoint(name:"Alternatives", value: 10),
             TKChartDataPoint(name: "Cash", value: 5)]
         
-        let donutSeries = TKChartPieSeries(items:array)
+        let donutSeries = TKChartDonutSeries(items:array)
         donutSeries.selection = TKChartSeriesSelection.dataPoint
-       // donutSeries.innerRadius = 0.7
+        donutSeries.innerRadius = 0.7
         donutSeries.expandRadius = 1.1
-        
+        donutSeries.rotationEnabled = false
         donutChart.addSeries(donutSeries)
+
+
     }
-    
+
+    private var _donutLabelAdded = false
     override func viewDidLayoutSubviews() {
         let bounds = bottomContainer.bounds
         let size = bottomContainer.bounds.size
         let offset = CGFloat(30)
         
         radialGauge.frame = CGRect(x: offset, y: bounds.origin.y + offset, width: size.width - offset*2, height: bottomContainer.frame.origin.y - bounds.origin.y - offset*4)
+
+//        if !_donutLabelAdded {
+//
+//            let donutCenterX = bounds.origin.x + (bounds.width - donutChart.legend.container.frame.width - 20)
+//            let donutCenterY = bounds.origin.y + (bounds.height / 2)
+//            var label = UILabel()
+//            label.text = "Hello"
+//            label.font = FontHelper.getDefaultFont(size: 10.0)
+//            label.frame = CGRect(x: donutCenterX, y: donutCenterY, width: 30, height: 20)
+//            label.sizeToFit()
+//            allocationChartContainer.addSubview(label)
+//            _donutLabelAdded = true
+//        }
     }
     
     private func addGestures(){
