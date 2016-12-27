@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class DashboardViewController: UIViewController, TKChartDelegate {
+class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPresentationControllerDelegate {
 
     
     @IBOutlet weak var performanceChartContainer: UIView!
@@ -23,6 +23,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
     @IBOutlet weak var performanceChartLegendContainer: UIView!
     @IBOutlet weak var valueOverTimeChartLegendContainer: UIView!
     @IBOutlet weak var portfolioTotalReturnLabel: UILabel!
+    @IBOutlet weak var indexNameLabel: UILabel!
     @IBOutlet weak var indexTotalReturnLabel: UILabel!
     @IBOutlet weak var portfolioTotalReturnDollarValue: UILabel!
     @IBOutlet weak var trailingPeriod1MButton: UIButton!
@@ -236,6 +237,35 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         
         chart.insets = UIEdgeInsets.zero
         chart.gridStyle.horizontalFill = nil
+    }
+    
+    private func openPopoverMenu() {
+        let pomVC = PopOverMenuVC()
+        
+        pomVC.popoverPresentationController!.sourceView = self.indexNameLabel
+        pomVC.popoverPresentationController!.sourceRect = CGRect(x: 0, y: 10, width: 10, height: 10)
+        pomVC.popoverPresentationController!.delegate = self
+        
+        pomVC.menuItems.append((text: "S&P 500", action: {
+            [unowned self] in
+            self.indexNameLabel.text = "S&P 500"
+        }))
+
+        pomVC.menuItems.append((text: "Russel 1000", action: {
+            [unowned self] in
+            self.indexNameLabel.text = "Russel 1000"
+        }))
+        
+        pomVC.menuItems.append((text: "Blended Index", action: {
+            [unowned self] in
+            self.indexNameLabel.text = "Blended Index"
+        }))
+       
+        self.present(pomVC, animated: true, completion: nil)
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
     }
     
     func chart(_ chart: TKChart, trackballDidTrackSelection selection: [Any]) {
@@ -479,6 +509,10 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         topContainerSwipeLeftGesture.direction = .left
         topContainer.addGestureRecognizer(topContainerSwipeLeftGesture)
 
+        indexNameLabel.isUserInteractionEnabled = true
+        let  indexNameTouchedGesture = UITapGestureRecognizer(target: self, action: #selector(self.indexNameTap(tapGesture:)))
+        indexNameLabel.addGestureRecognizer(indexNameTouchedGesture)
+
     }
     
     func resetTrailingPeriodButtonsStyle() {
@@ -589,6 +623,11 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         }
     }
 
+    func indexNameTap(tapGesture: UITapGestureRecognizer) {
+        openPopoverMenu()
+    }
+
+    
     func topContainerSwipe(swipeGesture: UISwipeGestureRecognizer) {
         changeTopPage(direction: swipeGesture.direction)
     }

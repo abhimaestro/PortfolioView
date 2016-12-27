@@ -391,6 +391,7 @@
                         <outlet property="chartTypeSegmentedControl" destination="uAd-jO-UjX" id="lBt-Yw-U6H"/>
                         <outlet property="dateRangeLabel" destination="y9Z-X9-Dwm" id="Hxr-UV-hcR"/>
                         <outlet property="goalChartContainer" destination="gEZ-Vu-ZmI" id="kNl-oy-oD1"/>
+                        <outlet property="indexNameLabel" destination="gm1-ia-pEM" id="ISu-Hz-lmh"/>
                         <outlet property="indexTotalReturnLabel" destination="q7q-9F-md6" id="sWC-Qo-IvE"/>
                         <outlet property="performanceChartContainer" destination="ZH2-ZI-SmU" id="szw-5K-i4q"/>
                         <outlet property="performanceChartLegendContainer" destination="xn4-nc-YPK" id="dFO-5v-TZa"/>
