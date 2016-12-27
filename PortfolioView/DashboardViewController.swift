@@ -24,7 +24,16 @@ class DashboardViewController: UIViewController, TKChartDelegate {
     @IBOutlet weak var valueOverTimeChartLegendContainer: UIView!
     @IBOutlet weak var portfolioTotalReturnLabel: UILabel!
     @IBOutlet weak var indexTotalReturnLabel: UILabel!
+    @IBOutlet weak var trailingPeriod1MButton: UIButton!
+    @IBOutlet weak var trailingPeriod3MButton: UIButton!
+    @IBOutlet weak var trailingPeriod1YrButton: UIButton!
+    @IBOutlet weak var trailingPeriod3YrButton: UIButton!
+    @IBOutlet weak var trailingPeriod5YrButton: UIButton!
+    @IBOutlet weak var trailingPeriodAllButton: UIButton!
 
+    let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
+    let trailingPeriodButtonSelectedFont = FontHelper.getDefaultFont(size: 13.0, bold: true)
+    
     let radialGauge = TKRadialGauge()
     
     private enum TopContainerViewName: Int {
@@ -87,7 +96,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         bottomContainerPageControl.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
 
         let chartTypeSegmentedControlHeight = chartTypeSegmentedControl.frame.size.height
-        let helveticsNeue13 = UIFont(name:"Helvetica-Bold", size:13.0)!
+        let helveticsNeue13 = UIFont(name:"HelveticaNeue-Bold", size:13.0)!
         let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.00)
         let imageWithColorOrigin = CGPoint(x: 0, y: chartTypeSegmentedControlHeight - 1)
         let imageWithColorSize = CGSize(width: 1, height: chartTypeSegmentedControlHeight)
@@ -255,7 +264,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         
         
         series.style.palette = TKChartPalette()
-        let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
+        
         let fillBlueColor = UIColor(red: 216/255.0, green: 231/255.0, blue: 255/255.0, alpha: 0.5)
         let paletteItem = TKChartPaletteItem()
         paletteItem.stroke = TKStroke(color: selectedBlueColor)
@@ -430,28 +439,66 @@ class DashboardViewController: UIViewController, TKChartDelegate {
 
     }
     
+    func resetTrailingPeriodButtonsStyle() {
+        
+        let helveticaNeue12 = FontHelper.getDefaultFont(size: 12.0)
+        
+        let color = UIColor.darkGray
+
+        trailingPeriod1MButton.titleLabel?.font = helveticaNeue12
+        trailingPeriod1MButton.setTitleColor(color, for: .normal)
+        trailingPeriod3MButton.titleLabel?.font = helveticaNeue12
+        trailingPeriod3MButton.setTitleColor(color, for: .normal)
+        trailingPeriod1YrButton.titleLabel?.font = helveticaNeue12
+        trailingPeriod1YrButton.setTitleColor(color, for: .normal)
+        trailingPeriod3YrButton.titleLabel?.font = helveticaNeue12
+        trailingPeriod3YrButton.setTitleColor(color, for: .normal)
+        trailingPeriod5YrButton.titleLabel?.font = helveticaNeue12
+        trailingPeriod5YrButton.setTitleColor(color, for: .normal)
+        trailingPeriodAllButton.titleLabel?.font = helveticaNeue12
+        trailingPeriodAllButton.setTitleColor(color, for: .normal)
+    }
     
-    @IBAction func trailingPeriodChangedTo1M(_ sender: Any) {
+    @IBAction func trailingPeriodChangedTo1M(_ sender: UIButton) {
+        
+        resetTrailingPeriodButtonsStyle()
+        sender.titleLabel?.font = trailingPeriodButtonSelectedFont
+        sender.setTitleColor(selectedBlueColor, for: .normal)
         initializePerformanceChart(trailingPeriod: .M1)
     }
     
-    @IBAction func trailingPeriodChangedTo3M(_ sender: Any) {
-    initializePerformanceChart(trailingPeriod: .M3)
+    @IBAction func trailingPeriodChangedTo3M(_ sender: UIButton) {
+        resetTrailingPeriodButtonsStyle()
+        sender.titleLabel?.font = trailingPeriodButtonSelectedFont
+        sender.setTitleColor(selectedBlueColor, for: .normal)
+        initializePerformanceChart(trailingPeriod: .M3)
     }
     
-    @IBAction func trailingPeriodChangedTo1Yr(_ sender: Any) {
+    @IBAction func trailingPeriodChangedTo1Yr(_ sender: UIButton) {
+        resetTrailingPeriodButtonsStyle()
+        sender.titleLabel?.font = trailingPeriodButtonSelectedFont
+        sender.setTitleColor(selectedBlueColor, for: .normal)
         initializePerformanceChart(trailingPeriod: .Y1)
     }
     
-    @IBAction func trailingPeriodChangedTo3Yr(_ sender: Any) {
-    initializePerformanceChart(trailingPeriod: .Y3)
+    @IBAction func trailingPeriodChangedTo3Yr(_ sender: UIButton) {
+        resetTrailingPeriodButtonsStyle()
+        sender.titleLabel?.font = trailingPeriodButtonSelectedFont
+        sender.setTitleColor(selectedBlueColor, for: .normal)
+        initializePerformanceChart(trailingPeriod: .Y3)
     }
 
-    @IBAction func trailingPeriodChangedTo5Yr(_ sender: Any) {
-    initializePerformanceChart(trailingPeriod: .Y5)
+    @IBAction func trailingPeriodChangedTo5Yr(_ sender: UIButton) {
+        resetTrailingPeriodButtonsStyle()
+        sender.titleLabel?.font = trailingPeriodButtonSelectedFont
+        sender.setTitleColor(selectedBlueColor, for: .normal)
+        initializePerformanceChart(trailingPeriod: .Y5)
     }
     
-    @IBAction func trailingPeriodChangedToAll(_ sender: Any) {
+    @IBAction func trailingPeriodChangedToAll(_ sender: UIButton) {
+        resetTrailingPeriodButtonsStyle()
+        sender.titleLabel?.font = FontHelper.getDefaultFont(size: 12.0, bold: true)
+        sender.setTitleColor(selectedBlueColor, for: .normal)
         initializePerformanceChart(trailingPeriod: .All)
     }
     

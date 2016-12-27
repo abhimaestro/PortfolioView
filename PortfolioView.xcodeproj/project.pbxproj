@@ -15,6 +15,7 @@
 		C23208311E12D5FD00E54844 /* portfolioData_3M.json in Resources */ = {isa = PBXBuildFile; fileRef = C232082C1E12D5FD00E54844 /* portfolioData_3M.json */; };
 		C23208321E12D5FD00E54844 /* portfolioData_3Yr.json in Resources */ = {isa = PBXBuildFile; fileRef = C232082D1E12D5FD00E54844 /* portfolioData_3Yr.json */; };
 		C23208331E12D5FD00E54844 /* portfolioData_5Yr.json in Resources */ = {isa = PBXBuildFile; fileRef = C232082E1E12D5FD00E54844 /* portfolioData_5Yr.json */; };
+		C23208351E12E32600E54844 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208341E12E32600E54844 /* FontHelper.swift */; };
 		C2335A521E1001DC00760234 /* TelerikUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2335A511E1001DC00760234 /* TelerikUI.framework */; };
 		C2335A591E100F4500760234 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A581E100F4500760234 /* Extensions.swift */; };
 		C2335A5B1E103BDE00760234 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A5A1E103BDE00760234 /* Transitions.swift */; };
@@ -63,6 +64,7 @@
 		C232082C1E12D5FD00E54844 /* portfolioData_3M.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_3M.json; sourceTree = "<group>"; };
 		C232082D1E12D5FD00E54844 /* portfolioData_3Yr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_3Yr.json; sourceTree = "<group>"; };
 		C232082E1E12D5FD00E54844 /* portfolioData_5Yr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_5Yr.json; sourceTree = "<group>"; };
+		C23208341E12E32600E54844 /* FontHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		C2335A511E1001DC00760234 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
 		C2335A571E10062B00760234 /* TelerikUI-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TelerikUI-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2335A581E100F4500760234 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				C232082C1E12D5FD00E54844 /* portfolioData_3M.json */,
 				C232082D1E12D5FD00E54844 /* portfolioData_3Yr.json */,
 				C232082E1E12D5FD00E54844 /* portfolioData_5Yr.json */,
+				C23208341E12E32600E54844 /* FontHelper.swift */,
 			);
 			path = PortfolioView;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C23208351E12E32600E54844 /* FontHelper.swift in Sources */,
 				C2F71B2B1E02CDAE00A99298 /* AppDelegate.swift in Sources */,
 				C23208181E12A7E200E54844 /* PortfolioData.swift in Sources */,
 				C2335A591E100F4500760234 /* Extensions.swift in Sources */,

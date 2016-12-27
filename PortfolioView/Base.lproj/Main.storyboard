@@ -239,72 +239,63 @@
                                         <rect key="frame" x="0.0" y="337" width="375" height="25"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="saH-lZ-q6x">
-                                                <rect key="frame" x="0.0" y="-0.5" width="375" height="26.5"/>
+                                                <rect key="frame" x="0.0" y="-1" width="375" height="28"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kkm-xG-HW7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="26.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="28"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                         <state key="normal" title="1 M">
-                                                            <color key="titleColor" red="0.1647058824" green="0.30588235289999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="trailingPeriodChangedTo1M:" destination="zuA-ga-Z5d" eventType="touchUpInside" id="ksX-6T-ejC"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKm-Hm-eqU">
-                                                        <rect key="frame" x="64" y="0.0" width="54.5" height="26.5"/>
+                                                        <rect key="frame" x="64" y="0.0" width="54.5" height="28"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                         <state key="normal" title="3 M">
-                                                            <color key="titleColor" red="0.1647058824" green="0.30588235289999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="trailingPeriodChangedTo3M:" destination="zuA-ga-Z5d" eventType="touchUpInside" id="mzb-yu-o09"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfq-Cg-hlq" userLabel="1Yr">
-                                                        <rect key="frame" x="128.5" y="0.0" width="54" height="26.5"/>
+                                                        <rect key="frame" x="128.5" y="0.0" width="54" height="28"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                         <state key="normal" title="1 Yr">
-                                                            <color key="titleColor" red="0.1647058824" green="0.30588235289999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="trailingPeriodChangedTo1Yr:" destination="zuA-ga-Z5d" eventType="touchUpInside" id="pmA-ku-hgh"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ye-eS-NQW">
-                                                        <rect key="frame" x="192.5" y="0.0" width="54" height="26.5"/>
+                                                        <rect key="frame" x="192.5" y="0.0" width="54" height="28"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                         <state key="normal" title="3 Yr">
-                                                            <color key="titleColor" red="0.1803921568627451" green="0.31372549019607843" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="trailingPeriodChangedTo3Yr:" destination="zuA-ga-Z5d" eventType="touchUpInside" id="73M-tP-DGd"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bet-SG-zGi">
-                                                        <rect key="frame" x="256.5" y="0.0" width="54.5" height="26.5"/>
+                                                        <rect key="frame" x="256.5" y="0.0" width="54.5" height="28"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                         <state key="normal" title="5 Yr">
-                                                            <color key="titleColor" red="0.1647058824" green="0.30588235289999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="trailingPeriodChangedTo5Yr:" destination="zuA-ga-Z5d" eventType="touchUpInside" id="d1M-25-Q7h"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WpJ-QF-ZR0">
-                                                        <rect key="frame" x="321" y="0.0" width="54" height="26.5"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="All">
-                                                                    <attributes>
-                                                                        <color key="NSColor" red="0.1803921568627451" green="0.31372549019607843" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                                        <integer key="NSUnderline" value="1"/>
-                                                                        <color key="NSUnderlineColor" red="0.1803921568627451" green="0.31372549019607843" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpJ-QF-ZR0">
+                                                        <rect key="frame" x="321" y="0.0" width="54" height="28"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                                                        <state key="normal" title="All">
+                                                            <color key="titleColor" red="0.1647058824" green="0.30588235289999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="trailingPeriodChangedToAll:" destination="zuA-ga-Z5d" eventType="touchUpInside" id="76J-JI-Grd"/>
@@ -384,6 +375,12 @@
                         <outlet property="performanceChartLegendContainer" destination="xn4-nc-YPK" id="dFO-5v-TZa"/>
                         <outlet property="portfolioTotalReturnLabel" destination="GNB-WZ-Kwi" id="RsG-Fu-nVq"/>
                         <outlet property="topContainer" destination="P9I-Ps-UI5" id="zbb-iM-982"/>
+                        <outlet property="trailingPeriod1MButton" destination="Kkm-xG-HW7" id="n0I-C8-6kJ"/>
+                        <outlet property="trailingPeriod1YrButton" destination="Wfq-Cg-hlq" id="yx6-cw-H2Y"/>
+                        <outlet property="trailingPeriod3MButton" destination="tKm-Hm-eqU" id="ckt-6H-yrk"/>
+                        <outlet property="trailingPeriod3YrButton" destination="7Ye-eS-NQW" id="zJN-kf-nyB"/>
+                        <outlet property="trailingPeriod5YrButton" destination="bet-SG-zGi" id="w9W-sr-h6U"/>
+                        <outlet property="trailingPeriodAllButton" destination="WpJ-QF-ZR0" id="Zu2-hZ-vrq"/>
                         <outlet property="valueOverTimeChartContainer" destination="Etu-sH-iR2" id="CnN-sm-l7E"/>
                         <outlet property="valueOverTimeChartLegendContainer" destination="51k-Oz-yyH" id="UWl-su-kA1"/>
                     </connections>
