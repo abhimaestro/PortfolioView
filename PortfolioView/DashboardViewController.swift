@@ -306,6 +306,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         xAxis.style.lineHidden = true
         xAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.top.rawValue)
         xAxis.style.labelStyle.textOffset = UIOffset(horizontal: 0, vertical: -2)
+        xAxis.style.labelStyle.firstLabelTextAlignment = .left //hide to left
         
         chart.xAxis = xAxis
         
@@ -321,7 +322,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         
         yAxis.labelFormatter = currencyFormatter
         yAxis.style.lineStroke = TKStroke(color:UIColor(white:0.85, alpha:1.0), width:2)
-        yAxis.style.labelStyle.firstLabelTextAlignment = .left
+        
         chart.yAxis = yAxis
         
         
