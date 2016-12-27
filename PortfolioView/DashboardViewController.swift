@@ -11,6 +11,7 @@ import Foundation
 
 class DashboardViewController: UIViewController, TKChartDelegate {
 
+    
     @IBOutlet weak var performanceChartContainer: UIView!
     @IBOutlet weak var valueOverTimeChartContainer: UIView!
     @IBOutlet weak var topContainer: UIView!
@@ -21,6 +22,8 @@ class DashboardViewController: UIViewController, TKChartDelegate {
     @IBOutlet weak var chartTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var performanceChartLegendContainer: UIView!
     @IBOutlet weak var valueOverTimeChartLegendContainer: UIView!
+    @IBOutlet weak var portfolioTotalReturnLabel: UILabel!
+    @IBOutlet weak var indexTotalReturnLabel: UILabel!
 
     let radialGauge = TKRadialGauge()
     
@@ -112,13 +115,13 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         }
     }
     
-    func getPerformanceData() -> (portfolioInceptionDate: Date, endDate: Date, portfolioReturns: [TKChartDataPoint], indexReturns: [TKChartDataPoint], minReturnValue: Double, maxReturnValue: Double) {
+    func getPerformanceData(trailingPeriod: TrailingPeriod = .All) -> (portfolioData: PortfolioData, portfolioReturns: [TKChartDataPoint], indexReturns: [TKChartDataPoint], minReturnValue: Double, maxReturnValue: Double) {
 
         var portfolioReturns = [TKChartDataPoint]()
         var indexReturns = [TKChartDataPoint]()
         var maxReturnValue: Double = 0.0, minReturnValue: Double = 0.0
 
-        let portfolioData = PortfolioData.load()
+        let portfolioData = PortfolioData.load(trailingPeriod: trailingPeriod)
         
         for portfolioDataItem in (portfolioData?.portfolioDataItems)! {
            portfolioReturns.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.portfolioReturnPercent))
@@ -127,11 +130,11 @@ class DashboardViewController: UIViewController, TKChartDelegate {
             minReturnValue = min(minReturnValue, portfolioDataItem.portfolioReturnPercent, portfolioDataItem.indexReturnPercent)
             maxReturnValue = max(maxReturnValue, portfolioDataItem.portfolioReturnPercent, portfolioDataItem.indexReturnPercent)
         }
-       
-        return ((portfolioData?.inceptionDate)!, (portfolioData?.endDate)!, portfolioReturns, indexReturns, minReturnValue, maxReturnValue)
+        
+        return (portfolioData: portfolioData!, portfolioReturns, indexReturns, minReturnValue, maxReturnValue)
     }
     
-    func initializePerformanceChart() {
+    func initializePerformanceChart(trailingPeriod: TrailingPeriod = .All) {
         let chart = TKChart(frame: performanceChartContainer.bounds)
         chart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
         performanceChartContainer.addSubview(chart)
@@ -140,7 +143,9 @@ class DashboardViewController: UIViewController, TKChartDelegate {
        
         let performanceData = getPerformanceData()
         
-       
+        portfolioTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalPortfolioReturnPercent)
+        indexTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalIndexReturnPercent)
+        
         let series = TKChartAreaSeries(items:performanceData.portfolioReturns)
         series.selection = TKChartSeriesSelection.series
         series.title = "Your Portfolio"
@@ -157,7 +162,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         series.style.palette!.addItem(paletteItem)
         
         // >> chart-axis-datetime-swift
-        let xAxis = TKChartDateTimeAxis(minimumDate: performanceData.portfolioInceptionDate, andMaximumDate: performanceData.endDate)
+        let xAxis = TKChartDateTimeAxis(minimumDate: performanceData.portfolioData.inceptionDate, andMaximumDate: performanceData.portfolioData.endDate)
         //xAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.custom
         xAxis.majorTickInterval = 2
         xAxis.style.labelStyle.font = UIFont(name:"HelveticaNeue-Light", size:9.0)!
@@ -424,6 +429,31 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         topContainerSwipeLeftGesture.direction = .left
         topContainer.addGestureRecognizer(topContainerSwipeLeftGesture)
 
+    }
+    
+    
+    @IBAction func trailingPeriodChangedTo1M(_ sender: Any) {
+        initializePerformanceChart(trailingPeriod: .M1)
+    }
+    
+    @IBAction func trailingPeriodChangedTo3M(_ sender: Any) {
+    initializePerformanceChart(trailingPeriod: .M3)
+    }
+    
+    @IBAction func trailingPeriodChangedTo1Yr(_ sender: Any) {
+        initializePerformanceChart(trailingPeriod: .Y1)
+    }
+    
+    @IBAction func trailingPeriodChangedTo3Yr(_ sender: Any) {
+    initializePerformanceChart(trailingPeriod: .Y3)
+    }
+
+    @IBAction func trailingPeriodChangedTo5Yr(_ sender: Any) {
+    initializePerformanceChart(trailingPeriod: .Y5)
+    }
+    
+    @IBAction func trailingPeriodChangedToAll(_ sender: Any) {
+        initializePerformanceChart(trailingPeriod: .All)
     }
     
     @IBAction func chartTypeValueChanged(_ sender: UISegmentedControl) {

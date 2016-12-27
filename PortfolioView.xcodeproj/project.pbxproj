@@ -10,6 +10,11 @@
 		12D5750DE9B609560702031B /* Pods_PortfolioView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18BE8FF50FDAE8F2CF63FA5 /* Pods_PortfolioView.framework */; };
 		C23208181E12A7E200E54844 /* PortfolioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208171E12A7E200E54844 /* PortfolioData.swift */; };
 		C23208291E12B57B00E54844 /* portfolioData_Inception.json in Resources */ = {isa = PBXBuildFile; fileRef = C23208281E12B57B00E54844 /* portfolioData_Inception.json */; };
+		C232082F1E12D5FD00E54844 /* portfolioData_1M.json in Resources */ = {isa = PBXBuildFile; fileRef = C232082A1E12D5FD00E54844 /* portfolioData_1M.json */; };
+		C23208301E12D5FD00E54844 /* portfolioData_1Yr.json in Resources */ = {isa = PBXBuildFile; fileRef = C232082B1E12D5FD00E54844 /* portfolioData_1Yr.json */; };
+		C23208311E12D5FD00E54844 /* portfolioData_3M.json in Resources */ = {isa = PBXBuildFile; fileRef = C232082C1E12D5FD00E54844 /* portfolioData_3M.json */; };
+		C23208321E12D5FD00E54844 /* portfolioData_3Yr.json in Resources */ = {isa = PBXBuildFile; fileRef = C232082D1E12D5FD00E54844 /* portfolioData_3Yr.json */; };
+		C23208331E12D5FD00E54844 /* portfolioData_5Yr.json in Resources */ = {isa = PBXBuildFile; fileRef = C232082E1E12D5FD00E54844 /* portfolioData_5Yr.json */; };
 		C2335A521E1001DC00760234 /* TelerikUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2335A511E1001DC00760234 /* TelerikUI.framework */; };
 		C2335A591E100F4500760234 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A581E100F4500760234 /* Extensions.swift */; };
 		C2335A5B1E103BDE00760234 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A5A1E103BDE00760234 /* Transitions.swift */; };
@@ -53,6 +58,11 @@
 		A18BE8FF50FDAE8F2CF63FA5 /* Pods_PortfolioView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C23208171E12A7E200E54844 /* PortfolioData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioData.swift; sourceTree = "<group>"; };
 		C23208281E12B57B00E54844 /* portfolioData_Inception.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_Inception.json; sourceTree = "<group>"; };
+		C232082A1E12D5FD00E54844 /* portfolioData_1M.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_1M.json; sourceTree = "<group>"; };
+		C232082B1E12D5FD00E54844 /* portfolioData_1Yr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_1Yr.json; sourceTree = "<group>"; };
+		C232082C1E12D5FD00E54844 /* portfolioData_3M.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_3M.json; sourceTree = "<group>"; };
+		C232082D1E12D5FD00E54844 /* portfolioData_3Yr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_3Yr.json; sourceTree = "<group>"; };
+		C232082E1E12D5FD00E54844 /* portfolioData_5Yr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_5Yr.json; sourceTree = "<group>"; };
 		C2335A511E1001DC00760234 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
 		C2335A571E10062B00760234 /* TelerikUI-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TelerikUI-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2335A581E100F4500760234 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -161,6 +171,11 @@
 				C2335A5A1E103BDE00760234 /* Transitions.swift */,
 				C23208171E12A7E200E54844 /* PortfolioData.swift */,
 				C23208281E12B57B00E54844 /* portfolioData_Inception.json */,
+				C232082A1E12D5FD00E54844 /* portfolioData_1M.json */,
+				C232082B1E12D5FD00E54844 /* portfolioData_1Yr.json */,
+				C232082C1E12D5FD00E54844 /* portfolioData_3M.json */,
+				C232082D1E12D5FD00E54844 /* portfolioData_3Yr.json */,
+				C232082E1E12D5FD00E54844 /* portfolioData_5Yr.json */,
 			);
 			path = PortfolioView;
 			sourceTree = "<group>";
@@ -300,10 +315,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C232082F1E12D5FD00E54844 /* portfolioData_1M.json in Resources */,
+				C23208331E12D5FD00E54844 /* portfolioData_5Yr.json in Resources */,
 				C2F71B371E02CDAF00A99298 /* LaunchScreen.storyboard in Resources */,
+				C23208311E12D5FD00E54844 /* portfolioData_3M.json in Resources */,
+				C23208321E12D5FD00E54844 /* portfolioData_3Yr.json in Resources */,
 				C23208291E12B57B00E54844 /* portfolioData_Inception.json in Resources */,
 				C2F71B341E02CDAF00A99298 /* Assets.xcassets in Resources */,
 				C2F71B321E02CDAF00A99298 /* Main.storyboard in Resources */,
+				C23208301E12D5FD00E54844 /* portfolioData_1Yr.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

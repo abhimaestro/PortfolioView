@@ -43,28 +43,64 @@ class PortfolioData {
     var portfolioDataItems = [PortfolioDataItem]()
     var inceptionDate: Date!
     var endDate: Date!
+    var totalPortfolioReturnPercent: Double!
+    var totalIndexReturnPercent: Double!
     
     init(portfolioDataItems: [PortfolioDataItem]?) {
         
         if let portfolioDataItems = portfolioDataItems {
             self.portfolioDataItems = portfolioDataItems
             
-            self.inceptionDate = self.portfolioDataItems[0].returnDate
-            self.endDate = self.portfolioDataItems[self.portfolioDataItems.count - 1].returnDate
+            let startItem = self.portfolioDataItems[0]
+            let endItem = self.portfolioDataItems[self.portfolioDataItems.count - 1]
+            
+            self.totalPortfolioReturnPercent = ((endItem.portfolioUnitValue - startItem.portfolioUnitValue) / startItem.portfolioUnitValue) * 100
+            self.totalIndexReturnPercent = ((endItem.indexUnitValue - startItem.indexUnitValue) / startItem.indexUnitValue) * 100
+
+            self.inceptionDate = startItem.returnDate
+            self.endDate = endItem.returnDate
         }
     }
     
-    static func load() -> PortfolioData? {
+    static func load(trailingPeriod: TrailingPeriod = .All) -> PortfolioData? {
         
-        let path = Bundle.main.path(forResource: "portfolioData_Inception", ofType: "json")!
+        var fileName = "portfolioData_Inception"
+        
+        switch trailingPeriod {
+        case .M1:
+            fileName = "portfolioData_1M"
+            break
+        case .M3:
+            fileName = "portfolioData_3M"
+            break
+        case .Y1:
+            fileName = "portfolioData_1Yr"
+            break
+        case .Y3:
+            fileName = "portfolioData_3Yr"
+            break
+        case .Y5:
+            fileName = "portfolioData_5Yr"
+            break
+        default:
+            fileName = "portfolioData_Inception"
+        }
+        
+        let path = Bundle.main.path(forResource: fileName, ofType: "json")!
     
         let jsonData = try? String(contentsOfFile: path, encoding: String.Encoding.utf8)
-
-        let mapper = Mapper<PortfolioDataItem>()
         
         let portfolioDataItems: [PortfolioDataItem]? = Mapper<PortfolioDataItem>().mapArray(JSONString: jsonData!)
 
         return PortfolioData(portfolioDataItems: portfolioDataItems)
-        
     }
+}
+
+enum TrailingPeriod {
+    case M1
+    case M3
+    case Y1
+    case Y3
+    case Y5
+    case All
 }
