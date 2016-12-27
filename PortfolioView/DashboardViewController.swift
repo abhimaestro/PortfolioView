@@ -50,6 +50,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         case Allocation = 1
     }
 
+    private var _currentTrailingPeriod: TrailingPeriod = .All
+    private var _currentIndexType: IndexType = .Index1
+
     private var _topContainerViewName = TopContainerViewName.Performance {
         didSet {
             chartTypeSegmentedControl.selectedSegmentIndex = _topContainerViewName.rawValue
@@ -63,20 +66,20 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     }
     
     override func viewDidLoad() {
-        
+
         super.viewDidLoad()
-        
+
         initializePerformanceChart()
 
         initializeValueOverTimeChart()
-        
+
         initializeGoalChart()
-    
+
         initializeAllocationChart()
-        
+
         addGestures()
 
-            }
+    }
     
     func imageWithColor(color: UIColor) -> UIImage {
         
@@ -128,31 +131,40 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         }
     }
     
-    func getPerformanceData(trailingPeriod: TrailingPeriod = .All) -> (portfolioData: PortfolioData, portfolioReturns: [TKChartDataPoint], indexReturns: [TKChartDataPoint], minReturnValue: Double, maxReturnValue: Double) {
+    func getPerformanceData() -> (portfolioData: PortfolioData, portfolioReturns: [TKChartDataPoint], indexReturns: [TKChartDataPoint], minReturnValue: Double, maxReturnValue: Double) {
 
         var portfolioReturns = [TKChartDataPoint]()
         var indexReturns = [TKChartDataPoint]()
         var maxReturnValue: Double = 0.0, minReturnValue: Double = 0.0
 
-        let portfolioData = PortfolioData.load(trailingPeriod: trailingPeriod)
+        let portfolioData = PortfolioData.load(trailingPeriod: _currentTrailingPeriod)
         
         for portfolioDataItem in (portfolioData?.portfolioDataItems)! {
            portfolioReturns.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.portfolioReturnPercent))
-            indexReturns.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.indexReturnPercent))
 
-            minReturnValue = min(minReturnValue, portfolioDataItem.portfolioReturnPercent, portfolioDataItem.indexReturnPercent)
-            maxReturnValue = max(maxReturnValue, portfolioDataItem.portfolioReturnPercent, portfolioDataItem.indexReturnPercent)
+
+            switch _currentIndexType {
+            case .Index2:
+                indexReturns.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.index2ReturnPercent))
+            case .Index3:
+                indexReturns.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.index3ReturnPercent))
+            default:
+                indexReturns.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.index1ReturnPercent))
+            }
+
+            minReturnValue = min(minReturnValue, portfolioDataItem.portfolioReturnPercent, portfolioDataItem.index1ReturnPercent)
+            maxReturnValue = max(maxReturnValue, portfolioDataItem.portfolioReturnPercent, portfolioDataItem.index1ReturnPercent)
         }
         
         return (portfolioData: portfolioData!, portfolioReturns, indexReturns, minReturnValue, maxReturnValue)
     }
     
-    func getValueData(trailingPeriod: TrailingPeriod = .All) -> (portfolioData: PortfolioData, portfolioValues: [TKChartDataPoint], minValue: Double, maxValue: Double) {
+    func getValueData() -> (portfolioData: PortfolioData, portfolioValues: [TKChartDataPoint], minValue: Double, maxValue: Double) {
         
         var portfolioValues = [TKChartDataPoint]()
         var maxValue: Double = 0.0, minValue: Double = 0.0
         
-        let portfolioData = PortfolioData.load(trailingPeriod: trailingPeriod)
+        let portfolioData = PortfolioData.load(trailingPeriod: _currentTrailingPeriod)
         
         for portfolioDataItem in (portfolioData?.portfolioDataItems)! {
             portfolioValues.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.marketValue))
@@ -170,29 +182,27 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         dateRangeLabel.text = "Date range: \(dateformatter.string(from: portfolioData.inceptionDate)) - \(dateformatter.string(from: portfolioData.endDate))"
     }
     
-    func initializePerformanceChart(trailingPeriod: TrailingPeriod = .All) {
+    func initializePerformanceChart() {
         let chart = TKChart(frame: performanceChartContainer.bounds)
         chart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
         performanceChartContainer.addSubview(chart)
     
         
-        let performanceData = getPerformanceData(trailingPeriod: trailingPeriod)
-        
-        
+        let performanceData = getPerformanceData()
+
         portfolioTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalPortfolioReturnPercent)
         setLabelColor(label: portfolioTotalReturnLabel, value: performanceData.portfolioData.totalPortfolioReturnPercent)
         
-        indexTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalIndexReturnPercent)
-        setLabelColor(label: indexTotalReturnLabel, value: performanceData.portfolioData.totalIndexReturnPercent)
+        indexTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalIndex1ReturnPercent)
+        setLabelColor(label: indexTotalReturnLabel, value: performanceData.portfolioData.totalIndex1ReturnPercent)
         
         updateDateRangeLevel(portfolioData: performanceData.portfolioData)
         
         let series = TKChartAreaSeries(items:performanceData.portfolioReturns)
-       // series.selection = TKChartSeriesSelection.series
         series.title = "Your Portfolio"
-        
+
+
         let series2 = TKChartLineSeries(items:performanceData.indexReturns)
-      //  series2.selection = TKChartSeriesSelection.series
         series2.title = "S&P 500"
 
         series.style.palette = TKChartPalette()
@@ -202,7 +212,6 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         paletteItem.fill = TKLinearGradientFill(colors: [selectedBlueColor, UIColor.white])
         series.style.palette!.addItem(paletteItem)
         
-        // >> chart-axis-datetime-swift
         let xAxis = TKChartDateTimeAxis(minimumDate: performanceData.portfolioData.inceptionDate, andMaximumDate: performanceData.portfolioData.endDate)
         //xAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.custom
         xAxis.majorTickInterval = 2
@@ -249,19 +258,25 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         pomVC.popoverPresentationController!.sourceRect = CGRect(x: 0, y: 10, width: 10, height: 10)
         pomVC.popoverPresentationController!.delegate = self
         
-        pomVC.menuItems.append((text: "S&P 500", action: {
+        pomVC.menuItems.append((text: PortfolioData.portfolioData_All!.index1Name, action: {
             [unowned self] in
-            self.indexNameLabel.text = "S&P 500"
+            self.indexNameLabel.text = PortfolioData.portfolioData_All!.index1Name
+            self._currentIndexType = .Index1
+            self.initializePerformanceChart()
         }))
 
-        pomVC.menuItems.append((text: "Russel 1000", action: {
+        pomVC.menuItems.append((text: PortfolioData.portfolioData_All!.index2Name, action: {
             [unowned self] in
-            self.indexNameLabel.text = "Russel 1000"
+            self.indexNameLabel.text = PortfolioData.portfolioData_All!.index2Name
+            self._currentIndexType = .Index2
+            self.initializePerformanceChart()
         }))
         
-        pomVC.menuItems.append((text: "Blended Index", action: {
+        pomVC.menuItems.append((text: PortfolioData.portfolioData_All!.index3Name, action: {
             [unowned self] in
-            self.indexNameLabel.text = "Blended Index"
+            self.indexNameLabel.text = PortfolioData.portfolioData_All!.index3Name
+            self._currentIndexType = .Index3
+            self.initializePerformanceChart()
         }))
        
         self.present(pomVC, animated: true, completion: nil)
@@ -322,17 +337,16 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         }
     }
     
-    func initializeValueOverTimeChart(trailingPeriod: TrailingPeriod = .All) {
+    func initializeValueOverTimeChart() {
         let chart = TKChart(frame: valueOverTimeChartContainer.bounds)
         chart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
         valueOverTimeChartContainer.addSubview(chart)
         
         chart.gridStyle.horizontalFill = nil
         
-        let valueData = getValueData(trailingPeriod: trailingPeriod)
+        let valueData = getValueData()
         
-        //portfolioTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalPortfolioReturnPercent)
-        
+
         let currencyFormatter = NumberFormatter()
         currencyFormatter.numberStyle = .currency
         currencyFormatter.maximumFractionDigits = 0
@@ -544,48 +558,54 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         resetTrailingPeriodButtonsStyle()
         sender.titleLabel?.font = trailingPeriodButtonSelectedFont
         sender.setTitleColor(selectedBlueColor, for: .normal)
-        initializePerformanceChart(trailingPeriod: .M1)
-        initializeValueOverTimeChart(trailingPeriod: .M1)
+        _currentTrailingPeriod = .M1
+        initializePerformanceChart()
+        initializeValueOverTimeChart()
     }
     
     @IBAction func trailingPeriodChangedTo3M(_ sender: UIButton) {
         resetTrailingPeriodButtonsStyle()
         sender.titleLabel?.font = trailingPeriodButtonSelectedFont
         sender.setTitleColor(selectedBlueColor, for: .normal)
-        initializePerformanceChart(trailingPeriod: .M3)
-        initializeValueOverTimeChart(trailingPeriod: .M3)
+        _currentTrailingPeriod = .M3
+        initializePerformanceChart()
+        initializeValueOverTimeChart()
     }
     
     @IBAction func trailingPeriodChangedTo1Yr(_ sender: UIButton) {
         resetTrailingPeriodButtonsStyle()
         sender.titleLabel?.font = trailingPeriodButtonSelectedFont
         sender.setTitleColor(selectedBlueColor, for: .normal)
-        initializePerformanceChart(trailingPeriod: .Y1)
-        initializeValueOverTimeChart(trailingPeriod: .Y1)
+        _currentTrailingPeriod = .Y1
+        initializePerformanceChart()
+        initializeValueOverTimeChart()
     }
     
     @IBAction func trailingPeriodChangedTo3Yr(_ sender: UIButton) {
         resetTrailingPeriodButtonsStyle()
         sender.titleLabel?.font = trailingPeriodButtonSelectedFont
         sender.setTitleColor(selectedBlueColor, for: .normal)
-        initializePerformanceChart(trailingPeriod: .Y3)
-        initializeValueOverTimeChart(trailingPeriod: .Y3)
+        _currentTrailingPeriod = .Y3
+        initializePerformanceChart()
+        initializeValueOverTimeChart()
     }
 
     @IBAction func trailingPeriodChangedTo5Yr(_ sender: UIButton) {
         resetTrailingPeriodButtonsStyle()
         sender.titleLabel?.font = trailingPeriodButtonSelectedFont
         sender.setTitleColor(selectedBlueColor, for: .normal)
-        initializePerformanceChart(trailingPeriod: .Y5)
-        initializeValueOverTimeChart(trailingPeriod: .Y5)
+        _currentTrailingPeriod = .Y5
+        initializePerformanceChart()
+        initializeValueOverTimeChart()
     }
     
     @IBAction func trailingPeriodChangedToAll(_ sender: UIButton) {
         resetTrailingPeriodButtonsStyle()
         sender.titleLabel?.font = FontHelper.getDefaultFont(size: 12.0, bold: true)
         sender.setTitleColor(selectedBlueColor, for: .normal)
-        initializePerformanceChart(trailingPeriod: .All)
-        initializeValueOverTimeChart(trailingPeriod: .All)
+        _currentTrailingPeriod = .All
+        initializePerformanceChart()
+        initializeValueOverTimeChart()
     }
     
     @IBAction func chartTypeValueChanged(_ sender: UISegmentedControl) {
