@@ -112,35 +112,73 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         }
     }
     
+    func getPerformanceData() -> (portfolioInceptionDate: Date, endDate: Date, portfolioReturns: [TKChartDataPoint], indexReturns: [TKChartDataPoint], minReturnValue: Int, maxReturnValue: Int) {
+        let today = Date()
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)
+        var portfolioInceptionDate = Calendar.current.date(from: DateComponents(year: 2010, month: 2, day: 15))!
+        var date = portfolioInceptionDate
+        var portfolioReturns = [TKChartDataPoint]()
+        var indexReturns = [TKChartDataPoint]()
+        
+        var cummulativePortfolioReturn = 0
+        var cummulativeIndexReturn = 0
+        var maxReturnValue = 0, minReturnValue = 0
+        
+        while date <= today {
+
+            let dailyPortfolioReturn = unsafeRandomIntFrom(start: -1, to: 1)
+            cummulativePortfolioReturn += dailyPortfolioReturn
+            portfolioReturns.append(TKChartDataPoint(x: date, y: cummulativePortfolioReturn))
+
+            let indexPortfolioReturn = unsafeRandomIntFrom(start: -1, to: 1)
+            cummulativeIndexReturn += indexPortfolioReturn
+            indexReturns.append(TKChartDataPoint(x: date, y: cummulativeIndexReturn))
+
+            minReturnValue = min(minReturnValue, cummulativePortfolioReturn, cummulativeIndexReturn)
+            maxReturnValue = max(maxReturnValue, cummulativePortfolioReturn, cummulativeIndexReturn)
+            
+            if cummulativeIndexReturn > maxReturnValue {
+                maxReturnValue = cummulativeIndexReturn
+            }
+            
+            date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
+        }
+       
+       
+        return (portfolioInceptionDate, today, portfolioReturns, indexReturns, minReturnValue, maxReturnValue)
+    }
+    
     func initializePerformanceChart() {
         let chart = TKChart(frame: performanceChartContainer.bounds)
         chart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
         performanceChartContainer.addSubview(chart)
     
-        let calendar = Calendar(identifier:Calendar.Identifier.gregorian)
-        var dateTimeComponents = DateComponents()
-        dateTimeComponents.year = 2013
-        dateTimeComponents.day = 1
-
        
-        chart.gridStyle.horizontalFill = nil
+//        let calendar = Calendar(identifier:Calendar.Identifier.gregorian)
+//        var dateTimeComponents = DateComponents()
+//        dateTimeComponents.year = 2013
+//        dateTimeComponents.day = 1
+//
+//       
+//        chart.gridStyle.horizontalFill = nil
+//        
+//        var array = [TKChartDataPoint]()
+//        var array2 = [TKChartDataPoint]()
+//        for i in 1...12 {
+//            dateTimeComponents.month = i
+//            let random = unsafeRandomIntFrom(start: -10, to: 40)
+//            array.append(TKChartDataPoint(x:calendar.date(from: dateTimeComponents), y: random))
+//            
+//            let random2 = unsafeRandomIntFrom(start: -10, to: 80)
+//            array2.append(TKChartDataPoint(x:calendar.date(from: dateTimeComponents), y: random2))
+//        }
         
-        var array = [TKChartDataPoint]()
-        var array2 = [TKChartDataPoint]()
-        for i in 1...12 {
-            dateTimeComponents.month = i
-            let random = unsafeRandomIntFrom(start: -10, to: 40)
-            array.append(TKChartDataPoint(x:calendar.date(from: dateTimeComponents), y: random))
-            
-            let random2 = unsafeRandomIntFrom(start: -10, to: 80)
-            array2.append(TKChartDataPoint(x:calendar.date(from: dateTimeComponents), y: random2))
-        }
-        
-        let series = TKChartLineSeries(items:array)
+        let performanceData = getPerformanceData()
+        let series = TKChartLineSeries(items:performanceData.portfolioReturns)
         series.selection = TKChartSeriesSelection.series
         series.title = "Your Portfolio"
         
-        let series2 = TKChartLineSeries(items:array2)
+        let series2 = TKChartLineSeries(items:performanceData.indexReturns)
         series2.selection = TKChartSeriesSelection.series
         series2.title = "S&P 500"
 
@@ -151,15 +189,16 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         paletteItem.fill = TKLinearGradientFill(colors: [selectedBlueColor, UIColor.white])
         series.style.palette!.addItem(paletteItem)
         
-        dateTimeComponents.month = 1
-        let minDate = calendar.date(from: dateTimeComponents)!
-        dateTimeComponents.month = 12
-        let maxDate = calendar.date(from: dateTimeComponents)!
-        
+//        dateTimeComponents.month = 1
+//        let minDate = calendar.date(from: dateTimeComponents)!
+//        dateTimeComponents.month = 12
+//        let maxDate = calendar.date(from: dateTimeComponents)!
+
+       
         // >> chart-axis-datetime-swift
-        let xAxis = TKChartDateTimeAxis(minimumDate: minDate, andMaximumDate: maxDate)
+        let xAxis = TKChartDateTimeAxis(minimumDate: performanceData.portfolioInceptionDate, andMaximumDate: performanceData.endDate)
         //xAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.custom
-        xAxis.majorTickInterval = 4
+        xAxis.majorTickInterval = 3
         xAxis.style.labelStyle.font = UIFont(name:"HelveticaNeue-Light", size:9.0)!
         xAxis.setPlotMode(TKChartAxisPlotMode.onTicks)
         xAxis.style.majorTickStyle.ticksHidden = true
@@ -169,7 +208,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         
         chart.xAxis = xAxis
        
-        let yAxis = TKChartNumericAxis(minimum: -10, andMaximum: 80)
+        let yAxis = TKChartNumericAxis(minimum: performanceData.minReturnValue, andMaximum: performanceData.maxReturnValue)
         yAxis.style.labelStyle.font = UIFont(name:"HelveticaNeue-Light", size:8.0)!
         yAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.bottom.rawValue)
         
@@ -189,7 +228,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         chart.trackball.snapMode = TKChartTrackballSnapMode.allClosestPoints
         chart.delegate = self
         chart.trackball.tooltip.style.textAlignment = NSTextAlignment.left
-        chart.trackball.tooltip.style.font = UIFont(name:"HelveticaNeue-Light", size:9.0)!
+        chart.trackball.tooltip.style.font = UIFont(name:"HelveticaNeue-Light", size:11.0)!
         
         chart.insets = UIEdgeInsets.zero
 
