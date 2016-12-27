@@ -216,8 +216,9 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         for info in allDate {
             let data = info.dataPoint as TKChartData!
            
+             let dataValue = String(format: "%.1f%%", (data!.dataYValue as! Double))
             
-            str.append("\(info.series!.title!): \(data!.dataYValue as! Double)%")
+            str.append("\(info.series!.title!): \(dataValue)")
             // str.append("\(data?.dataYValue as! Float)")
             if (i<count-1) {
                 str.append("\n");
