@@ -395,6 +395,7 @@
                         <outlet property="indexTotalReturnLabel" destination="q7q-9F-md6" id="sWC-Qo-IvE"/>
                         <outlet property="performanceChartContainer" destination="ZH2-ZI-SmU" id="szw-5K-i4q"/>
                         <outlet property="performanceChartLegendContainer" destination="xn4-nc-YPK" id="dFO-5v-TZa"/>
+                        <outlet property="portfolioTotalMarketValueLabel" destination="5Ks-p3-OZU" id="Gyq-2e-pI5"/>
                         <outlet property="portfolioTotalReturnDollarValue" destination="0bC-G2-uxT" id="77i-fc-SxE"/>
                         <outlet property="portfolioTotalReturnLabel" destination="GNB-WZ-Kwi" id="RsG-Fu-nVq"/>
                         <outlet property="topContainer" destination="P9I-Ps-UI5" id="zbb-iM-982"/>

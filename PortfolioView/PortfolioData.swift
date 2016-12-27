@@ -46,6 +46,7 @@ class PortfolioData {
     var totalPortfolioReturnPercent: Double!
     var totalIndexReturnPercent: Double!
     var totalPortfolioReturnDollar: Double!
+    var totalPortfolioMarketValueDollar: Double!
     
     init(portfolioDataItems: [PortfolioDataItem]?) {
         
@@ -58,7 +59,7 @@ class PortfolioData {
             self.totalPortfolioReturnPercent = ((endItem.portfolioUnitValue - startItem.portfolioUnitValue) / startItem.portfolioUnitValue) * 100
             self.totalIndexReturnPercent = ((endItem.indexUnitValue - startItem.indexUnitValue) / startItem.indexUnitValue) * 100
             self.totalPortfolioReturnDollar = (endItem.marketValue - startItem.marketValue)
-            
+            self.totalPortfolioMarketValueDollar = endItem.marketValue
             self.inceptionDate = startItem.returnDate
             self.endDate = endItem.returnDate
         }

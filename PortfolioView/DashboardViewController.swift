@@ -26,6 +26,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var indexNameLabel: UILabel!
     @IBOutlet weak var indexTotalReturnLabel: UILabel!
     @IBOutlet weak var portfolioTotalReturnDollarValue: UILabel!
+    @IBOutlet weak var portfolioTotalMarketValueLabel: UILabel!
     @IBOutlet weak var trailingPeriod1MButton: UIButton!
     @IBOutlet weak var trailingPeriod3MButton: UIButton!
     @IBOutlet weak var trailingPeriod1YrButton: UIButton!
@@ -174,7 +175,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         chart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
         performanceChartContainer.addSubview(chart)
     
+        
         let performanceData = getPerformanceData(trailingPeriod: trailingPeriod)
+        
         
         portfolioTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalPortfolioReturnPercent)
         setLabelColor(label: portfolioTotalReturnLabel, value: performanceData.portfolioData.totalPortfolioReturnPercent)
@@ -334,8 +337,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         currencyFormatter.numberStyle = .currency
         currencyFormatter.maximumFractionDigits = 0
         portfolioTotalReturnDollarValue.text = currencyFormatter.string(from: (valueData.portfolioData.totalPortfolioReturnDollar as NSNumber))!
-        
         setLabelColor(label: portfolioTotalReturnDollarValue, value: valueData.portfolioData.totalPortfolioReturnDollar)
+        
+        portfolioTotalMarketValueLabel.text = currencyFormatter.string(from: (valueData.portfolioData.totalPortfolioMarketValueDollar as NSNumber))!
         
         updateDateRangeLevel(portfolioData: valueData.portfolioData)
         
@@ -345,7 +349,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         
         series.style.palette = TKChartPalette()
         
-        let fillBlueColor = UIColor(red: 216/255.0, green: 231/255.0, blue: 255/255.0, alpha: 1.0)
+        let fillBlueColor = UIColor(red: 216/255.0, green: 231/255.0, blue: 255/255.0, alpha: 0.5)
         let paletteItem = TKChartPaletteItem()
         paletteItem.stroke = TKStroke(color: selectedBlueColor)
         paletteItem.fill = TKLinearGradientFill(colors: [selectedBlueColor, fillBlueColor, UIColor.white])
