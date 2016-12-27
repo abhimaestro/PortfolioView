@@ -30,6 +30,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
     @IBOutlet weak var trailingPeriod3YrButton: UIButton!
     @IBOutlet weak var trailingPeriod5YrButton: UIButton!
     @IBOutlet weak var trailingPeriodAllButton: UIButton!
+    @IBOutlet weak var dateRangeLabel: UILabel!
 
     let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
     let trailingPeriodButtonSelectedFont = FontHelper.getDefaultFont(size: 13.0, bold: true)
@@ -143,6 +144,12 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         return (portfolioData: portfolioData!, portfolioReturns, indexReturns, minReturnValue, maxReturnValue)
     }
     
+    func updateDateRangeLevel(portfolioData: PortfolioData) {
+        let dateformatter = DateFormatter()
+        dateformatter.dateStyle = .short
+        dateRangeLabel.text = "Date range: \(dateformatter.string(from: portfolioData.inceptionDate)) - \(dateformatter.string(from: portfolioData.endDate))"
+    }
+    
     func initializePerformanceChart(trailingPeriod: TrailingPeriod = .All) {
         let chart = TKChart(frame: performanceChartContainer.bounds)
         chart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
@@ -153,12 +160,14 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         portfolioTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalPortfolioReturnPercent)
         indexTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalIndexReturnPercent)
         
+        updateDateRangeLevel(portfolioData: performanceData.portfolioData)
+        
         let series = TKChartAreaSeries(items:performanceData.portfolioReturns)
-        series.selection = TKChartSeriesSelection.series
+       // series.selection = TKChartSeriesSelection.series
         series.title = "Your Portfolio"
         
         let series2 = TKChartLineSeries(items:performanceData.indexReturns)
-        series2.selection = TKChartSeriesSelection.series
+      //  series2.selection = TKChartSeriesSelection.series
         series2.title = "S&P 500"
 
         series.style.palette = TKChartPalette()
@@ -385,7 +394,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         let donutChart = TKChart()
         
         let bounds = bottomContainer.bounds
-        let offset = CGFloat(10)
+
         donutChart.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width, height: bounds.size.height).insetBy(dx: 10, dy: 10)
         donutChart.autoresizingMask = UIViewAutoresizing(rawValue:~UIViewAutoresizing().rawValue)
         donutChart.allowAnimations = true
@@ -394,7 +403,6 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         
         donutChart.legend.style.insets = UIEdgeInsets.zero
         donutChart.legend.style.offset = UIOffset.zero
-        print(donutChart.legend.style.offsetOrigin)
         allocationChartContainer.addSubview(donutChart)
         
         let array:[TKChartDataPoint] = [
@@ -413,7 +421,6 @@ class DashboardViewController: UIViewController, TKChartDelegate {
     
     override func viewDidLayoutSubviews() {
         let bounds = bottomContainer.bounds
-        print(bounds)
         let size = bottomContainer.bounds.size
         let offset = CGFloat(30)
         

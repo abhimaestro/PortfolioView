@@ -235,6 +235,31 @@
                                             <constraint firstAttribute="height" constant="25" id="c30-qZ-ge0"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Etu-sH-iR2">
+                                        <rect key="frame" x="0.0" y="111" width="375" height="211"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZH2-ZI-SmU">
+                                        <rect key="frame" x="0.0" y="111" width="375" height="211"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QfF-dd-3ac" userLabel="dateRangeContainer">
+                                        <rect key="frame" x="47" y="322" width="281" height="15"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Range: 1/1/1008 - 12/12/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9Z-X9-Dwm">
+                                                <rect key="frame" x="61.5" y="1.5" width="157" height="12"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="0rW-fP-5W5"/>
+                                            <constraint firstItem="y9Z-X9-Dwm" firstAttribute="centerX" secondItem="QfF-dd-3ac" secondAttribute="centerX" id="PXf-Y5-wk2"/>
+                                            <constraint firstItem="y9Z-X9-Dwm" firstAttribute="centerY" secondItem="QfF-dd-3ac" secondAttribute="centerY" id="WB2-4X-YgQ"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAF-hG-X3z" userLabel="trailingPeriodContainer">
                                         <rect key="frame" x="0.0" y="337" width="375" height="25"/>
                                         <subviews>
@@ -313,14 +338,6 @@
                                             <constraint firstAttribute="height" constant="25" id="wlM-va-5k4"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Etu-sH-iR2">
-                                        <rect key="frame" x="0.0" y="111" width="375" height="216"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZH2-ZI-SmU">
-                                        <rect key="frame" x="0.0" y="111" width="375" height="216"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -328,6 +345,7 @@
                                     <constraint firstItem="ZH2-ZI-SmU" firstAttribute="leading" secondItem="P9I-Ps-UI5" secondAttribute="leading" id="6we-vI-en7"/>
                                     <constraint firstItem="51k-Oz-yyH" firstAttribute="bottom" secondItem="xn4-nc-YPK" secondAttribute="bottom" id="7kg-Qb-xwJ"/>
                                     <constraint firstItem="Etu-sH-iR2" firstAttribute="bottom" secondItem="ZH2-ZI-SmU" secondAttribute="bottom" id="9ht-50-NbS"/>
+                                    <constraint firstItem="QfF-dd-3ac" firstAttribute="top" secondItem="ZH2-ZI-SmU" secondAttribute="bottom" id="Cul-MA-P0S"/>
                                     <constraint firstItem="ZH2-ZI-SmU" firstAttribute="top" secondItem="xn4-nc-YPK" secondAttribute="bottom" constant="5" id="E8A-fN-2b4"/>
                                     <constraint firstItem="Etu-sH-iR2" firstAttribute="leading" secondItem="ZH2-ZI-SmU" secondAttribute="leading" id="EIr-mg-z12"/>
                                     <constraint firstItem="xn4-nc-YPK" firstAttribute="top" secondItem="EQ4-lA-gO6" secondAttribute="bottom" constant="10" id="Ghq-0x-MUO"/>
@@ -338,12 +356,14 @@
                                     <constraint firstAttribute="trailing" secondItem="xn4-nc-YPK" secondAttribute="trailing" id="NJF-TD-XGf"/>
                                     <constraint firstAttribute="bottom" secondItem="TAF-hG-X3z" secondAttribute="bottom" id="O1b-gZ-W4g"/>
                                     <constraint firstAttribute="trailing" secondItem="ZH2-ZI-SmU" secondAttribute="trailing" id="RkK-0F-fUL"/>
+                                    <constraint firstItem="QfF-dd-3ac" firstAttribute="width" secondItem="ZH2-ZI-SmU" secondAttribute="width" multiplier="0.75" id="SIQ-Zy-OX5"/>
                                     <constraint firstItem="TAF-hG-X3z" firstAttribute="leading" secondItem="P9I-Ps-UI5" secondAttribute="leading" id="SwJ-Tk-IZm"/>
                                     <constraint firstItem="Etu-sH-iR2" firstAttribute="trailing" secondItem="ZH2-ZI-SmU" secondAttribute="trailing" id="VYr-Te-3IZ"/>
                                     <constraint firstItem="EQ4-lA-gO6" firstAttribute="top" secondItem="5Ks-p3-OZU" secondAttribute="bottom" constant="10" id="ZS7-2j-tlW"/>
                                     <constraint firstItem="xn4-nc-YPK" firstAttribute="leading" secondItem="P9I-Ps-UI5" secondAttribute="leading" id="cA7-g4-15c"/>
+                                    <constraint firstItem="TAF-hG-X3z" firstAttribute="top" secondItem="QfF-dd-3ac" secondAttribute="bottom" id="egf-OX-GFJ"/>
+                                    <constraint firstItem="QfF-dd-3ac" firstAttribute="centerX" secondItem="ZH2-ZI-SmU" secondAttribute="centerX" id="g2E-z1-ao3"/>
                                     <constraint firstItem="5Ks-p3-OZU" firstAttribute="top" secondItem="P9I-Ps-UI5" secondAttribute="top" constant="5" id="hjd-up-2LB"/>
-                                    <constraint firstItem="TAF-hG-X3z" firstAttribute="top" secondItem="ZH2-ZI-SmU" secondAttribute="bottom" constant="10" id="kji-7J-Wd9"/>
                                     <constraint firstAttribute="trailing" secondItem="TAF-hG-X3z" secondAttribute="trailing" id="o9H-AI-avN"/>
                                     <constraint firstAttribute="trailing" secondItem="EQ4-lA-gO6" secondAttribute="trailing" id="v6L-OC-JUr"/>
                                     <constraint firstItem="51k-Oz-yyH" firstAttribute="leading" secondItem="xn4-nc-YPK" secondAttribute="leading" id="zYu-jI-lw6"/>
@@ -369,6 +389,7 @@
                         <outlet property="bottomContainer" destination="h4J-Hj-3Ho" id="uH9-YL-zco"/>
                         <outlet property="bottomContainerPageControl" destination="m60-Qr-1H9" id="9jW-zh-2xE"/>
                         <outlet property="chartTypeSegmentedControl" destination="uAd-jO-UjX" id="lBt-Yw-U6H"/>
+                        <outlet property="dateRangeLabel" destination="y9Z-X9-Dwm" id="Hxr-UV-hcR"/>
                         <outlet property="goalChartContainer" destination="gEZ-Vu-ZmI" id="kNl-oy-oD1"/>
                         <outlet property="indexTotalReturnLabel" destination="q7q-9F-md6" id="sWC-Qo-IvE"/>
                         <outlet property="performanceChartContainer" destination="ZH2-ZI-SmU" id="szw-5K-i4q"/>
