@@ -139,9 +139,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         chart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
         performanceChartContainer.addSubview(chart)
     
-       
-       
-        let performanceData = getPerformanceData()
+        let performanceData = getPerformanceData(trailingPeriod: trailingPeriod)
         
         portfolioTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalPortfolioReturnPercent)
         indexTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalIndexReturnPercent)

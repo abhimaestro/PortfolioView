@@ -62,37 +62,65 @@ class PortfolioData {
         }
     }
     
+    static var portfolioData_1M: PortfolioData?
+    static var portfolioData_3M: PortfolioData?
+    static var portfolioData_1Yr: PortfolioData?
+    static var portfolioData_3Yr: PortfolioData?
+    static var portfolioData_5Yr: PortfolioData?
+    static var portfolioData_All: PortfolioData?
+    
     static func load(trailingPeriod: TrailingPeriod = .All) -> PortfolioData? {
         
-        var fileName = "portfolioData_Inception"
+
         
         switch trailingPeriod {
         case .M1:
-            fileName = "portfolioData_1M"
-            break
+            if portfolioData_1M == nil {
+               portfolioData_1M = PortfolioData(portfolioDataItems: getPortfolioDataItems(fileName: "portfolioData_1M"))
+            }
+            return portfolioData_1M
+
         case .M3:
-            fileName = "portfolioData_3M"
-            break
+            if portfolioData_3M == nil {
+                portfolioData_3M = PortfolioData(portfolioDataItems: getPortfolioDataItems(fileName: "portfolioData_3M"))
+            }
+            return portfolioData_3M
+
         case .Y1:
-            fileName = "portfolioData_1Yr"
-            break
+            if portfolioData_1Yr == nil {
+                portfolioData_1Yr = PortfolioData(portfolioDataItems: getPortfolioDataItems(fileName: "portfolioData_1Yr"))
+            }
+            return portfolioData_1Yr
+
         case .Y3:
-            fileName = "portfolioData_3Yr"
-            break
+            if portfolioData_3Yr == nil {
+                portfolioData_3Yr = PortfolioData(portfolioDataItems: getPortfolioDataItems(fileName: "portfolioData_3Yr"))
+            }
+            return portfolioData_3Yr
+            
         case .Y5:
-            fileName = "portfolioData_5Yr"
-            break
+            if portfolioData_5Yr == nil {
+                portfolioData_5Yr = PortfolioData(portfolioDataItems: getPortfolioDataItems(fileName: "portfolioData_5Yr"))
+            }
+            return portfolioData_5Yr
+            
         default:
-            fileName = "portfolioData_Inception"
+            if portfolioData_All == nil {
+                portfolioData_All = PortfolioData(portfolioDataItems: getPortfolioDataItems(fileName: "portfolioData_All"))
+            }
+            return portfolioData_All
         }
+    }
+    
+    static func getPortfolioDataItems(fileName: String) -> [PortfolioDataItem]? {
         
         let path = Bundle.main.path(forResource: fileName, ofType: "json")!
-    
+        
         let jsonData = try? String(contentsOfFile: path, encoding: String.Encoding.utf8)
         
         let portfolioDataItems: [PortfolioDataItem]? = Mapper<PortfolioDataItem>().mapArray(JSONString: jsonData!)
 
-        return PortfolioData(portfolioDataItems: portfolioDataItems)
+        return portfolioDataItems
     }
 }
 

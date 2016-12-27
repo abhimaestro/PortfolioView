@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		12D5750DE9B609560702031B /* Pods_PortfolioView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18BE8FF50FDAE8F2CF63FA5 /* Pods_PortfolioView.framework */; };
 		C23208181E12A7E200E54844 /* PortfolioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208171E12A7E200E54844 /* PortfolioData.swift */; };
-		C23208291E12B57B00E54844 /* portfolioData_Inception.json in Resources */ = {isa = PBXBuildFile; fileRef = C23208281E12B57B00E54844 /* portfolioData_Inception.json */; };
+		C23208291E12B57B00E54844 /* portfolioData_All.json in Resources */ = {isa = PBXBuildFile; fileRef = C23208281E12B57B00E54844 /* portfolioData_All.json */; };
 		C232082F1E12D5FD00E54844 /* portfolioData_1M.json in Resources */ = {isa = PBXBuildFile; fileRef = C232082A1E12D5FD00E54844 /* portfolioData_1M.json */; };
 		C23208301E12D5FD00E54844 /* portfolioData_1Yr.json in Resources */ = {isa = PBXBuildFile; fileRef = C232082B1E12D5FD00E54844 /* portfolioData_1Yr.json */; };
 		C23208311E12D5FD00E54844 /* portfolioData_3M.json in Resources */ = {isa = PBXBuildFile; fileRef = C232082C1E12D5FD00E54844 /* portfolioData_3M.json */; };
@@ -57,7 +57,7 @@
 		907C060298334BF28D095050 /* Pods-PortfolioView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView/Pods-PortfolioView.release.xcconfig"; sourceTree = "<group>"; };
 		A18BE8FF50FDAE8F2CF63FA5 /* Pods_PortfolioView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C23208171E12A7E200E54844 /* PortfolioData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortfolioData.swift; sourceTree = "<group>"; };
-		C23208281E12B57B00E54844 /* portfolioData_Inception.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_Inception.json; sourceTree = "<group>"; };
+		C23208281E12B57B00E54844 /* portfolioData_All.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_All.json; sourceTree = "<group>"; };
 		C232082A1E12D5FD00E54844 /* portfolioData_1M.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_1M.json; sourceTree = "<group>"; };
 		C232082B1E12D5FD00E54844 /* portfolioData_1Yr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_1Yr.json; sourceTree = "<group>"; };
 		C232082C1E12D5FD00E54844 /* portfolioData_3M.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_3M.json; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 				C2335A581E100F4500760234 /* Extensions.swift */,
 				C2335A5A1E103BDE00760234 /* Transitions.swift */,
 				C23208171E12A7E200E54844 /* PortfolioData.swift */,
-				C23208281E12B57B00E54844 /* portfolioData_Inception.json */,
+				C23208281E12B57B00E54844 /* portfolioData_All.json */,
 				C232082A1E12D5FD00E54844 /* portfolioData_1M.json */,
 				C232082B1E12D5FD00E54844 /* portfolioData_1Yr.json */,
 				C232082C1E12D5FD00E54844 /* portfolioData_3M.json */,
@@ -320,7 +320,7 @@
 				C2F71B371E02CDAF00A99298 /* LaunchScreen.storyboard in Resources */,
 				C23208311E12D5FD00E54844 /* portfolioData_3M.json in Resources */,
 				C23208321E12D5FD00E54844 /* portfolioData_3Yr.json in Resources */,
-				C23208291E12B57B00E54844 /* portfolioData_Inception.json in Resources */,
+				C23208291E12B57B00E54844 /* portfolioData_All.json in Resources */,
 				C2F71B341E02CDAF00A99298 /* Assets.xcassets in Resources */,
 				C2F71B321E02CDAF00A99298 /* Main.storyboard in Resources */,
 				C23208301E12D5FD00E54844 /* portfolioData_1Yr.json in Resources */,
