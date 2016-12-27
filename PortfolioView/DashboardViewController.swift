@@ -24,6 +24,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
     @IBOutlet weak var valueOverTimeChartLegendContainer: UIView!
     @IBOutlet weak var portfolioTotalReturnLabel: UILabel!
     @IBOutlet weak var indexTotalReturnLabel: UILabel!
+    @IBOutlet weak var portfolioTotalReturnDollarValue: UILabel!
     @IBOutlet weak var trailingPeriod1MButton: UIButton!
     @IBOutlet weak var trailingPeriod3MButton: UIButton!
     @IBOutlet weak var trailingPeriod1YrButton: UIButton!
@@ -144,6 +145,23 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         return (portfolioData: portfolioData!, portfolioReturns, indexReturns, minReturnValue, maxReturnValue)
     }
     
+    func getValueData(trailingPeriod: TrailingPeriod = .All) -> (portfolioData: PortfolioData, portfolioValues: [TKChartDataPoint], minValue: Double, maxValue: Double) {
+        
+        var portfolioValues = [TKChartDataPoint]()
+        var maxValue: Double = 0.0, minValue: Double = 0.0
+        
+        let portfolioData = PortfolioData.load(trailingPeriod: trailingPeriod)
+        
+        for portfolioDataItem in (portfolioData?.portfolioDataItems)! {
+            portfolioValues.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.marketValue))
+            
+            minValue = min(minValue, portfolioDataItem.marketValue)
+            maxValue = max(maxValue, portfolioDataItem.marketValue)
+        }
+        
+        return (portfolioData: portfolioData!, portfolioValues, minValue, maxValue)
+    }
+    
     func updateDateRangeLevel(portfolioData: PortfolioData) {
         let dateformatter = DateFormatter()
         dateformatter.dateStyle = .short
@@ -158,7 +176,10 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         let performanceData = getPerformanceData(trailingPeriod: trailingPeriod)
         
         portfolioTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalPortfolioReturnPercent)
+        setLabelColor(label: portfolioTotalReturnLabel, value: performanceData.portfolioData.totalPortfolioReturnPercent)
+        
         indexTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalIndexReturnPercent)
+        setLabelColor(label: indexTotalReturnLabel, value: performanceData.portfolioData.totalIndexReturnPercent)
         
         updateDateRangeLevel(portfolioData: performanceData.portfolioData)
         
@@ -211,7 +232,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         chart.trackball.snapMode = TKChartTrackballSnapMode.allClosestPoints
         chart.delegate = self
         chart.trackball.tooltip.style.textAlignment = NSTextAlignment.left
-        chart.trackball.tooltip.style.font = UIFont(name:"HelveticaNeue-Light", size:11.0)!
+        chart.trackball.tooltip.style.font = FontHelper.getDefaultFont(size: 11.0, light: true)
         
         chart.insets = UIEdgeInsets.zero
         chart.gridStyle.horizontalFill = nil
@@ -222,16 +243,16 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         var i = 0
         let count = selection.count
         
-        let allDate = selection as! [TKChartSelectionInfo]
-        let xDate = allDate[0].dataPoint!.dataXValue as! Date
+        let allData = selection as! [TKChartSelectionInfo]
+        let xDate = allData[0].dataPoint!.dataXValue as! Date
         let dateformatter = DateFormatter()
         dateformatter.dateStyle = .short
-        
         let dateString = dateformatter.string(from: xDate)
         
         str.append("\(dateString)\n")
         
-        for info in allDate {
+        if _topContainerViewName == .Performance {
+        for info in allData {
             let data = info.dataPoint as TKChartData!
            
              let dataValue = String(format: "%.1f%%", (data!.dataYValue as! Double))
@@ -242,53 +263,69 @@ class DashboardViewController: UIViewController, TKChartDelegate {
                 str.append("\n");
             }
             i += 1
+            }
         }
-
+        
+        else if _topContainerViewName == .ValueOverTime {
+            let data = allData[0].dataPoint as TKChartData!
+            
+            let currencyFormatter = NumberFormatter()
+            currencyFormatter.numberStyle = .currency
+            currencyFormatter.maximumFractionDigits = 0
+            
+            let dataValue = currencyFormatter.string(from: (data!.dataYValue as! NSNumber))!
+            str.append("\(allData[0].series!.title!): \(dataValue) \n")
+        }
+        
         chart.trackball.tooltip.text = str as String
     }
     
-    func initializeValueOverTimeChart() {
+    func setLabelColor(label: UILabel, value: Double) {
+        if value < 0 {
+            label.textColor = UIColor.red
+        }
+        else {
+            label.textColor = UIColor(red: 15/255.0, green: 91/255.0, blue: 0/255.0, alpha: 1.0)
+        }
+    }
+    
+    func initializeValueOverTimeChart(trailingPeriod: TrailingPeriod = .All) {
         let chart = TKChart(frame: valueOverTimeChartContainer.bounds)
         chart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
         valueOverTimeChartContainer.addSubview(chart)
         
-        let calendar = Calendar(identifier:Calendar.Identifier.gregorian)
-        var dateTimeComponents = DateComponents()
-        dateTimeComponents.year = 2013
-        dateTimeComponents.day = 1
-        
-        
         chart.gridStyle.horizontalFill = nil
         
-        var array = [TKChartDataPoint]()
-
-        for i in 1...12 {
-            dateTimeComponents.month = i
-            let random = unsafeRandomIntFrom(start: 100000, to: 300000)
-            array.append(TKChartDataPoint(x:calendar.date(from: dateTimeComponents), y: random))
-        }
+        let valueData = getValueData(trailingPeriod: trailingPeriod)
         
-        let series = TKChartAreaSeries(items:array)
+        //portfolioTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalPortfolioReturnPercent)
+        
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.maximumFractionDigits = 0
+        portfolioTotalReturnDollarValue.text = currencyFormatter.string(from: (valueData.portfolioData.totalPortfolioReturnDollar as NSNumber))!
+        
+        setLabelColor(label: portfolioTotalReturnDollarValue, value: valueData.portfolioData.totalPortfolioReturnDollar)
+        
+        updateDateRangeLevel(portfolioData: valueData.portfolioData)
+        
+        let series = TKChartAreaSeries(items:valueData.portfolioValues)
+        series.title = "Market Value"
         series.selection = TKChartSeriesSelection.series
-        
         
         series.style.palette = TKChartPalette()
         
-        let fillBlueColor = UIColor(red: 216/255.0, green: 231/255.0, blue: 255/255.0, alpha: 0.5)
+        let fillBlueColor = UIColor(red: 216/255.0, green: 231/255.0, blue: 255/255.0, alpha: 1.0)
         let paletteItem = TKChartPaletteItem()
         paletteItem.stroke = TKStroke(color: selectedBlueColor)
         paletteItem.fill = TKLinearGradientFill(colors: [selectedBlueColor, fillBlueColor, UIColor.white])
         series.style.palette!.addItem(paletteItem)
-        
-        dateTimeComponents.month = 1
-        let minDate = calendar.date(from: dateTimeComponents)!
-        dateTimeComponents.month = 12
-        let maxDate = calendar.date(from: dateTimeComponents)!
+    
         
         // >> chart-axis-datetime-swift
-        let xAxis = TKChartDateTimeAxis(minimumDate: minDate, andMaximumDate: maxDate)
+        let xAxis = TKChartDateTimeAxis(minimumDate: valueData.portfolioData.inceptionDate, andMaximumDate: valueData.portfolioData.endDate)
         //xAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.custom
-        xAxis.majorTickInterval = 4
+        xAxis.majorTickInterval = 2
         xAxis.style.labelStyle.font = UIFont(name:"HelveticaNeue-Light", size:9.0)!
         xAxis.setPlotMode(TKChartAxisPlotMode.onTicks)
         xAxis.style.majorTickStyle.ticksHidden = true
@@ -299,15 +336,12 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         
         chart.xAxis = xAxis
         
-        let yAxis = TKChartNumericAxis(minimum: 100000, andMaximum: 300000)
-        yAxis.style.labelStyle.font = UIFont(name:"HelveticaNeue-Light", size:8.0)!
+        let yAxis = TKChartNumericAxis(minimum: valueData.minValue, andMaximum: valueData.maxValue)
+        yAxis.style.labelStyle.font = FontHelper.getDefaultFont(size: 8.0, light: true)
         yAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.bottom.rawValue)
         
         yAxis.style.majorTickStyle.ticksHidden = true
         yAxis.style.lineHidden = true
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = .currency
-        currencyFormatter.maximumFractionDigits = 0
         
         yAxis.labelFormatter = currencyFormatter
         yAxis.style.lineStroke = TKStroke(color:UIColor(white:0.85, alpha:1.0), width:2)
@@ -319,6 +353,11 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         
         chart.insets = UIEdgeInsets.zero
         
+        chart.allowTrackball = true
+        chart.trackball.snapMode = TKChartTrackballSnapMode.allClosestPoints
+        chart.delegate = self
+        chart.trackball.tooltip.style.textAlignment = NSTextAlignment.left
+        chart.trackball.tooltip.style.font = FontHelper.getDefaultFont(size: 11.0, light: true)
     }
 
     
@@ -370,10 +409,6 @@ class DashboardViewController: UIViewController, TKChartDelegate {
           //  gradientSegment.location = 0.5 + CGFloat(i) * 0.25
             scale.addSegment(gradientSegment)
             
-//            let segment = TKGaugeSegment(range: ranges[i])
-//            segment.width = 0.02
-//            segment.fill = TKSolidFill(color: colors[i])
-//            scale.addSegment(segment)
         }
         
         // >> gauge-needle-swift
@@ -472,6 +507,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         sender.titleLabel?.font = trailingPeriodButtonSelectedFont
         sender.setTitleColor(selectedBlueColor, for: .normal)
         initializePerformanceChart(trailingPeriod: .M1)
+        initializeValueOverTimeChart(trailingPeriod: .M1)
     }
     
     @IBAction func trailingPeriodChangedTo3M(_ sender: UIButton) {
@@ -479,6 +515,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         sender.titleLabel?.font = trailingPeriodButtonSelectedFont
         sender.setTitleColor(selectedBlueColor, for: .normal)
         initializePerformanceChart(trailingPeriod: .M3)
+        initializeValueOverTimeChart(trailingPeriod: .M3)
     }
     
     @IBAction func trailingPeriodChangedTo1Yr(_ sender: UIButton) {
@@ -486,6 +523,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         sender.titleLabel?.font = trailingPeriodButtonSelectedFont
         sender.setTitleColor(selectedBlueColor, for: .normal)
         initializePerformanceChart(trailingPeriod: .Y1)
+        initializeValueOverTimeChart(trailingPeriod: .Y1)
     }
     
     @IBAction func trailingPeriodChangedTo3Yr(_ sender: UIButton) {
@@ -493,6 +531,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         sender.titleLabel?.font = trailingPeriodButtonSelectedFont
         sender.setTitleColor(selectedBlueColor, for: .normal)
         initializePerformanceChart(trailingPeriod: .Y3)
+        initializeValueOverTimeChart(trailingPeriod: .Y3)
     }
 
     @IBAction func trailingPeriodChangedTo5Yr(_ sender: UIButton) {
@@ -500,6 +539,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         sender.titleLabel?.font = trailingPeriodButtonSelectedFont
         sender.setTitleColor(selectedBlueColor, for: .normal)
         initializePerformanceChart(trailingPeriod: .Y5)
+        initializeValueOverTimeChart(trailingPeriod: .Y5)
     }
     
     @IBAction func trailingPeriodChangedToAll(_ sender: UIButton) {
@@ -507,6 +547,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         sender.titleLabel?.font = FontHelper.getDefaultFont(size: 12.0, bold: true)
         sender.setTitleColor(selectedBlueColor, for: .normal)
         initializePerformanceChart(trailingPeriod: .All)
+        initializeValueOverTimeChart(trailingPeriod: .All)
     }
     
     @IBAction func chartTypeValueChanged(_ sender: UISegmentedControl) {
