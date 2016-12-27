@@ -239,7 +239,7 @@
                                         <rect key="frame" x="0.0" y="337" width="375" height="25"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="saH-lZ-q6x">
-                                                <rect key="frame" x="0.0" y="-1" width="375" height="26.5"/>
+                                                <rect key="frame" x="0.0" y="-0.5" width="375" height="26.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPf-IA-MHF">
                                                         <rect key="frame" x="0.0" y="0.0" width="45" height="26.5"/>
@@ -269,18 +269,11 @@
                                                             <color key="titleColor" red="0.1647058824" green="0.30588235289999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ye-eS-NQW">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ye-eS-NQW">
                                                         <rect key="frame" x="220" y="0.0" width="45" height="26.5"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="3 Yr">
-                                                                    <attributes>
-                                                                        <color key="NSColor" red="0.1803921568627451" green="0.31372549019607843" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
-                                                                        <integer key="NSUnderline" value="1"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                        <state key="normal" title="3 Yr">
+                                                            <color key="titleColor" red="0.1803921568627451" green="0.31372549019607843" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bet-SG-zGi">
@@ -290,11 +283,59 @@
                                                             <color key="titleColor" red="0.1647058824" green="0.30588235289999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpJ-QF-ZR0">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WpJ-QF-ZR0">
                                                         <rect key="frame" x="330" y="0.0" width="45" height="26.5"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                        <state key="normal" title="All">
-                                                            <color key="titleColor" red="0.1647058824" green="0.30588235289999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="All">
+                                                                    <attributes>
+                                                                        <color key="NSColor" red="0.1803921568627451" green="0.31372549019607843" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                            <tabStops>
+                                                                                <textTab alignment="left" location="28">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="56">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="84">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="112">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="140">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="168">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="196">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="224">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="252">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="280">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="308">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="336">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                            </tabStops>
+                                                                        </paragraphStyle>
+                                                                        <integer key="NSUnderline" value="1"/>
+                                                                        <color key="NSUnderlineColor" red="0.1803921568627451" green="0.31372549019607843" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
                                                         </state>
                                                     </button>
                                                 </subviews>

@@ -189,22 +189,17 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         paletteItem.fill = TKLinearGradientFill(colors: [selectedBlueColor, UIColor.white])
         series.style.palette!.addItem(paletteItem)
         
-//        dateTimeComponents.month = 1
-//        let minDate = calendar.date(from: dateTimeComponents)!
-//        dateTimeComponents.month = 12
-//        let maxDate = calendar.date(from: dateTimeComponents)!
-
-       
         // >> chart-axis-datetime-swift
         let xAxis = TKChartDateTimeAxis(minimumDate: performanceData.portfolioInceptionDate, andMaximumDate: performanceData.endDate)
         //xAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.custom
-        xAxis.majorTickInterval = 3
+        xAxis.majorTickInterval = 2
         xAxis.style.labelStyle.font = UIFont(name:"HelveticaNeue-Light", size:9.0)!
         xAxis.setPlotMode(TKChartAxisPlotMode.onTicks)
         xAxis.style.majorTickStyle.ticksHidden = true
         xAxis.style.lineHidden = true
         xAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.top.rawValue)
         xAxis.style.labelStyle.textOffset = UIOffset(horizontal: 0, vertical: -2)
+        xAxis.style.labelStyle.firstLabelTextAlignment = .left
         
         chart.xAxis = xAxis
        
@@ -216,7 +211,7 @@ class DashboardViewController: UIViewController, TKChartDelegate {
         yAxis.style.lineHidden = true
         yAxis.labelFormat = "%.0f%%"
         yAxis.style.lineStroke = TKStroke(color:UIColor(white:0.85, alpha:1.0), width:2)
-        yAxis.style.labelStyle.firstLabelTextAlignment = .left
+
         chart.yAxis = yAxis
 
 
