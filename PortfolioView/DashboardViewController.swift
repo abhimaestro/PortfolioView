@@ -92,14 +92,18 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
+        
+        self.landscapeLayoutContainer.isHidden = true
+        self.portraitLayoutContainer.isHidden = true
+        self.navigationController?.isNavigationBarHidden = true
+        
         coordinator.animate(alongsideTransition: nil, completion: {
             _ in
             
             if UIDevice.current.orientation.isLandscape {
-                    self.landscapeLayoutContainer.isHidden = false
-                    self.portraitLayoutContainer.isHidden = true
-                self.navigationController?.isNavigationBarHidden = true
                 
+                self.landscapeLayoutContainer.isHidden = false
+
                 for i in 0..<self.landscapeLayoutContainer.subviews.count {
                     self.landscapeLayoutContainer.subviews[i].removeFromSuperview()
                 }
@@ -112,7 +116,6 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
                 }
             }
             else {
-                self.landscapeLayoutContainer.isHidden = true
                 self.portraitLayoutContainer.isHidden = false
                 self.navigationController?.isNavigationBarHidden = false
                 
