@@ -43,7 +43,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     
     let radialGauge = TKRadialGauge()
     let donutChart = TKChart()
-
+    var valueOverTimeChart = TKChart()
+    var performanceChart = TKChart()
+    
     private enum TopContainerViewName: Int {
         case Performance = 0
         case ValueOverTime = 1
@@ -187,9 +189,10 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     }
     
     func initializePerformanceChart() {
-        let chart = TKChart(frame: performanceChartContainer.bounds)
-        chart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
-        performanceChartContainer.addSubview(chart)
+        performanceChart = TKChart(frame: performanceChartContainer.bounds)
+        performanceChart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
+        //performanceChart.allowAnimations = true
+        performanceChartContainer.addSubview(performanceChart)
     
         
         let performanceData = getPerformanceData()
@@ -227,7 +230,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         xAxis.style.labelStyle.textOffset = UIOffset(horizontal: 0, vertical: -2)
       //  xAxis.style.labelStyle.firstLabelTextAlignment = .left
         
-        chart.xAxis = xAxis
+        performanceChart.xAxis = xAxis
        
         let yAxis = TKChartNumericAxis(minimum: performanceData.minReturnValue, andMaximum: performanceData.maxReturnValue)
         yAxis.style.labelStyle.font = UIFont(name:"HelveticaNeue-Light", size:8.0)!
@@ -238,24 +241,24 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         yAxis.labelFormat = "%.0f%%"
         yAxis.style.lineStroke = TKStroke(color:UIColor(white:0.85, alpha:1.0), width:2)
 
-        chart.yAxis = yAxis
+        performanceChart.yAxis = yAxis
 
 
         
-        chart.addSeries(series)
-        chart.addSeries(series2)
+        performanceChart.addSeries(series)
+        performanceChart.addSeries(series2)
         
-        chart.allowTrackball = true
-        chart.trackball.snapMode = TKChartTrackballSnapMode.allClosestPoints
-        chart.delegate = self
-        chart.trackball.tooltip.style.textAlignment = NSTextAlignment.left
-        chart.trackball.tooltip.style.font = FontHelper.getDefaultFont(size: 11.0, light: true)
+        performanceChart.allowTrackball = true
+        performanceChart.trackball.snapMode = TKChartTrackballSnapMode.allClosestPoints
+        performanceChart.delegate = self
+        performanceChart.trackball.tooltip.style.textAlignment = NSTextAlignment.left
+        performanceChart.trackball.tooltip.style.font = FontHelper.getDefaultFont(size: 11.0, light: true)
         
-        chart.insets = UIEdgeInsets.zero
-        chart.gridStyle.horizontalFill = nil
+        performanceChart.insets = UIEdgeInsets.zero
+        performanceChart.gridStyle.horizontalFill = nil
         
         //remove trial label
-        chart.subviews[4].removeFromSuperview()
+        performanceChart.subviews[4].removeFromSuperview()
     }
     
     private func openPopoverMenu() {
@@ -358,11 +361,11 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     }
     
     func initializeValueOverTimeChart() {
-        let chart = TKChart(frame: valueOverTimeChartContainer.bounds)
-        chart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
-        valueOverTimeChartContainer.addSubview(chart)
+        valueOverTimeChart = TKChart(frame: valueOverTimeChartContainer.bounds)
+        valueOverTimeChart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
+        valueOverTimeChartContainer.addSubview(valueOverTimeChart)
         
-        chart.gridStyle.horizontalFill = nil
+        valueOverTimeChart.gridStyle.horizontalFill = nil
         
         let valueData = getValueData()
         
@@ -402,7 +405,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         xAxis.style.labelStyle.textOffset = UIOffset(horizontal: 0, vertical: -2)
        // xAxis.style.labelStyle.firstLabelTextAlignment = .left //hide to left
         
-        chart.xAxis = xAxis
+        valueOverTimeChart.xAxis = xAxis
         
         let yAxis = TKChartNumericAxis(minimum: valueData.minValue, andMaximum: valueData.maxValue)
         yAxis.style.labelStyle.font = FontHelper.getDefaultFont(size: 8.0, light: true)
@@ -414,21 +417,21 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         yAxis.labelFormatter = currencyFormatter
         yAxis.style.lineStroke = TKStroke(color:UIColor(white:0.85, alpha:1.0), width:2)
         
-        chart.yAxis = yAxis
+        valueOverTimeChart.yAxis = yAxis
         
         
-        chart.addSeries(series)
+        valueOverTimeChart.addSeries(series)
         
-        chart.insets = UIEdgeInsets.zero
+        valueOverTimeChart.insets = UIEdgeInsets.zero
         
-        chart.allowTrackball = true
-        chart.trackball.snapMode = TKChartTrackballSnapMode.allClosestPoints
-        chart.delegate = self
-        chart.trackball.tooltip.style.textAlignment = NSTextAlignment.left
-        chart.trackball.tooltip.style.font = FontHelper.getDefaultFont(size: 11.0, light: true)
-        
+        valueOverTimeChart.allowTrackball = true
+        valueOverTimeChart.trackball.snapMode = TKChartTrackballSnapMode.allClosestPoints
+        valueOverTimeChart.delegate = self
+        valueOverTimeChart.trackball.tooltip.style.textAlignment = NSTextAlignment.left
+        valueOverTimeChart.trackball.tooltip.style.font = FontHelper.getDefaultFont(size: 11.0, light: true)
+        //valueOverTimeChart.allowAnimations = true
         //remove trial label
-        chart.subviews[4].removeFromSuperview()
+        valueOverTimeChart.subviews[4].removeFromSuperview()
     }
 
     
@@ -507,7 +510,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
          donutChart.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width, height: bounds.size.height).insetBy(dx: 0, dy: 0)
         donutChart.autoresizingMask = UIViewAutoresizing(rawValue:~UIViewAutoresizing().rawValue)
 
-        
+        //donutChart.allowAnimations = true
         donutChart.legend.isHidden = true
 //        donutChart.legend.style.position = .right
 
@@ -581,7 +584,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         donutSeries.expandRadius = 1.1
         donutSeries.rotationEnabled = false
         donutSeries.labelDisplayMode = .outside
-        donutChart.allowAnimations = false
+        //donutChart.allowAnimations = false
 
         donutChart.addSeries(donutSeries)
 
@@ -601,10 +604,10 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         
         radialGauge.frame = CGRect(x: offset, y: bounds.origin.y + offset, width: size.width - offset*2, height: bottomContainer.frame.origin.y - bounds.origin.y - offset*4)
 
-        for i in 0..<donutChart.legend.container.itemCount {
-            let legendItem = donutChart.legend.container.item(at: i)
-            legendItem!.label.font = FontHelper.getDefaultFont(size: 11.0, light: true)
-        }
+//        for i in 0..<donutChart.legend.container.itemCount {
+//            let legendItem = donutChart.legend.container.item(at: i)
+//            legendItem!.label.font = FontHelper.getDefaultFont(size: 11.0, light: true)
+//        }
         
         
 //        if !_donutLabelAdded {
@@ -743,6 +746,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             case .Performance:
                 toggleBetweenViews(viewsToShow: [valueOverTimeChartContainer, valueOverTimeChartLegendContainer], viewsToHide: [performanceChartContainer, performanceChartLegendContainer], toLeft: true)
                 _topContainerViewName = .ValueOverTime
+                //valueOverTimeChart.animate()
             case .ValueOverTime:
                 break
             }
@@ -755,6 +759,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             case .ValueOverTime:
                 toggleBetweenViews(viewsToShow: [performanceChartContainer, performanceChartLegendContainer], viewsToHide: [valueOverTimeChartContainer, valueOverTimeChartLegendContainer], toLeft: false)
                 _topContainerViewName = .Performance
+                //performanceChart.animate()
                 break
             }
         default:
@@ -791,6 +796,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             case .Goal:
                 toggleBetweenViews(viewsToShow: [allocationChartContainer], viewsToHide: [goalChartContainer], toLeft: true)
                 _bottomContainerViewName = .Allocation
+                //donutChart.animate()
             case .Allocation:
                 break
             }
