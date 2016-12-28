@@ -14,6 +14,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     
     @IBOutlet weak var performanceChartContainer: UIView!
     @IBOutlet weak var valueOverTimeChartContainer: UIView!
+    @IBOutlet weak var portraitLayoutContainer: UIView!
+    @IBOutlet weak var landscapeLayoutContainer: UIView!
     @IBOutlet weak var topContainer: UIView!
     @IBOutlet weak var bottomContainer: UIView!
     @IBOutlet weak var allocationChartContainer: UIView!
@@ -85,6 +87,26 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
 
         addGestures()
 
+        //NotificationCenter.default.addObserver(self, selector: #selector(ViewController.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: nil, completion: {
+            _ in
+            
+            if UIDevice.current.orientation.isLandscape {
+                    self.landscapeLayoutContainer.isHidden = false
+                    self.portraitLayoutContainer.isHidden = true
+                self.navigationController?.isNavigationBarHidden = true
+                }
+            else {
+                self.landscapeLayoutContainer.isHidden = true
+                self.portraitLayoutContainer.isHidden = false
+                self.navigationController?.isNavigationBarHidden = false
+            }
+        })
+        
     }
     
     func imageWithColor(color: UIColor) -> UIImage {
@@ -574,7 +596,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             UIColor(red: 255/255.0, green: 140/255.0, blue: 157/255.0, alpha: 1.0)
         ]
         
-        for color in colorsVordiplom {
+        for color in colorsPastel {
             let paletteItem = TKChartPaletteItem(fill: TKSolidFill(color: color))
             donutSeries.style.palette!.addItem(paletteItem)
         }
@@ -582,7 +604,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
 
         
         donutSeries.selection = TKChartSeriesSelection.dataPoint
-        donutSeries.innerRadius = 0.8
+        donutSeries.innerRadius = 0.7
         donutSeries.expandRadius = 1.1
         donutSeries.rotationEnabled = false
         donutSeries.labelDisplayMode = .outside
