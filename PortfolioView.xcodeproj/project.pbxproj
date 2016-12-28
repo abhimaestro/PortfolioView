@@ -20,6 +20,14 @@
 		C2335A521E1001DC00760234 /* TelerikUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2335A511E1001DC00760234 /* TelerikUI.framework */; };
 		C2335A591E100F4500760234 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A581E100F4500760234 /* Extensions.swift */; };
 		C2335A5B1E103BDE00760234 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A5A1E103BDE00760234 /* Transitions.swift */; };
+		C267813B1E14786200D85E05 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C26781391E14786200D85E05 /* Interface.storyboard */; };
+		C267813D1E14786200D85E05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C267813C1E14786200D85E05 /* Assets.xcassets */; };
+		C26781441E14786300D85E05 /* PortfolioView WatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C26781431E14786200D85E05 /* PortfolioView WatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C267814B1E14786300D85E05 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C267814A1E14786300D85E05 /* InterfaceController.swift */; };
+		C267814D1E14786300D85E05 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C267814C1E14786300D85E05 /* ExtensionDelegate.swift */; };
+		C267814F1E14786300D85E05 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C267814E1E14786300D85E05 /* NotificationController.swift */; };
+		C26781511E14786300D85E05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C26781501E14786300D85E05 /* Assets.xcassets */; };
+		C26781551E14786300D85E05 /* PortfolioView WatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C26781371E14786200D85E05 /* PortfolioView WatchApp.app */; };
 		C2F71B2B1E02CDAE00A99298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */; };
 		C2F71B321E02CDAF00A99298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F71B301E02CDAF00A99298 /* Main.storyboard */; };
 		C2F71B341E02CDAF00A99298 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F71B331E02CDAF00A99298 /* Assets.xcassets */; };
@@ -32,6 +40,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C26781451E14786300D85E05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2F71B1F1E02CDAE00A99298 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C26781421E14786200D85E05;
+			remoteInfo = "PortfolioView WatchApp Extension";
+		};
+		C26781531E14786300D85E05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2F71B1F1E02CDAE00A99298 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C26781361E14786200D85E05;
+			remoteInfo = "PortfolioView WatchApp";
+		};
 		C2F71B3E1E02CDAF00A99298 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C2F71B1F1E02CDAE00A99298 /* Project object */;
@@ -47,6 +69,31 @@
 			remoteInfo = PortfolioView;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C26781591E14786300D85E05 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C26781441E14786300D85E05 /* PortfolioView WatchApp Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C267815D1E14786300D85E05 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C26781551E14786300D85E05 /* PortfolioView WatchApp.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		066E3B17F2E6FBB1A3EEB9EC /* Pods-PortfolioViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewUITests/Pods-PortfolioViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -68,9 +115,20 @@
 		C23208341E12E32600E54844 /* FontHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		C23208361E13094F00E54844 /* PopOverActionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverActionsVC.swift; sourceTree = "<group>"; };
 		C2335A511E1001DC00760234 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
-		C2335A571E10062B00760234 /* TelerikUI-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TelerikUI-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2335A581E100F4500760234 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C2335A5A1E103BDE00760234 /* Transitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
+		C26781371E14786200D85E05 /* PortfolioView WatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PortfolioView WatchApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C267813A1E14786200D85E05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		C267813C1E14786200D85E05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C267813E1E14786200D85E05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C26781431E14786200D85E05 /* PortfolioView WatchApp Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "PortfolioView WatchApp Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C26781491E14786300D85E05 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		C267814A1E14786300D85E05 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		C267814C1E14786300D85E05 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		C267814E1E14786300D85E05 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		C26781501E14786300D85E05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C26781521E14786300D85E05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C26781631E147AC000D85E05 /* TelerikUI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TelerikUI-Bridging-Header.h"; sourceTree = "<group>"; };
 		C2F71B271E02CDAE00A99298 /* PortfolioView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F71B311E02CDAF00A99298 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,6 +145,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C26781401E14786200D85E05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2F71B241E02CDAE00A99298 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,12 +204,46 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C26781381E14786200D85E05 /* PortfolioView WatchApp */ = {
+			isa = PBXGroup;
+			children = (
+				C26781391E14786200D85E05 /* Interface.storyboard */,
+				C267813C1E14786200D85E05 /* Assets.xcassets */,
+				C267813E1E14786200D85E05 /* Info.plist */,
+			);
+			path = "PortfolioView WatchApp";
+			sourceTree = "<group>";
+		};
+		C26781471E14786300D85E05 /* PortfolioView WatchApp Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C267814A1E14786300D85E05 /* InterfaceController.swift */,
+				C267814C1E14786300D85E05 /* ExtensionDelegate.swift */,
+				C267814E1E14786300D85E05 /* NotificationController.swift */,
+				C26781501E14786300D85E05 /* Assets.xcassets */,
+				C26781521E14786300D85E05 /* Info.plist */,
+				C26781481E14786300D85E05 /* Supporting Files */,
+			);
+			path = "PortfolioView WatchApp Extension";
+			sourceTree = "<group>";
+		};
+		C26781481E14786300D85E05 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C26781491E14786300D85E05 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		C2F71B1E1E02CDAE00A99298 = {
 			isa = PBXGroup;
 			children = (
+				C26781631E147AC000D85E05 /* TelerikUI-Bridging-Header.h */,
 				C2F71B291E02CDAE00A99298 /* PortfolioView */,
 				C2F71B401E02CDAF00A99298 /* PortfolioViewTests */,
 				C2F71B4B1E02CDAF00A99298 /* PortfolioViewUITests */,
+				C26781381E14786200D85E05 /* PortfolioView WatchApp */,
+				C26781471E14786300D85E05 /* PortfolioView WatchApp Extension */,
 				C2F71B281E02CDAE00A99298 /* Products */,
 				567533CD85E00667D96AEC34 /* Pods */,
 				0A12C63C86F245437CD5F59E /* Frameworks */,
@@ -157,6 +256,8 @@
 				C2F71B271E02CDAE00A99298 /* PortfolioView.app */,
 				C2F71B3D1E02CDAF00A99298 /* PortfolioViewTests.xctest */,
 				C2F71B481E02CDAF00A99298 /* PortfolioViewUITests.xctest */,
+				C26781371E14786200D85E05 /* PortfolioView WatchApp.app */,
+				C26781431E14786200D85E05 /* PortfolioView WatchApp Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,7 +265,6 @@
 		C2F71B291E02CDAE00A99298 /* PortfolioView */ = {
 			isa = PBXGroup;
 			children = (
-				C2335A571E10062B00760234 /* TelerikUI-Bridging-Header.h */,
 				C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */,
 				C2F71B301E02CDAF00A99298 /* Main.storyboard */,
 				C2F71B331E02CDAF00A99298 /* Assets.xcassets */,
@@ -207,6 +307,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C26781361E14786200D85E05 /* PortfolioView WatchApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C267815A1E14786300D85E05 /* Build configuration list for PBXNativeTarget "PortfolioView WatchApp" */;
+			buildPhases = (
+				C26781351E14786200D85E05 /* Resources */,
+				C26781591E14786300D85E05 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C26781461E14786300D85E05 /* PBXTargetDependency */,
+			);
+			name = "PortfolioView WatchApp";
+			productName = "PortfolioView WatchApp";
+			productReference = C26781371E14786200D85E05 /* PortfolioView WatchApp.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		C26781421E14786200D85E05 /* PortfolioView WatchApp Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C26781561E14786300D85E05 /* Build configuration list for PBXNativeTarget "PortfolioView WatchApp Extension" */;
+			buildPhases = (
+				C267813F1E14786200D85E05 /* Sources */,
+				C26781401E14786200D85E05 /* Frameworks */,
+				C26781411E14786200D85E05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PortfolioView WatchApp Extension";
+			productName = "PortfolioView WatchApp Extension";
+			productReference = C26781431E14786200D85E05 /* PortfolioView WatchApp Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		C2F71B261E02CDAE00A99298 /* PortfolioView */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2F71B511E02CDAF00A99298 /* Build configuration list for PBXNativeTarget "PortfolioView" */;
@@ -217,10 +351,12 @@
 				C2F71B251E02CDAE00A99298 /* Resources */,
 				CAC91DD27D12244EC5A2A6F3 /* [CP] Embed Pods Frameworks */,
 				B0A538CCCE1944ED714429F6 /* [CP] Copy Pods Resources */,
+				C267815D1E14786300D85E05 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C26781541E14786300D85E05 /* PBXTargetDependency */,
 			);
 			name = PortfolioView;
 			productName = PortfolioView;
@@ -275,10 +411,20 @@
 		C2F71B1F1E02CDAE00A99298 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Abhishek Sharma";
 				TargetAttributes = {
+					C26781361E14786200D85E05 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = WEWC6Q3ZN7;
+						ProvisioningStyle = Automatic;
+					};
+					C26781421E14786200D85E05 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = WEWC6Q3ZN7;
+						ProvisioningStyle = Automatic;
+					};
 					C2F71B261E02CDAE00A99298 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = WEWC6Q3ZN7;
@@ -312,11 +458,30 @@
 				C2F71B261E02CDAE00A99298 /* PortfolioView */,
 				C2F71B3C1E02CDAF00A99298 /* PortfolioViewTests */,
 				C2F71B471E02CDAF00A99298 /* PortfolioViewUITests */,
+				C26781361E14786200D85E05 /* PortfolioView WatchApp */,
+				C26781421E14786200D85E05 /* PortfolioView WatchApp Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C26781351E14786200D85E05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C267813D1E14786200D85E05 /* Assets.xcassets in Resources */,
+				C267813B1E14786200D85E05 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C26781411E14786200D85E05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C26781511E14786300D85E05 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2F71B251E02CDAE00A99298 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -488,6 +653,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C267813F1E14786200D85E05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C267814F1E14786300D85E05 /* NotificationController.swift in Sources */,
+				C267814D1E14786300D85E05 /* ExtensionDelegate.swift in Sources */,
+				C267814B1E14786300D85E05 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2F71B231E02CDAE00A99298 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -521,6 +696,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C26781461E14786300D85E05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C26781421E14786200D85E05 /* PortfolioView WatchApp Extension */;
+			targetProxy = C26781451E14786300D85E05 /* PBXContainerItemProxy */;
+		};
+		C26781541E14786300D85E05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C26781361E14786200D85E05 /* PortfolioView WatchApp */;
+			targetProxy = C26781531E14786300D85E05 /* PBXContainerItemProxy */;
+		};
 		C2F71B3F1E02CDAF00A99298 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C2F71B261E02CDAE00A99298 /* PortfolioView */;
@@ -534,6 +719,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C26781391E14786200D85E05 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C267813A1E14786200D85E05 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		C2F71B301E02CDAF00A99298 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -553,6 +746,88 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C26781571E14786300D85E05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = WEWC6Q3ZN7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "PortfolioView WatchApp Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioView.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		C26781581E14786300D85E05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = WEWC6Q3ZN7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "PortfolioView WatchApp Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioView.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		C267815B1E14786300D85E05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WEWC6Q3ZN7;
+				IBSC_MODULE = PortfolioView_WatchApp_Extension;
+				INFOPLIST_FILE = "PortfolioView WatchApp/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioView.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		C267815C1E14786300D85E05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WEWC6Q3ZN7;
+				IBSC_MODULE = PortfolioView_WatchApp_Extension;
+				INFOPLIST_FILE = "PortfolioView WatchApp/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioView.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
 		C2F71B4F1E02CDAF00A99298 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -664,8 +939,9 @@
 				);
 				INFOPLIST_FILE = PortfolioView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = algolic.PortfolioView;
+				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./TelerikUI-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -684,8 +960,9 @@
 				);
 				INFOPLIST_FILE = PortfolioView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = algolic.PortfolioView;
+				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./TelerikUI-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -751,6 +1028,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C26781561E14786300D85E05 /* Build configuration list for PBXNativeTarget "PortfolioView WatchApp Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C26781571E14786300D85E05 /* Debug */,
+				C26781581E14786300D85E05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C267815A1E14786300D85E05 /* Build configuration list for PBXNativeTarget "PortfolioView WatchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C267815B1E14786300D85E05 /* Debug */,
+				C267815C1E14786300D85E05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C2F71B221E02CDAE00A99298 /* Build configuration list for PBXProject "PortfolioView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
