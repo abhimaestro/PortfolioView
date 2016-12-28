@@ -21,11 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
        // let whiteBackground = UIImage(color: , size: CGSize(width: 200, height: 20))
         
-        
-        navBarAppearance.tintColor = UIColor.black
+        let color = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
+        navBarAppearance.tintColor = color
         navBarAppearance.barTintColor =  UIColor.white
         //navBarAppearance.setBackgroundImage(whiteBackground, for: .default)
-        navBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black, NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 18.0)!]
+        navBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName : color, NSFontAttributeName: FontHelper.getDefaultFont(size: 18.0)]
         
         return true
     }

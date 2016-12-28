@@ -674,7 +674,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     override func viewDidLayoutSubviews() {
         let bounds = bottomContainer.bounds
         let size = bottomContainer.bounds.size
-        let offset = CGFloat(30)
+        let offset = CGFloat(50)
         
         radialGauge.frame = CGRect(x: offset, y: bounds.origin.y + offset, width: size.width - offset*2, height: bottomContainer.frame.origin.y - bounds.origin.y - offset*4)
 
@@ -702,7 +702,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let bottomContainerSwipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.bottomContainerSwipe(swipeGesture:)))
         bottomContainerSwipeRightGesture.direction = .right
         bottomContainer.addGestureRecognizer(bottomContainerSwipeRightGesture)
-//        allocationChartContainer.addGestureRecognizer(bottomContainerSwipeRightGesture)
+        
+//        allocationChartContainer.addGestureRecognizer(donutChartSwipeRightGesture)
 //        goalChartContainer.addGestureRecognizer(bottomContainerSwipeRightGesture)
 
         let  bottomContainerSwipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.bottomContainerSwipe(swipeGesture:)))
