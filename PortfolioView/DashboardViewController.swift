@@ -440,6 +440,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         radialGauge.labelTitleOffset = CGPoint(x: radialGauge.labelTitle.bounds.origin.x, y: radialGauge.labelTitle.bounds.origin.y - 60)
         radialGauge.labelTitle.text = "80%"
         radialGauge.labelSubtitle.text = "on track"
+        radialGauge.labelTitle.font = FontHelper.getDefaultFont(size: 20.0)
+        
         goalChartContainer.addSubview(radialGauge)
         goalChartContainer.bringSubview(toFront: radialGauge)
         let scale = TKGaugeRadialScale(minimum: 0, maximum: 100)
