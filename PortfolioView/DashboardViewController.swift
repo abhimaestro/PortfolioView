@@ -253,6 +253,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         
         chart.insets = UIEdgeInsets.zero
         chart.gridStyle.horizontalFill = nil
+        
+        //remove trial label
+        chart.subviews[4].removeFromSuperview()
     }
     
     private func openPopoverMenu() {
@@ -423,6 +426,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         chart.delegate = self
         chart.trackball.tooltip.style.textAlignment = NSTextAlignment.left
         chart.trackball.tooltip.style.font = FontHelper.getDefaultFont(size: 11.0, light: true)
+        
+        //remove trial label
+        chart.subviews[4].removeFromSuperview()
     }
 
     
@@ -488,6 +494,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         needle.shadowRadius = 1.5;
         scale.addIndicator(needle)
 
+        //remove trial label
+        radialGauge.subviews[radialGauge.subviews.count - 1].removeFromSuperview()
+
     }
     
     func initializeAllocationChart() {
@@ -498,6 +507,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
          donutChart.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width, height: bounds.size.height).insetBy(dx: 0, dy: 0)
         donutChart.autoresizingMask = UIViewAutoresizing(rawValue:~UIViewAutoresizing().rawValue)
 
+        
         donutChart.legend.isHidden = true
 //        donutChart.legend.style.position = .right
 
@@ -570,7 +580,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         donutSeries.innerRadius = 0.8
         donutSeries.expandRadius = 1.1
         donutSeries.rotationEnabled = false
-        
+        donutSeries.labelDisplayMode = .outside
         donutChart.allowAnimations = false
 
         donutChart.addSeries(donutSeries)
@@ -579,6 +589,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         
         setAllocationCenterLabel(point: array[0])
 
+        //remove trial label
+        donutChart.subviews[donutChart.subviews.count - 1].removeFromSuperview()
     }
 
     private var _donutLabelAdded = false
@@ -593,6 +605,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             let legendItem = donutChart.legend.container.item(at: i)
             legendItem!.label.font = FontHelper.getDefaultFont(size: 11.0, light: true)
         }
+        
         
 //        if !_donutLabelAdded {
 //
