@@ -44,7 +44,35 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Do-Q7-hl5">
                                         <rect key="frame" x="0.0" y="2" width="375" height="229"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0I-ei-nOX">
+                                                <rect key="frame" x="75" y="-0.5" width="225" height="229"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nq-XV-r90">
+                                                <rect key="frame" x="173.5" y="98" width="28.5" height="14.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWF-qj-aW1">
+                                                <rect key="frame" x="166" y="116.5" width="42" height="20"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="RWF-qj-aW1" firstAttribute="top" secondItem="3Do-Q7-hl5" secondAttribute="centerY" constant="2" id="2MM-oL-M83"/>
+                                            <constraint firstItem="1Nq-XV-r90" firstAttribute="centerX" secondItem="3Do-Q7-hl5" secondAttribute="centerX" id="AId-BI-ccW"/>
+                                            <constraint firstItem="RWF-qj-aW1" firstAttribute="centerX" secondItem="3Do-Q7-hl5" secondAttribute="centerX" id="EjS-hh-P16"/>
+                                            <constraint firstItem="1Nq-XV-r90" firstAttribute="bottom" secondItem="3Do-Q7-hl5" secondAttribute="centerY" constant="-2" id="L4h-WX-nQp"/>
+                                            <constraint firstItem="D0I-ei-nOX" firstAttribute="height" secondItem="3Do-Q7-hl5" secondAttribute="height" id="fon-Le-rB4"/>
+                                            <constraint firstItem="D0I-ei-nOX" firstAttribute="centerY" secondItem="3Do-Q7-hl5" secondAttribute="centerY" id="lh7-nq-eZ8"/>
+                                            <constraint firstItem="D0I-ei-nOX" firstAttribute="width" secondItem="3Do-Q7-hl5" secondAttribute="width" multiplier="0.6" id="oGX-8q-F8y"/>
+                                            <constraint firstItem="D0I-ei-nOX" firstAttribute="centerX" secondItem="3Do-Q7-hl5" secondAttribute="centerX" id="wFk-de-bsv"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEZ-Vu-ZmI">
                                         <rect key="frame" x="0.0" y="2" width="375" height="229"/>
@@ -386,6 +414,9 @@
                     <navigationItem key="navigationItem" title="Portfolio Summary" id="beQ-pj-elz"/>
                     <connections>
                         <outlet property="allocationChartContainer" destination="3Do-Q7-hl5" id="Tsh-PJ-6TB"/>
+                        <outlet property="allocationChartDonutContainer" destination="D0I-ei-nOX" id="uDn-Wa-qbc"/>
+                        <outlet property="allocationClassNameLabel" destination="1Nq-XV-r90" id="ww7-sB-f3x"/>
+                        <outlet property="allocationClassValueLabel" destination="RWF-qj-aW1" id="zHy-5X-KOX"/>
                         <outlet property="bottomContainer" destination="h4J-Hj-3Ho" id="uH9-YL-zco"/>
                         <outlet property="bottomContainerPageControl" destination="m60-Qr-1H9" id="9jW-zh-2xE"/>
                         <outlet property="chartTypeSegmentedControl" destination="uAd-jO-UjX" id="lBt-Yw-U6H"/>

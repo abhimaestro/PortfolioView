@@ -17,6 +17,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var topContainer: UIView!
     @IBOutlet weak var bottomContainer: UIView!
     @IBOutlet weak var allocationChartContainer: UIView!
+    @IBOutlet weak var allocationChartDonutContainer: UIView!
     @IBOutlet weak var goalChartContainer: UIView!
     @IBOutlet weak var bottomContainerPageControl: UIPageControl!
     @IBOutlet weak var chartTypeSegmentedControl: UISegmentedControl!
@@ -34,6 +35,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var trailingPeriod5YrButton: UIButton!
     @IBOutlet weak var trailingPeriodAllButton: UIButton!
     @IBOutlet weak var dateRangeLabel: UILabel!
+    @IBOutlet weak var allocationClassNameLabel: UILabel!
+    @IBOutlet weak var allocationClassValueLabel: UILabel!
 
     let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
     let trailingPeriodButtonSelectedFont = FontHelper.getDefaultFont(size: 13.0, bold: true)
@@ -283,8 +286,21 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         self.present(pomVC, animated: true, completion: nil)
     }
     
+    private func setAllocationCenterLabel(point: TKChartData) {
+        allocationChartContainer.bringSubview(toFront: allocationClassNameLabel)
+        allocationChartContainer.bringSubview(toFront: allocationClassValueLabel)
+        allocationClassNameLabel.text = point.dataName
+        allocationClassValueLabel.text = String(format: "%.1f%%", (point.dataXValue as! Double))
+    }
+    
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.none
+    }
+    
+        func chart(_ chart: TKChart, didSelectPoint point: TKChartData, in series: TKChartSeries, at index: Int) {
+        if chart == donutChart {
+            setAllocationCenterLabel(point: point)
+        }
     }
     
     func chart(_ chart: TKChart, trackballDidTrackSelection selection: [Any]) {
@@ -477,34 +493,91 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     func initializeAllocationChart() {
 
         
-        let bounds = bottomContainer.bounds
+        let bounds = allocationChartDonutContainer.bounds
 
-        donutChart.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width, height: bounds.size.height).insetBy(dx: 10, dy: 0)
+         donutChart.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width, height: bounds.size.height).insetBy(dx: 0, dy: 0)
         donutChart.autoresizingMask = UIViewAutoresizing(rawValue:~UIViewAutoresizing().rawValue)
 
-        donutChart.allowAnimations = true
-        donutChart.legend.isHidden = false
-        donutChart.legend.style.position = .right
+        donutChart.legend.isHidden = true
+//        donutChart.legend.style.position = .right
+
 
         donutChart.legend.style.insets = UIEdgeInsets.zero
         donutChart.legend.style.offset = UIOffset.zero
-        allocationChartContainer.addSubview(donutChart)
+        allocationChartDonutContainer.addSubview(donutChart)
 
 
 
         let array:[TKChartDataPoint] = [
-            TKChartDataPoint(name: "Equity", value: 70),
-            TKChartDataPoint(name: "Fixed Income", value: 15),
-            TKChartDataPoint(name:"Alternatives", value: 10),
-            TKChartDataPoint(name: "Cash", value: 5)]
+            TKChartDataPoint(name: "Equity", value: 70.0),
+            TKChartDataPoint(name: "Fixed Income", value: 15.0),
+            TKChartDataPoint(name:"Alternatives", value: 10.0),
+            TKChartDataPoint(name: "Cash", value: 5.0)]
         
         let donutSeries = TKChartDonutSeries(items:array)
+
+        donutSeries.style.paletteMode = .useItemIndex
+        donutSeries.style.palette = TKChartPalette()
+
+        let colorsLiberty = [
+            UIColor(red: 207/255.0, green: 248/255.0, blue: 246/255.0, alpha: 1.0),
+            UIColor(red: 148/255.0, green: 212/255.0, blue: 212/255.0, alpha: 1.0),
+            UIColor(red: 136/255.0, green: 180/255.0, blue: 187/255.0, alpha: 1.0),
+            UIColor(red: 118/255.0, green: 174/255.0, blue: 175/255.0, alpha: 1.0),
+            UIColor(red: 42/255.0, green: 109/255.0, blue: 130/255.0, alpha: 1.0)
+        ]
+
+        let colorsJoyful =  [
+            UIColor(red: 217/255.0, green: 80/255.0, blue: 138/255.0, alpha: 1.0),
+            UIColor(red: 254/255.0, green: 149/255.0, blue: 7/255.0, alpha: 1.0),
+            UIColor(red: 254/255.0, green: 247/255.0, blue: 120/255.0, alpha: 1.0),
+            UIColor(red: 106/255.0, green: 167/255.0, blue: 134/255.0, alpha: 1.0),
+            UIColor(red: 53/255.0, green: 194/255.0, blue: 209/255.0, alpha: 1.0)
+        ]
+
+        let colorsPastel = [
+                UIColor(red: 64/255.0, green: 89/255.0, blue: 128/255.0, alpha: 1.0),
+                UIColor(red: 149/255.0, green: 165/255.0, blue: 124/255.0, alpha: 1.0),
+                UIColor(red: 217/255.0, green: 184/255.0, blue: 162/255.0, alpha: 1.0),
+                UIColor(red: 191/255.0, green: 134/255.0, blue: 134/255.0, alpha: 1.0),
+                UIColor(red: 179/255.0, green: 48/255.0, blue: 80/255.0, alpha: 1.0)
+        ]
+
+        let colorsColorful = [
+            UIColor(red: 193/255.0, green: 37/255.0, blue: 82/255.0, alpha: 1.0),
+            UIColor(red: 255/255.0, green: 102/255.0, blue: 0/255.0, alpha: 1.0),
+            UIColor(red: 245/255.0, green: 199/255.0, blue: 0/255.0, alpha: 1.0),
+            UIColor(red: 106/255.0, green: 150/255.0, blue: 31/255.0, alpha: 1.0),
+            UIColor(red: 179/255.0, green: 100/255.0, blue: 53/255.0, alpha: 1.0)
+        ]
+        
+        let colorsVordiplom = [
+            UIColor(red: 192/255.0, green: 255/255.0, blue: 140/255.0, alpha: 1.0),
+            UIColor(red: 255/255.0, green: 247/255.0, blue: 140/255.0, alpha: 1.0),
+            UIColor(red: 255/255.0, green: 208/255.0, blue: 140/255.0, alpha: 1.0),
+            UIColor(red: 140/255.0, green: 234/255.0, blue: 255/255.0, alpha: 1.0),
+            UIColor(red: 255/255.0, green: 140/255.0, blue: 157/255.0, alpha: 1.0)
+        ]
+        
+        for color in colorsVordiplom {
+            let paletteItem = TKChartPaletteItem(fill: TKSolidFill(color: color))
+            donutSeries.style.palette!.addItem(paletteItem)
+        }
+
+
+        
         donutSeries.selection = TKChartSeriesSelection.dataPoint
-        donutSeries.innerRadius = 0.7
+        donutSeries.innerRadius = 0.8
         donutSeries.expandRadius = 1.1
         donutSeries.rotationEnabled = false
+        
+        donutChart.allowAnimations = false
+
         donutChart.addSeries(donutSeries)
 
+        donutChart.delegate = self
+        
+        setAllocationCenterLabel(point: array[0])
 
     }
 
@@ -516,6 +589,11 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         
         radialGauge.frame = CGRect(x: offset, y: bounds.origin.y + offset, width: size.width - offset*2, height: bottomContainer.frame.origin.y - bounds.origin.y - offset*4)
 
+        for i in 0..<donutChart.legend.container.itemCount {
+            let legendItem = donutChart.legend.container.item(at: i)
+            legendItem!.label.font = FontHelper.getDefaultFont(size: 11.0, light: true)
+        }
+        
 //        if !_donutLabelAdded {
 //
 //            let donutCenterX = bounds.origin.x + (bounds.width - donutChart.legend.container.frame.width - 20)
@@ -534,12 +612,16 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let bottomContainerSwipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.bottomContainerSwipe(swipeGesture:)))
         bottomContainerSwipeRightGesture.direction = .right
         bottomContainer.addGestureRecognizer(bottomContainerSwipeRightGesture)
-        
+//        allocationChartContainer.addGestureRecognizer(bottomContainerSwipeRightGesture)
+//        goalChartContainer.addGestureRecognizer(bottomContainerSwipeRightGesture)
+
         let  bottomContainerSwipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.bottomContainerSwipe(swipeGesture:)))
         bottomContainerSwipeLeftGesture.direction = .left
         bottomContainer.addGestureRecognizer(bottomContainerSwipeLeftGesture)
-        
-            let topContainerSwipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.topContainerSwipe(swipeGesture:)))
+//        allocationChartContainer.addGestureRecognizer(bottomContainerSwipeLeftGesture)
+//        goalChartContainer.addGestureRecognizer(bottomContainerSwipeRightGesture)
+
+        let topContainerSwipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.topContainerSwipe(swipeGesture:)))
         topContainerSwipeRightGesture.direction = .right
         topContainer.addGestureRecognizer(topContainerSwipeRightGesture)
         
