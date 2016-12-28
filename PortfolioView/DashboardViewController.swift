@@ -174,12 +174,12 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         }
     }
     
-    func getPerformanceData() -> (portfolioData: PortfolioData, portfolioReturns: [TKChartDataPoint], indexReturns: [TKChartDataPoint], minReturnValue: Double, maxReturnValue: Double) {
+    func getPerformanceData() -> (portfolioData: PortfolioData, portfolioReturns: [TKChartDataPoint], indexReturns: [TKChartDataPoint], indexName: String, minReturnValue: Double, maxReturnValue: Double) {
 
         var portfolioReturns = [TKChartDataPoint]()
         var indexReturns = [TKChartDataPoint]()
         var maxReturnValue: Double = 0.0, minReturnValue: Double = 0.0
-
+        var indexName = ""
         let portfolioData = PortfolioData.load(trailingPeriod: _currentTrailingPeriod)
         
         for portfolioDataItem in (portfolioData?.portfolioDataItems)! {
@@ -189,17 +189,20 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             switch _currentIndexType {
             case .Index2:
                 indexReturns.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.index2ReturnPercent))
+                indexName = portfolioData!.index2Name
             case .Index3:
                 indexReturns.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.index3ReturnPercent))
+                indexName = portfolioData!.index3Name
             default:
                 indexReturns.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.index1ReturnPercent))
+                indexName = portfolioData!.index1Name
             }
 
             minReturnValue = min(minReturnValue, portfolioDataItem.portfolioReturnPercent, portfolioDataItem.index1ReturnPercent)
             maxReturnValue = max(maxReturnValue, portfolioDataItem.portfolioReturnPercent, portfolioDataItem.index1ReturnPercent)
         }
         
-        return (portfolioData: portfolioData!, portfolioReturns, indexReturns, minReturnValue, maxReturnValue)
+        return (portfolioData: portfolioData!, portfolioReturns, indexReturns, indexName: indexName, minReturnValue, maxReturnValue)
     }
     
     func getValueData() -> (portfolioData: PortfolioData, portfolioValues: [TKChartDataPoint], minValue: Double, maxValue: Double) {
@@ -227,7 +230,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     
     func initializePerformanceChart() {
         
-        let performanceChart = getPerformanceChart(inView: performanceChartContainer)
+        self.performanceChart = getPerformanceChart(inView: performanceChartContainer)
     }
     
     func getPerformanceChart(inView: UIView) -> TKChart {
@@ -252,16 +255,18 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let series = TKChartAreaSeries(items:performanceData.portfolioReturns)
         series.title = "Your Portfolio"
         
-        
         let series2 = TKChartLineSeries(items:performanceData.indexReturns)
-        series2.title = "S&P 500"
+        series2.title = performanceData.indexName
         
         series.style.palette = TKChartPalette()
-        let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.00)
-        let paletteItem = TKChartPaletteItem()
-        paletteItem.stroke = TKStroke(color: selectedBlueColor)
-        paletteItem.fill = TKLinearGradientFill(colors: [selectedBlueColor, UIColor.white])
-        series.style.palette!.addItem(paletteItem)
+        let paletteItem1 = TKChartPaletteItem()
+        paletteItem1.stroke = TKStroke(color: UIColor(red: 0/255.0, green: 83/255.0, blue: 146/255.0, alpha: 1.00))
+        series.style.palette!.addItem(paletteItem1)
+        
+        series2.style.palette = TKChartPalette()
+        let paletteItem2 = TKChartPaletteItem()
+        paletteItem2.stroke = TKStroke(color: UIColor(red: 154/255.0, green: 181/255.0, blue: 228/255.0, alpha: 1.00))
+        series2.style.palette!.addItem(paletteItem2)
         
         let xAxis = TKChartDateTimeAxis(minimumDate: performanceData.portfolioData.inceptionDate, andMaximumDate: performanceData.portfolioData.endDate)
         //xAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.custom
@@ -624,7 +629,24 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             UIColor(red: 255/255.0, green: 140/255.0, blue: 157/255.0, alpha: 1.0)
         ]
         
-        for color in colorsPastel {
+//        Color One - R 106 G 213 B 207
+//        Color Two - R 148 G 120 B162
+//        Color Three - R 166 G 208 B100
+//        Color Four - R 216 G 82 B 85
+//        Color Five - R 89 G 156 B 155
+//        Color Six - R 208 G 138 B 60
+//        Color Seven - R 99 G 138 B 199
+//        Color Eight - R 192 G 100 B 88
+//        
+        let colorsCustom = [
+            UIColor(red: 106/255.0, green: 213/255.0, blue: 207/255.0, alpha: 1.0),
+            UIColor(red: 148/255.0, green: 120/255.0, blue: 162/255.0, alpha: 1.0),
+            UIColor(red: 166/255.0, green: 208/255.0, blue: 100/255.0, alpha: 1.0),
+            UIColor(red: 216/255.0, green: 82/255.0, blue: 85/255.0, alpha: 1.0),
+            UIColor(red: 89/255.0, green: 156/255.0, blue: 155/255.0, alpha: 1.0)
+        ]
+        
+        for color in colorsCustom {
             let paletteItem = TKChartPaletteItem(fill: TKSolidFill(color: color))
             donutSeries.style.palette!.addItem(paletteItem)
         }
