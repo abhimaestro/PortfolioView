@@ -41,30 +41,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9vj-7U-ZjH" userLabel="landscapeLayoutContainer">
-                                <rect key="frame" x="-4" y="-66" width="383" height="669"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="-4" y="0.0" width="383" height="603"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.46666666670000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="is7-cY-dHq" userLabel="portraitLayoutContainer">
                                 <rect key="frame" x="0.0" y="-66" width="375" height="669"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBb-WJ-QSv" userLabel="bottomContainer">
-                                        <rect key="frame" x="0.0" y="477.5" width="375" height="191.5"/>
+                                        <rect key="frame" x="0.0" y="444" width="375" height="225"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZI-gf-k2Z">
-                                                <rect key="frame" x="0.0" y="2" width="375" height="189.5"/>
+                                                <rect key="frame" x="0.0" y="2" width="375" height="223"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3O-MY-3qC">
-                                                        <rect key="frame" x="75" y="-0.5" width="225" height="189.5"/>
+                                                        <rect key="frame" x="75" y="-0.5" width="225" height="223"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weh-fX-P1q">
-                                                        <rect key="frame" x="173.5" y="78" width="28.5" height="14.5"/>
+                                                        <rect key="frame" x="173.5" y="94.5" width="28.5" height="14.5"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhK-AZ-uQE">
-                                                        <rect key="frame" x="166" y="96.5" width="42" height="20"/>
+                                                        <rect key="frame" x="166" y="113" width="42" height="20"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DFw-lQ-ird">
-                                                <rect key="frame" x="0.0" y="2" width="375" height="189.5"/>
+                                                <rect key="frame" x="0.0" y="2" width="375" height="223"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="RQf-bY-5Oe">
@@ -110,7 +110,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b29-dg-CAg" userLabel="topContainer">
-                                        <rect key="frame" x="0.0" y="66" width="375" height="401.5"/>
+                                        <rect key="frame" x="0.0" y="66" width="375" height="368"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$350,345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwD-n2-pVJ">
                                                 <rect key="frame" x="133.5" y="5" width="108.5" height="31"/>
@@ -271,16 +271,16 @@
                                                     <constraint firstAttribute="height" constant="25" id="vPW-CK-OmC"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGx-2R-qIq">
-                                                <rect key="frame" x="0.0" y="111" width="375" height="250.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dC4-5v-0Cy">
+                                                <rect key="frame" x="0.0" y="111" width="375" height="217"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dC4-5v-0Cy">
-                                                <rect key="frame" x="0.0" y="111" width="375" height="250.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGx-2R-qIq">
+                                                <rect key="frame" x="0.0" y="111" width="375" height="217"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZg-xn-vvx" userLabel="dateRangeContainer">
-                                                <rect key="frame" x="47" y="361.5" width="281" height="15"/>
+                                                <rect key="frame" x="47" y="328" width="281" height="15"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Range: 1/1/1008 - 12/12/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5H0-Hh-GSy">
                                                         <rect key="frame" x="61.5" y="1.5" width="157" height="12"/>
@@ -297,7 +297,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJG-aJ-KYn" userLabel="trailingPeriodContainer">
-                                                <rect key="frame" x="0.0" y="376.5" width="375" height="25"/>
+                                                <rect key="frame" x="0.0" y="343" width="375" height="25"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="j38-r1-SnX">
                                                         <rect key="frame" x="0.0" y="-1" width="375" height="28"/>
@@ -409,7 +409,7 @@
                                 <color key="backgroundColor" red="0.91915064099999999" green="0.91915064099999999" blue="0.91915064099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="uBb-WJ-QSv" secondAttribute="trailing" id="4F8-sA-Dtf"/>
-                                    <constraint firstItem="b29-dg-CAg" firstAttribute="height" secondItem="is7-cY-dHq" secondAttribute="height" multiplier="0.6" id="5Wl-8h-GhS"/>
+                                    <constraint firstItem="b29-dg-CAg" firstAttribute="height" secondItem="is7-cY-dHq" secondAttribute="height" multiplier="0.55" id="5Wl-8h-GhS"/>
                                     <constraint firstAttribute="trailing" secondItem="b29-dg-CAg" secondAttribute="trailing" id="CAb-e3-Ted"/>
                                     <constraint firstItem="uBb-WJ-QSv" firstAttribute="leading" secondItem="is7-cY-dHq" secondAttribute="leading" id="LQ4-2m-F0j"/>
                                     <constraint firstItem="b29-dg-CAg" firstAttribute="top" secondItem="is7-cY-dHq" secondAttribute="top" constant="66" id="cZQ-Ez-2M8"/>
@@ -428,7 +428,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="is7-cY-dHq" secondAttribute="trailing" constant="-16" id="SeZ-Ei-TFq"/>
                             <constraint firstItem="is7-cY-dHq" firstAttribute="leading" secondItem="qd5-Ls-gxE" secondAttribute="leadingMargin" constant="-16" id="bJC-T9-RSw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9vj-7U-ZjH" secondAttribute="trailing" constant="-20" id="fLK-UW-eYI"/>
-                            <constraint firstItem="9vj-7U-ZjH" firstAttribute="top" secondItem="007-Mz-hz0" secondAttribute="bottom" constant="-66" id="mKI-IU-Yy9"/>
+                            <constraint firstItem="9vj-7U-ZjH" firstAttribute="top" secondItem="007-Mz-hz0" secondAttribute="bottom" id="mKI-IU-Yy9"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>

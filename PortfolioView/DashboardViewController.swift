@@ -99,11 +99,26 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
                     self.landscapeLayoutContainer.isHidden = false
                     self.portraitLayoutContainer.isHidden = true
                 self.navigationController?.isNavigationBarHidden = true
+                
+                for i in 0..<self.landscapeLayoutContainer.subviews.count {
+                    self.landscapeLayoutContainer.subviews[i].removeFromSuperview()
                 }
+               
+                if (self._topContainerViewName == .Performance) {
+                    let _ = self.getPerformanceChart(inView: self.landscapeLayoutContainer)
+                }
+                else {
+                    let _ = self.getValueOverTimeChart(inView: self.landscapeLayoutContainer)
+                }
+            }
             else {
                 self.landscapeLayoutContainer.isHidden = true
                 self.portraitLayoutContainer.isHidden = false
                 self.navigationController?.isNavigationBarHidden = false
+                
+                for i in 0..<self.landscapeLayoutContainer.subviews.count {
+                    self.landscapeLayoutContainer.subviews[i].removeFromSuperview()
+                }
             }
         })
         
@@ -211,14 +226,21 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     }
     
     func initializePerformanceChart() {
-        performanceChart = TKChart(frame: performanceChartContainer.bounds)
+        
+        let performanceChart = getPerformanceChart(inView: performanceChartContainer)
+    }
+    
+    func getPerformanceChart(inView: UIView) -> TKChart {
+        
+        let performanceChart = TKChart(frame: inView.bounds)
+        
         performanceChart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
         //performanceChart.allowAnimations = true
-        performanceChartContainer.addSubview(performanceChart)
-    
+        inView.addSubview(performanceChart)
+        
         
         let performanceData = getPerformanceData()
-
+        
         portfolioTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalPortfolioReturnPercent)
         setLabelColor(label: portfolioTotalReturnLabel, value: performanceData.portfolioData.totalPortfolioReturnPercent)
         
@@ -229,11 +251,11 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         
         let series = TKChartAreaSeries(items:performanceData.portfolioReturns)
         series.title = "Your Portfolio"
-
-
+        
+        
         let series2 = TKChartLineSeries(items:performanceData.indexReturns)
         series2.title = "S&P 500"
-
+        
         series.style.palette = TKChartPalette()
         let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.00)
         let paletteItem = TKChartPaletteItem()
@@ -250,10 +272,10 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         xAxis.style.lineHidden = true
         xAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.top.rawValue)
         xAxis.style.labelStyle.textOffset = UIOffset(horizontal: 0, vertical: -2)
-      //  xAxis.style.labelStyle.firstLabelTextAlignment = .left
+        //  xAxis.style.labelStyle.firstLabelTextAlignment = .left
         
         performanceChart.xAxis = xAxis
-       
+        
         let yAxis = TKChartNumericAxis(minimum: performanceData.minReturnValue, andMaximum: performanceData.maxReturnValue)
         yAxis.style.labelStyle.font = UIFont(name:"HelveticaNeue-Light", size:8.0)!
         yAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.bottom.rawValue)
@@ -262,10 +284,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         yAxis.style.lineHidden = true
         yAxis.labelFormat = "%.0f%%"
         yAxis.style.lineStroke = TKStroke(color:UIColor(white:0.85, alpha:1.0), width:2)
-
+        
         performanceChart.yAxis = yAxis
-
-
         
         performanceChart.addSeries(series)
         performanceChart.addSeries(series2)
@@ -281,6 +301,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         
         //remove trial label
         performanceChart.subviews[4].removeFromSuperview()
+        
+        return performanceChart
     }
     
     private func openPopoverMenu() {
@@ -383,15 +405,20 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     }
     
     func initializeValueOverTimeChart() {
-        valueOverTimeChart = TKChart(frame: valueOverTimeChartContainer.bounds)
+        
+        self.valueOverTimeChart =  getValueOverTimeChart(inView: valueOverTimeChartContainer)
+    }
+
+    func getValueOverTimeChart(inView: UIView) -> TKChart {
+        let valueOverTimeChart = TKChart(frame: inView.bounds)
         valueOverTimeChart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
-        valueOverTimeChartContainer.addSubview(valueOverTimeChart)
+        inView.addSubview(valueOverTimeChart)
         
         valueOverTimeChart.gridStyle.horizontalFill = nil
         
         let valueData = getValueData()
         
-
+        
         let currencyFormatter = NumberFormatter()
         currencyFormatter.numberStyle = .currency
         currencyFormatter.maximumFractionDigits = 0
@@ -413,7 +440,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         paletteItem.stroke = TKStroke(color: selectedBlueColor)
         paletteItem.fill = TKLinearGradientFill(colors: [selectedBlueColor, fillBlueColor, UIColor.white])
         series.style.palette!.addItem(paletteItem)
-    
+        
         
         // >> chart-axis-datetime-swift
         let xAxis = TKChartDateTimeAxis(minimumDate: valueData.portfolioData.inceptionDate, andMaximumDate: valueData.portfolioData.endDate)
@@ -425,7 +452,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         xAxis.style.lineHidden = true
         xAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.top.rawValue)
         xAxis.style.labelStyle.textOffset = UIOffset(horizontal: 0, vertical: -2)
-       // xAxis.style.labelStyle.firstLabelTextAlignment = .left //hide to left
+        // xAxis.style.labelStyle.firstLabelTextAlignment = .left //hide to left
         
         valueOverTimeChart.xAxis = xAxis
         
@@ -454,9 +481,10 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         //valueOverTimeChart.allowAnimations = true
         //remove trial label
         valueOverTimeChart.subviews[4].removeFromSuperview()
+        
+        return valueOverTimeChart
     }
 
-    
     func initializeGoalChart() {
         
         radialGauge.labelTitleOffset = CGPoint(x: radialGauge.labelTitle.bounds.origin.x, y: radialGauge.labelTitle.bounds.origin.y - 60)
