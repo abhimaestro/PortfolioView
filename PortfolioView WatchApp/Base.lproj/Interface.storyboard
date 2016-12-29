@@ -24,17 +24,33 @@
                             </items>
                             <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
                         </group>
-                        <group width="1" alignment="center" animationDuration="5" layout="vertical" spacing="0.0" id="X4Q-ou-jn1">
+                        <group width="1" alignment="left" id="cvc-Sr-euf">
                             <items>
-                                <label alignment="center" verticalAlignment="center" text="net earnings" minimumScaleFactor="0.20000000000000001" id="42P-Wg-VNa">
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                                </label>
-                                <label alignment="center" verticalAlignment="bottom" text="Label" id="gZ7-9R-Kyd">
-                                    <color key="textColor" red="0.11764705882352941" green="0.45490196078431372" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </label>
+                                <group width="0.59999999999999998" alignment="center" animationDuration="5" layout="vertical" spacing="0.0" id="X4Q-ou-jn1">
+                                    <items>
+                                        <label alignment="center" verticalAlignment="center" text="net earnings" minimumScaleFactor="0.20000000000000001" id="42P-Wg-VNa">
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                        </label>
+                                        <label alignment="center" verticalAlignment="bottom" text="Label" id="gZ7-9R-Kyd">
+                                            <color key="textColor" red="0.11764705882352941" green="0.45490196078431372" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
+                                </group>
+                                <group width="0.40000000000000002" alignment="center" animationDuration="5" layout="vertical" spacing="0.0" id="XHW-Yv-EpK">
+                                    <items>
+                                        <label alignment="center" verticalAlignment="center" text="total return" minimumScaleFactor="0.20000000000000001" id="Qhw-8S-Kr4">
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                        </label>
+                                        <label alignment="center" verticalAlignment="bottom" text="Label" id="qYg-h5-Yd2">
+                                            <color key="textColor" red="0.1176470588" green="0.4549019608" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
+                                </group>
                             </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
                         </group>
                         <imageView alignment="left" id="TE2-2r-bDh"/>
                         <group width="1" alignment="center" verticalAlignment="bottom" id="E2O-ZC-AvD">
@@ -92,6 +108,8 @@
                         <outlet property="netEarningsTitleLabel" destination="42P-Wg-VNa" id="MhP-cZ-4zH"/>
                         <outlet property="portfolioMarketValueLabel" destination="c3j-uz-Sa8" id="ICX-h5-1pp"/>
                         <outlet property="portfolioMarketValueTitleLabel" destination="ZZ6-XI-qdO" id="KTK-hc-hwe"/>
+                        <outlet property="totalReturnLabel" destination="qYg-h5-Yd2" id="xnj-2h-RiS"/>
+                        <outlet property="totalReturnTitleLabel" destination="Qhw-8S-Kr4" id="EJb-yt-hdg"/>
                         <outlet property="trailing1MButton" destination="W8K-UD-tJm" id="Noq-Yu-e6r"/>
                         <outlet property="trailing1YrButton" destination="IHd-pr-LCF" id="lcr-bH-gBC"/>
                         <outlet property="trailing3MButton" destination="0o9-db-M8R" id="buo-O6-p6r"/>

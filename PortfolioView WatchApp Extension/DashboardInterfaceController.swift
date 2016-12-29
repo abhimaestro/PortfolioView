@@ -18,6 +18,9 @@ class DashboardInterfaceController: WKInterfaceController {
     @IBOutlet var portfolioMarketValueLabel: WKInterfaceLabel!
     @IBOutlet var netEarningsTitleLabel: WKInterfaceLabel!
     @IBOutlet var netEarningsLabel: WKInterfaceLabel!
+    @IBOutlet var totalReturnTitleLabel: WKInterfaceLabel!
+    @IBOutlet var totalReturnLabel: WKInterfaceLabel!
+    
     @IBOutlet var dateRangeLabel: WKInterfaceLabel!
     @IBOutlet var trailing1MButton: WKInterfaceButton!
     @IBOutlet var trailing3MButton: WKInterfaceButton!
@@ -31,13 +34,15 @@ class DashboardInterfaceController: WKInterfaceController {
     let buttonFont = UIFont.systemFont(ofSize: 7.0, weight: UIFontWeightLight)
     let buttonSelectedFont = UIFont.systemFont(ofSize: 8.0, weight: UIFontWeightHeavy)
     let valueFont = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightMedium)
+    let value2Font = UIFont.systemFont(ofSize: 11.0, weight: UIFontWeightMedium)
     
     override func willActivate() {
         super.willActivate()
         
         self.setTitle("summary")
         portfolioMarketValueTitleLabel.setAttributedText(getAttributedString("market value", font: titleFont))
-        netEarningsTitleLabel.setAttributedText(getAttributedString("total earnings", font: titleFont))
+        netEarningsTitleLabel.setAttributedText(getAttributedString("earnings", font: titleFont))
+        totalReturnTitleLabel.setAttributedText(getAttributedString("return", font: titleFont))
         
         updateForTrailingAll()
     }
@@ -69,6 +74,7 @@ class DashboardInterfaceController: WKInterfaceController {
         
         updateChart(trailingPeriod: trailingPeriod)
         updateEarnings()
+        updateTotalReturn()
         updateMarketValue()
         updateDateRangeLabel()
     }
@@ -105,7 +111,12 @@ class DashboardInterfaceController: WKInterfaceController {
         currencyFormatter.maximumFractionDigits = 0
         
         let netEarningsCurrency = currencyFormatter.string(from: (portfolioData.totalPortfolioReturnDollar as NSNumber))!
-        netEarningsLabel.setAttributedText(getAttributedString(netEarningsCurrency, font: valueFont, color: getCurrencyColor(value: portfolioData.totalPortfolioReturnDollar)))
+        netEarningsLabel.setAttributedText(getAttributedString(netEarningsCurrency, font: value2Font, color: getCurrencyColor(value: portfolioData.totalPortfolioReturnDollar)))
+    }
+    
+    func updateTotalReturn() {
+        let str = String(format: "%.1f%%", portfolioData.totalPortfolioReturnPercent)
+        totalReturnLabel.setAttributedText(getAttributedString(str, font: value2Font, color: getCurrencyColor(value: portfolioData.totalPortfolioReturnDollar)))
     }
     
     func updateChart(trailingPeriod: TrailingPeriod) {
