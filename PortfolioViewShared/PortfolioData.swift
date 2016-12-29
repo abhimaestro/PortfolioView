@@ -155,6 +155,14 @@ public class PortfolioData {
             (name:"Alternatives", percent: 10.0, dollar: 33000.0),
             (name: "Cash", percent: 5.0, dollar: 16500)]
     }
+    
+    public static func getAccounts() -> [Account] {
+        return [
+            Account(name: "John Doe Brokerage for retirement", marketValue: 295475, changePercent: 1.05),
+            Account(name: "Jane Doe IRA", marketValue: 215016, changePercent: 2.41),
+            Account(name: "Elizabeth Doe MWP", marketValue: 167000, changePercent: -2.76),
+            Account(name: "Jen SMA", marketValue: 45186, changePercent: 0.87)]
+    }
 }
 
 public enum IndexType {
@@ -170,4 +178,18 @@ public enum TrailingPeriod : String {
     case Y3 = "3Yr"
     case Y5 = "5Yr"
     case All = "All"
+}
+
+public class Account {
+    public var name: String!
+    public var marketValue: Double = 0.0
+    public var changeDollar: Double = 0.0
+    public var changePercent: Double = 0.0
+    
+    init(name: String, marketValue: Double, changePercent: Double) {
+        self.name = name
+        self.marketValue = marketValue
+        self.changePercent = changePercent
+        self.changeDollar = marketValue * changePercent/100
+    }
 }

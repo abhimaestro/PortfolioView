@@ -129,7 +129,7 @@
                         <imageView alignment="center" id="S8y-JM-wfZ"/>
                         <table alignment="left" id="Bsc-ve-Yl2">
                             <items>
-                                <tableRow identifier="AllocationRow" id="ZJv-sL-ne2" userLabel="AllocationRow" customClass="AllocationRowController" customModule="PortfolioView_WatchApp_Extension">
+                                <tableRow identifier="AllocationRow" selectable="NO" id="ZJv-sL-ne2" userLabel="AllocationRow" customClass="AllocationRowController" customModule="PortfolioView_WatchApp_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" id="EmY-TG-jyY">
                                         <items>
                                             <separator height="1" heightAdjustment="-5" alignment="left" verticalAlignment="center" id="tGl-GL-5T8">
@@ -137,14 +137,15 @@
                                             </separator>
                                             <group alignment="left" layout="vertical" spacing="0.0" id="2Ik-gC-MwW">
                                                 <items>
-                                                    <group width="1" height="13" alignment="left" spacing="4" id="mZZ-RS-LqX">
+                                                    <group width="1" alignment="left" spacing="4" id="mZZ-RS-LqX">
                                                         <items>
                                                             <label alignment="left" verticalAlignment="center" text="Equity" id="uXl-Qu-wft">
                                                                 <fontDescription key="font" type="system" pointSize="7"/>
                                                             </label>
                                                         </items>
+                                                        <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="2"/>
                                                     </group>
-                                                    <group width="1" height="9" alignment="left" verticalAlignment="center" id="mQk-hX-Ysz">
+                                                    <group width="1" alignment="left" verticalAlignment="center" id="mQk-hX-Ysz">
                                                         <items>
                                                             <label alignment="left" verticalAlignment="center" text="20%" id="dcY-Sq-Su5">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -155,6 +156,7 @@
                                                                 <fontDescription key="font" type="system" pointSize="6"/>
                                                             </label>
                                                         </items>
+                                                        <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="2"/>
                                                     </group>
                                                 </items>
                                                 <edgeInsets key="margins" left="4" right="0.0" top="0.0" bottom="0.0"/>
@@ -175,10 +177,69 @@
                     <connections>
                         <outlet property="allocationsTable" destination="Bsc-ve-Yl2" id="ULJ-R6-pD1"/>
                         <outlet property="chartImageView" destination="S8y-JM-wfZ" id="vcw-qK-dyv"/>
+                        <segue destination="dDZ-Y8-vDY" kind="relationship" relationship="nextPage" id="CTE-st-rmq"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="505" y="345"/>
+        </scene>
+        <!--accounts-->
+        <scene sceneID="7uX-EP-ktL">
+            <objects>
+                <controller title="accounts" id="dDZ-Y8-vDY" customClass="AccountsInterfaceController" customModule="PortfolioView_WatchApp_Extension">
+                    <items>
+                        <table alignment="left" id="cJP-xP-8bp">
+                            <items>
+                                <tableRow identifier="AccountRow" selectable="NO" id="uBr-iR-228" userLabel="AccountRow" customClass="AccountRowController" customModule="PortfolioView_WatchApp_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="BDc-X0-gbE">
+                                        <items>
+                                            <separator height="1" heightAdjustment="-5" alignment="left" verticalAlignment="center" id="cRr-8z-D2B">
+                                                <color key="color" red="0.96158301830000004" green="0.0" blue="0.24504715199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </separator>
+                                            <group alignment="left" layout="vertical" spacing="0.0" id="6r7-D1-1kx">
+                                                <items>
+                                                    <group width="1" alignment="left" spacing="5" id="WmF-Wn-OSc">
+                                                        <items>
+                                                            <label alignment="left" verticalAlignment="center" text="John Doe Brokerage" numberOfLines="0" id="BcP-bY-haQ">
+                                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                                            </label>
+                                                        </items>
+                                                        <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="1"/>
+                                                    </group>
+                                                    <group width="1" alignment="left" verticalAlignment="center" id="rBt-Yz-nc1">
+                                                        <items>
+                                                            <label alignment="left" verticalAlignment="center" text="$100,234" id="LPC-Lg-oEP">
+                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="font" type="system" pointSize="6"/>
+                                                            </label>
+                                                            <label alignment="right" verticalAlignment="center" text="$100,234 (1.04%)" id="Z2H-oE-27C">
+                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="font" type="system" pointSize="6"/>
+                                                            </label>
+                                                        </items>
+                                                        <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="2"/>
+                                                    </group>
+                                                </items>
+                                                <edgeInsets key="margins" left="4" right="0.0" top="0.0" bottom="0.0"/>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="changeLabel" destination="Z2H-oE-27C" id="LHS-KA-pzg"/>
+                                        <outlet property="marketValueLabel" destination="LPC-Lg-oEP" id="Xk2-P2-dUZ"/>
+                                        <outlet property="nameLabel" destination="BcP-bY-haQ" id="QN8-Zx-gUG"/>
+                                        <outlet property="separator" destination="cRr-8z-D2B" id="pin-zN-qzI"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="accountsTable" destination="cJP-xP-8bp" id="VQX-fL-7gl"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="784" y="345"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.32156862745098042" green="0.47450980392156861" blue="0.63529411764705879" alpha="1" colorSpace="calibratedRGB"/>

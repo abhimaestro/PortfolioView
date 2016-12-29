@@ -50,6 +50,7 @@
 		C2C201F01E153DBD0020863D /* Extensions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C201EB1E153C410020863D /* Extensions2.swift */; };
 		C2C201F21E157F870020863D /* AllocationInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C201F11E157F870020863D /* AllocationInterfaceController.swift */; };
 		C2C201F41E1581D00020863D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C201F31E1581D00020863D /* Helper.swift */; };
+		C2C201F81E1595560020863D /* AccountsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C201F71E1595560020863D /* AccountsInterfaceController.swift */; };
 		C2F71B2B1E02CDAE00A99298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */; };
 		C2F71B321E02CDAF00A99298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F71B301E02CDAF00A99298 /* Main.storyboard */; };
 		C2F71B341E02CDAF00A99298 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F71B331E02CDAF00A99298 /* Assets.xcassets */; };
@@ -222,6 +223,7 @@
 		C2C201EB1E153C410020863D /* Extensions2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions2.swift; sourceTree = "<group>"; };
 		C2C201F11E157F870020863D /* AllocationInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllocationInterfaceController.swift; sourceTree = "<group>"; };
 		C2C201F31E1581D00020863D /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		C2C201F71E1595560020863D /* AccountsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsInterfaceController.swift; sourceTree = "<group>"; };
 		C2F71B271E02CDAE00A99298 /* PortfolioView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F71B311E02CDAF00A99298 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				C2C201C21E152D4C0020863D /* DashboardInterfaceController.swift */,
 				C2C201F11E157F870020863D /* AllocationInterfaceController.swift */,
 				C2C201F31E1581D00020863D /* Helper.swift */,
+				C2C201F71E1595560020863D /* AccountsInterfaceController.swift */,
 			);
 			path = "PortfolioView WatchApp Extension";
 			sourceTree = "<group>";
@@ -1089,6 +1092,7 @@
 				C267814F1E14786300D85E05 /* NotificationController.swift in Sources */,
 				C2C201F41E1581D00020863D /* Helper.swift in Sources */,
 				C2C201F21E157F870020863D /* AllocationInterfaceController.swift in Sources */,
+				C2C201F81E1595560020863D /* AccountsInterfaceController.swift in Sources */,
 				C267814D1E14786300D85E05 /* ExtensionDelegate.swift in Sources */,
 				C2C201C31E152D4C0020863D /* DashboardInterfaceController.swift in Sources */,
 			);

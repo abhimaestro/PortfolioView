@@ -15,3 +15,19 @@ public extension CGRect {
         self.init(x:x, y:y, width:w, height:h)
     }
 }
+
+public extension Double {
+    public func toCurrency() -> String {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.maximumFractionDigits = 0
+        let currency = currencyFormatter.string(from: (self as NSNumber))!
+        
+        return currency
+    }
+    
+    public func toPercent(noOfDecimals: Int = 0) -> String {
+        let str = String(format: "%.\(noOfDecimals)f%%", self)
+        return str
+    }
+}

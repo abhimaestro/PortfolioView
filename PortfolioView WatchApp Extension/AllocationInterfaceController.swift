@@ -15,13 +15,7 @@ class AllocationInterfaceController: WKInterfaceController {
 
     let chartLabelFont = UIFont.systemFont(ofSize: 7.0, weight: UIFontWeightLight)
     let allocations = PortfolioData.getAllocations()
-    let colorsCustom = [
-        UIColor(red: 106/255.0, green: 213/255.0, blue: 207/255.0, alpha: 1.0),
-        UIColor(red: 148/255.0, green: 120/255.0, blue: 162/255.0, alpha: 1.0),
-        UIColor(red: 166/255.0, green: 208/255.0, blue: 100/255.0, alpha: 1.0),
-        UIColor(red: 216/255.0, green: 82/255.0, blue: 85/255.0, alpha: 1.0),
-        UIColor(red: 89/255.0, green: 156/255.0, blue: 155/255.0, alpha: 1.0)
-    ]
+
     
     @IBOutlet weak var chartImageView: WKInterfaceImage!
     @IBOutlet var allocationsTable: WKInterfaceTable!
@@ -33,7 +27,7 @@ class AllocationInterfaceController: WKInterfaceController {
         
         for index in 0..<allocationsTable.numberOfRows {
             if let controller = allocationsTable.rowController(at: index) as? AllocationRowController {
-                controller.setAllocation(color: colorsCustom[index], allocation: allocations[index])
+                controller.setAllocation(color: Helper.colorsCustom[index], allocation: allocations[index])
             }
         }
     }
@@ -51,10 +45,10 @@ class AllocationInterfaceController: WKInterfaceController {
         let image = YODonutChartImage()
         image.donutWidth = 12.0
         image.labelFont = chartLabelFont
-        image.labelText = "Allocation"
+        image.labelText = "   total\nportfolio"
         image.labelColor = UIColor.darkGray
         image.values = allocations.map({$0.percent as NSNumber})
-        image.colors = colorsCustom
+        image.colors =  Helper.colorsCustom
         
         let chartImage = image.draw(frame, scale: scale)
         
@@ -72,18 +66,8 @@ class AllocationRowController: NSObject {
     func setAllocation(color: UIColor, allocation: (name: String, percent: Double, dollar: Double)) {
         
         nameLabel.setText(allocation.name)
-        
-        let percentStr = String(format: "%.1f%%", allocation.percent)
-        percentLabel.setText(percentStr)
-        
-        separator.setWidth(15.0)
-        separator.setColor(color)
-        
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = .currency
-        currencyFormatter.maximumFractionDigits = 0
-        let dollarStr = currencyFormatter.string(from: (allocation.dollar as NSNumber))!
-        dollarLabel.setText(dollarStr)
+        percentLabel.setText(allocation.percent.toPercent())
+       separator.setColor(color)
+        dollarLabel.setText(allocation.dollar.toCurrency())
     }
-
 }
