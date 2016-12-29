@@ -19,10 +19,13 @@ class AllocationInterfaceController: WKInterfaceController {
     
     @IBOutlet weak var chartImageView: WKInterfaceImage!
     @IBOutlet var allocationsTable: WKInterfaceTable!
+    @IBOutlet var asOfDate: WKInterfaceLabel!
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
+
+        asOfDate.setText("as of date: \(Date.getYesterday().toShortDateString())")
+
         allocationsTable.setNumberOfRows(allocations.count, withRowType: "AllocationRow")
         
         for index in 0..<allocationsTable.numberOfRows {

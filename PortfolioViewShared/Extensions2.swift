@@ -31,3 +31,22 @@ public extension Double {
         return str
     }
 }
+
+public extension Date {
+    
+    public func toShortDateString() -> String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateStyle = .short
+        return dateformatter.string(from: self)
+    }
+
+    public func toDateTimeString(format: String = "MM/dd/yyyy HH:mm a") -> String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = format
+        return dateformatter.string(from: self)
+    }
+    
+    static public func getYesterday() -> Date {
+        return Date().addingTimeInterval(-(24*60*60))
+    }
+}

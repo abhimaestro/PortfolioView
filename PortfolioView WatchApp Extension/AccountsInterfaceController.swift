@@ -13,11 +13,15 @@ import PortfolioViewShared
 class AccountsInterfaceController: WKInterfaceController {
 
     @IBOutlet var accountsTable: WKInterfaceTable!
+    @IBOutlet var asOfDate: WKInterfaceLabel!
+    
     let accounts = PortfolioData.getAccounts()
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
+        asOfDate.setText("as of date: \(Date().toDateTimeString())")
+
         accountsTable.setNumberOfRows(accounts.count, withRowType: "AccountRow")
         
         for index in 0..<accountsTable.numberOfRows {

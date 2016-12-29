@@ -172,10 +172,15 @@
                                 </tableRow>
                             </items>
                         </table>
+                        <label alignment="center" verticalAlignment="bottom" text="as of date: 1/1/2017" id="fTz-fz-UIV">
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="6"/>
+                        </label>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                     <connections>
                         <outlet property="allocationsTable" destination="Bsc-ve-Yl2" id="ULJ-R6-pD1"/>
+                        <outlet property="asOfDate" destination="fTz-fz-UIV" id="vhL-uI-Fv3"/>
                         <outlet property="chartImageView" destination="S8y-JM-wfZ" id="vcw-qK-dyv"/>
                         <segue destination="dDZ-Y8-vDY" kind="relationship" relationship="nextPage" id="CTE-st-rmq"/>
                     </connections>
@@ -233,9 +238,14 @@
                                 </tableRow>
                             </items>
                         </table>
+                        <label alignment="center" verticalAlignment="bottom" text="as of date: 1/1/2017" id="5P8-B4-ZwY">
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="6"/>
+                        </label>
                     </items>
                     <connections>
                         <outlet property="accountsTable" destination="cJP-xP-8bp" id="VQX-fL-7gl"/>
+                        <outlet property="asOfDate" destination="5P8-B4-ZwY" id="6Or-M2-UZH"/>
                     </connections>
                 </controller>
             </objects>
