@@ -45,17 +45,20 @@ class DashboardInterfaceController: WKInterfaceController {
         let netEarningsCurrency = currencyFormatter.string(from: (portfolioData.totalPortfolioReturnDollar as NSNumber))!
         
         portfolioMarketValueLabel.setAttributedText(getAttributedString(mvCurrency, font: valueFont))
-        netEarningsLabel.setAttributedText(getAttributedString(netEarningsCurrency, font: valueFont))
+        netEarningsLabel.setAttributedText(getAttributedString(netEarningsCurrency, font: valueFont, color: getCurrencyColor(value: portfolioData.totalPortfolioReturnDollar)))
         
         updateDateRangeLabel(portfolioData)
     }
 
     func getChartImage(frame: CGRect, scale: CGFloat) -> UIImage {
-        let image = YOLineChartImage()
-        image.strokeWidth = 1
-        image.strokeColor = UIColor(red: 154/255.0, green: 181/255.0, blue: 228/255.0, alpha: 1.00)
         
         portfolioData = PortfolioData.load(trailingPeriod: .All)!
+        
+        let image = YOLineChartImage()
+        image.strokeWidth = 1
+        image.strokeColor = getCurrencyColor(value: portfolioData.totalPortfolioReturnDollar).withAlphaComponent(0.5)
+        
+
         let marketValues = portfolioData.portfolioDataItems.map({$0.marketValue!})
         image.values = marketValues as [NSNumber]
         image.smooth = false
@@ -63,7 +66,14 @@ class DashboardInterfaceController: WKInterfaceController {
     }
     
     func getAttributedString(_ str: String, font: UIFont, color: UIColor? = nil) -> NSAttributedString {
-        let attrString = NSAttributedString(string: str, attributes: [NSFontAttributeName: font])
+        
+        var attributes: [String : Any] = [NSFontAttributeName: font]
+        
+        if let color = color {
+            attributes[NSForegroundColorAttributeName] = color
+        }
+        
+        let attrString = NSAttributedString(string: str, attributes: attributes)
         return attrString
     }
     
@@ -72,5 +82,14 @@ class DashboardInterfaceController: WKInterfaceController {
         dateformatter.dateStyle = .short
         let str = "\(dateformatter.string(from: portfolioData.inceptionDate)) - \(dateformatter.string(from: portfolioData.endDate))"
         dateRangeLabel.setAttributedText(getAttributedString(str, font: titleFont))
+    }
+    
+    func getCurrencyColor(value: Double) -> UIColor {
+        if value < 0 {
+            return UIColor(red: 98/255.0, green: 32/255.0, blue: 32/255.0, alpha: 1.0)
+        }
+        else {
+            return UIColor(red: 30/255.0, green: 116/255.0, blue: 0/255.0, alpha: 1.0)
+        }
     }
 }

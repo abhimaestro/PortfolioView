@@ -30,7 +30,9 @@
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                 </label>
-                                <label alignment="center" verticalAlignment="bottom" text="Label" id="gZ7-9R-Kyd"/>
+                                <label alignment="center" verticalAlignment="bottom" text="Label" id="gZ7-9R-Kyd">
+                                    <color key="textColor" red="0.11764705882352941" green="0.45490196078431372" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </label>
                             </items>
                             <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
                         </group>
