@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C2C201681E1506420020863D"
+               BlueprintIdentifier = "C2C201D31E15351E0020863D"
                BuildableName = "PortfolioViewShared.framework"
-               BlueprintName = "PortfolioViewShared (iOS)"
+               BlueprintName = "PortfolioViewShared (watchOS)"
                ReferencedContainer = "container:PortfolioView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C2C201681E1506420020863D"
+            BlueprintIdentifier = "C2C201D31E15351E0020863D"
             BuildableName = "PortfolioViewShared.framework"
-            BlueprintName = "PortfolioViewShared (iOS)"
+            BlueprintName = "PortfolioViewShared (watchOS)"
             ReferencedContainer = "container:PortfolioView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C2C201681E1506420020863D"
+            BlueprintIdentifier = "C2C201D31E15351E0020863D"
             BuildableName = "PortfolioViewShared.framework"
-            BlueprintName = "PortfolioViewShared (iOS)"
+            BlueprintName = "PortfolioViewShared (watchOS)"
             ReferencedContainer = "container:PortfolioView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

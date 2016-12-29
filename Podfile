@@ -9,9 +9,15 @@ target 'PortfolioView' do
   # Pods for PortfolioView
  pod 'ObjectMapper', '~> 2.2'
 
-target 'PortfolioViewShared' do
+target 'PortfolioViewShared (iOS)' do
     inherit! :search_paths
      pod 'ObjectMapper', '~> 2.2'
+end
+
+target 'PortfolioViewShared (watchOS)' do
+    inherit! :search_paths
+    platform :watchos, '2.0'
+    pod 'ObjectMapper', '~> 2.2'
 end
 
 target 'PortfolioView WatchApp Extension' do

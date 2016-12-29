@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		12D5750DE9B609560702031B /* Pods_PortfolioView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18BE8FF50FDAE8F2CF63FA5 /* Pods_PortfolioView.framework */; };
+		563279D1F00D177A7F9B34DD /* Pods_PortfolioViewShared__watchOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C7032832768F1FA28E2195 /* Pods_PortfolioViewShared__watchOS_.framework */; };
 		A838B512AE46F9CF4153B419 /* Pods_PortfolioViewShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBAB2F7603BA0CD2A97B6E58 /* Pods_PortfolioViewShared.framework */; };
+		B83301525A8CBB5E3E7A8C13 /* Pods_PortfolioViewShared__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F18237E6DA37F757EE089C1 /* Pods_PortfolioViewShared__iOS_.framework */; };
 		C23208351E12E32600E54844 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208341E12E32600E54844 /* FontHelper.swift */; };
 		C23208371E13094F00E54844 /* PopOverActionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208361E13094F00E54844 /* PopOverActionsVC.swift */; };
 		C2335A591E100F4500760234 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A581E100F4500760234 /* Extensions.swift */; };
@@ -35,6 +37,15 @@
 		C2C201BE1E1525700020863D /* portfolioData_5Yr.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201B91E1525700020863D /* portfolioData_5Yr.json */; };
 		C2C201C31E152D4C0020863D /* DashboardInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C201C21E152D4C0020863D /* DashboardInterfaceController.swift */; };
 		C2C201C41E152DAB0020863D /* Pods_PortfolioView_WatchApp_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF1EE60B7933341F32EB7B /* Pods_PortfolioView_WatchApp_Extension.framework */; };
+		C2C201DB1E15351E0020863D /* PortfolioViewShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C201D41E15351E0020863D /* PortfolioViewShared.framework */; };
+		C2C201DC1E15351E0020863D /* PortfolioViewShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2C201D41E15351E0020863D /* PortfolioViewShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2C201E21E1536A80020863D /* portfolioData_1M.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201B51E1525700020863D /* portfolioData_1M.json */; };
+		C2C201E31E1536A80020863D /* portfolioData_1Yr.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201B61E1525700020863D /* portfolioData_1Yr.json */; };
+		C2C201E51E1536A80020863D /* portfolioData_3Yr.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201B81E1525700020863D /* portfolioData_3Yr.json */; };
+		C2C201E61E1536A80020863D /* portfolioData_5Yr.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201B91E1525700020863D /* portfolioData_5Yr.json */; };
+		C2C201E71E1536A80020863D /* portfolioData_All.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201AB1E1518010020863D /* portfolioData_All.json */; };
+		C2C201E91E1538220020863D /* PortfolioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C201AC1E1518010020863D /* PortfolioData.swift */; };
+		C2C201EA1E15382F0020863D /* portfolioData_3M.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201B71E1525700020863D /* portfolioData_3M.json */; };
 		C2F71B2B1E02CDAE00A99298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */; };
 		C2F71B321E02CDAF00A99298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F71B301E02CDAF00A99298 /* Main.storyboard */; };
 		C2F71B341E02CDAF00A99298 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F71B331E02CDAF00A99298 /* Assets.xcassets */; };
@@ -81,6 +92,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = C2C201681E1506420020863D;
 			remoteInfo = PortfolioViewShared;
+		};
+		C2C201D91E15351E0020863D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2F71B1F1E02CDAE00A99298 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C2C201D31E15351E0020863D;
+			remoteInfo = "PortfolioViewShared (WatchOS)";
 		};
 		C2F71B3E1E02CDAF00A99298 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -138,6 +156,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C2C201DC1E15351E0020863D /* PortfolioViewShared.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,14 +165,20 @@
 
 /* Begin PBXFileReference section */
 		066E3B17F2E6FBB1A3EEB9EC /* Pods-PortfolioViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewUITests/Pods-PortfolioViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0980BD04C877CD1249E3EFF7 /* Pods-PortfolioViewShared (watchOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewShared (watchOS).release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewShared (watchOS)/Pods-PortfolioViewShared (watchOS).release.xcconfig"; sourceTree = "<group>"; };
 		156CDAC2F5C445CA71D1431B /* Pods-PortfolioView WatchApp Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView WatchApp Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView WatchApp Extension/Pods-PortfolioView WatchApp Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		22F479F78698F333576F2543 /* Pods-PortfolioViewShared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewShared.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewShared/Pods-PortfolioViewShared.release.xcconfig"; sourceTree = "<group>"; };
+		239FE8B3CDF938C04319EC50 /* Pods-PortfolioViewShared (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewShared (iOS).release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewShared (iOS)/Pods-PortfolioViewShared (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		473AEACE6415AFD757B22352 /* Pods_PortfolioViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF53D2FF6381B2914EA3EC6 /* Pods-PortfolioViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewUITests/Pods-PortfolioViewUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5C47662E5A01C3B4268E3717 /* Pods-PortfolioViewShared (watchOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewShared (watchOS).debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewShared (watchOS)/Pods-PortfolioViewShared (watchOS).debug.xcconfig"; sourceTree = "<group>"; };
 		5D5F9A526FFEEE84ABA4DD59 /* Pods-PortfolioViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewTests/Pods-PortfolioViewTests.release.xcconfig"; sourceTree = "<group>"; };
+		603CF0E26584F95248F1E9C7 /* Pods-PortfolioViewShared (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewShared (iOS).debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewShared (iOS)/Pods-PortfolioViewShared (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		63BC0B6F3CB38C4A1754DEEC /* Pods-PortfolioView WatchApp Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView WatchApp Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView WatchApp Extension/Pods-PortfolioView WatchApp Extension.release.xcconfig"; sourceTree = "<group>"; };
+		64C7032832768F1FA28E2195 /* Pods_PortfolioViewShared__watchOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioViewShared__watchOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E9986017C8F7009D38308C /* Pods-PortfolioView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView/Pods-PortfolioView.debug.xcconfig"; sourceTree = "<group>"; };
 		7788AB0E5B366FA0B8C90319 /* Pods-PortfolioViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewTests/Pods-PortfolioViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7F18237E6DA37F757EE089C1 /* Pods_PortfolioViewShared__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioViewShared__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		811029D797500E3B9F1006F5 /* Pods_PortfolioViewUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioViewUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		907C060298334BF28D095050 /* Pods-PortfolioView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView/Pods-PortfolioView.release.xcconfig"; sourceTree = "<group>"; };
 		A18BE8FF50FDAE8F2CF63FA5 /* Pods_PortfolioView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +214,8 @@
 		C2C201B81E1525700020863D /* portfolioData_3Yr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_3Yr.json; sourceTree = "<group>"; };
 		C2C201B91E1525700020863D /* portfolioData_5Yr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_5Yr.json; sourceTree = "<group>"; };
 		C2C201C21E152D4C0020863D /* DashboardInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardInterfaceController.swift; sourceTree = "<group>"; };
+		C2C201D41E15351E0020863D /* PortfolioViewShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PortfolioViewShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2C201D71E15351E0020863D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2F71B271E02CDAE00A99298 /* PortfolioView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F71B311E02CDAF00A99298 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -219,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2C201C41E152DAB0020863D /* Pods_PortfolioView_WatchApp_Extension.framework in Frameworks */,
+				C2C201DB1E15351E0020863D /* PortfolioViewShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A838B512AE46F9CF4153B419 /* Pods_PortfolioViewShared.framework in Frameworks */,
+				B83301525A8CBB5E3E7A8C13 /* Pods_PortfolioViewShared__iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +264,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2C201721E1506420020863D /* PortfolioViewShared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2C201D01E15351E0020863D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				563279D1F00D177A7F9B34DD /* Pods_PortfolioViewShared__watchOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +314,8 @@
 				811029D797500E3B9F1006F5 /* Pods_PortfolioViewUITests.framework */,
 				DBAB2F7603BA0CD2A97B6E58 /* Pods_PortfolioViewShared.framework */,
 				B1EF1EE60B7933341F32EB7B /* Pods_PortfolioView_WatchApp_Extension.framework */,
+				7F18237E6DA37F757EE089C1 /* Pods_PortfolioViewShared__iOS_.framework */,
+				64C7032832768F1FA28E2195 /* Pods_PortfolioViewShared__watchOS_.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -294,6 +333,10 @@
 				22F479F78698F333576F2543 /* Pods-PortfolioViewShared.release.xcconfig */,
 				156CDAC2F5C445CA71D1431B /* Pods-PortfolioView WatchApp Extension.debug.xcconfig */,
 				63BC0B6F3CB38C4A1754DEEC /* Pods-PortfolioView WatchApp Extension.release.xcconfig */,
+				603CF0E26584F95248F1E9C7 /* Pods-PortfolioViewShared (iOS).debug.xcconfig */,
+				239FE8B3CDF938C04319EC50 /* Pods-PortfolioViewShared (iOS).release.xcconfig */,
+				5C47662E5A01C3B4268E3717 /* Pods-PortfolioViewShared (watchOS).debug.xcconfig */,
+				0980BD04C877CD1249E3EFF7 /* Pods-PortfolioViewShared (watchOS).release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -333,14 +376,9 @@
 		C2C2016A1E1506420020863D /* PortfolioViewShared */ = {
 			isa = PBXGroup;
 			children = (
-				C2C201B51E1525700020863D /* portfolioData_1M.json */,
-				C2C201B61E1525700020863D /* portfolioData_1Yr.json */,
-				C2C201B71E1525700020863D /* portfolioData_3M.json */,
-				C2C201B81E1525700020863D /* portfolioData_3Yr.json */,
-				C2C201B91E1525700020863D /* portfolioData_5Yr.json */,
-				C2C201AB1E1518010020863D /* portfolioData_All.json */,
-				C2C201AC1E1518010020863D /* PortfolioData.swift */,
-				C2C2016C1E1506420020863D /* Info.plist */,
+				C2C201E11E15368E0020863D /* Common */,
+				C2C201E01E1536790020863D /* PortfolioViewShared (iOS) */,
+				C2C201D51E15351E0020863D /* PortfolioViewShared (WatchOS) */,
 			);
 			path = PortfolioViewShared;
 			sourceTree = "<group>";
@@ -352,6 +390,36 @@
 				C2C2017A1E1506420020863D /* Info.plist */,
 			);
 			path = PortfolioViewSharedTests;
+			sourceTree = "<group>";
+		};
+		C2C201D51E15351E0020863D /* PortfolioViewShared (WatchOS) */ = {
+			isa = PBXGroup;
+			children = (
+				C2C201D71E15351E0020863D /* Info.plist */,
+			);
+			path = "PortfolioViewShared (WatchOS)";
+			sourceTree = SOURCE_ROOT;
+		};
+		C2C201E01E1536790020863D /* PortfolioViewShared (iOS) */ = {
+			isa = PBXGroup;
+			children = (
+				C2C2016C1E1506420020863D /* Info.plist */,
+			);
+			name = "PortfolioViewShared (iOS)";
+			sourceTree = "<group>";
+		};
+		C2C201E11E15368E0020863D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C2C201B51E1525700020863D /* portfolioData_1M.json */,
+				C2C201B61E1525700020863D /* portfolioData_1Yr.json */,
+				C2C201B71E1525700020863D /* portfolioData_3M.json */,
+				C2C201B81E1525700020863D /* portfolioData_3Yr.json */,
+				C2C201B91E1525700020863D /* portfolioData_5Yr.json */,
+				C2C201AB1E1518010020863D /* portfolioData_All.json */,
+				C2C201AC1E1518010020863D /* PortfolioData.swift */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		C2F71B1E1E02CDAE00A99298 = {
@@ -381,6 +449,7 @@
 				C26781431E14786200D85E05 /* PortfolioView WatchApp Extension.appex */,
 				C2C201691E1506420020863D /* PortfolioViewShared.framework */,
 				C2C201711E1506420020863D /* PortfolioViewSharedTests.xctest */,
+				C2C201D41E15351E0020863D /* PortfolioViewShared.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -430,6 +499,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C2C201D11E15351E0020863D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -466,15 +542,16 @@
 			buildRules = (
 			);
 			dependencies = (
+				C2C201DA1E15351E0020863D /* PBXTargetDependency */,
 			);
 			name = "PortfolioView WatchApp Extension";
 			productName = "PortfolioView WatchApp Extension";
 			productReference = C26781431E14786200D85E05 /* PortfolioView WatchApp Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
-		C2C201681E1506420020863D /* PortfolioViewShared */ = {
+		C2C201681E1506420020863D /* PortfolioViewShared (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C2C201841E1506420020863D /* Build configuration list for PBXNativeTarget "PortfolioViewShared" */;
+			buildConfigurationList = C2C201841E1506420020863D /* Build configuration list for PBXNativeTarget "PortfolioViewShared (iOS)" */;
 			buildPhases = (
 				5B3E82F7C203DC349D111697 /* [CP] Check Pods Manifest.lock */,
 				C2C201641E1506420020863D /* Sources */,
@@ -487,7 +564,7 @@
 			);
 			dependencies = (
 			);
-			name = PortfolioViewShared;
+			name = "PortfolioViewShared (iOS)";
 			productName = PortfolioViewShared;
 			productReference = C2C201691E1506420020863D /* PortfolioViewShared.framework */;
 			productType = "com.apple.product-type.framework";
@@ -510,6 +587,26 @@
 			productName = PortfolioViewSharedTests;
 			productReference = C2C201711E1506420020863D /* PortfolioViewSharedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C2C201D31E15351E0020863D /* PortfolioViewShared (watchOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2C201DF1E15351E0020863D /* Build configuration list for PBXNativeTarget "PortfolioViewShared (watchOS)" */;
+			buildPhases = (
+				B179AF0C6C0DC0A684BC981E /* [CP] Check Pods Manifest.lock */,
+				C2C201CF1E15351E0020863D /* Sources */,
+				C2C201D01E15351E0020863D /* Frameworks */,
+				C2C201D11E15351E0020863D /* Headers */,
+				C2C201D21E15351E0020863D /* Resources */,
+				75774D7D70CF47B903C2BDCA /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PortfolioViewShared (watchOS)";
+			productName = "PortfolioViewShared (WatchOS)";
+			productReference = C2C201D41E15351E0020863D /* PortfolioViewShared.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		C2F71B261E02CDAE00A99298 /* PortfolioView */ = {
 			isa = PBXNativeTarget;
@@ -609,6 +706,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = C2F71B261E02CDAE00A99298;
 					};
+					C2C201D31E15351E0020863D = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = WEWC6Q3ZN7;
+						ProvisioningStyle = Automatic;
+					};
 					C2F71B261E02CDAE00A99298 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = WEWC6Q3ZN7;
@@ -644,8 +746,9 @@
 				C2F71B471E02CDAF00A99298 /* PortfolioViewUITests */,
 				C26781361E14786200D85E05 /* PortfolioView WatchApp */,
 				C26781421E14786200D85E05 /* PortfolioView WatchApp Extension */,
-				C2C201681E1506420020863D /* PortfolioViewShared */,
+				C2C201681E1506420020863D /* PortfolioViewShared (iOS) */,
 				C2C201701E1506420020863D /* PortfolioViewSharedTests */,
+				C2C201D31E15351E0020863D /* PortfolioViewShared (watchOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -685,6 +788,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2C201D21E15351E0020863D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2C201EA1E15382F0020863D /* portfolioData_3M.json in Resources */,
+				C2C201E61E1536A80020863D /* portfolioData_5Yr.json in Resources */,
+				C2C201E21E1536A80020863D /* portfolioData_1M.json in Resources */,
+				C2C201E31E1536A80020863D /* portfolioData_1Yr.json in Resources */,
+				C2C201E71E1536A80020863D /* portfolioData_All.json in Resources */,
+				C2C201E51E1536A80020863D /* portfolioData_3Yr.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +906,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PortfolioViewTests/Pods-PortfolioViewTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		75774D7D70CF47B903C2BDCA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PortfolioViewShared (watchOS)/Pods-PortfolioViewShared (watchOS)-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9E8FB55FCAE5989243326783 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -850,6 +981,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PortfolioView/Pods-PortfolioView-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B179AF0C6C0DC0A684BC981E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		C3CE913B3A0F2FA12B47C71A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -907,7 +1053,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PortfolioViewShared/Pods-PortfolioViewShared-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PortfolioViewShared (iOS)/Pods-PortfolioViewShared (iOS)-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E5F1F6020F027B6EB138D111 /* [CP] Copy Pods Resources */ = {
@@ -955,6 +1101,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C2C201CF1E15351E0020863D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2C201E91E1538220020863D /* PortfolioData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2F71B231E02CDAE00A99298 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -999,7 +1153,7 @@
 		};
 		C2C201741E1506420020863D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C2C201681E1506420020863D /* PortfolioViewShared */;
+			target = C2C201681E1506420020863D /* PortfolioViewShared (iOS) */;
 			targetProxy = C2C201731E1506420020863D /* PBXContainerItemProxy */;
 		};
 		C2C201761E1506420020863D /* PBXTargetDependency */ = {
@@ -1009,8 +1163,13 @@
 		};
 		C2C201A91E15176F0020863D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C2C201681E1506420020863D /* PortfolioViewShared */;
+			target = C2C201681E1506420020863D /* PortfolioViewShared (iOS) */;
 			targetProxy = C2C201A81E15176F0020863D /* PBXContainerItemProxy */;
+		};
+		C2C201DA1E15351E0020863D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C2C201D31E15351E0020863D /* PortfolioViewShared (watchOS) */;
+			targetProxy = C2C201D91E15351E0020863D /* PBXContainerItemProxy */;
 		};
 		C2F71B3F1E02CDAF00A99298 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1140,7 +1299,7 @@
 		};
 		C2C201801E1506420020863D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE21248DB64B65AFAB6277A3 /* Pods-PortfolioViewShared.debug.xcconfig */;
+			baseConfigurationReference = 603CF0E26584F95248F1E9C7 /* Pods-PortfolioViewShared (iOS).debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1154,8 +1313,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioViewShared;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = lpl.iOS.PortfolioViewShared;
+				PRODUCT_NAME = PortfolioViewShared;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1168,7 +1327,7 @@
 		};
 		C2C201811E1506420020863D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22F479F78698F333576F2543 /* Pods-PortfolioViewShared.release.xcconfig */;
+			baseConfigurationReference = 239FE8B3CDF938C04319EC50 /* Pods-PortfolioViewShared (iOS).release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1182,8 +1341,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioViewShared;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = lpl.iOS.PortfolioViewShared;
+				PRODUCT_NAME = PortfolioViewShared;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
@@ -1220,6 +1379,62 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PortfolioView.app/PortfolioView";
+			};
+			name = Release;
+		};
+		C2C201DD1E15351E0020863D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C47662E5A01C3B4268E3717 /* Pods-PortfolioViewShared (watchOS).debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WEWC6Q3ZN7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "PortfolioViewShared (WatchOS)/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lpl.watchOS.PortfolioViewShared;
+				PRODUCT_NAME = PortfolioViewShared;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		C2C201DE1E15351E0020863D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0980BD04C877CD1249E3EFF7 /* Pods-PortfolioViewShared (watchOS).release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WEWC6Q3ZN7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "PortfolioViewShared (WatchOS)/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lpl.watchOS.PortfolioViewShared;
+				PRODUCT_NAME = PortfolioViewShared;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
 			};
 			name = Release;
 		};
@@ -1443,7 +1658,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C2C201841E1506420020863D /* Build configuration list for PBXNativeTarget "PortfolioViewShared" */ = {
+		C2C201841E1506420020863D /* Build configuration list for PBXNativeTarget "PortfolioViewShared (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2C201801E1506420020863D /* Debug */,
@@ -1457,6 +1672,15 @@
 			buildConfigurations = (
 				C2C201821E1506420020863D /* Debug */,
 				C2C201831E1506420020863D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2C201DF1E15351E0020863D /* Build configuration list for PBXNativeTarget "PortfolioViewShared (watchOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2C201DD1E15351E0020863D /* Debug */,
+				C2C201DE1E15351E0020863D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
