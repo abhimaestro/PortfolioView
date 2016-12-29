@@ -155,11 +155,11 @@ public enum IndexType {
     case Index3
 }
 
-public enum TrailingPeriod {
-    case M1
-    case M3
-    case Y1
-    case Y3
-    case Y5
-    case All
+public enum TrailingPeriod : String {
+    case M1 = "M1"
+    case M3 = "M3"
+    case Y1 = "Y1"
+    case Y3 = "Y3"
+    case Y5 = "Y5"
+    case All = "All"
 }

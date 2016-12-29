@@ -28,49 +28,92 @@ class DashboardInterfaceController: WKInterfaceController {
     var portfolioData: PortfolioData!
     let titleFont = UIFont.systemFont(ofSize: 7.0, weight: UIFontWeightLight)
     let dateRangeFont = UIFont.systemFont(ofSize: 5.0, weight: UIFontWeightThin)
-    let buttonFont = UIFont.systemFont(ofSize: 5.0, weight: UIFontWeightLight)
-    let buttonSelectedFont = UIFont.systemFont(ofSize: 6.0, weight: UIFontWeightHeavy)
+    let buttonFont = UIFont.systemFont(ofSize: 7.0, weight: UIFontWeightLight)
+    let buttonSelectedFont = UIFont.systemFont(ofSize: 8.0, weight: UIFontWeightHeavy)
     let valueFont = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightMedium)
     
     override func willActivate() {
         super.willActivate()
+        
+        self.setTitle("summary")
+        portfolioMarketValueTitleLabel.setAttributedText(getAttributedString("market value", font: titleFont))
+        netEarningsTitleLabel.setAttributedText(getAttributedString("total earnings", font: titleFont))
+        
+        updateForTrailingAll()
+    }
 
-        
-        let frame = CGRect(0, 0, contentFrame.width, contentFrame.height / 3)
-        let chartImage = getChartImage(frame: frame, scale: WKInterfaceDevice.current().screenScale)
-        self.chartImageView.setImage(chartImage)
+    @IBAction func updateForTrailing1M() {
+        updateFor(trailingPeriod: .M1, button: trailing1MButton)
+    }
+
     
-        self.setTitle("portfolio value")
+    @IBAction func updateForTrailing3M() {
+        updateFor(trailingPeriod: .M3, button: trailing3MButton)
+    }
     
-        portfolioMarketValueTitleLabel.setAttributedText(getAttributedString("current total", font: titleFont))
-        netEarningsTitleLabel.setAttributedText(getAttributedString("net earnings", font: titleFont))
+    @IBAction func updateForTrailing1Yr() {
+        updateFor(trailingPeriod: .Y1, button: trailing1YrButton)
+    }
+    
+    @IBAction func updateForTrailing3Yr() {
+        updateFor(trailingPeriod: .Y3, button: trailing3YrButton)
+    }
+    
+    @IBAction func updateForTrailingAll() {
+        updateFor(trailingPeriod: .All, button: trailingAllButton)
+    }
+    
+    func updateFor(trailingPeriod: TrailingPeriod, button: WKInterfaceButton) {
+        resetTrailingPeriodButtons()
+        setButtonText(button, text: trailingPeriod.rawValue, isSelected: true)
         
+        updateChart(trailingPeriod: trailingPeriod)
+        updateEarnings()
+        updateMarketValue()
+        updateDateRangeLabel()
+    }
+    
+    func resetTrailingPeriodButtons() {
+        setButtonText(trailing1MButton, text: TrailingPeriod.M1.rawValue)
+        setButtonText(trailing3MButton, text: TrailingPeriod.M3.rawValue)
+        setButtonText(trailing1YrButton, text: TrailingPeriod.Y1.rawValue)
+        setButtonText(trailing3YrButton, text: TrailingPeriod.Y3.rawValue)
+        setButtonText(trailingAllButton, text: TrailingPeriod.All.rawValue)
+    }
+    
+    func setButtonText(_ button: WKInterfaceButton, text: String, isSelected: Bool = false) {
+        
+        if !isSelected {
+            button.setAttributedTitle(getAttributedString(text, font: buttonFont, color: UIColor.lightGray))
+        }
+        else {
+            button.setAttributedTitle(getAttributedString(text, font: buttonSelectedFont, color: UIColor.lightGray))
+        }
+    }
+    
+    func updateMarketValue() {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.maximumFractionDigits = 0
+        let mvCurrency = currencyFormatter.string(from: (portfolioData.totalPortfolioMarketValueDollar as NSNumber))!
+        portfolioMarketValueLabel.setAttributedText(getAttributedString(mvCurrency, font: valueFont))
+    }
+    
+    func updateEarnings() {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.numberStyle = .currency
         currencyFormatter.maximumFractionDigits = 0
         
-        let mvCurrency = currencyFormatter.string(from: (portfolioData.totalPortfolioMarketValueDollar as NSNumber))!
         let netEarningsCurrency = currencyFormatter.string(from: (portfolioData.totalPortfolioReturnDollar as NSNumber))!
-        
-        portfolioMarketValueLabel.setAttributedText(getAttributedString(mvCurrency, font: valueFont))
         netEarningsLabel.setAttributedText(getAttributedString(netEarningsCurrency, font: valueFont, color: getCurrencyColor(value: portfolioData.totalPortfolioReturnDollar)))
-        
-        updateDateRangeLabel(portfolioData)
-        
-        //formatTrailingPeriodButtons()
-    }
-
-    func formatTrailingPeriodButtons(){
-        trailing1MButton.setAttributedTitle(getAttributedString("1M", font: buttonFont))
-        trailing3MButton.setAttributedTitle(getAttributedString("3M", font: buttonFont))
-        trailing1YrButton.setAttributedTitle(getAttributedString("1Yr", font: buttonFont))
-        trailing3YrButton.setAttributedTitle(getAttributedString("3Yr", font: buttonFont))
-        trailingAllButton.setAttributedTitle(getAttributedString("All", font: buttonSelectedFont))
     }
     
-    func getChartImage(frame: CGRect, scale: CGFloat) -> UIImage {
+    func updateChart(trailingPeriod: TrailingPeriod) {
         
-        portfolioData = PortfolioData.load(trailingPeriod: .All)!
+        let frame = CGRect(0, 0, contentFrame.width, contentFrame.height / 3)
+        let scale = WKInterfaceDevice.current().screenScale
+        
+        portfolioData = PortfolioData.load(trailingPeriod: trailingPeriod)!
         
         let image = YOLineChartImage()
         image.strokeWidth = 1
@@ -80,7 +123,9 @@ class DashboardInterfaceController: WKInterfaceController {
         let marketValues = portfolioData.portfolioDataItems.map({$0.marketValue!})
         image.values = marketValues as [NSNumber]
         image.smooth = false
-        return image.draw(frame, scale: scale)
+        let chartImage = image.draw(frame, scale: scale)
+        
+        self.chartImageView.setImage(chartImage)
     }
     
     func getAttributedString(_ str: String, font: UIFont, color: UIColor? = nil) -> NSAttributedString {
@@ -95,7 +140,7 @@ class DashboardInterfaceController: WKInterfaceController {
         return attrString
     }
     
-    func updateDateRangeLabel(_ portfolioData: PortfolioData) {
+    func updateDateRangeLabel() {
         let dateformatter = DateFormatter()
         dateformatter.dateStyle = .short
         let str = "\(dateformatter.string(from: portfolioData.inceptionDate)) - \(dateformatter.string(from: portfolioData.endDate))"

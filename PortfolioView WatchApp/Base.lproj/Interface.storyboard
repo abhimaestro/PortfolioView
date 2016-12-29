@@ -43,26 +43,41 @@
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="font" type="system" weight="ultraLight" pointSize="5"/>
+                                    <connections>
+                                        <action selector="updateForTrailing1M" destination="AgC-eL-Hgc" id="nht-hG-0c2"/>
+                                    </connections>
                                 </button>
                                 <button width="0.20000000000000001" height="10" alignment="left" title="3M" id="0o9-db-M8R">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="font" type="system" weight="ultraLight" pointSize="5"/>
+                                    <connections>
+                                        <action selector="updateForTrailing3M" destination="AgC-eL-Hgc" id="sWo-u6-TYI"/>
+                                    </connections>
                                 </button>
                                 <button width="0.20000000000000001" height="10" alignment="left" title="1 Yr" id="IHd-pr-LCF">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="font" type="system" weight="ultraLight" pointSize="5"/>
+                                    <connections>
+                                        <action selector="updateForTrailing1Yr" destination="AgC-eL-Hgc" id="vwW-US-fe1"/>
+                                    </connections>
                                 </button>
                                 <button width="0.20000000000000001" height="10" alignment="left" title="3 Yr" id="gGc-UA-iwI">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="font" type="system" weight="ultraLight" pointSize="5"/>
+                                    <connections>
+                                        <action selector="updateForTrailing3Yr" destination="AgC-eL-Hgc" id="JkA-UD-FMS"/>
+                                    </connections>
                                 </button>
                                 <button width="0.20000000000000001" height="10" alignment="left" title="All" id="9Tr-ml-lOs">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="font" type="system" weight="heavy" pointSize="7"/>
+                                    <connections>
+                                        <action selector="updateForTrailingAll" destination="AgC-eL-Hgc" id="MqS-fm-8F1"/>
+                                    </connections>
                                 </button>
                             </items>
                         </group>
@@ -88,5 +103,5 @@
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="0.48241429790000001" green="0.63677553200000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.32156862745098042" green="0.47450980392156861" blue="0.63529411764705879" alpha="1" colorSpace="calibratedRGB"/>
 </document>
