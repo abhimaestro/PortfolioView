@@ -9,19 +9,48 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
     </dependencies>
     <scenes>
-        <!--Dashboard Interface Controller-->
+        <!--Value-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="DashboardInterfaceController" customModule="PortfolioView_WatchApp_Extension">
+                <controller title="Value" id="AgC-eL-Hgc" customClass="DashboardInterfaceController" customModule="PortfolioView_WatchApp_Extension">
                     <items>
-                        <imageView alignment="left" verticalAlignment="bottom" id="TE2-2r-bDh"/>
+                        <group width="1" alignment="center" animationDuration="5" layout="vertical" spacing="0.0" id="vhX-ZJ-A7g">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="current total" minimumScaleFactor="0.20000000000000001" id="ZZ6-XI-qdO">
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                                <label alignment="center" verticalAlignment="bottom" text="Label" id="c3j-uz-Sa8"/>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
+                        </group>
+                        <group width="1" alignment="center" animationDuration="5" layout="vertical" spacing="0.0" id="X4Q-ou-jn1">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="net earnings" minimumScaleFactor="0.20000000000000001" id="42P-Wg-VNa">
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                                <label alignment="center" verticalAlignment="bottom" text="Label" id="gZ7-9R-Kyd"/>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
+                        </group>
+                        <imageView alignment="left" id="TE2-2r-bDh"/>
+                        <label alignment="center" verticalAlignment="bottom" text="Label" id="Ohn-Yv-Zci">
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </label>
                     </items>
                     <connections>
                         <outlet property="chartImageView" destination="TE2-2r-bDh" id="1cB-Zc-7BQ"/>
+                        <outlet property="dateRangeLabel" destination="Ohn-Yv-Zci" id="Nc0-BJ-5Y9"/>
+                        <outlet property="netEarningsLabel" destination="gZ7-9R-Kyd" id="qq9-bV-l9x"/>
+                        <outlet property="netEarningsTitleLabel" destination="42P-Wg-VNa" id="MhP-cZ-4zH"/>
+                        <outlet property="portfolioMarketValueLabel" destination="c3j-uz-Sa8" id="ICX-h5-1pp"/>
+                        <outlet property="portfolioMarketValueTitleLabel" destination="ZZ6-XI-qdO" id="KTK-hc-hwe"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.48241429790000001" green="0.63677553200000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
