@@ -147,6 +147,14 @@ public class PortfolioData {
 
         return portfolioDataItems
     }
+    
+    public static func getAllocations() -> [(name: String, percent: Double, dollar: Double)] {
+        return [
+            (name: "Equity", percent: 70.0, dollar: 231000.0),
+            (name: "Fixed Income", percent: 15.0, dollar: 49500),
+            (name:"Alternatives", percent: 10.0, dollar: 33000.0),
+            (name: "Cash", percent: 5.0, dollar: 16500)]
+    }
 }
 
 public enum IndexType {
@@ -156,10 +164,10 @@ public enum IndexType {
 }
 
 public enum TrailingPeriod : String {
-    case M1 = "M1"
-    case M3 = "M3"
-    case Y1 = "Y1"
-    case Y3 = "Y3"
-    case Y5 = "Y5"
+    case M1 = "1M"
+    case M3 = "3M"
+    case Y1 = "1Yr"
+    case Y3 = "3Yr"
+    case Y5 = "5Yr"
     case All = "All"
 }

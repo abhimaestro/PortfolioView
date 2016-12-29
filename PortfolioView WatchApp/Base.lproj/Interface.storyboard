@@ -115,10 +115,70 @@
                         <outlet property="trailing3MButton" destination="0o9-db-M8R" id="buo-O6-p6r"/>
                         <outlet property="trailing3YrButton" destination="gGc-UA-iwI" id="val-TR-Ec8"/>
                         <outlet property="trailingAllButton" destination="9Tr-ml-lOs" id="5iI-Sy-Dey"/>
+                        <segue destination="Uis-Zi-zOU" kind="relationship" relationship="nextPage" id="AgO-YP-aNp"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--allocation-->
+        <scene sceneID="bRz-NQ-fmA">
+            <objects>
+                <controller title="allocation" id="Uis-Zi-zOU" customClass="AllocationInterfaceController" customModule="PortfolioView_WatchApp_Extension">
+                    <items>
+                        <imageView alignment="center" id="S8y-JM-wfZ"/>
+                        <table alignment="left" id="Bsc-ve-Yl2">
+                            <items>
+                                <tableRow identifier="AllocationRow" id="ZJv-sL-ne2" userLabel="AllocationRow" customClass="AllocationRowController" customModule="PortfolioView_WatchApp_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="EmY-TG-jyY">
+                                        <items>
+                                            <separator height="1" heightAdjustment="-5" alignment="left" verticalAlignment="center" id="tGl-GL-5T8">
+                                                <color key="color" red="0.96158301830000004" green="0.0" blue="0.24504715199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </separator>
+                                            <group alignment="left" layout="vertical" spacing="0.0" id="2Ik-gC-MwW">
+                                                <items>
+                                                    <group width="1" height="13" alignment="left" spacing="4" id="mZZ-RS-LqX">
+                                                        <items>
+                                                            <label alignment="left" verticalAlignment="center" text="Equity" id="uXl-Qu-wft">
+                                                                <fontDescription key="font" type="system" pointSize="7"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                    <group width="1" height="9" alignment="left" verticalAlignment="center" id="mQk-hX-Ysz">
+                                                        <items>
+                                                            <label alignment="left" verticalAlignment="center" text="20%" id="dcY-Sq-Su5">
+                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="font" type="system" pointSize="6"/>
+                                                            </label>
+                                                            <label alignment="right" verticalAlignment="center" text="$100,234" id="p5g-Dl-dAD">
+                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="font" type="system" pointSize="6"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                                <edgeInsets key="margins" left="4" right="0.0" top="0.0" bottom="0.0"/>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="dollarLabel" destination="p5g-Dl-dAD" id="6YK-JK-hqe"/>
+                                        <outlet property="nameLabel" destination="uXl-Qu-wft" id="eFt-el-4Od"/>
+                                        <outlet property="percentLabel" destination="dcY-Sq-Su5" id="SIc-P3-lfy"/>
+                                        <outlet property="separator" destination="tGl-GL-5T8" id="Gud-FP-M4x"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                    <connections>
+                        <outlet property="allocationsTable" destination="Bsc-ve-Yl2" id="ULJ-R6-pD1"/>
+                        <outlet property="chartImageView" destination="S8y-JM-wfZ" id="vcw-qK-dyv"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="505" y="345"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.32156862745098042" green="0.47450980392156861" blue="0.63529411764705879" alpha="1" colorSpace="calibratedRGB"/>

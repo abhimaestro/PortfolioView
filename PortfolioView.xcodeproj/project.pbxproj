@@ -18,7 +18,6 @@
 		C267813B1E14786200D85E05 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C26781391E14786200D85E05 /* Interface.storyboard */; };
 		C267813D1E14786200D85E05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C267813C1E14786200D85E05 /* Assets.xcassets */; };
 		C26781441E14786300D85E05 /* PortfolioView WatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C26781431E14786200D85E05 /* PortfolioView WatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C267814B1E14786300D85E05 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C267814A1E14786300D85E05 /* InterfaceController.swift */; };
 		C267814D1E14786300D85E05 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C267814C1E14786300D85E05 /* ExtensionDelegate.swift */; };
 		C267814F1E14786300D85E05 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C267814E1E14786300D85E05 /* NotificationController.swift */; };
 		C26781511E14786300D85E05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C26781501E14786300D85E05 /* Assets.xcassets */; };
@@ -49,6 +48,8 @@
 		C2C201EC1E153C410020863D /* Extensions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C201EB1E153C410020863D /* Extensions2.swift */; };
 		C2C201ED1E153C800020863D /* Extensions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C201EB1E153C410020863D /* Extensions2.swift */; };
 		C2C201F01E153DBD0020863D /* Extensions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C201EB1E153C410020863D /* Extensions2.swift */; };
+		C2C201F21E157F870020863D /* AllocationInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C201F11E157F870020863D /* AllocationInterfaceController.swift */; };
+		C2C201F41E1581D00020863D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C201F31E1581D00020863D /* Helper.swift */; };
 		C2F71B2B1E02CDAE00A99298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */; };
 		C2F71B321E02CDAF00A99298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F71B301E02CDAF00A99298 /* Main.storyboard */; };
 		C2F71B341E02CDAF00A99298 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F71B331E02CDAF00A99298 /* Assets.xcassets */; };
@@ -197,7 +198,6 @@
 		C267813E1E14786200D85E05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C26781431E14786200D85E05 /* PortfolioView WatchApp Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "PortfolioView WatchApp Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26781491E14786300D85E05 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		C267814A1E14786300D85E05 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		C267814C1E14786300D85E05 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		C267814E1E14786300D85E05 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		C26781501E14786300D85E05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -220,6 +220,8 @@
 		C2C201D41E15351E0020863D /* PortfolioViewShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PortfolioViewShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C201D71E15351E0020863D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2C201EB1E153C410020863D /* Extensions2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions2.swift; sourceTree = "<group>"; };
+		C2C201F11E157F870020863D /* AllocationInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllocationInterfaceController.swift; sourceTree = "<group>"; };
+		C2C201F31E1581D00020863D /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		C2F71B271E02CDAE00A99298 /* PortfolioView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F71B311E02CDAF00A99298 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -358,13 +360,14 @@
 		C26781471E14786300D85E05 /* PortfolioView WatchApp Extension */ = {
 			isa = PBXGroup;
 			children = (
-				C267814A1E14786300D85E05 /* InterfaceController.swift */,
 				C267814C1E14786300D85E05 /* ExtensionDelegate.swift */,
 				C267814E1E14786300D85E05 /* NotificationController.swift */,
 				C26781501E14786300D85E05 /* Assets.xcassets */,
 				C26781521E14786300D85E05 /* Info.plist */,
 				C26781481E14786300D85E05 /* Supporting Files */,
 				C2C201C21E152D4C0020863D /* DashboardInterfaceController.swift */,
+				C2C201F11E157F870020863D /* AllocationInterfaceController.swift */,
+				C2C201F31E1581D00020863D /* Helper.swift */,
 			);
 			path = "PortfolioView WatchApp Extension";
 			sourceTree = "<group>";
@@ -1084,9 +1087,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C267814F1E14786300D85E05 /* NotificationController.swift in Sources */,
+				C2C201F41E1581D00020863D /* Helper.swift in Sources */,
+				C2C201F21E157F870020863D /* AllocationInterfaceController.swift in Sources */,
 				C267814D1E14786300D85E05 /* ExtensionDelegate.swift in Sources */,
 				C2C201C31E152D4C0020863D /* DashboardInterfaceController.swift in Sources */,
-				C267814B1E14786300D85E05 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
