@@ -14,6 +14,12 @@ target 'PortfolioViewShared' do
      pod 'ObjectMapper', '~> 2.2'
 end
 
+target 'PortfolioView WatchApp Extension' do
+    inherit! :search_paths
+    platform :watchos, '2.0'
+    pod 'YOChartImageKit', '~> 1.1'
+end
+
   target 'PortfolioViewTests' do
     inherit! :search_paths
     # Pods for testing

@@ -1,12 +1,15 @@
 PODS:
   - ObjectMapper (2.2.2)
+  - YOChartImageKit (1.2.1)
 
 DEPENDENCIES:
   - ObjectMapper (~> 2.2)
+  - YOChartImageKit (~> 1.1)
 
 SPEC CHECKSUMS:
   ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
+  YOChartImageKit: bd73e66857c848325bef87edc40595d72a6b5fbe
 
-PODFILE CHECKSUM: 599a1c54bea464b6001195da00df144c0fe24e99
+PODFILE CHECKSUM: 2115052f01bc217b92dc100b80a864dcfc72a780
 
 COCOAPODS: 1.1.1

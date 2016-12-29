@@ -33,6 +33,8 @@
 		C2C201BC1E1525700020863D /* portfolioData_3M.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201B71E1525700020863D /* portfolioData_3M.json */; };
 		C2C201BD1E1525700020863D /* portfolioData_3Yr.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201B81E1525700020863D /* portfolioData_3Yr.json */; };
 		C2C201BE1E1525700020863D /* portfolioData_5Yr.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201B91E1525700020863D /* portfolioData_5Yr.json */; };
+		C2C201C31E152D4C0020863D /* DashboardInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C201C21E152D4C0020863D /* DashboardInterfaceController.swift */; };
+		C2C201C41E152DAB0020863D /* Pods_PortfolioView_WatchApp_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF1EE60B7933341F32EB7B /* Pods_PortfolioView_WatchApp_Extension.framework */; };
 		C2F71B2B1E02CDAE00A99298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */; };
 		C2F71B321E02CDAF00A99298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2F71B301E02CDAF00A99298 /* Main.storyboard */; };
 		C2F71B341E02CDAF00A99298 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F71B331E02CDAF00A99298 /* Assets.xcassets */; };
@@ -130,19 +132,32 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C2C201CA1E152E480020863D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		066E3B17F2E6FBB1A3EEB9EC /* Pods-PortfolioViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewUITests/Pods-PortfolioViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		156CDAC2F5C445CA71D1431B /* Pods-PortfolioView WatchApp Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView WatchApp Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView WatchApp Extension/Pods-PortfolioView WatchApp Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		22F479F78698F333576F2543 /* Pods-PortfolioViewShared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewShared.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewShared/Pods-PortfolioViewShared.release.xcconfig"; sourceTree = "<group>"; };
 		473AEACE6415AFD757B22352 /* Pods_PortfolioViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF53D2FF6381B2914EA3EC6 /* Pods-PortfolioViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewUITests/Pods-PortfolioViewUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5D5F9A526FFEEE84ABA4DD59 /* Pods-PortfolioViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewTests/Pods-PortfolioViewTests.release.xcconfig"; sourceTree = "<group>"; };
+		63BC0B6F3CB38C4A1754DEEC /* Pods-PortfolioView WatchApp Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView WatchApp Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView WatchApp Extension/Pods-PortfolioView WatchApp Extension.release.xcconfig"; sourceTree = "<group>"; };
 		75E9986017C8F7009D38308C /* Pods-PortfolioView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView/Pods-PortfolioView.debug.xcconfig"; sourceTree = "<group>"; };
 		7788AB0E5B366FA0B8C90319 /* Pods-PortfolioViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioViewTests/Pods-PortfolioViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		811029D797500E3B9F1006F5 /* Pods_PortfolioViewUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioViewUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		907C060298334BF28D095050 /* Pods-PortfolioView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView/Pods-PortfolioView.release.xcconfig"; sourceTree = "<group>"; };
 		A18BE8FF50FDAE8F2CF63FA5 /* Pods_PortfolioView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1EF1EE60B7933341F32EB7B /* Pods_PortfolioView_WatchApp_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioView_WatchApp_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C23208341E12E32600E54844 /* FontHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		C23208361E13094F00E54844 /* PopOverActionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverActionsVC.swift; sourceTree = "<group>"; };
 		C2335A511E1001DC00760234 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
@@ -173,6 +188,7 @@
 		C2C201B71E1525700020863D /* portfolioData_3M.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_3M.json; sourceTree = "<group>"; };
 		C2C201B81E1525700020863D /* portfolioData_3Yr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_3Yr.json; sourceTree = "<group>"; };
 		C2C201B91E1525700020863D /* portfolioData_5Yr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = portfolioData_5Yr.json; sourceTree = "<group>"; };
+		C2C201C21E152D4C0020863D /* DashboardInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardInterfaceController.swift; sourceTree = "<group>"; };
 		C2F71B271E02CDAE00A99298 /* PortfolioView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F71B311E02CDAF00A99298 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -202,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2C201C41E152DAB0020863D /* Pods_PortfolioView_WatchApp_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +276,7 @@
 				473AEACE6415AFD757B22352 /* Pods_PortfolioViewTests.framework */,
 				811029D797500E3B9F1006F5 /* Pods_PortfolioViewUITests.framework */,
 				DBAB2F7603BA0CD2A97B6E58 /* Pods_PortfolioViewShared.framework */,
+				B1EF1EE60B7933341F32EB7B /* Pods_PortfolioView_WatchApp_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -274,6 +292,8 @@
 				4AF53D2FF6381B2914EA3EC6 /* Pods-PortfolioViewUITests.release.xcconfig */,
 				CE21248DB64B65AFAB6277A3 /* Pods-PortfolioViewShared.debug.xcconfig */,
 				22F479F78698F333576F2543 /* Pods-PortfolioViewShared.release.xcconfig */,
+				156CDAC2F5C445CA71D1431B /* Pods-PortfolioView WatchApp Extension.debug.xcconfig */,
+				63BC0B6F3CB38C4A1754DEEC /* Pods-PortfolioView WatchApp Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -297,6 +317,7 @@
 				C26781501E14786300D85E05 /* Assets.xcassets */,
 				C26781521E14786300D85E05 /* Info.plist */,
 				C26781481E14786300D85E05 /* Supporting Files */,
+				C2C201C21E152D4C0020863D /* DashboardInterfaceController.swift */,
 			);
 			path = "PortfolioView WatchApp Extension";
 			sourceTree = "<group>";
@@ -434,9 +455,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C26781561E14786300D85E05 /* Build configuration list for PBXNativeTarget "PortfolioView WatchApp Extension" */;
 			buildPhases = (
+				9E8FB55FCAE5989243326783 /* [CP] Check Pods Manifest.lock */,
 				C267813F1E14786200D85E05 /* Sources */,
 				C26781401E14786200D85E05 /* Frameworks */,
 				C26781411E14786200D85E05 /* Resources */,
+				A0E014715813C2BAA43FCBFC /* [CP] Embed Pods Frameworks */,
+				C880054EF03AD19890E506B5 /* [CP] Copy Pods Resources */,
+				C2C201CA1E152E480020863D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -765,6 +790,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PortfolioViewTests/Pods-PortfolioViewTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9E8FB55FCAE5989243326783 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A0E014715813C2BAA43FCBFC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PortfolioView WatchApp Extension/Pods-PortfolioView WatchApp Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A971DC1F4463573C32105DDC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -808,6 +863,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C880054EF03AD19890E506B5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PortfolioView WatchApp Extension/Pods-PortfolioView WatchApp Extension-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CAC91DD27D12244EC5A2A6F3 /* [CP] Embed Pods Frameworks */ = {
@@ -864,6 +934,7 @@
 			files = (
 				C267814F1E14786300D85E05 /* NotificationController.swift in Sources */,
 				C267814D1E14786300D85E05 /* ExtensionDelegate.swift in Sources */,
+				C2C201C31E152D4C0020863D /* DashboardInterfaceController.swift in Sources */,
 				C267814B1E14786300D85E05 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -983,6 +1054,7 @@
 /* Begin XCBuildConfiguration section */
 		C26781571E14786300D85E05 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 156CDAC2F5C445CA71D1431B /* Pods-PortfolioView WatchApp Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1006,6 +1078,7 @@
 		};
 		C26781581E14786300D85E05 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63BC0B6F3CB38C4A1754DEEC /* Pods-PortfolioView WatchApp Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
