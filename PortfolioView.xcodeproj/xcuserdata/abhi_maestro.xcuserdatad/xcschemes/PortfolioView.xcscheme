@@ -48,6 +48,16 @@
                ReferencedContainer = "container:PortfolioView.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C2C201701E1506420020863D"
+               BuildableName = "PortfolioViewSharedTests.xctest"
+               BlueprintName = "PortfolioViewSharedTests"
+               ReferencedContainer = "container:PortfolioView.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

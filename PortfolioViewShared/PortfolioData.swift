@@ -9,25 +9,24 @@
 import Foundation
 import ObjectMapper
 
-class PortfolioDataItem: Mappable {
+public class PortfolioDataItem: Mappable {
     
-    var returnDate: Date!
-    var portfolioReturnPercent: Double!
-    var portfolioUnitValue: Double!
-    var index1ReturnPercent: Double!
-    var index1UnitValue: Double!
-    var index2ReturnPercent: Double!
-    var index2UnitValue: Double!
-    var index3ReturnPercent: Double!
-    var index3UnitValue: Double!
-
-    var marketValue: Double!
+    public var returnDate: Date!
+    public var portfolioReturnPercent: Double!
+    public var portfolioUnitValue: Double!
+    public var index1ReturnPercent: Double!
+    public var index1UnitValue: Double!
+    public var index2ReturnPercent: Double!
+    public var index2UnitValue: Double!
+    public var index3ReturnPercent: Double!
+    public var index3UnitValue: Double!
+    public var marketValue: Double!
     
-    required init?(map: Map) {
+    public required init?(map: Map) {
     }
     
     // Mappable
-    func mapping(map: Map) {
+    public func mapping(map: Map) {
         portfolioReturnPercent    <- map["portfolioReturnPercent"]
         portfolioUnitValue    <- map["portfolioUnitValue"]
         index1ReturnPercent <- map["indexReturnPercent"]
@@ -47,22 +46,29 @@ class PortfolioDataItem: Mappable {
     }
 }
 
-class PortfolioData {
+public class PortfolioData {
     
-    var portfolioDataItems = [PortfolioDataItem]()
-    var inceptionDate: Date!
-    var endDate: Date!
-    var totalPortfolioReturnPercent: Double!
-    var index1Name: String!
-    var index2Name: String!
-    var index3Name: String!
-    var totalIndex1ReturnPercent: Double!
-    var totalIndex2ReturnPercent: Double!
-    var totalIndex3ReturnPercent: Double!
-    var totalPortfolioReturnDollar: Double!
-    var totalPortfolioMarketValueDollar: Double!
+    public static var portfolioData_1M: PortfolioData?
+    public static var portfolioData_3M: PortfolioData?
+    public static var portfolioData_1Yr: PortfolioData?
+    public static var portfolioData_3Yr: PortfolioData?
+    public static var portfolioData_5Yr: PortfolioData?
+    public static var portfolioData_All: PortfolioData?
     
-    init(portfolioDataItems: [PortfolioDataItem]?) {
+    public var portfolioDataItems = [PortfolioDataItem]()
+    public var inceptionDate: Date!
+    public var endDate: Date!
+    public var totalPortfolioReturnPercent: Double!
+    public var index1Name: String!
+    public var index2Name: String!
+    public var index3Name: String!
+    public var totalIndex1ReturnPercent: Double!
+    public var totalIndex2ReturnPercent: Double!
+    public var totalIndex3ReturnPercent: Double!
+    public var totalPortfolioReturnDollar: Double!
+    public var totalPortfolioMarketValueDollar: Double!
+    
+    public init(portfolioDataItems: [PortfolioDataItem]?) {
         
         if let portfolioDataItems = portfolioDataItems {
             self.portfolioDataItems = portfolioDataItems
@@ -84,15 +90,8 @@ class PortfolioData {
             self.endDate = endItem.returnDate
         }
     }
-    
-    static var portfolioData_1M: PortfolioData?
-    static var portfolioData_3M: PortfolioData?
-    static var portfolioData_1Yr: PortfolioData?
-    static var portfolioData_3Yr: PortfolioData?
-    static var portfolioData_5Yr: PortfolioData?
-    static var portfolioData_All: PortfolioData?
-    
-    static func load(trailingPeriod: TrailingPeriod2 = .All) -> PortfolioData? {
+
+    public static func load(trailingPeriod: TrailingPeriod = .All) -> PortfolioData? {
         
 
         
@@ -135,7 +134,7 @@ class PortfolioData {
         }
     }
     
-    static func getPortfolioDataItems(fileName: String) -> [PortfolioDataItem]? {
+    public static func getPortfolioDataItems(fileName: String) -> [PortfolioDataItem]? {
         
         let path = Bundle.main.path(forResource: fileName, ofType: "json")!
         
@@ -147,12 +146,13 @@ class PortfolioData {
     }
 }
 
-enum IndexType2 {
+public enum IndexType {
     case Index1
     case Index2
     case Index3
 }
-enum TrailingPeriod2 {
+
+public enum TrailingPeriod {
     case M1
     case M3
     case Y1

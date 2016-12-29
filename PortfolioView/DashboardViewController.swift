@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import PortfolioViewShared
 
 class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPresentationControllerDelegate {
 
