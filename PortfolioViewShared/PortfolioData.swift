@@ -136,7 +136,10 @@ public class PortfolioData {
     
     public static func getPortfolioDataItems(fileName: String) -> [PortfolioDataItem]? {
         
-        let path = Bundle.main.path(forResource: fileName, ofType: "json")!
+        let path = Bundle(for: PortfolioData.self).path(forResource: fileName, ofType: "json")!
+        
+        //print(Bundle.allFrameworks.)
+        //let path = Bundle.main.path(forResource: fileName, ofType: "json", inDirectory: "PortfolioViewShared")!
         
         let jsonData = try? String(contentsOfFile: path, encoding: String.Encoding.utf8)
         
