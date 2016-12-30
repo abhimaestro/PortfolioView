@@ -52,7 +52,7 @@ class AllocationInterfaceController: WKInterfaceController {
         let image = YODonutChartImage()
         image.donutWidth = 12.0
         image.labelFont = chartLabelFont
-        image.labelText = "   total\nportfolio"
+        image.labelText = " portfolio\nallocation"
         image.labelColor = UIColor.darkGray
         image.values = allocations.map({$0.percent as NSNumber})
         image.colors = Color.palette

@@ -58,7 +58,7 @@ class AccountRowController: NSObject {
         marketValueLabel.setText(account.marketValue.toCurrency())
         separator.setColor(color)
         
-        let changeText = String("\(account.changeDollar.toCurrency()) (\(account.changePercent.toPercent())))")?.toAttributed(color: Color.getValueColor(value: account.changeDollar))
+        let changeText = String("\(account.changeDollar.toCurrency()) (\(account.changePercent.toPercent()))")?.toAttributed(color: Color.getValueColor(value: account.changeDollar))
             
         changeLabel.setAttributedText(changeText)
     }
