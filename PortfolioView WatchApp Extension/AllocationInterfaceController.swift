@@ -16,7 +16,6 @@ class AllocationInterfaceController: WKInterfaceController {
     let chartLabelFont = UIFont.systemFont(ofSize: 10.0, weight: UIFontWeightLight)
     let allocations = PortfolioData.getAllocations()
 
-    
     @IBOutlet weak var chartImageView: WKInterfaceImage!
     @IBOutlet var allocationsTable: WKInterfaceTable!
     @IBOutlet var asOfDate: WKInterfaceLabel!

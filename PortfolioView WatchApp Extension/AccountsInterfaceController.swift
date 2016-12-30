@@ -9,12 +9,15 @@
 import WatchKit
 import Foundation
 import PortfolioViewShared
+import YOChartImageKit
 
 class AccountsInterfaceController: WKInterfaceController {
 
     @IBOutlet var accountsTable: WKInterfaceTable!
     @IBOutlet var asOfDate: WKInterfaceLabel!
-    
+    @IBOutlet weak var chartImageView: WKInterfaceImage!
+
+    let chartLabelFont = UIFont.systemFont(ofSize: 10.0, weight: UIFontWeightLight)
     let accounts = PortfolioData.getAccounts()
     
     override func awake(withContext context: Any?) {
@@ -23,6 +26,7 @@ class AccountsInterfaceController: WKInterfaceController {
         asOfDate.setText("as of: \(Date().toDateTimeString())")
         
         updateTable()
+        updateChart()
     }
 
     override func willActivate() {
@@ -33,13 +37,31 @@ class AccountsInterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
 
+    func updateChart() {
+        
+        let frame = CGRect(0, 0, contentFrame.width, contentFrame.height / 2)
+        let scale = WKInterfaceDevice.current().screenScale
+        
+        let image = YODonutChartImage()
+        image.donutWidth = 12.0
+        image.labelFont = chartLabelFont
+        image.labelText = "portfolio\naccounts"
+        image.labelColor = UIColor.darkGray
+        image.values = accounts.map({$0.marketValue as NSNumber})
+        image.colors = Color.palette
+        
+        let chartImage = image.draw(frame, scale: scale)
+        
+        self.chartImageView.setImage(chartImage)
+    }
+    
     func updateTable() {
         accountsTable.setNumberOfRows(accounts.count, withRowType: "AccountRow")
         
         for index in 0..<accountsTable.numberOfRows {
             if let controller = accountsTable.rowController(at: index) as? AccountRowController {
                 let account = accounts[index]
-                controller.setAaccount(color: Color.getValueColor(value: account.changeDollar), account: account)
+                controller.setAaccount(color: Color.palette[index], account: account)
             }
         }
     }
