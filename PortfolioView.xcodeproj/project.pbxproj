@@ -11,6 +11,8 @@
 		563279D1F00D177A7F9B34DD /* Pods_PortfolioViewShared__watchOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C7032832768F1FA28E2195 /* Pods_PortfolioViewShared__watchOS_.framework */; };
 		A838B512AE46F9CF4153B419 /* Pods_PortfolioViewShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBAB2F7603BA0CD2A97B6E58 /* Pods_PortfolioViewShared.framework */; };
 		B83301525A8CBB5E3E7A8C13 /* Pods_PortfolioViewShared__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F18237E6DA37F757EE089C1 /* Pods_PortfolioViewShared__iOS_.framework */; };
+		C210178F1E167F8100A7D56A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C210178E1E167F8100A7D56A /* Color.swift */; };
+		C21017901E167F8100A7D56A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C210178E1E167F8100A7D56A /* Color.swift */; };
 		C23208351E12E32600E54844 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208341E12E32600E54844 /* FontHelper.swift */; };
 		C23208371E13094F00E54844 /* PopOverActionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208361E13094F00E54844 /* PopOverActionsVC.swift */; };
 		C2335A591E100F4500760234 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A581E100F4500760234 /* Extensions.swift */; };
@@ -184,6 +186,7 @@
 		907C060298334BF28D095050 /* Pods-PortfolioView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView/Pods-PortfolioView.release.xcconfig"; sourceTree = "<group>"; };
 		A18BE8FF50FDAE8F2CF63FA5 /* Pods_PortfolioView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1EF1EE60B7933341F32EB7B /* Pods_PortfolioView_WatchApp_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioView_WatchApp_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C210178E1E167F8100A7D56A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C23208341E12E32600E54844 /* FontHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		C23208361E13094F00E54844 /* PopOverActionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverActionsVC.swift; sourceTree = "<group>"; };
 		C2335A511E1001DC00760234 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
@@ -425,6 +428,7 @@
 				C2C201AB1E1518010020863D /* portfolioData_All.json */,
 				C2C201AC1E1518010020863D /* PortfolioData.swift */,
 				C2C201EB1E153C410020863D /* Extensions2.swift */,
+				C210178E1E167F8100A7D56A /* Color.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1096,6 +1100,7 @@
 			files = (
 				C2C201AE1E1518010020863D /* PortfolioData.swift in Sources */,
 				C2C201ED1E153C800020863D /* Extensions2.swift in Sources */,
+				C210178F1E167F8100A7D56A /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1113,6 +1118,7 @@
 			files = (
 				C2C201E91E1538220020863D /* PortfolioData.swift in Sources */,
 				C2C201F01E153DBD0020863D /* Extensions2.swift in Sources */,
+				C21017901E167F8100A7D56A /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

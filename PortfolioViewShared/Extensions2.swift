@@ -62,3 +62,22 @@ extension Int {
         return Int(arc4random_uniform(UInt32(b - a + 1))) + a
     }
 }
+
+extension String {
+    
+    public func toAttributed(font: UIFont? = nil, color: UIColor? = nil) -> NSAttributedString {
+        
+        var attributes = [String : Any]()
+        
+        if let font = font {
+            attributes[NSFontAttributeName] = font
+        }
+        
+        if let color = color {
+            attributes[NSForegroundColorAttributeName] = color
+        }
+        
+        let attrString = NSAttributedString(string: self, attributes: attributes)
+        return attrString
+    }
+}

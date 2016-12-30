@@ -13,7 +13,7 @@ import PortfolioViewShared
 
 class AllocationInterfaceController: WKInterfaceController {
 
-    let chartLabelFont = UIFont.systemFont(ofSize: 7.0, weight: UIFontWeightLight)
+    let chartLabelFont = UIFont.systemFont(ofSize: 9.0, weight: UIFontWeightLight)
     let allocations = PortfolioData.getAllocations()
 
     
@@ -24,22 +24,26 @@ class AllocationInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
 
-        asOfDate.setText("as of date: \(Date.getYesterday().toShortDateString())")
+        asOfDate.setText("as of: \(Date.getYesterday().toShortDateString())")
 
-        allocationsTable.setNumberOfRows(allocations.count, withRowType: "AllocationRow")
-        
-        for index in 0..<allocationsTable.numberOfRows {
-            if let controller = allocationsTable.rowController(at: index) as? AllocationRowController {
-                controller.setAllocation(color: Helper.colorsCustom[index], allocation: allocations[index])
-            }
-        }
+        updateTable()
+        updateChart()
     }
     
     override func willActivate() {
         super.willActivate()
-        updateChart()
     }
 
+    func updateTable() {
+        allocationsTable.setNumberOfRows(allocations.count, withRowType: "AllocationRow")
+        
+        for index in 0..<allocationsTable.numberOfRows {
+            if let controller = allocationsTable.rowController(at: index) as? AllocationRowController {
+                controller.setAllocation(color: Color.palette[index], allocation: allocations[index])
+            }
+        }
+    }
+    
     func updateChart() {
         
         let frame = CGRect(0, 0, contentFrame.width, contentFrame.height / 2)
@@ -51,7 +55,7 @@ class AllocationInterfaceController: WKInterfaceController {
         image.labelText = "   total\nportfolio"
         image.labelColor = UIColor.darkGray
         image.values = allocations.map({$0.percent as NSNumber})
-        image.colors =  Helper.colorsCustom
+        image.colors = Color.palette
         
         let chartImage = image.draw(frame, scale: scale)
         

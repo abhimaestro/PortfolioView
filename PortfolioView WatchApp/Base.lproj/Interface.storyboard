@@ -16,39 +16,37 @@
                     <items>
                         <group width="1" alignment="center" animationDuration="5" layout="vertical" spacing="0.0" id="vhX-ZJ-A7g">
                             <items>
-                                <label alignment="center" verticalAlignment="center" text="current total" minimumScaleFactor="0.20000000000000001" id="ZZ6-XI-qdO">
+                                <label alignment="center" verticalAlignment="center" text="market value" minimumScaleFactor="0.20000000000000001" id="ZZ6-XI-qdO">
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                    <fontDescription key="font" type="system" weight="light" pointSize="10"/>
                                 </label>
                                 <label alignment="center" verticalAlignment="bottom" text="Label" id="c3j-uz-Sa8"/>
                             </items>
-                            <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="0.0"/>
                         </group>
                         <group width="1" alignment="left" id="cvc-Sr-euf">
                             <items>
-                                <group width="0.59999999999999998" alignment="center" animationDuration="5" layout="vertical" spacing="0.0" id="X4Q-ou-jn1">
+                                <group width="0.59999999999999998" alignment="left" animationDuration="5" layout="vertical" spacing="0.0" id="X4Q-ou-jn1">
                                     <items>
-                                        <label alignment="center" verticalAlignment="center" text="net earnings" minimumScaleFactor="0.20000000000000001" id="42P-Wg-VNa">
+                                        <label alignment="left" verticalAlignment="center" text="earnings" minimumScaleFactor="0.20000000000000001" id="42P-Wg-VNa">
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            <fontDescription key="font" type="system" weight="light" pointSize="10"/>
                                         </label>
-                                        <label alignment="center" verticalAlignment="bottom" text="Label" id="gZ7-9R-Kyd">
+                                        <label alignment="left" verticalAlignment="bottom" text="Label" id="gZ7-9R-Kyd">
                                             <color key="textColor" red="0.11764705882352941" green="0.45490196078431372" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </items>
-                                    <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
                                 </group>
-                                <group width="0.40000000000000002" alignment="center" animationDuration="5" layout="vertical" spacing="0.0" id="XHW-Yv-EpK">
+                                <group width="0.40000000000000002" alignment="right" animationDuration="5" layout="vertical" spacing="0.0" id="XHW-Yv-EpK">
                                     <items>
-                                        <label alignment="center" verticalAlignment="center" text="total return" minimumScaleFactor="0.20000000000000001" id="Qhw-8S-Kr4">
+                                        <label alignment="right" verticalAlignment="center" text="return" minimumScaleFactor="0.20000000000000001" id="Qhw-8S-Kr4">
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            <fontDescription key="font" type="system" weight="light" pointSize="10"/>
                                         </label>
-                                        <label alignment="center" verticalAlignment="bottom" text="Label" id="qYg-h5-Yd2">
+                                        <label alignment="right" verticalAlignment="bottom" text="Label" id="qYg-h5-Yd2">
                                             <color key="textColor" red="0.1176470588" green="0.4549019608" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </items>
-                                    <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
                                 </group>
                             </items>
                         </group>
@@ -81,8 +79,9 @@
                                 </button>
                             </items>
                         </group>
-                        <label alignment="center" verticalAlignment="bottom" text="Label" id="Ohn-Yv-Zci">
+                        <label alignment="center" verticalAlignment="bottom" text="date range: 12/31/2015 - 12/31/2016" id="Ohn-Yv-Zci">
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="10"/>
                         </label>
                     </items>
                     <connections>
@@ -122,7 +121,7 @@
                                                     <group width="1" alignment="left" spacing="4" id="mZZ-RS-LqX">
                                                         <items>
                                                             <label alignment="left" verticalAlignment="center" text="Equity" id="uXl-Qu-wft">
-                                                                <fontDescription key="font" type="system" pointSize="11"/>
+                                                                <fontDescription key="font" type="system" pointSize="13"/>
                                                             </label>
                                                         </items>
                                                         <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="2"/>
@@ -131,11 +130,11 @@
                                                         <items>
                                                             <label alignment="left" verticalAlignment="center" text="20%" id="dcY-Sq-Su5">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <fontDescription key="font" type="system" pointSize="9"/>
+                                                                <fontDescription key="font" type="system" weight="light" pointSize="11"/>
                                                             </label>
                                                             <label alignment="right" verticalAlignment="center" text="$100,234" id="p5g-Dl-dAD">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <fontDescription key="font" type="system" pointSize="9"/>
+                                                                <fontDescription key="font" type="system" weight="light" pointSize="11"/>
                                                             </label>
                                                         </items>
                                                         <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="2"/>
@@ -156,7 +155,7 @@
                         </table>
                         <label alignment="center" verticalAlignment="bottom" text="as of date: 1/1/2017" id="fTz-fz-UIV">
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="8"/>
+                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="10"/>
                         </label>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
@@ -188,7 +187,7 @@
                                                     <group width="1" alignment="left" spacing="5" id="WmF-Wn-OSc">
                                                         <items>
                                                             <label alignment="left" verticalAlignment="center" text="John Doe Brokerage" numberOfLines="0" id="BcP-bY-haQ">
-                                                                <fontDescription key="font" type="system" pointSize="11"/>
+                                                                <fontDescription key="font" type="system" pointSize="13"/>
                                                             </label>
                                                         </items>
                                                         <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="1"/>
@@ -197,11 +196,11 @@
                                                         <items>
                                                             <label alignment="left" verticalAlignment="center" text="$100,234" id="LPC-Lg-oEP">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <fontDescription key="font" type="system" pointSize="9"/>
+                                                                <fontDescription key="font" type="system" weight="light" pointSize="11"/>
                                                             </label>
                                                             <label alignment="right" verticalAlignment="center" text="$10,234 (1.04%)" id="Z2H-oE-27C">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                                                <fontDescription key="font" type="system" weight="light" pointSize="11"/>
                                                             </label>
                                                         </items>
                                                         <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="2"/>
@@ -222,7 +221,7 @@
                         </table>
                         <label alignment="center" verticalAlignment="bottom" text="as of date: 1/1/2017" id="5P8-B4-ZwY">
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="8"/>
+                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="10"/>
                         </label>
                     </items>
                     <connections>

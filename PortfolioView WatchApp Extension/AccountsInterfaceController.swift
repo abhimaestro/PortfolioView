@@ -20,27 +20,29 @@ class AccountsInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        asOfDate.setText("as of date: \(Date().toDateTimeString())")
-
-        accountsTable.setNumberOfRows(accounts.count, withRowType: "AccountRow")
+        asOfDate.setText("as of: \(Date().toDateTimeString())")
         
-        for index in 0..<accountsTable.numberOfRows {
-            if let controller = accountsTable.rowController(at: index) as? AccountRowController {
-                controller.setAaccount(color: Helper.colorsCustom[index], account: accounts[index])
-            }
-        }
+        updateTable()
     }
 
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
         super.willActivate()
     }
 
     override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
 
+    func updateTable() {
+        accountsTable.setNumberOfRows(accounts.count, withRowType: "AccountRow")
+        
+        for index in 0..<accountsTable.numberOfRows {
+            if let controller = accountsTable.rowController(at: index) as? AccountRowController {
+                let account = accounts[index]
+                controller.setAaccount(color: Color.getValueColor(value: account.changeDollar), account: account)
+            }
+        }
+    }
 }
 
 class AccountRowController: NSObject {
@@ -56,7 +58,8 @@ class AccountRowController: NSObject {
         marketValueLabel.setText(account.marketValue.toCurrency())
         separator.setColor(color)
         
-        let changeText = Helper.getAttributedString(String("\(account.changeDollar.toCurrency()) (\(account.changePercent.toPercent())))"), color: Helper.getCurrencyColor(value: account.changeDollar))
+        let changeText = String("\(account.changeDollar.toCurrency()) (\(account.changePercent.toPercent())))")?.toAttributed(color: Color.getValueColor(value: account.changeDollar))
+            
         changeLabel.setAttributedText(changeText)
     }
 }

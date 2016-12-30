@@ -27,22 +27,25 @@ class DashboardInterfaceController: WKInterfaceController {
     @IBOutlet var trailing1YrButton: WKInterfaceButton!
 
     var portfolioData: PortfolioData!
-    let titleFont = UIFont.systemFont(ofSize: 9.0, weight: UIFontWeightLight)
-    let dateRangeFont = UIFont.italicSystemFont(ofSize: 9.0)
-    let buttonFont = UIFont.systemFont(ofSize: 15.0, weight: UIFontWeightLight)
-    let buttonSelectedFont = UIFont.systemFont(ofSize: 15.0, weight: UIFontWeightHeavy)
-    let valueFont = UIFont.systemFont(ofSize: 22.0, weight: UIFontWeightMedium)
+    let titleFont = UIFont.systemFont(ofSize: 10.0, weight: UIFontWeightLight)
+    let buttonFont = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightLight)
+    let buttonSelectedFont = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightHeavy)
+    let valueFont = UIFont.systemFont(ofSize: 24.0, weight: UIFontWeightMedium)
     let value2Font = UIFont.systemFont(ofSize: 20.0, weight: UIFontWeightMedium)
+    
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
+
+        self.setTitle("summary")
+        portfolioMarketValueTitleLabel.setAttributedText("market value".toAttributed(font: titleFont))
+        netEarningsTitleLabel.setAttributedText("earnings".toAttributed(font: titleFont))
+        totalReturnTitleLabel.setAttributedText("return".toAttributed(font: titleFont))
+        
+        updateForTrailing3M()
+    }
     
     override func willActivate() {
         super.willActivate()
-        
-        self.setTitle("summary")
-        portfolioMarketValueTitleLabel.setAttributedText(getAttributedString("market value", font: titleFont))
-        netEarningsTitleLabel.setAttributedText(getAttributedString("earnings", font: titleFont))
-        totalReturnTitleLabel.setAttributedText(getAttributedString("return", font: titleFont))
-        
-        updateForTrailing3M()
     }
 
     @IBAction func updateForTrailing1M() {
@@ -78,33 +81,23 @@ class DashboardInterfaceController: WKInterfaceController {
     func setButtonText(_ button: WKInterfaceButton, text: String, isSelected: Bool = false) {
         
         if !isSelected {
-            button.setAttributedTitle(getAttributedString(text, font: buttonFont, color: UIColor.lightGray))
+            button.setAttributedTitle(text.toAttributed(font: buttonFont, color: UIColor.lightGray))
         }
         else {
-            button.setAttributedTitle(getAttributedString(text, font: buttonSelectedFont, color: UIColor.lightGray))
+            button.setAttributedTitle(text.toAttributed(font: buttonSelectedFont, color: UIColor.lightGray))
         }
     }
     
     func updateMarketValue() {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = .currency
-        currencyFormatter.maximumFractionDigits = 0
-        let mvCurrency = currencyFormatter.string(from: (portfolioData.totalPortfolioMarketValueDollar as NSNumber))!
-        portfolioMarketValueLabel.setAttributedText(getAttributedString(mvCurrency, font: valueFont))
+        portfolioMarketValueLabel.setAttributedText(portfolioData.totalPortfolioMarketValueDollar.toCurrency().toAttributed(font: valueFont))
     }
     
     func updateEarnings() {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = .currency
-        currencyFormatter.maximumFractionDigits = 0
-        
-        let netEarningsCurrency = currencyFormatter.string(from: (portfolioData.totalPortfolioReturnDollar as NSNumber))!
-        netEarningsLabel.setAttributedText(getAttributedString(netEarningsCurrency, font: value2Font, color: getCurrencyColor(value: portfolioData.totalPortfolioReturnDollar)))
+        netEarningsLabel.setAttributedText(portfolioData.totalPortfolioReturnDollar.toCurrency().toAttributed(font: value2Font, color: Color.getValueColor(value: portfolioData.totalPortfolioReturnDollar)))
     }
     
     func updateTotalReturn() {
-        let str = String(format: "%.1f%%", portfolioData.totalPortfolioReturnPercent)
-        totalReturnLabel.setAttributedText(getAttributedString(str, font: value2Font, color: getCurrencyColor(value: portfolioData.totalPortfolioReturnDollar)))
+        totalReturnLabel.setAttributedText(portfolioData.totalPortfolioReturnPercent.toPercent(noOfDecimals: 1).toAttributed(font: value2Font, color: Color.getValueColor(value: portfolioData.totalPortfolioReturnDollar)))
     }
     
     func updateChart(trailingPeriod: TrailingPeriod) {
@@ -116,42 +109,16 @@ class DashboardInterfaceController: WKInterfaceController {
         
         let image = YOLineChartImage()
         image.strokeWidth = 1
-        image.strokeColor = getCurrencyColor(value: portfolioData.totalPortfolioReturnDollar).withAlphaComponent(0.5)
+        image.strokeColor = Color.getValueColor(value: portfolioData.totalPortfolioReturnDollar)
         
-
-        let marketValues = portfolioData.portfolioDataItems.map({$0.marketValue!})
-        image.values = marketValues as [NSNumber]
+        image.values = portfolioData.portfolioDataItems.map({$0.marketValue as NSNumber})
         image.smooth = false
         let chartImage = image.draw(frame, scale: scale)
         
         self.chartImageView.setImage(chartImage)
     }
     
-    func getAttributedString(_ str: String, font: UIFont, color: UIColor? = nil) -> NSAttributedString {
-        
-        var attributes: [String : Any] = [NSFontAttributeName: font]
-        
-        if let color = color {
-            attributes[NSForegroundColorAttributeName] = color
-        }
-        
-        let attrString = NSAttributedString(string: str, attributes: attributes)
-        return attrString
-    }
-    
     func updateDateRangeLabel() {
-        let dateformatter = DateFormatter()
-        dateformatter.dateStyle = .short
-        let str = "\(dateformatter.string(from: portfolioData.inceptionDate)) - \(dateformatter.string(from: portfolioData.endDate))"
-        dateRangeLabel.setAttributedText(getAttributedString(str, font: dateRangeFont))
-    }
-    
-    func getCurrencyColor(value: Double) -> UIColor {
-        if value < 0 {
-            return UIColor(red: 98/255.0, green: 32/255.0, blue: 32/255.0, alpha: 1.0)
-        }
-        else {
-            return UIColor(red: 30/255.0, green: 116/255.0, blue: 0/255.0, alpha: 1.0)
-        }
+        dateRangeLabel.setText("\(portfolioData.inceptionDate.toShortDateString()) - \(portfolioData.endDate.toShortDateString())")
     }
 }
