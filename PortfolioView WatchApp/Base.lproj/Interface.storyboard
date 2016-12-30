@@ -166,7 +166,7 @@
                                                         <fontDescription key="font" type="system" pointSize="12"/>
                                                     </label>
                                                     <label alignment="right" verticalAlignment="center" text="$100,234" id="xDe-o0-MjE">
-                                                        <fontDescription key="font" type="system" weight="light" pointSize="11"/>
+                                                        <fontDescription key="font" type="system" weight="light" pointSize="12"/>
                                                     </label>
                                                 </items>
                                                 <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
