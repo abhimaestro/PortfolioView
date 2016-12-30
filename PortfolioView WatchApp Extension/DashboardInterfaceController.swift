@@ -25,16 +25,14 @@ class DashboardInterfaceController: WKInterfaceController {
     @IBOutlet var trailing1MButton: WKInterfaceButton!
     @IBOutlet var trailing3MButton: WKInterfaceButton!
     @IBOutlet var trailing1YrButton: WKInterfaceButton!
-    @IBOutlet var trailing3YrButton: WKInterfaceButton!
-    @IBOutlet var trailingAllButton: WKInterfaceButton!
 
     var portfolioData: PortfolioData!
-    let titleFont = UIFont.systemFont(ofSize: 7.0, weight: UIFontWeightLight)
-    let dateRangeFont = UIFont.italicSystemFont(ofSize: 5.0)
-    let buttonFont = UIFont.systemFont(ofSize: 7.0, weight: UIFontWeightLight)
-    let buttonSelectedFont = UIFont.systemFont(ofSize: 7.0, weight: UIFontWeightHeavy)
-    let valueFont = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightMedium)
-    let value2Font = UIFont.systemFont(ofSize: 11.0, weight: UIFontWeightMedium)
+    let titleFont = UIFont.systemFont(ofSize: 8.0, weight: UIFontWeightLight)
+    let dateRangeFont = UIFont.italicSystemFont(ofSize: 8.0)
+    let buttonFont = UIFont.systemFont(ofSize: 13.0, weight: UIFontWeightLight)
+    let buttonSelectedFont = UIFont.systemFont(ofSize: 13.0, weight: UIFontWeightHeavy)
+    let valueFont = UIFont.systemFont(ofSize: 22.0, weight: UIFontWeightMedium)
+    let value2Font = UIFont.systemFont(ofSize: 20.0, weight: UIFontWeightMedium)
     
     override func willActivate() {
         super.willActivate()
@@ -44,7 +42,7 @@ class DashboardInterfaceController: WKInterfaceController {
         netEarningsTitleLabel.setAttributedText(getAttributedString("earnings", font: titleFont))
         totalReturnTitleLabel.setAttributedText(getAttributedString("return", font: titleFont))
         
-        updateForTrailingAll()
+        updateForTrailing3M()
     }
 
     @IBAction func updateForTrailing1M() {
@@ -59,15 +57,7 @@ class DashboardInterfaceController: WKInterfaceController {
     @IBAction func updateForTrailing1Yr() {
         updateFor(trailingPeriod: .Y1, button: trailing1YrButton)
     }
-    
-    @IBAction func updateForTrailing3Yr() {
-        updateFor(trailingPeriod: .Y3, button: trailing3YrButton)
-    }
-    
-    @IBAction func updateForTrailingAll() {
-        updateFor(trailingPeriod: .All, button: trailingAllButton)
-    }
-    
+   
     func updateFor(trailingPeriod: TrailingPeriod, button: WKInterfaceButton) {
         resetTrailingPeriodButtons()
         setButtonText(button, text: trailingPeriod.rawValue, isSelected: true)
@@ -83,8 +73,6 @@ class DashboardInterfaceController: WKInterfaceController {
         setButtonText(trailing1MButton, text: TrailingPeriod.M1.rawValue)
         setButtonText(trailing3MButton, text: TrailingPeriod.M3.rawValue)
         setButtonText(trailing1YrButton, text: TrailingPeriod.Y1.rawValue)
-        setButtonText(trailing3YrButton, text: TrailingPeriod.Y3.rawValue)
-        setButtonText(trailingAllButton, text: TrailingPeriod.All.rawValue)
     }
     
     func setButtonText(_ button: WKInterfaceButton, text: String, isSelected: Bool = false) {
@@ -121,7 +109,7 @@ class DashboardInterfaceController: WKInterfaceController {
     
     func updateChart(trailingPeriod: TrailingPeriod) {
         
-        let frame = CGRect(0, 0, contentFrame.width, contentFrame.height / 3)
+        let frame = CGRect(0, 0, contentFrame.width, contentFrame.height / 4)
         let scale = WKInterfaceDevice.current().screenScale
         
         portfolioData = PortfolioData.load(trailingPeriod: trailingPeriod)!

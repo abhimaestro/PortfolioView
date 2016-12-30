@@ -37,7 +37,7 @@ extension UIViewController {
         }
     }
     
-    func dismissViewController(completion completion: (() -> Void)? = nil) {
+    func dismissViewController(completion: (() -> Void)? = nil) {
         if presentedFromSide {
             dismissViewControllerToRight(completion: completion)
         } else {
@@ -45,12 +45,12 @@ extension UIViewController {
         }
     }
     
-    func dismissViewControllerToLeft(completion completion: (() -> Void)? = nil) {
+    func dismissViewControllerToLeft(completion: (() -> Void)? = nil) {
         setupSlideOutToLeftTransition()
         self.dismiss(animated: true, completion: completion)
     }
     
-    func dismissViewControllerToRight(completion completion: (() -> Void)? = nil) {
+    func dismissViewControllerToRight(completion: (() -> Void)? = nil) {
         setupSlideOutToRightTransition()
         self.dismiss(animated: true, completion: completion)
     }
@@ -101,7 +101,7 @@ extension UIViewController {
         self.view.window?.layer.add(slideTransition, forKey: nil)
     }
     
-    func toggleBetweenViews(viewsToShow viewsToShow: [UIView], viewsToHide: [UIView], toLeft: Bool = true) {
+    func toggleBetweenViews(viewsToShow: [UIView], viewsToHide: [UIView], toLeft: Bool = true) {
         
         let transition = CATransition()
         transition.startProgress = 0

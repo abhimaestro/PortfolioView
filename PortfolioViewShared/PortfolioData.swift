@@ -98,7 +98,7 @@ public class PortfolioData {
         switch trailingPeriod {
         case .M1:
             if portfolioData_1M == nil {
-               portfolioData_1M = PortfolioData(portfolioDataItems: getPortfolioDataItems(fileName: "portfolioData_1M"))
+               portfolioData_1M = PortfolioData(portfolioDataItems: getPortfolioDataItems(fileName: "portfolioData_3M"))
             }
             return portfolioData_1M
 

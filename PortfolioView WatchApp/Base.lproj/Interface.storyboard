@@ -55,7 +55,7 @@
                         <imageView alignment="left" id="TE2-2r-bDh"/>
                         <group width="1" alignment="center" verticalAlignment="bottom" id="E2O-ZC-AvD">
                             <items>
-                                <button width="0.20000000000000001" height="10" alignment="left" title="1M" id="W8K-UD-tJm">
+                                <button height="10" alignment="left" title="1M" id="W8K-UD-tJm">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="font" type="system" weight="ultraLight" pointSize="5"/>
@@ -63,36 +63,19 @@
                                         <action selector="updateForTrailing1M" destination="AgC-eL-Hgc" id="nht-hG-0c2"/>
                                     </connections>
                                 </button>
-                                <button width="0.20000000000000001" height="10" alignment="left" title="3M" id="0o9-db-M8R">
+                                <button height="12" alignment="center" verticalAlignment="center" title="3M" id="0o9-db-M8R">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="font" type="system" weight="ultraLight" pointSize="5"/>
                                     <connections>
                                         <action selector="updateForTrailing3M" destination="AgC-eL-Hgc" id="sWo-u6-TYI"/>
                                     </connections>
                                 </button>
-                                <button width="0.20000000000000001" height="10" alignment="left" title="1 Yr" id="IHd-pr-LCF">
+                                <button height="10" alignment="right" verticalAlignment="center" title="1 Yr" id="IHd-pr-LCF">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="font" type="system" weight="ultraLight" pointSize="5"/>
                                     <connections>
                                         <action selector="updateForTrailing1Yr" destination="AgC-eL-Hgc" id="vwW-US-fe1"/>
-                                    </connections>
-                                </button>
-                                <button width="0.20000000000000001" height="10" alignment="left" title="3 Yr" id="gGc-UA-iwI">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="font" type="system" weight="ultraLight" pointSize="5"/>
-                                    <connections>
-                                        <action selector="updateForTrailing3Yr" destination="AgC-eL-Hgc" id="JkA-UD-FMS"/>
-                                    </connections>
-                                </button>
-                                <button width="0.20000000000000001" height="10" alignment="left" title="All" id="9Tr-ml-lOs">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="font" type="system" weight="heavy" pointSize="7"/>
-                                    <connections>
-                                        <action selector="updateForTrailingAll" destination="AgC-eL-Hgc" id="MqS-fm-8F1"/>
                                     </connections>
                                 </button>
                             </items>
@@ -113,8 +96,6 @@
                         <outlet property="trailing1MButton" destination="W8K-UD-tJm" id="Noq-Yu-e6r"/>
                         <outlet property="trailing1YrButton" destination="IHd-pr-LCF" id="lcr-bH-gBC"/>
                         <outlet property="trailing3MButton" destination="0o9-db-M8R" id="buo-O6-p6r"/>
-                        <outlet property="trailing3YrButton" destination="gGc-UA-iwI" id="val-TR-Ec8"/>
-                        <outlet property="trailingAllButton" destination="9Tr-ml-lOs" id="5iI-Sy-Dey"/>
                         <segue destination="Uis-Zi-zOU" kind="relationship" relationship="nextPage" id="AgO-YP-aNp"/>
                     </connections>
                 </controller>
@@ -140,7 +121,7 @@
                                                     <group width="1" alignment="left" spacing="4" id="mZZ-RS-LqX">
                                                         <items>
                                                             <label alignment="left" verticalAlignment="center" text="Equity" id="uXl-Qu-wft">
-                                                                <fontDescription key="font" type="system" pointSize="7"/>
+                                                                <fontDescription key="font" type="system" pointSize="11"/>
                                                             </label>
                                                         </items>
                                                         <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="2"/>
@@ -149,11 +130,11 @@
                                                         <items>
                                                             <label alignment="left" verticalAlignment="center" text="20%" id="dcY-Sq-Su5">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <fontDescription key="font" type="system" pointSize="6"/>
+                                                                <fontDescription key="font" type="system" pointSize="9"/>
                                                             </label>
                                                             <label alignment="right" verticalAlignment="center" text="$100,234" id="p5g-Dl-dAD">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <fontDescription key="font" type="system" pointSize="6"/>
+                                                                <fontDescription key="font" type="system" pointSize="9"/>
                                                             </label>
                                                         </items>
                                                         <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="2"/>
@@ -174,7 +155,7 @@
                         </table>
                         <label alignment="center" verticalAlignment="bottom" text="as of date: 1/1/2017" id="fTz-fz-UIV">
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="6"/>
+                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="8"/>
                         </label>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
@@ -206,7 +187,7 @@
                                                     <group width="1" alignment="left" spacing="5" id="WmF-Wn-OSc">
                                                         <items>
                                                             <label alignment="left" verticalAlignment="center" text="John Doe Brokerage" numberOfLines="0" id="BcP-bY-haQ">
-                                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                                                <fontDescription key="font" type="system" pointSize="11"/>
                                                             </label>
                                                         </items>
                                                         <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="1"/>
@@ -215,11 +196,11 @@
                                                         <items>
                                                             <label alignment="left" verticalAlignment="center" text="$100,234" id="LPC-Lg-oEP">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <fontDescription key="font" type="system" pointSize="6"/>
+                                                                <fontDescription key="font" type="system" pointSize="9"/>
                                                             </label>
-                                                            <label alignment="right" verticalAlignment="center" text="$100,234 (1.04%)" id="Z2H-oE-27C">
+                                                            <label alignment="right" verticalAlignment="center" text="$10,234 (1.04%)" id="Z2H-oE-27C">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <fontDescription key="font" type="system" pointSize="6"/>
+                                                                <fontDescription key="font" type="system" pointSize="10"/>
                                                             </label>
                                                         </items>
                                                         <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="2"/>
@@ -240,7 +221,7 @@
                         </table>
                         <label alignment="center" verticalAlignment="bottom" text="as of date: 1/1/2017" id="5P8-B4-ZwY">
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="6"/>
+                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="8"/>
                         </label>
                     </items>
                     <connections>

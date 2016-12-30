@@ -38,11 +38,7 @@
 		C2C201C41E152DAB0020863D /* Pods_PortfolioView_WatchApp_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EF1EE60B7933341F32EB7B /* Pods_PortfolioView_WatchApp_Extension.framework */; };
 		C2C201DB1E15351E0020863D /* PortfolioViewShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C201D41E15351E0020863D /* PortfolioViewShared.framework */; };
 		C2C201DC1E15351E0020863D /* PortfolioViewShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2C201D41E15351E0020863D /* PortfolioViewShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C2C201E21E1536A80020863D /* portfolioData_1M.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201B51E1525700020863D /* portfolioData_1M.json */; };
 		C2C201E31E1536A80020863D /* portfolioData_1Yr.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201B61E1525700020863D /* portfolioData_1Yr.json */; };
-		C2C201E51E1536A80020863D /* portfolioData_3Yr.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201B81E1525700020863D /* portfolioData_3Yr.json */; };
-		C2C201E61E1536A80020863D /* portfolioData_5Yr.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201B91E1525700020863D /* portfolioData_5Yr.json */; };
-		C2C201E71E1536A80020863D /* portfolioData_All.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201AB1E1518010020863D /* portfolioData_All.json */; };
 		C2C201E91E1538220020863D /* PortfolioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C201AC1E1518010020863D /* PortfolioData.swift */; };
 		C2C201EA1E15382F0020863D /* portfolioData_3M.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C201B71E1525700020863D /* portfolioData_3M.json */; };
 		C2C201EC1E153C410020863D /* Extensions2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C201EB1E153C410020863D /* Extensions2.swift */; };
@@ -807,11 +803,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2C201EA1E15382F0020863D /* portfolioData_3M.json in Resources */,
-				C2C201E61E1536A80020863D /* portfolioData_5Yr.json in Resources */,
-				C2C201E21E1536A80020863D /* portfolioData_1M.json in Resources */,
 				C2C201E31E1536A80020863D /* portfolioData_1Yr.json in Resources */,
-				C2C201E71E1536A80020863D /* portfolioData_All.json in Resources */,
-				C2C201E51E1536A80020863D /* portfolioData_3Yr.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1243,7 +1235,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioView.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1267,7 +1259,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioView.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1286,7 +1278,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioView.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1305,7 +1297,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioView.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1331,7 +1323,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.iOS.PortfolioViewShared;
 				PRODUCT_NAME = PortfolioViewShared;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1359,7 +1351,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.iOS.PortfolioViewShared;
 				PRODUCT_NAME = PortfolioViewShared;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1416,7 +1408,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.watchOS.PortfolioViewShared;
 				PRODUCT_NAME = PortfolioViewShared;
 				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1444,7 +1436,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.watchOS.PortfolioViewShared;
 				PRODUCT_NAME = PortfolioViewShared;
 				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
