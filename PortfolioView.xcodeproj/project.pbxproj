@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		12D5750DE9B609560702031B /* Pods_PortfolioView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18BE8FF50FDAE8F2CF63FA5 /* Pods_PortfolioView.framework */; };
 		563279D1F00D177A7F9B34DD /* Pods_PortfolioViewShared__watchOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C7032832768F1FA28E2195 /* Pods_PortfolioViewShared__watchOS_.framework */; };
-		A838B512AE46F9CF4153B419 /* Pods_PortfolioViewShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBAB2F7603BA0CD2A97B6E58 /* Pods_PortfolioViewShared.framework */; };
 		B83301525A8CBB5E3E7A8C13 /* Pods_PortfolioViewShared__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F18237E6DA37F757EE089C1 /* Pods_PortfolioViewShared__iOS_.framework */; };
 		C210178F1E167F8100A7D56A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C210178E1E167F8100A7D56A /* Color.swift */; };
 		C21017901E167F8100A7D56A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C210178E1E167F8100A7D56A /* Color.swift */; };
@@ -267,7 +266,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A838B512AE46F9CF4153B419 /* Pods_PortfolioViewShared.framework in Frameworks */,
 				B83301525A8CBB5E3E7A8C13 /* Pods_PortfolioViewShared__iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1253,7 +1251,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioView.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1277,7 +1275,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioView.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1296,7 +1294,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioView.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1315,7 +1313,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.PortfolioView.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1341,7 +1339,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.iOS.PortfolioViewShared;
 				PRODUCT_NAME = PortfolioViewShared;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1369,7 +1367,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.iOS.PortfolioViewShared;
 				PRODUCT_NAME = PortfolioViewShared;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1426,7 +1424,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.watchOS.PortfolioViewShared;
 				PRODUCT_NAME = PortfolioViewShared;
 				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1454,7 +1452,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = lpl.watchOS.PortfolioViewShared;
 				PRODUCT_NAME = PortfolioViewShared;
 				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
