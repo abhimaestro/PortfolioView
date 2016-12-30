@@ -66,7 +66,7 @@ class AllocationRowController: NSObject {
     @IBOutlet var percentLabel: WKInterfaceLabel!
     @IBOutlet var dollarLabel: WKInterfaceLabel!
     
-    func setAllocation(color: UIColor, allocation: (name: String, percent: Double, dollar: Double)) {
+    func setAllocation(color: UIColor, allocation: Allocation) {
         
         nameLabel.setText(allocation.name)
         percentLabel.setText(allocation.percent.toPercent())

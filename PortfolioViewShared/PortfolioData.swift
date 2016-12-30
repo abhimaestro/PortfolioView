@@ -148,12 +148,15 @@ public class PortfolioData {
         return portfolioDataItems
     }
     
-    public static func getAllocations() -> [(name: String, percent: Double, dollar: Double)] {
+    public static func getAllocations() -> [Allocation] {
         return [
-            (name: "Equity", percent: 70.0, dollar: 231000.0),
-            (name: "Fixed Income", percent: 15.0, dollar: 49500),
-            (name:"Alternatives", percent: 10.0, dollar: 33000.0),
-            (name: "Cash", percent: 5.0, dollar: 16500)]
+            Allocation(name: "US Stocks", percent: 40.0, portfolioMarketValue: 390000.0),
+            Allocation(name: "Bonds", percent: 25.0, portfolioMarketValue: 390000.0),
+            Allocation(name:"Non-US Stocks", percent: 15.0, portfolioMarketValue: 390000.0),
+            Allocation(name:"Alternatives", percent: 10.0, portfolioMarketValue: 390000.0),
+            Allocation(name:"Cash", percent: 5.0, portfolioMarketValue: 390000.0),
+            Allocation(name:"Other", percent: 3.0, portfolioMarketValue: 390000.0),
+            Allocation(name: "Unclassified", percent: 2.0, portfolioMarketValue: 390000.0)]
     }
     
     public static func getAccounts() -> [Account] {
@@ -191,5 +194,17 @@ public class Account {
         self.marketValue = marketValue
         self.changePercent = changePercent
         self.changeDollar = marketValue * changePercent/100
+    }
+}
+
+public class Allocation {
+    public var name: String!
+    public var percent: Double = 0.0
+    public var dollar: Double = 0.0
+    
+    init(name: String, percent: Double, portfolioMarketValue: Double) {
+        self.name = name
+        self.percent = percent
+        self.dollar = portfolioMarketValue * percent/100
     }
 }
