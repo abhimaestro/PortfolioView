@@ -40,6 +40,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var dateRangeLabel: UILabel!
     @IBOutlet weak var allocationClassNameLabel: UILabel!
     @IBOutlet weak var allocationClassValueLabel: UILabel!
+    @IBOutlet weak var allocationClassDollarValueLabel: UILabel!
 
     let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
     let trailingPeriodButtonSelectedFont = FontHelper.getDefaultFont(size: 13.0, bold: true)
@@ -343,6 +344,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         allocationChartContainer.bringSubview(toFront: allocationClassValueLabel)
         allocationClassNameLabel.text = point.dataName
         allocationClassValueLabel.text = (point.dataXValue as! Double).toPercent(noOfDecimals: 1)
+        allocationClassDollarValueLabel.text = (point.dataYValue as! Double).toCurrency()
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -555,24 +557,13 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         allocationChart.legend.style.offset = UIOffset.zero
         allocationChartDonutContainer.addSubview(allocationChart)
 
-        let array:[TKChartDataPoint] = PortfolioData.getAllocations().map({TKChartDataPoint(name: $0.name, value: $0.percent)})
+        let array:[TKChartDataPoint] = PortfolioData.getAllocations().map({TKChartDataPoint(x: $0.percent, y: $0.dollar, name: $0.name)})
         let allocationSeries = TKChartDonutSeries(items:array)
 
         allocationSeries.style.paletteMode = .useItemIndex
         allocationSeries.style.palette = TKChartPalette()
 
-        let colorsCustom = [
-            UIColor(red: 106/255.0, green: 213/255.0, blue: 207/255.0, alpha: 1.0),
-            UIColor(red: 148/255.0, green: 120/255.0, blue: 162/255.0, alpha: 1.0),
-            UIColor(red: 166/255.0, green: 208/255.0, blue: 100/255.0, alpha: 1.0),
-            UIColor(red: 216/255.0, green: 82/255.0, blue: 85/255.0, alpha: 1.0),
-            UIColor(red: 89/255.0, green: 156/255.0, blue: 155/255.0, alpha: 1.0),
-            UIColor(red: 208/255.0, green: 138/255.0, blue: 60/255.0, alpha: 1.0),
-            UIColor(red: 99/255.0, green: 138/255.0, blue: 199/255.0, alpha: 1.0),
-            UIColor(red: 192/255.0, green: 100/255.0, blue: 88/255.0, alpha: 1.0)
-        ]
-        
-        for color in colorsCustom {
+        for color in Color.palette {
             let paletteItem = TKChartPaletteItem(fill: TKSolidFill(color: color))
             allocationSeries.style.palette!.addItem(paletteItem)
         }
