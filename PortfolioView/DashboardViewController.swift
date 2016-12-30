@@ -188,13 +188,6 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             
             let marketItemView = MarketItemView.load(marketItem: marketItem)
             
-            let color = Color.getValueColor(value: marketItem.changeDollar)
-            
-            marketItemView.backgroundColor = color.withAlphaComponent(0.4)
-            
-            marketItemView.changeValueDollarLabel.textColor = color
-            marketItemView.changeValuePercentLabel.textColor = color
-            
             if i % 2 == 0 {
                 marketItemView.frame = CGRect(x: column1X, y: y, width: width, height: height)
             }

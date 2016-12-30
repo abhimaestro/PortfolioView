@@ -40,5 +40,4 @@ class MarketItemView: UIView {
         changeValueDollarLabel.attributedText = marketItem.changeDollar.toCurrency(noOfDecimals: 2).toAttributed(color: color)
         changeValuePercentLabel.attributedText = marketItem.changePercent.toPercent(noOfDecimals: 2).toAttributed(color: color)
     }
-
 }
