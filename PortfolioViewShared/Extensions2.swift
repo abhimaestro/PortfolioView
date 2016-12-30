@@ -17,10 +17,10 @@ public extension CGRect {
 }
 
 public extension Double {
-    public func toCurrency() -> String {
+    public func toCurrency(noOfDecimals: Int = 0) -> String {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.numberStyle = .currency
-        currencyFormatter.maximumFractionDigits = 0
+        currencyFormatter.maximumFractionDigits = noOfDecimals
         let currency = currencyFormatter.string(from: (self as NSNumber))!
         
         return currency

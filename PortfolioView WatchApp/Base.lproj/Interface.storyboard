@@ -144,18 +144,86 @@
                         <outlet property="trailing1MButton" destination="W8K-UD-tJm" id="Noq-Yu-e6r"/>
                         <outlet property="trailing1YrButton" destination="IHd-pr-LCF" id="lcr-bH-gBC"/>
                         <outlet property="trailing3MButton" destination="0o9-db-M8R" id="buo-O6-p6r"/>
-                        <segue destination="Uis-Zi-zOU" kind="relationship" relationship="nextPage" id="AgO-YP-aNp"/>
+                        <segue destination="fUb-Pw-T5m" kind="relationship" relationship="nextPage" id="cOa-fw-5cp"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="63" y="345"/>
+            <point key="canvasLocation" x="-33" y="341"/>
         </scene>
-        <!--today-->
+        <!--market-->
         <scene sceneID="wKu-QL-VbW">
             <objects>
-                <controller title="today" id="fUb-Pw-T5m"/>
+                <controller title="market" id="fUb-Pw-T5m" customClass="MarketInterfaceController" customModule="PortfolioView_WatchApp_Extension">
+                    <items>
+                        <table alignment="left" id="rFz-UR-3Ko">
+                            <items>
+                                <tableRow identifier="MarketRow" selectable="NO" id="CXt-YJ-kX3" userLabel="MarketRow" customClass="MarketRowController" customModule="PortfolioView_WatchApp_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" animationDuration="1" layout="vertical" radius="0.0" spacing="0.0" id="nLe-4u-zri">
+                                        <items>
+                                            <group width="1" alignment="left" spacing="0.0" id="1dP-Db-L0G">
+                                                <items>
+                                                    <label alignment="left" verticalAlignment="center" text="symbol" numberOfLines="0" id="oXq-hs-Vmr">
+                                                        <fontDescription key="font" type="system" pointSize="12"/>
+                                                    </label>
+                                                    <label alignment="right" verticalAlignment="center" text="$100,234" id="xDe-o0-MjE">
+                                                        <fontDescription key="font" type="system" weight="light" pointSize="11"/>
+                                                    </label>
+                                                </items>
+                                                <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                            </group>
+                                            <group width="1" alignment="left" verticalAlignment="center" spacing="0.0" id="H5z-NH-bub">
+                                                <items>
+                                                    <group alignment="left" spacing="0.0" id="Pdi-L1-LAJ">
+                                                        <items>
+                                                            <label alignment="left" text="This is a very long text to see the wrapping" numberOfLines="0" id="Pa7-3A-dvK">
+                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="font" type="system" weight="thin" pointSize="10"/>
+                                                            </label>
+                                                        </items>
+                                                        <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                                    </group>
+                                                    <group width="0.40000000000000002" alignment="right" layout="vertical" spacing="0.0" id="Xpl-a1-jos">
+                                                        <items>
+                                                            <label alignment="right" text="$102" id="5cV-j9-bev">
+                                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                                            </label>
+                                                            <label alignment="right" verticalAlignment="center" text="1.04%" id="Xlc-Eh-Td5">
+                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="font" type="system" weight="light" pointSize="10"/>
+                                                            </label>
+                                                        </items>
+                                                        <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                                    </group>
+                                                </items>
+                                                <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                            </group>
+                                        </items>
+                                        <edgeInsets key="margins" left="3" right="3" top="0.0" bottom="0.0"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="changeDollarLabel" destination="5cV-j9-bev" id="gB7-ZY-BrD"/>
+                                        <outlet property="changePercentLabel" destination="Xlc-Eh-Td5" id="6z1-RR-TQg"/>
+                                        <outlet property="marketValueLabel" destination="xDe-o0-MjE" id="xzZ-ys-8dc"/>
+                                        <outlet property="nameLabel" destination="Pa7-3A-dvK" id="JOo-Sy-wXU"/>
+                                        <outlet property="rowGroup" destination="nLe-4u-zri" id="wqh-J9-Cf7"/>
+                                        <outlet property="symbolLabel" destination="oXq-hs-Vmr" id="ODE-L0-Dk0"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <label alignment="center" verticalAlignment="bottom" text="as of date: 1/1/2017" id="CYA-kH-0Q8">
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="9"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="asOfDate" destination="CYA-kH-0Q8" id="24y-t0-pC3"/>
+                        <outlet property="marketDataTable" destination="rFz-UR-3Ko" id="5OT-5a-flM"/>
+                        <segue destination="dDZ-Y8-vDY" kind="relationship" relationship="nextPage" id="1HO-3M-klf"/>
+                    </connections>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="300" y="230"/>
+            <point key="canvasLocation" x="231" y="341"/>
         </scene>
         <!--allocation-->
         <scene sceneID="bRz-NQ-fmA">
@@ -219,11 +287,10 @@
                         <outlet property="allocationsTable" destination="Bsc-ve-Yl2" id="ULJ-R6-pD1"/>
                         <outlet property="asOfDate" destination="fTz-fz-UIV" id="vhL-uI-Fv3"/>
                         <outlet property="chartImageView" destination="S8y-JM-wfZ" id="vcw-qK-dyv"/>
-                        <segue destination="dDZ-Y8-vDY" kind="relationship" relationship="nextPage" id="CTE-st-rmq"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="505" y="345"/>
+            <point key="canvasLocation" x="699" y="341"/>
         </scene>
         <!--accounts-->
         <scene sceneID="7uX-EP-ktL">
@@ -284,10 +351,11 @@
                     <connections>
                         <outlet property="accountsTable" destination="cJP-xP-8bp" id="VQX-fL-7gl"/>
                         <outlet property="asOfDate" destination="5P8-B4-ZwY" id="6Or-M2-UZH"/>
+                        <segue destination="Uis-Zi-zOU" kind="relationship" relationship="nextPage" id="yip-Lk-wSC"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="784" y="345"/>
+            <point key="canvasLocation" x="462" y="341"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.32156862745098042" green="0.47450980392156861" blue="0.63529411764705879" alpha="1" colorSpace="calibratedRGB"/>

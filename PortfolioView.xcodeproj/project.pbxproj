@@ -13,6 +13,7 @@
 		B83301525A8CBB5E3E7A8C13 /* Pods_PortfolioViewShared__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F18237E6DA37F757EE089C1 /* Pods_PortfolioViewShared__iOS_.framework */; };
 		C210178F1E167F8100A7D56A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C210178E1E167F8100A7D56A /* Color.swift */; };
 		C21017901E167F8100A7D56A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C210178E1E167F8100A7D56A /* Color.swift */; };
+		C219A2381E16ADE200B10C08 /* MarketInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C219A2371E16ADE200B10C08 /* MarketInterfaceController.swift */; };
 		C23208351E12E32600E54844 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208341E12E32600E54844 /* FontHelper.swift */; };
 		C23208371E13094F00E54844 /* PopOverActionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208361E13094F00E54844 /* PopOverActionsVC.swift */; };
 		C2335A591E100F4500760234 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A581E100F4500760234 /* Extensions.swift */; };
@@ -187,6 +188,7 @@
 		A18BE8FF50FDAE8F2CF63FA5 /* Pods_PortfolioView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1EF1EE60B7933341F32EB7B /* Pods_PortfolioView_WatchApp_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioView_WatchApp_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C210178E1E167F8100A7D56A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		C219A2371E16ADE200B10C08 /* MarketInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketInterfaceController.swift; sourceTree = "<group>"; };
 		C23208341E12E32600E54844 /* FontHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		C23208361E13094F00E54844 /* PopOverActionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverActionsVC.swift; sourceTree = "<group>"; };
 		C2335A511E1001DC00760234 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				C2C201F11E157F870020863D /* AllocationInterfaceController.swift */,
 				C2C201F31E1581D00020863D /* Helper.swift */,
 				C2C201F71E1595560020863D /* AccountsInterfaceController.swift */,
+				C219A2371E16ADE200B10C08 /* MarketInterfaceController.swift */,
 			);
 			path = "PortfolioView WatchApp Extension";
 			sourceTree = "<group>";
@@ -1087,6 +1090,7 @@
 			files = (
 				C267814F1E14786300D85E05 /* NotificationController.swift in Sources */,
 				C2C201F41E1581D00020863D /* Helper.swift in Sources */,
+				C219A2381E16ADE200B10C08 /* MarketInterfaceController.swift in Sources */,
 				C2C201F21E157F870020863D /* AllocationInterfaceController.swift in Sources */,
 				C2C201F81E1595560020863D /* AccountsInterfaceController.swift in Sources */,
 				C267814D1E14786300D85E05 /* ExtensionDelegate.swift in Sources */,
