@@ -19,6 +19,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var landscapeLayoutContainer: UIView!
     @IBOutlet weak var topContainer: UIView!
     @IBOutlet weak var bottomContainer: UIView!
+    @IBOutlet weak var marketDataContainer: UIView!
     @IBOutlet weak var allocationChartContainer: UIView!
     @IBOutlet weak var allocationChartDonutContainer: UIView!
     @IBOutlet weak var goalChartContainer: UIView!
@@ -41,6 +42,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var allocationClassNameLabel: UILabel!
     @IBOutlet weak var allocationClassValueLabel: UILabel!
     @IBOutlet weak var allocationClassDollarValueLabel: UILabel!
+    @IBOutlet weak var goalAsOfDate: UILabel!
+    @IBOutlet weak var allocationAsOfDate: UILabel!
 
     let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
     let trailingPeriodButtonSelectedFont = FontHelper.getDefaultFont(size: 13.0, bold: true)
@@ -83,6 +86,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
 
         initializeValueOverTimeChart()
 
+        initializeMarketDataView()
+        
         initializeGoalChart()
 
         initializeAllocationChart()
@@ -127,19 +132,6 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         
     }
     
-    func imageWithColor(color: UIColor) -> UIImage {
-        
-        let rect = CGRect.init(x: 0.0, y: 0.0, width: 1.0, height: chartTypeSegmentedControl.frame.size.height)
-        UIGraphicsBeginImageContext(rect.size)
-        let context = UIGraphicsGetCurrentContext()
-        context!.setFillColor(color.cgColor);
-        context!.fill(rect);
-        let image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        return image!
-        
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -171,6 +163,45 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             upperBorder.frame = CGRect.init(x: 0, y: borderview.frame.size.height-1, width: borderview.frame.size.width, height: 1.0);
             borderview.layer.removeAllAnimations()
             borderview.layer.addSublayer(upperBorder);
+        }
+    }
+    
+    func initializeMarketDataView() {
+        
+        let marketData = PortfolioData.getMarketData()
+        let containerOrigin = marketDataContainer.frame.origin
+        let containerWidth = marketDataContainer.frame.width
+
+        let offset: CGFloat = 10
+        var x = containerOrigin.x + offset //set x to 1st column
+        var y = containerOrigin.y + offset
+        let height: CGFloat = 66
+        let width: CGFloat = (containerWidth / 2) - 2*offset
+        
+        for i in 0..<marketData.count {
+            let marketItem = marketData[i]
+            
+            let marketItemView = MarketItemView.load(marketItem: marketItem)
+            
+            let color = Color.getValueColor(value: marketItem.changeDollar)
+            
+            marketItemView.backgroundColor = color.withAlphaComponent(0.4)
+            
+            marketItemView.changeValueDollarLabel.textColor = color
+            marketItemView.changeValuePercentLabel.textColor = color
+            
+            if i / 2 == 0 {
+                marketItemView.frame = CGRect(x: x, y: y, width: width, height: height)
+                
+                x += width + 2*offset //set x to 2nd column
+            }
+            else {
+                marketItemView.frame = CGRect(x: x, y: y, width: width, height: height)
+                x = containerOrigin.x + offset //set x to 1st column
+                y += height + 2*offset
+            }
+            
+            marketDataContainer.addSubview(marketItemView)
         }
     }
     

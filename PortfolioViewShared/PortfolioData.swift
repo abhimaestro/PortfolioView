@@ -169,7 +169,7 @@ public class PortfolioData {
     
     public static func getMarketData() -> [MarketItem] {
         return [
-            MarketItem(symbol: "Your Portfolio", marketValue: 390000.0, changePercent: 1.05),
+            MarketItem(symbol: "Portfolio", marketValue: 390000.0, changePercent: 1.05),
             MarketItem(symbol: "DJI", name: "Dow Jones Industrial Average", marketValue: 19738.36, changePercent: -0.41),
             MarketItem(symbol: "INX", name: "S&P 500", marketValue: 2238.27, changePercent: 0.67),
             MarketItem(symbol: "IXIC", name: "NASDAQ Composite", marketValue: 5383.12, changePercent: -0.9),
