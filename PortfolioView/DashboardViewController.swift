@@ -59,8 +59,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     }
     
     private enum BottomContainerViewName: Int {
-        case Goal = 0
-        case Allocation = 1
+        case MarketData = 0
+        case Goal = 1
+        case Allocation = 2
     }
 
     private var _currentTrailingPeriod: TrailingPeriod = .All
@@ -72,7 +73,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         }
     }
     
-    private var _bottomContainerViewName = BottomContainerViewName.Goal {
+    private var _bottomContainerViewName = BottomContainerViewName.MarketData {
         didSet {
             bottomContainerPageControl.currentPage = _bottomContainerViewName.rawValue
         }
@@ -86,8 +87,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
 
         initializeValueOverTimeChart()
 
-        initializeMarketDataView()
-        
+       
         initializeGoalChart()
 
         initializeAllocationChart()
@@ -135,6 +135,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        initializeMarketDataView()
+        
         let needle = radialGauge.scales[0].indicators[0] as! TKGaugeNeedle
         needle.setValueAnimated(80, withDuration: 1.5, mediaTimingFunction: kCAMediaTimingFunctionEaseInEaseOut)
         
@@ -173,10 +175,13 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let containerWidth = marketDataContainer.frame.width
 
         let offset: CGFloat = 10
-        var x = containerOrigin.x + offset //set x to 1st column
-        var y = containerOrigin.y + offset
-        let height: CGFloat = 66
-        let width: CGFloat = (containerWidth / 2) - 2*offset
+
+        var y = containerOrigin.y + 2*offset
+        let height: CGFloat = 62
+        let width: CGFloat = (containerWidth / 2) - 1.5*offset
+        
+        let column1X = containerOrigin.x + offset
+        let column2X = column1X + width + offset
         
         for i in 0..<marketData.count {
             let marketItem = marketData[i]
@@ -190,15 +195,12 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             marketItemView.changeValueDollarLabel.textColor = color
             marketItemView.changeValuePercentLabel.textColor = color
             
-            if i / 2 == 0 {
-                marketItemView.frame = CGRect(x: x, y: y, width: width, height: height)
-                
-                x += width + 2*offset //set x to 2nd column
+            if i % 2 == 0 {
+                marketItemView.frame = CGRect(x: column1X, y: y, width: width, height: height)
             }
             else {
-                marketItemView.frame = CGRect(x: x, y: y, width: width, height: height)
-                x = containerOrigin.x + offset //set x to 1st column
-                y += height + 2*offset
+                marketItemView.frame = CGRect(x: column2X, y: y, width: width, height: height)
+                y += height + offset
             }
             
             marketDataContainer.addSubview(marketItemView)
@@ -787,6 +789,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         switch direction {
         case UISwipeGestureRecognizerDirection.left:
             switch _bottomContainerViewName {
+            case .MarketData:
+                toggleBetweenViews(viewsToShow: [goalChartContainer], viewsToHide: [marketDataContainer], toLeft: true)
+                _bottomContainerViewName = .Goal
             case .Goal:
                 toggleBetweenViews(viewsToShow: [allocationChartContainer], viewsToHide: [goalChartContainer], toLeft: true)
                 _bottomContainerViewName = .Allocation
@@ -795,8 +800,11 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             }
         case UISwipeGestureRecognizerDirection.right:
             switch _bottomContainerViewName {
+            case .MarketData:
+               break
             case .Goal:
-                break
+                toggleBetweenViews(viewsToShow: [marketDataContainer], viewsToHide: [goalChartContainer], toLeft: false)
+                _bottomContainerViewName = .MarketData
             case .Allocation:
                 toggleBetweenViews(viewsToShow: [goalChartContainer], viewsToHide: [allocationChartContainer], toLeft: false)
                 _bottomContainerViewName = .Goal

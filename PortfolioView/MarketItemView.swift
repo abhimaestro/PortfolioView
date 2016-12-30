@@ -23,6 +23,8 @@ class MarketItemView: UIView {
         let marketItemView = xibView?[0] as! MarketItemView
         
         marketItemView.setData(marketItem)
+        marketItemView.layer.cornerRadius = 5
+        
         return marketItemView
     }
     

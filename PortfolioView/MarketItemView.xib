@@ -16,33 +16,33 @@
             <rect key="frame" x="0.0" y="0.0" width="185" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DJI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhN-6P-i1W">
-                    <rect key="frame" x="5" y="5" width="25.5" height="20"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DJI" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="QhN-6P-i1W">
+                    <rect key="frame" x="5" y="5" width="106" height="17.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$19,762.6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVJ-pd-3TG">
-                    <rect key="frame" x="104" y="4.5" width="76" height="20"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$19,762.6" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="lVJ-pd-3TG">
+                    <rect key="frame" x="111" y="6" width="69" height="15.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dow Jones Industrial Average" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybE-dx-ekL">
-                    <rect key="frame" x="5" y="30" width="111" height="28.5"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dow Jones Industrial Average" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="ybE-dx-ekL">
+                    <rect key="frame" x="5" y="24.5" width="106" height="26"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-$57.18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wG3-Du-n6i">
-                    <rect key="frame" x="135" y="29.5" width="45" height="15.5"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-$57.18" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wG3-Du-n6i">
+                    <rect key="frame" x="138" y="24" width="42" height="14.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                     <color key="textColor" red="0.76078431369999999" green="0.0" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-0.29%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rl9-zN-YlA">
-                    <rect key="frame" x="136.5" y="47" width="43.5" height="15.5"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-0.29%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rl9-zN-YlA">
+                    <rect key="frame" x="139.5" y="40.5" width="40.5" height="14.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                     <color key="textColor" red="0.76078431369999999" green="0.0" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -50,13 +50,15 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ybE-dx-ekL" firstAttribute="leading" secondItem="QhN-6P-i1W" secondAttribute="leading" id="009-WN-Sah"/>
+                <constraint firstItem="QhN-6P-i1W" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.6" constant="-5" id="0xG-Xq-kB7"/>
+                <constraint firstItem="lVJ-pd-3TG" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.4" constant="-5" id="27A-RP-Tkv"/>
                 <constraint firstAttribute="trailing" secondItem="lVJ-pd-3TG" secondAttribute="trailing" constant="5" id="8cI-26-so9"/>
-                <constraint firstItem="ybE-dx-ekL" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.6" id="978-58-1tK"/>
+                <constraint firstItem="ybE-dx-ekL" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.6" constant="-5" id="978-58-1tK"/>
                 <constraint firstItem="rl9-zN-YlA" firstAttribute="top" secondItem="wG3-Du-n6i" secondAttribute="bottom" constant="2" id="9Wi-O7-BEu"/>
-                <constraint firstItem="ybE-dx-ekL" firstAttribute="top" secondItem="QhN-6P-i1W" secondAttribute="bottom" constant="5" id="CNg-Vf-2IO"/>
+                <constraint firstItem="ybE-dx-ekL" firstAttribute="top" secondItem="QhN-6P-i1W" secondAttribute="bottom" constant="2" id="CNg-Vf-2IO"/>
                 <constraint firstItem="rl9-zN-YlA" firstAttribute="trailing" secondItem="wG3-Du-n6i" secondAttribute="trailing" id="GWc-Hn-UjA"/>
                 <constraint firstItem="QhN-6P-i1W" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="XpA-dZ-vCC"/>
-                <constraint firstItem="wG3-Du-n6i" firstAttribute="top" secondItem="lVJ-pd-3TG" secondAttribute="bottom" constant="5" id="bk1-aP-Tgy"/>
+                <constraint firstItem="wG3-Du-n6i" firstAttribute="top" secondItem="lVJ-pd-3TG" secondAttribute="bottom" constant="2" id="bk1-aP-Tgy"/>
                 <constraint firstItem="wG3-Du-n6i" firstAttribute="trailing" secondItem="lVJ-pd-3TG" secondAttribute="trailing" id="gBh-u6-Pc3"/>
                 <constraint firstItem="lVJ-pd-3TG" firstAttribute="centerY" secondItem="QhN-6P-i1W" secondAttribute="centerY" id="xYU-eN-W2b"/>
                 <constraint firstItem="QhN-6P-i1W" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="yXE-Ek-M5s"/>
