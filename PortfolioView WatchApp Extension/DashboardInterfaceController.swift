@@ -27,10 +27,10 @@ class DashboardInterfaceController: WKInterfaceController {
     @IBOutlet var trailing1YrButton: WKInterfaceButton!
 
     var portfolioData: PortfolioData!
-    let titleFont = UIFont.systemFont(ofSize: 8.0, weight: UIFontWeightLight)
-    let dateRangeFont = UIFont.italicSystemFont(ofSize: 8.0)
-    let buttonFont = UIFont.systemFont(ofSize: 13.0, weight: UIFontWeightLight)
-    let buttonSelectedFont = UIFont.systemFont(ofSize: 13.0, weight: UIFontWeightHeavy)
+    let titleFont = UIFont.systemFont(ofSize: 9.0, weight: UIFontWeightLight)
+    let dateRangeFont = UIFont.italicSystemFont(ofSize: 9.0)
+    let buttonFont = UIFont.systemFont(ofSize: 15.0, weight: UIFontWeightLight)
+    let buttonSelectedFont = UIFont.systemFont(ofSize: 15.0, weight: UIFontWeightHeavy)
     let valueFont = UIFont.systemFont(ofSize: 22.0, weight: UIFontWeightMedium)
     let value2Font = UIFont.systemFont(ofSize: 20.0, weight: UIFontWeightMedium)
     

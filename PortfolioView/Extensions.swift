@@ -8,18 +8,6 @@
 
 import Foundation
 
-extension Int {
-    func randomIntFrom(start: Int, to end: Int) -> Int {
-        var a = start
-        var b = end
-        // swap to prevent negative integer crashes
-        if a > b {
-            swap(&a, &b)
-        }
-        return Int(arc4random_uniform(UInt32(b - a + 1))) + a
-    }
-}
-
 public extension UIImage {
     static func imageWithColor(color: UIColor, origin: CGPoint = CGPoint.zero, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
         

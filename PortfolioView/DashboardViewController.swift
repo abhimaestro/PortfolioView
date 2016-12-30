@@ -150,7 +150,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         bottomContainerPageControl.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
 
         let chartTypeSegmentedControlHeight = chartTypeSegmentedControl.frame.size.height
-        let helveticsNeue13 = UIFont(name:"HelveticaNeue-Bold", size:13.0)!
+        let helveticsNeue13 = FontHelper.getDefaultFont(size: 13.0, bold: true)
         let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.00)
         let imageWithColorOrigin = CGPoint(x: 0, y: chartTypeSegmentedControlHeight - 1)
         let imageWithColorSize = CGSize(width: 1, height: chartTypeSegmentedControlHeight)
@@ -227,9 +227,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     }
     
     func updateDateRangeLevel(portfolioData: PortfolioData) {
-        let dateformatter = DateFormatter()
-        dateformatter.dateStyle = .short
-        dateRangeLabel.text = "Date range: \(dateformatter.string(from: portfolioData.inceptionDate)) - \(dateformatter.string(from: portfolioData.endDate))"
+        dateRangeLabel.text = "Date range: \(portfolioData.inceptionDate.toShortDateString()) - \(portfolioData.endDate.toShortDateString())"
     }
     
     func initializePerformanceChart() {
@@ -248,10 +246,10 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         
         let performanceData = getPerformanceData()
         
-        portfolioTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalPortfolioReturnPercent)
+        portfolioTotalReturnLabel.text = performanceData.portfolioData.totalPortfolioReturnPercent.toPercent(noOfDecimals: 1)
         setLabelColor(label: portfolioTotalReturnLabel, value: performanceData.portfolioData.totalPortfolioReturnPercent)
         
-        indexTotalReturnLabel.text = String(format: "%.1f%%", performanceData.portfolioData.totalIndex1ReturnPercent)
+        indexTotalReturnLabel.text = performanceData.portfolioData.totalIndex1ReturnPercent.toPercent(noOfDecimals: 1)
         setLabelColor(label: indexTotalReturnLabel, value: performanceData.portfolioData.totalIndex1ReturnPercent)
         
         updateDateRangeLevel(portfolioData: performanceData.portfolioData)
@@ -275,7 +273,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let xAxis = TKChartDateTimeAxis(minimumDate: performanceData.portfolioData.inceptionDate, andMaximumDate: performanceData.portfolioData.endDate)
         //xAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.custom
         xAxis.majorTickInterval = 2
-        xAxis.style.labelStyle.font = UIFont(name:"HelveticaNeue-Light", size:9.0)!
+        xAxis.style.labelStyle.font = FontHelper.getDefaultFont(size: 9.0, light: true)
         xAxis.setPlotMode(TKChartAxisPlotMode.onTicks)
         xAxis.style.majorTickStyle.ticksHidden = true
         xAxis.style.lineHidden = true
@@ -286,7 +284,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         performanceChart.xAxis = xAxis
         
         let yAxis = TKChartNumericAxis(minimum: performanceData.minReturnValue, andMaximum: performanceData.maxReturnValue)
-        yAxis.style.labelStyle.font = UIFont(name:"HelveticaNeue-Light", size:8.0)!
+        yAxis.style.labelStyle.font = FontHelper.getDefaultFont(size: 8.0, light: true)
         yAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.bottom.rawValue)
         
         yAxis.style.majorTickStyle.ticksHidden = true
@@ -349,7 +347,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         allocationChartContainer.bringSubview(toFront: allocationClassNameLabel)
         allocationChartContainer.bringSubview(toFront: allocationClassValueLabel)
         allocationClassNameLabel.text = point.dataName
-        allocationClassValueLabel.text = String(format: "%.1f%%", (point.dataXValue as! Double))
+        allocationClassValueLabel.text = (point.dataXValue as! Double).toPercent(noOfDecimals: 1)
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -368,20 +366,14 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let count = selection.count
         
         let allData = selection as! [TKChartSelectionInfo]
-        let xDate = allData[0].dataPoint!.dataXValue as! Date
-        let dateformatter = DateFormatter()
-        dateformatter.dateStyle = .short
-        let dateString = dateformatter.string(from: xDate)
-        
-        str.append("\(dateString)\n")
+       
+        str.append("\((allData[0].dataPoint!.dataXValue as! Date).toShortDateString())\n")
         
         if _topContainerViewName == .Performance {
         for info in allData {
             let data = info.dataPoint as TKChartData!
            
-             let dataValue = String(format: "%.1f%%", (data!.dataYValue as! Double))
-            
-            str.append("\(info.series!.title!): \(dataValue)")
+            str.append("\(info.series!.title!): \((data!.dataYValue as! Double).toPercent(noOfDecimals: 1))")
             // str.append("\(data?.dataYValue as! Float)")
             if (i<count-1) {
                 str.append("\n");
@@ -389,16 +381,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             i += 1
             }
         }
-        
         else if _topContainerViewName == .ValueOverTime {
             let data = allData[0].dataPoint as TKChartData!
-            
-            let currencyFormatter = NumberFormatter()
-            currencyFormatter.numberStyle = .currency
-            currencyFormatter.maximumFractionDigits = 0
-            
-            let dataValue = currencyFormatter.string(from: (data!.dataYValue as! NSNumber))!
-            str.append("\(allData[0].series!.title!): \(dataValue) \n")
+            str.append("\(allData[0].series!.title!): \((data!.dataYValue as! Double).toCurrency()) \n")
         }
         
         chart.trackball.tooltip.text = str as String
@@ -428,13 +413,10 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let valueData = getValueData()
         
         
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = .currency
-        currencyFormatter.maximumFractionDigits = 0
-        portfolioTotalReturnDollarValue.text = currencyFormatter.string(from: (valueData.portfolioData.totalPortfolioReturnDollar as NSNumber))!
+        portfolioTotalReturnDollarValue.text = valueData.portfolioData.totalPortfolioReturnDollar.toCurrency()
         setLabelColor(label: portfolioTotalReturnDollarValue, value: valueData.portfolioData.totalPortfolioReturnDollar)
         
-        portfolioTotalMarketValueLabel.text = currencyFormatter.string(from: (valueData.portfolioData.totalPortfolioMarketValueDollar as NSNumber))!
+        portfolioTotalMarketValueLabel.text = valueData.portfolioData.totalPortfolioMarketValueDollar.toCurrency()
         
         updateDateRangeLevel(portfolioData: valueData.portfolioData)
         
@@ -455,7 +437,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let xAxis = TKChartDateTimeAxis(minimumDate: valueData.portfolioData.inceptionDate, andMaximumDate: valueData.portfolioData.endDate)
         //xAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.custom
         xAxis.majorTickInterval = 2
-        xAxis.style.labelStyle.font = UIFont(name:"HelveticaNeue-Light", size:9.0)!
+        xAxis.style.labelStyle.font = FontHelper.getDefaultFont(size: 9.0, light: true)
         xAxis.setPlotMode(TKChartAxisPlotMode.onTicks)
         xAxis.style.majorTickStyle.ticksHidden = true
         xAxis.style.lineHidden = true
@@ -471,7 +453,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         
         yAxis.style.majorTickStyle.ticksHidden = true
         yAxis.style.lineHidden = true
-        
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.maximumFractionDigits = 0
         yAxis.labelFormatter = currencyFormatter
         yAxis.style.lineStroke = TKStroke(color:UIColor(white:0.85, alpha:1.0), width:2)
         
