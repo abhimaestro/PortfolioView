@@ -13,7 +13,7 @@ import PortfolioViewShared
 
 class AllocationInterfaceController: WKInterfaceController {
 
-    let chartLabelFont = UIFont.systemFont(ofSize: 9.0, weight: UIFontWeightLight)
+    let chartLabelFont = UIFont.systemFont(ofSize: 10.0, weight: UIFontWeightLight)
     let allocations = PortfolioData.getAllocations()
 
     

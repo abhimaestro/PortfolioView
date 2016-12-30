@@ -9,16 +9,22 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
     </dependencies>
     <scenes>
-        <!--Value-->
+        <!--summary-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller title="Value" id="AgC-eL-Hgc" customClass="DashboardInterfaceController" customModule="PortfolioView_WatchApp_Extension">
+                <controller title="summary" id="AgC-eL-Hgc" customClass="DashboardInterfaceController" customModule="PortfolioView_WatchApp_Extension">
                     <items>
                         <group width="1" alignment="center" animationDuration="5" layout="vertical" spacing="0.0" id="vhX-ZJ-A7g">
                             <items>
                                 <label alignment="center" verticalAlignment="center" text="market value" minimumScaleFactor="0.20000000000000001" id="ZZ6-XI-qdO">
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="font" type="system" weight="light" pointSize="10"/>
+                                    <fontDescription key="font" type="system" weight="light" pointSize="9"/>
+                                    <variation key="device=watch38mm">
+                                        <fontDescription key="font" type="system" weight="light" pointSize="8"/>
+                                    </variation>
+                                    <variation key="device=watch42mm">
+                                        <fontDescription key="font" type="system" weight="light" pointSize="9"/>
+                                    </variation>
                                 </label>
                                 <label alignment="center" verticalAlignment="bottom" text="Label" id="c3j-uz-Sa8"/>
                             </items>
@@ -30,7 +36,13 @@
                                     <items>
                                         <label alignment="left" verticalAlignment="center" text="earnings" minimumScaleFactor="0.20000000000000001" id="42P-Wg-VNa">
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="font" type="system" weight="light" pointSize="10"/>
+                                            <fontDescription key="font" type="system" weight="light" pointSize="9"/>
+                                            <variation key="device=watch38mm">
+                                                <fontDescription key="font" type="system" weight="light" pointSize="8"/>
+                                            </variation>
+                                            <variation key="device=watch42mm">
+                                                <fontDescription key="font" type="system" weight="light" pointSize="9"/>
+                                            </variation>
                                         </label>
                                         <label alignment="left" verticalAlignment="bottom" text="Label" id="gZ7-9R-Kyd">
                                             <color key="textColor" red="0.11764705882352941" green="0.45490196078431372" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -41,7 +53,13 @@
                                     <items>
                                         <label alignment="right" verticalAlignment="center" text="return" minimumScaleFactor="0.20000000000000001" id="Qhw-8S-Kr4">
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="font" type="system" weight="light" pointSize="10"/>
+                                            <fontDescription key="font" type="system" weight="light" pointSize="9"/>
+                                            <variation key="device=watch38mm">
+                                                <fontDescription key="font" type="system" weight="light" pointSize="8"/>
+                                            </variation>
+                                            <variation key="device=watch42mm">
+                                                <fontDescription key="font" type="system" weight="light" pointSize="9"/>
+                                            </variation>
                                         </label>
                                         <label alignment="right" verticalAlignment="bottom" text="Label" id="qYg-h5-Yd2">
                                             <color key="textColor" red="0.1176470588" green="0.4549019608" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,9 +99,39 @@
                         </group>
                         <label alignment="center" verticalAlignment="bottom" text="date range: 12/31/2015 - 12/31/2016" id="Ohn-Yv-Zci">
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="10"/>
+                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="8"/>
+                            <variation key="device=watch38mm">
+                                <fontDescription key="font" type="italicSystem" weight="light" pointSize="8"/>
+                            </variation>
+                            <variation key="device=watch42mm">
+                                <fontDescription key="font" type="italicSystem" weight="light" pointSize="9"/>
+                            </variation>
                         </label>
                     </items>
+                    <menu key="menu" id="ba7-FS-dHu">
+                        <items>
+                            <menuItem title="1M" icon="accept" id="y8g-z4-aW4">
+                                <connections>
+                                    <action selector="updateForTrailing1M" destination="AgC-eL-Hgc" id="DTl-zA-maS"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="3M" icon="add" id="i5B-OF-pTt">
+                                <connections>
+                                    <action selector="updateForTrailing3M" destination="AgC-eL-Hgc" id="kHH-tN-IHh"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="1Yr" icon="more" id="bna-9e-Jlr">
+                                <connections>
+                                    <action selector="updateForTrailing1Yr" destination="AgC-eL-Hgc" id="7Ob-md-qB7"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="3Yr" icon="info" id="eBv-Lu-ksf">
+                                <connections>
+                                    <action selector="menu2" destination="AgC-eL-Hgc" id="sBH-hM-HAm"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="chartImageView" destination="TE2-2r-bDh" id="1cB-Zc-7BQ"/>
                         <outlet property="dateRangeLabel" destination="Ohn-Yv-Zci" id="Nc0-BJ-5Y9"/>
@@ -155,7 +203,7 @@
                         </table>
                         <label alignment="center" verticalAlignment="bottom" text="as of date: 1/1/2017" id="fTz-fz-UIV">
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="10"/>
+                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="9"/>
                         </label>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
@@ -221,7 +269,7 @@
                         </table>
                         <label alignment="center" verticalAlignment="bottom" text="as of date: 1/1/2017" id="5P8-B4-ZwY">
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="10"/>
+                            <fontDescription key="font" type="italicSystem" weight="light" pointSize="9"/>
                         </label>
                     </items>
                     <connections>

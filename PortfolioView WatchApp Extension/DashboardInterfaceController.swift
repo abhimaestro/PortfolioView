@@ -27,20 +27,14 @@ class DashboardInterfaceController: WKInterfaceController {
     @IBOutlet var trailing1YrButton: WKInterfaceButton!
 
     var portfolioData: PortfolioData!
-    let titleFont = UIFont.systemFont(ofSize: 10.0, weight: UIFontWeightLight)
     let buttonFont = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightLight)
     let buttonSelectedFont = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightHeavy)
     let valueFont = UIFont.systemFont(ofSize: 24.0, weight: UIFontWeightMedium)
-    let value2Font = UIFont.systemFont(ofSize: 20.0, weight: UIFontWeightMedium)
-    
+    let value2Font = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightMedium)
+
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
 
-        self.setTitle("summary")
-        portfolioMarketValueTitleLabel.setAttributedText("market value".toAttributed(font: titleFont))
-        netEarningsTitleLabel.setAttributedText("earnings".toAttributed(font: titleFont))
-        totalReturnTitleLabel.setAttributedText("return".toAttributed(font: titleFont))
-        
         updateForTrailing3M()
     }
     
@@ -102,8 +96,11 @@ class DashboardInterfaceController: WKInterfaceController {
     
     func updateChart(trailingPeriod: TrailingPeriod) {
         
-        let frame = CGRect(0, 0, contentFrame.width, contentFrame.height / 4)
-        let scale = WKInterfaceDevice.current().screenScale
+        let currentDevice = WKInterfaceDevice.current()
+        
+        let imageHeight = currentDevice.getWatchSize() == .large ? contentFrame.height / 3 : contentFrame.height / 4
+        let frame = CGRect(0, 0, contentFrame.width, imageHeight)
+        let scale = currentDevice.screenScale
         
         portfolioData = PortfolioData.load(trailingPeriod: trailingPeriod)!
         
