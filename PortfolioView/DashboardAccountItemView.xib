@@ -9,11 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardAccountItemView" customModule="PortfolioView" customModuleProvider="target">
-            <connections>
-                <outlet property="swatchView" destination="XoW-Jt-WoP" id="W0U-Aj-qji"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardAccountItemView" customModule="PortfolioView" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="IbS-5L-mRi" customClass="DashboardAccountItemView" customModule="PortfolioView" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="185" height="62"/>
@@ -66,6 +62,7 @@
                 <outlet property="changeValueLabel" destination="aCi-QY-qdh" id="V3b-8h-qNQ"/>
                 <outlet property="marketValueLabel" destination="Mci-ih-8xV" id="PcF-7P-6jG"/>
                 <outlet property="nameLabel" destination="y6G-Ag-A0g" id="I4F-Cc-Ffb"/>
+                <outlet property="swatchView" destination="XoW-Jt-WoP" id="2fG-M5-v1R"/>
             </connections>
             <point key="canvasLocation" x="-1.5" y="49"/>
         </view>

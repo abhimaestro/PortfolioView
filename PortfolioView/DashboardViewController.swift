@@ -20,6 +20,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var topContainer: UIView!
     @IBOutlet weak var bottomContainer: UIView!
     @IBOutlet weak var marketDataContainer: UIView!
+    @IBOutlet weak var accountContainer: UIView!
     @IBOutlet weak var allocationChartContainer: UIView!
     @IBOutlet weak var allocationChartDonutContainer: UIView!
     @IBOutlet weak var goalChartContainer: UIView!
@@ -44,6 +45,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var allocationClassDollarValueLabel: UILabel!
     @IBOutlet weak var goalAsOfDate: UILabel!
     @IBOutlet weak var allocationAsOfDate: UILabel!
+    @IBOutlet weak var accountAsOfDate: UILabel!
+    @IBOutlet weak var marketAsOfDate: UILabel!
 
     let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
     let trailingPeriodButtonSelectedFont = FontHelper.getDefaultFont(size: 13.0, bold: true)
@@ -60,8 +63,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     
     private enum BottomContainerViewName: Int {
         case MarketData = 0
-        case Goal = 1
-        case Allocation = 2
+        case Account = 1
+        case Goal = 2
+        case Allocation = 3
     }
 
     private var _currentTrailingPeriod: TrailingPeriod = .All
@@ -136,7 +140,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         super.viewDidAppear(animated)
         
         initializeMarketDataView()
-        
+        initializeAccountView()
+
         let needle = radialGauge.scales[0].indicators[0] as! TKGaugeNeedle
         needle.setValueAnimated(80, withDuration: 1.5, mediaTimingFunction: kCAMediaTimingFunctionEaseInEaseOut)
         
@@ -197,6 +202,38 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             }
             
             marketDataContainer.addSubview(marketItemView)
+        }
+    }
+    
+    func initializeAccountView() {
+        
+        let accounts = PortfolioData.getAccounts()
+        let containerOrigin = accountContainer.frame.origin
+        let containerWidth = accountContainer.frame.width
+        
+        let offset: CGFloat = 10
+        
+        var y = containerOrigin.y + 2*offset
+        let height: CGFloat = 62
+        let width: CGFloat = (containerWidth / 2) - 1.5*offset
+        
+        let column1X = containerOrigin.x + offset
+        let column2X = column1X + width + offset
+        
+        for i in 0..<accounts.count {
+            let account = accounts[i]
+            
+            let accountItemView = DashboardAccountItemView.load(accountItem:  account, swatchColor: Color.palette[i])
+            
+            if i % 2 == 0 {
+                accountItemView.frame = CGRect(x: column1X, y: y, width: width, height: height)
+            }
+            else {
+                accountItemView.frame = CGRect(x: column2X, y: y, width: width, height: height)
+                y += height + offset
+            }
+            
+            accountContainer.addSubview(accountItemView)
         }
     }
     
@@ -612,11 +649,11 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
 
     private var _donutLabelAdded = false
     override func viewDidLayoutSubviews() {
-        let bounds = bottomContainer.bounds
-        let size = bottomContainer.bounds.size
-        let offset = CGFloat(50)
+        let bounds = goalChartContainer.bounds
+        let size = goalChartContainer.bounds.size
+        let offset = CGFloat(20)
         
-        radialGauge.frame = CGRect(x: offset, y: bounds.origin.y + offset, width: size.width - offset*2, height: bottomContainer.frame.origin.y - bounds.origin.y - offset*4)
+        radialGauge.frame = CGRect(x: offset*2, y: bounds.origin.y + 1.5*offset, width: size.width - offset*4, height: bottomContainer.frame.origin.y - bounds.origin.y - offset*8)
     }
     
     private func addGestures(){
@@ -783,7 +820,10 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         case UISwipeGestureRecognizerDirection.left:
             switch _bottomContainerViewName {
             case .MarketData:
-                toggleBetweenViews(viewsToShow: [goalChartContainer], viewsToHide: [marketDataContainer], toLeft: true)
+                toggleBetweenViews(viewsToShow: [accountContainer], viewsToHide: [marketDataContainer], toLeft: true)
+                _bottomContainerViewName = .Account
+            case .Account:
+                toggleBetweenViews(viewsToShow: [goalChartContainer], viewsToHide: [accountContainer], toLeft: true)
                 _bottomContainerViewName = .Goal
             case .Goal:
                 toggleBetweenViews(viewsToShow: [allocationChartContainer], viewsToHide: [goalChartContainer], toLeft: true)
@@ -795,9 +835,12 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             switch _bottomContainerViewName {
             case .MarketData:
                break
-            case .Goal:
-                toggleBetweenViews(viewsToShow: [marketDataContainer], viewsToHide: [goalChartContainer], toLeft: false)
+            case .Account:
+                toggleBetweenViews(viewsToShow: [marketDataContainer], viewsToHide: [accountContainer], toLeft: false)
                 _bottomContainerViewName = .MarketData
+            case .Goal:
+                toggleBetweenViews(viewsToShow: [accountContainer], viewsToHide: [goalChartContainer], toLeft: false)
+                _bottomContainerViewName = .Account
             case .Allocation:
                 toggleBetweenViews(viewsToShow: [goalChartContainer], viewsToHide: [allocationChartContainer], toLeft: false)
                 _bottomContainerViewName = .Goal

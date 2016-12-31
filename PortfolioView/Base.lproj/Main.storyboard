@@ -50,7 +50,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBb-WJ-QSv" userLabel="bottomContainer">
                                         <rect key="frame" x="0.0" y="444" width="375" height="225"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZI-gf-k2Z">
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZI-gf-k2Z">
                                                 <rect key="frame" x="0.0" y="2" width="375" height="223"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3O-MY-3qC">
@@ -98,7 +98,7 @@
                                                     <constraint firstItem="o3O-MY-3qC" firstAttribute="centerY" secondItem="KZI-gf-k2Z" secondAttribute="centerY" id="zf1-Io-jRk"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DFw-lQ-ird">
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DFw-lQ-ird">
                                                 <rect key="frame" x="0.0" y="2" width="375" height="223"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="as of 11/29/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SM-as-BaH" userLabel="as of 11/29/2016">
@@ -112,6 +112,22 @@
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="6SM-as-BaH" secondAttribute="bottom" constant="5" id="cP5-c9-0Dx"/>
                                                     <constraint firstItem="6SM-as-BaH" firstAttribute="centerX" secondItem="DFw-lQ-ird" secondAttribute="centerX" id="rYa-JG-Gad"/>
+                                                </constraints>
+                                            </view>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POi-Rc-lBL">
+                                                <rect key="frame" x="0.0" y="2" width="375" height="223"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="as of 11/29/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qik-Sc-cWw" userLabel="as of 11/29/2016">
+                                                        <rect key="frame" x="146" y="205" width="82.5" height="13"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="Qik-Sc-cWw" secondAttribute="bottom" constant="5" id="YpQ-Vm-EPp"/>
+                                                    <constraint firstItem="Qik-Sc-cWw" firstAttribute="centerX" secondItem="POi-Rc-lBL" secondAttribute="centerX" id="w7W-U7-hbu"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCm-MH-mqX">
@@ -150,11 +166,15 @@
                                             <constraint firstItem="DFw-lQ-ird" firstAttribute="bottom" secondItem="KZI-gf-k2Z" secondAttribute="bottom" id="CNm-C2-KZX"/>
                                             <constraint firstAttribute="bottom" secondItem="KZI-gf-k2Z" secondAttribute="bottom" id="EkD-jM-bBG"/>
                                             <constraint firstItem="DFw-lQ-ird" firstAttribute="top" secondItem="KZI-gf-k2Z" secondAttribute="top" id="TWv-na-rSs"/>
+                                            <constraint firstItem="POi-Rc-lBL" firstAttribute="leading" secondItem="KZI-gf-k2Z" secondAttribute="leading" id="Tsa-iK-9dL"/>
                                             <constraint firstItem="KZI-gf-k2Z" firstAttribute="top" secondItem="RQf-bY-5Oe" secondAttribute="bottom" constant="-25" id="U5W-aD-jNE"/>
+                                            <constraint firstItem="POi-Rc-lBL" firstAttribute="trailing" secondItem="KZI-gf-k2Z" secondAttribute="trailing" id="iu2-hI-eIg"/>
                                             <constraint firstItem="UCm-MH-mqX" firstAttribute="top" secondItem="KZI-gf-k2Z" secondAttribute="top" id="jfv-Ww-MMf"/>
                                             <constraint firstItem="DFw-lQ-ird" firstAttribute="leading" secondItem="KZI-gf-k2Z" secondAttribute="leading" id="lW0-d1-hqs"/>
+                                            <constraint firstItem="POi-Rc-lBL" firstAttribute="bottom" secondItem="KZI-gf-k2Z" secondAttribute="bottom" id="rH7-u2-ZRf"/>
                                             <constraint firstItem="UCm-MH-mqX" firstAttribute="leading" secondItem="KZI-gf-k2Z" secondAttribute="leading" id="sZO-pj-STQ"/>
                                             <constraint firstItem="UCm-MH-mqX" firstAttribute="bottom" secondItem="KZI-gf-k2Z" secondAttribute="bottom" id="sgc-Ed-NnG"/>
+                                            <constraint firstItem="POi-Rc-lBL" firstAttribute="top" secondItem="KZI-gf-k2Z" secondAttribute="top" id="vdw-4Y-FjQ"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b29-dg-CAg" userLabel="topContainer">
@@ -484,6 +504,8 @@
                         <barButtonItem key="rightBarButtonItem" image="logout" style="plain" id="qPU-aV-78q"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="accountAsOfDate" destination="Qik-Sc-cWw" id="pUE-7P-edd"/>
+                        <outlet property="accountContainer" destination="POi-Rc-lBL" id="QMV-4D-C8T"/>
                         <outlet property="allocationAsOfDate" destination="Szh-ex-pnL" id="eo3-Yp-It6"/>
                         <outlet property="allocationChartContainer" destination="KZI-gf-k2Z" id="Dru-jW-qmc"/>
                         <outlet property="allocationChartDonutContainer" destination="o3O-MY-3qC" id="MnG-4u-qb7"/>
@@ -499,6 +521,7 @@
                         <outlet property="indexNameLabel" destination="4QE-of-D6M" id="s9r-Na-wOM"/>
                         <outlet property="indexTotalReturnLabel" destination="05g-RK-HFd" id="shW-eE-Uv6"/>
                         <outlet property="landscapeLayoutContainer" destination="9vj-7U-ZjH" id="Aa7-Gc-ff1"/>
+                        <outlet property="marketAsOfDate" destination="CQ1-tz-cVB" id="U3Y-KS-qeY"/>
                         <outlet property="marketDataContainer" destination="UCm-MH-mqX" id="J6h-qu-Lk1"/>
                         <outlet property="performanceChartContainer" destination="cGx-2R-qIq" id="EGM-XN-7Ec"/>
                         <outlet property="performanceChartLegendContainer" destination="HyM-aX-twA" id="tAQ-Hu-PH3"/>
