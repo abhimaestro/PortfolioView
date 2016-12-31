@@ -12,7 +12,7 @@ import WatchKit
 
 public class Color {
     
-    public static let redValue = UIColor(red: 216/255.0, green: 82/255.0, blue: 85/255.0, alpha: 1.0)
+    public static let redValue = UIColor(red: 255/255.0, green: 55/255.0, blue: 82/255.0, alpha: 1.0)
     public static let greenValue = UIColor(red: 30/255.0, green: 116/255.0, blue: 0/255.0, alpha: 1.0)
 
     public static let palette = [

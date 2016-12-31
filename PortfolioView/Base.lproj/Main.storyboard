@@ -298,7 +298,7 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iup-cE-OHo" userLabel="indexMarker">
                                                                 <rect key="frame" x="7" y="12" width="20" height="2"/>
-                                                                <color key="backgroundColor" red="0.92549019610000005" green="0.46666666670000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="backgroundColor" red="0.0" green="0.70980392156862748" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="2" id="aAq-Ue-eec"/>
                                                                     <constraint firstAttribute="width" constant="20" id="eTy-we-hoe"/>

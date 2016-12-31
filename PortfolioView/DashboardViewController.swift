@@ -318,10 +318,10 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let performanceData = getPerformanceData()
         
         portfolioTotalReturnLabel.text = performanceData.portfolioData.totalPortfolioReturnPercent.toPercent(noOfDecimals: 1)
-        setLabelColor(label: portfolioTotalReturnLabel, value: performanceData.portfolioData.totalPortfolioReturnPercent)
+        portfolioTotalReturnLabel.textColor = Color.getValueColor(value: performanceData.portfolioData.totalPortfolioReturnPercent)
         
         indexTotalReturnLabel.text = performanceData.portfolioData.totalIndex1ReturnPercent.toPercent(noOfDecimals: 1)
-        setLabelColor(label: indexTotalReturnLabel, value: performanceData.portfolioData.totalIndex1ReturnPercent)
+        indexTotalReturnLabel.textColor = Color.getValueColor(value: performanceData.portfolioData.totalIndex1ReturnPercent)
         
         updateDateRangeLevel(portfolioData: performanceData.portfolioData)
         
@@ -338,7 +338,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         
         series2.style.palette = TKChartPalette()
         let paletteItem2 = TKChartPaletteItem()
-        paletteItem2.stroke = TKStroke(color: UIColor(red: 154/255.0, green: 181/255.0, blue: 228/255.0, alpha: 1.00))
+        paletteItem2.stroke = TKStroke(color: UIColor(red: 154/255.0, green: 181/255.0, blue: 170/255.0, alpha: 1.00))
         series2.style.palette!.addItem(paletteItem2)
         
         let xAxis = TKChartDateTimeAxis(minimumDate: performanceData.portfolioData.inceptionDate, andMaximumDate: performanceData.portfolioData.endDate)
@@ -462,15 +462,6 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         chart.trackball.tooltip.text = str as String
     }
     
-    func setLabelColor(label: UILabel, value: Double) {
-        if value < 0 {
-            label.textColor = UIColor.red
-        }
-        else {
-            label.textColor = UIColor(red: 15/255.0, green: 91/255.0, blue: 0/255.0, alpha: 1.0)
-        }
-    }
-    
     func initializeValueOverTimeChart() {
         
         self.valueOverTimeChart =  getValueOverTimeChart(inView: valueOverTimeChartContainer)
@@ -487,7 +478,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         
         
         portfolioTotalReturnDollarValue.text = valueData.portfolioData.totalPortfolioReturnDollar.toCurrency()
-        setLabelColor(label: portfolioTotalReturnDollarValue, value: valueData.portfolioData.totalPortfolioReturnDollar)
+        
+        portfolioTotalReturnDollarValue.textColor = Color.getValueColor(value: valueData.portfolioData.totalPortfolioReturnDollar)
         
         portfolioTotalMarketValueLabel.text = valueData.portfolioData.totalPortfolioMarketValueDollar.toCurrency()
         
