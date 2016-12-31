@@ -34,6 +34,9 @@ public extension Double {
 
 public extension Date {
     
+    static public var currentYear: Int {
+       return Calendar.current.dateComponents([.year], from: Date()).year!
+    }
     public func toShortDateString() -> String {
         let dateformatter = DateFormatter()
         dateformatter.dateStyle = .short

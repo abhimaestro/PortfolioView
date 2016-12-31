@@ -59,7 +59,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     let allocationChart = TKChart()
     var valueOverTimeChart = TKChart()
     var performanceChart = TKChart()
-    
+    let goalInfo = PortfolioData.getGoalInfo()
+
     private enum TopContainerViewName: Int {
         case Performance = 0
         case ValueOverTime = 1
@@ -552,8 +553,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     func initializeGoalChart() {
         
         radialGauge.labelTitleOffset = CGPoint(x: radialGauge.labelTitle.bounds.origin.x, y: radialGauge.labelTitle.bounds.origin.y - 60)
-        radialGauge.labelTitle.text = "80%"
-        radialGauge.labelSubtitle.text = "on track"
+        radialGauge.labelTitle.text = goalInfo.probability.toPercent()
+        radialGauge.labelSubtitle.text = goalInfo.probability < 70 ? "off track" : "on track"
         radialGauge.labelTitle.font = FontHelper.getDefaultFont(size: 20.0)
         
         goalDialContainer.addSubview(radialGauge)
@@ -622,21 +623,18 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         
         goalAccumulationContainer.addSubview(self.linearGauge)
         
-        let scale1 = TKGaugeLinearScale(minimum: 2010, maximum: 2040)
+        let scale1 = TKGaugeLinearScale(minimum: goalInfo.retiremenGoal.startYear, maximum: goalInfo.retiremenGoal.retirementYear)
         scale1.ticks.position = TKGaugeTicksPosition.inner
         self.linearGauge.addScale(scale1)
         
-        let currentYear = CGFloat(Calendar.current.dateComponents([.year], from: Date()).year!)
-        let completedSegment = TKGaugeSegment(minimum: 2010, maximum: currentYear)
+        let completedSegment = TKGaugeSegment(minimum: goalInfo.retiremenGoal.startYear, maximum: goalInfo.retiremenGoal.asOfYear)
         completedSegment.width = 0.08
         completedSegment.width2 = 0.08
         completedSegment.location = 0.62
         completedSegment.fill = TKSolidFill(color:  UIColor(red: 0.38, green: 0.73, blue: 0.00, alpha: 1.00))
         scale1.addSegment(completedSegment)
         
-        //self.setNeedle(scale1)
-        
-        let scale2 = TKGaugeLinearScale(minimum: 300000, maximum: 3000000)
+        let scale2 = TKGaugeLinearScale(minimum: goalInfo.retiremenGoal.marketValueStart, maximum: goalInfo.retiremenGoal.marketValueRetirement)
         self.linearGauge.addScale(scale2)
         
         scale2.ticks.position = TKGaugeTicksPosition.outer

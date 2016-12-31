@@ -144,6 +144,10 @@ public class PortfolioData {
 
         return portfolioDataItems
     }
+
+    public static func getGoalInfo() -> GoalInfo {
+        return GoalInfo(probability: 80.0, retirementYear: 2042, startYear: 2010, marketValueStart: 200000, marketValueCurrent: 600789, marketValueRetirement: 2500000)
+    }
     
     public static func getAllocations() -> [Allocation] {
         return [
@@ -188,6 +192,34 @@ public enum TrailingPeriod : String {
     case Y3 = "3Yr"
     case Y5 = "5Yr"
     case All = "All"
+}
+
+public class GoalInfo {
+    public var probability: Double = 0.0
+    public var retiremenGoal: RetirementGoal!
+    
+    init(probability: Double, retirementYear: Int, startYear: Int, marketValueStart: Double, marketValueCurrent: Double, marketValueRetirement: Double) {
+        self.probability = probability
+        self.retiremenGoal = RetirementGoal(retirementYear, startYear, marketValueStart, marketValueCurrent, marketValueRetirement)
+    }
+}
+
+public class RetirementGoal {
+    public var retirementYear: Int = 0
+    public var startYear: Int = 0
+    public var asOfYear: Int = 0
+    public var marketValueStart: Double = 0.0
+    public var marketValueCurrent: Double = 0.0
+    public var marketValueRetirement: Double = 0.0
+    
+    init(_ retirementYear: Int, _ startYear: Int, _ marketValueStart: Double, _ marketValueCurrent: Double, _ marketValueRetirement: Double) {
+        self.retirementYear = retirementYear
+        self.startYear = startYear
+        self.asOfYear = Date.currentYear
+        self.marketValueStart = marketValueStart
+        self.marketValueCurrent = marketValueCurrent
+        self.marketValueRetirement = marketValueRetirement
+    }
 }
 
 public class MarketItem {
