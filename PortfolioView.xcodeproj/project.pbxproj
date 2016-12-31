@@ -10,6 +10,8 @@
 		12D5750DE9B609560702031B /* Pods_PortfolioView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18BE8FF50FDAE8F2CF63FA5 /* Pods_PortfolioView.framework */; };
 		563279D1F00D177A7F9B34DD /* Pods_PortfolioViewShared__watchOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C7032832768F1FA28E2195 /* Pods_PortfolioViewShared__watchOS_.framework */; };
 		B83301525A8CBB5E3E7A8C13 /* Pods_PortfolioViewShared__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F18237E6DA37F757EE089C1 /* Pods_PortfolioViewShared__iOS_.framework */; };
+		C20582981E1817BD00BE04D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20582971E1817BD00BE04D7 /* LoginViewController.swift */; };
+		C205829B1E18198300BE04D7 /* DisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C205829A1E18198300BE04D7 /* DisclaimerViewController.swift */; };
 		C210178F1E167F8100A7D56A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C210178E1E167F8100A7D56A /* Color.swift */; };
 		C21017901E167F8100A7D56A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C210178E1E167F8100A7D56A /* Color.swift */; };
 		C219A2381E16ADE200B10C08 /* MarketInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C219A2371E16ADE200B10C08 /* MarketInterfaceController.swift */; };
@@ -192,6 +194,8 @@
 		907C060298334BF28D095050 /* Pods-PortfolioView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortfolioView.release.xcconfig"; path = "Pods/Target Support Files/Pods-PortfolioView/Pods-PortfolioView.release.xcconfig"; sourceTree = "<group>"; };
 		A18BE8FF50FDAE8F2CF63FA5 /* Pods_PortfolioView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1EF1EE60B7933341F32EB7B /* Pods_PortfolioView_WatchApp_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortfolioView_WatchApp_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C20582971E1817BD00BE04D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C205829A1E18198300BE04D7 /* DisclaimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisclaimerViewController.swift; sourceTree = "<group>"; };
 		C210178E1E167F8100A7D56A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C219A2371E16ADE200B10C08 /* MarketInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketInterfaceController.swift; sourceTree = "<group>"; };
 		C219A2391E16DC3F00B10C08 /* MarketItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarketItemView.xib; sourceTree = "<group>"; };
@@ -360,6 +364,47 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C20582921E18172800BE04D7 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				C219A2391E16DC3F00B10C08 /* MarketItemView.xib */,
+				C219A23B1E16DF4F00B10C08 /* MarketItemView.swift */,
+				C23A74641E1780CD00113BD6 /* DashboardAccountItemView.swift */,
+				C23A74661E1780D700113BD6 /* DashboardAccountItemView.xib */,
+				C23A74681E17913900113BD6 /* LegendItemView.swift */,
+				C23A746A1E17914900113BD6 /* LegendItemView.xib */,
+				C2F71B5A1E038AEA00A99298 /* DashboardViewController.swift */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		C20582931E18175100BE04D7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C2335A581E100F4500760234 /* Extensions.swift */,
+				C2335A5A1E103BDE00760234 /* Transitions.swift */,
+				C23208341E12E32600E54844 /* FontHelper.swift */,
+				C23208361E13094F00E54844 /* PopOverActionsVC.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		C20582941E18178500BE04D7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C20582971E1817BD00BE04D7 /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		C20582991E18197300BE04D7 /* Disclaimer */ = {
+			isa = PBXGroup;
+			children = (
+				C205829A1E18198300BE04D7 /* DisclaimerViewController.swift */,
+			);
+			name = Disclaimer;
+			sourceTree = "<group>";
+		};
 		C26781381E14786200D85E05 /* PortfolioView WatchApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,22 +526,15 @@
 		C2F71B291E02CDAE00A99298 /* PortfolioView */ = {
 			isa = PBXGroup;
 			children = (
+				C20582991E18197300BE04D7 /* Disclaimer */,
+				C20582941E18178500BE04D7 /* Login */,
+				C20582931E18175100BE04D7 /* Common */,
+				C20582921E18172800BE04D7 /* Dashboard */,
 				C2F71B2A1E02CDAE00A99298 /* AppDelegate.swift */,
 				C2F71B301E02CDAF00A99298 /* Main.storyboard */,
 				C2F71B331E02CDAF00A99298 /* Assets.xcassets */,
 				C2F71B351E02CDAF00A99298 /* LaunchScreen.storyboard */,
 				C2F71B381E02CDAF00A99298 /* Info.plist */,
-				C2F71B5A1E038AEA00A99298 /* DashboardViewController.swift */,
-				C2335A581E100F4500760234 /* Extensions.swift */,
-				C2335A5A1E103BDE00760234 /* Transitions.swift */,
-				C23208341E12E32600E54844 /* FontHelper.swift */,
-				C23208361E13094F00E54844 /* PopOverActionsVC.swift */,
-				C219A2391E16DC3F00B10C08 /* MarketItemView.xib */,
-				C219A23B1E16DF4F00B10C08 /* MarketItemView.swift */,
-				C23A74641E1780CD00113BD6 /* DashboardAccountItemView.swift */,
-				C23A74661E1780D700113BD6 /* DashboardAccountItemView.xib */,
-				C23A74681E17913900113BD6 /* LegendItemView.swift */,
-				C23A746A1E17914900113BD6 /* LegendItemView.xib */,
 			);
 			path = PortfolioView;
 			sourceTree = "<group>";
@@ -1154,11 +1192,13 @@
 				C23208371E13094F00E54844 /* PopOverActionsVC.swift in Sources */,
 				C2335A591E100F4500760234 /* Extensions.swift in Sources */,
 				C23A74691E17913900113BD6 /* LegendItemView.swift in Sources */,
+				C205829B1E18198300BE04D7 /* DisclaimerViewController.swift in Sources */,
 				C2335A5B1E103BDE00760234 /* Transitions.swift in Sources */,
 				C219A23C1E16DF4F00B10C08 /* MarketItemView.swift in Sources */,
 				C2F71B5B1E038AEA00A99298 /* DashboardViewController.swift in Sources */,
 				C23A74651E1780CD00113BD6 /* DashboardAccountItemView.swift in Sources */,
 				C2C201EC1E153C410020863D /* Extensions2.swift in Sources */,
+				C20582981E1817BD00BE04D7 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

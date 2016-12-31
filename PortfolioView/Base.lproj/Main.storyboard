@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9CU-Tr-aDW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zM6-Bl-oAE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,7 +27,111 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eqk-3l-GYm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1031" y="222"/>
+            <point key="canvasLocation" x="-918" y="222"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="auc-yd-S9h">
+            <objects>
+                <viewController id="zM6-Bl-oAE" customClass="LoginViewController" customModule="PortfolioView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EYr-bF-lD6"/>
+                        <viewControllerLayoutGuide type="bottom" id="zbf-u9-axN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2zd-9a-EVC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="mBV-1Y-nRY">
+                                <rect key="frame" x="131" y="36" width="112.5" height="112.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mBV-1Y-nRY" secondAttribute="height" multiplier="1:1" id="FlC-F6-7h0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6r-7O-gZt">
+                                <rect key="frame" x="74" y="158.5" width="226" height="44"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Portfolio">
+                                        <attributes>
+                                            <color key="NSColor" red="0.050980392156862744" green="0.21176470588235294" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="36" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="36" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.050980392156862744" green="0.21176470588235294" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="36" name=".AppleSystemUIFont"/>
+                                            <font key="NSOriginalFont" size="36" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="View">
+                                        <attributes>
+                                            <color key="NSColor" red="0.050980392156862744" green="0.21176470588235294" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="36" name="HelveticaNeue-BoldItalic"/>
+                                            <font key="NSOriginalFont" size="36" name="HelveticaNeue-BoldItalic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IVY-ww-kvw">
+                                <rect key="frame" x="47" y="239" width="281" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sex-Eu-GNC">
+                                <rect key="frame" x="47" y="290" width="281" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shl-Nq-vlG">
+                                <rect key="frame" x="47" y="353" width="281" height="40"/>
+                                <color key="backgroundColor" red="0.050980392156862744" green="0.21176470588235294" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="9CU-Tr-aDW" kind="show" id="SqT-ui-YRj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWX-cO-EvC">
+                                <rect key="frame" x="112.5" y="423" width="149" height="37"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="21"/>
+                                <state key="normal" title="forgot pasword?">
+                                    <color key="titleColor" red="0.050980392156862744" green="0.21176470588235294" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Sex-Eu-GNC" firstAttribute="trailing" secondItem="IVY-ww-kvw" secondAttribute="trailing" id="6YF-D0-62e"/>
+                            <constraint firstItem="IVY-ww-kvw" firstAttribute="centerX" secondItem="2zd-9a-EVC" secondAttribute="centerX" id="713-V8-htP"/>
+                            <constraint firstItem="shl-Nq-vlG" firstAttribute="leading" secondItem="Sex-Eu-GNC" secondAttribute="leading" id="AAe-1C-FlX"/>
+                            <constraint firstItem="shl-Nq-vlG" firstAttribute="top" secondItem="Sex-Eu-GNC" secondAttribute="bottom" constant="33" id="J2b-7k-m37"/>
+                            <constraint firstItem="K6r-7O-gZt" firstAttribute="centerX" secondItem="mBV-1Y-nRY" secondAttribute="centerX" id="K7l-3k-0CA"/>
+                            <constraint firstItem="mBV-1Y-nRY" firstAttribute="centerX" secondItem="2zd-9a-EVC" secondAttribute="centerX" id="KjG-Fo-MoX"/>
+                            <constraint firstItem="IVY-ww-kvw" firstAttribute="top" secondItem="K6r-7O-gZt" secondAttribute="bottom" constant="36.5" id="LWf-RE-A7E"/>
+                            <constraint firstItem="fWX-cO-EvC" firstAttribute="centerX" secondItem="shl-Nq-vlG" secondAttribute="centerX" id="UoS-r3-7tt"/>
+                            <constraint firstItem="fWX-cO-EvC" firstAttribute="top" secondItem="shl-Nq-vlG" secondAttribute="bottom" constant="30" id="YhU-gf-PSQ"/>
+                            <constraint firstItem="K6r-7O-gZt" firstAttribute="top" secondItem="mBV-1Y-nRY" secondAttribute="bottom" constant="10" id="ZDh-Ch-77I"/>
+                            <constraint firstItem="mBV-1Y-nRY" firstAttribute="top" secondItem="EYr-bF-lD6" secondAttribute="bottom" constant="16" id="bOz-Bz-ijh"/>
+                            <constraint firstItem="shl-Nq-vlG" firstAttribute="trailing" secondItem="Sex-Eu-GNC" secondAttribute="trailing" id="ebC-ik-MFw"/>
+                            <constraint firstItem="mBV-1Y-nRY" firstAttribute="width" secondItem="2zd-9a-EVC" secondAttribute="width" multiplier="0.3" id="fym-Am-OsQ"/>
+                            <constraint firstItem="IVY-ww-kvw" firstAttribute="width" secondItem="2zd-9a-EVC" secondAttribute="width" multiplier="0.75" id="ktU-Jh-z9P"/>
+                            <constraint firstItem="Sex-Eu-GNC" firstAttribute="leading" secondItem="IVY-ww-kvw" secondAttribute="leading" id="xux-up-2l8"/>
+                            <constraint firstItem="Sex-Eu-GNC" firstAttribute="top" secondItem="IVY-ww-kvw" secondAttribute="bottom" constant="21" id="yd9-U5-AWe"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yTm-f1-vKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2050.4000000000001" y="221.73913043478262"/>
         </scene>
         <!--Portfolio Summary-->
         <scene sceneID="OQv-fe-skZ">
@@ -524,7 +629,11 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Portfolio Summary" id="beQ-pj-elz">
-                        <barButtonItem key="rightBarButtonItem" image="logout" style="plain" id="qPU-aV-78q"/>
+                        <barButtonItem key="rightBarButtonItem" image="logout" style="plain" id="qPU-aV-78q">
+                            <connections>
+                                <segue destination="uWL-zk-PYx" kind="unwind" unwindAction="unwindToLoginWithUnwindSegue:" id="yZS-rw-ELB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="accountAsOfDate" destination="Qik-Sc-cWw" id="pUE-7P-edd"/>
@@ -567,11 +676,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZqJ-HT-7ez" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="uWL-zk-PYx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="60" y="221.73913043478262"/>
         </scene>
     </scenes>
     <resources>
+        <image name="logo" width="76" height="76"/>
         <image name="logout" width="20" height="20"/>
     </resources>
 </document>
