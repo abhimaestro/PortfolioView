@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardAccountItemView" customModule="PortfolioView" customModuleProvider="target">
+            <connections>
+                <outlet property="swatchView" destination="XoW-Jt-WoP" id="W0U-Aj-qji"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="IbS-5L-mRi" customClass="DashboardAccountItemView" customModule="PortfolioView" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="185" height="62"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DJI" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="y6G-Ag-A0g">
+                    <rect key="frame" x="15" y="5" width="165" height="14"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1,219,762.6" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Mci-ih-8xV">
+                    <rect key="frame" x="15" y="24" width="88" height="17.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-$57, 346.18 (-4.7%)  " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCi-QY-qdh">
+                    <rect key="frame" x="15" y="43.5" width="119" height="15"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                    <color key="textColor" red="0.76078431369999999" green="0.0" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XoW-Jt-WoP">
+                    <rect key="frame" x="5" y="5" width="5" height="54"/>
+                    <color key="backgroundColor" red="0.76078431369999999" green="0.0" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="5" id="o3i-wl-iDA"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="y6G-Ag-A0g" firstAttribute="leading" secondItem="XoW-Jt-WoP" secondAttribute="trailing" constant="5" id="16d-da-fmk"/>
+                <constraint firstItem="XoW-Jt-WoP" firstAttribute="top" secondItem="IbS-5L-mRi" secondAttribute="top" constant="5" id="2KP-5g-1TK"/>
+                <constraint firstAttribute="trailing" secondItem="y6G-Ag-A0g" secondAttribute="trailing" constant="5" id="524-LU-Q25"/>
+                <constraint firstItem="aCi-QY-qdh" firstAttribute="top" secondItem="Mci-ih-8xV" secondAttribute="bottom" constant="2" id="E72-J7-DJO"/>
+                <constraint firstItem="aCi-QY-qdh" firstAttribute="leading" secondItem="Mci-ih-8xV" secondAttribute="leading" id="TPp-oZ-mxA"/>
+                <constraint firstItem="XoW-Jt-WoP" firstAttribute="leading" secondItem="IbS-5L-mRi" secondAttribute="leading" constant="5" id="WNL-kZ-KDb"/>
+                <constraint firstAttribute="bottom" secondItem="XoW-Jt-WoP" secondAttribute="bottom" constant="3" id="ZL5-gY-dmU"/>
+                <constraint firstItem="Mci-ih-8xV" firstAttribute="leading" secondItem="y6G-Ag-A0g" secondAttribute="leading" id="lBL-cJ-IOf"/>
+                <constraint firstItem="Mci-ih-8xV" firstAttribute="top" secondItem="y6G-Ag-A0g" secondAttribute="bottom" constant="5" id="pVC-wd-9sr"/>
+                <constraint firstItem="y6G-Ag-A0g" firstAttribute="top" secondItem="IbS-5L-mRi" secondAttribute="top" constant="5" id="sDx-XQ-yY1"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="changeValueLabel" destination="aCi-QY-qdh" id="V3b-8h-qNQ"/>
+                <outlet property="marketValueLabel" destination="Mci-ih-8xV" id="PcF-7P-6jG"/>
+                <outlet property="nameLabel" destination="y6G-Ag-A0g" id="I4F-Cc-Ffb"/>
+            </connections>
+            <point key="canvasLocation" x="-1.5" y="49"/>
+        </view>
+    </objects>
+</document>

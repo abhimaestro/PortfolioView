@@ -19,6 +19,8 @@
 		C23208371E13094F00E54844 /* PopOverActionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208361E13094F00E54844 /* PopOverActionsVC.swift */; };
 		C2335A591E100F4500760234 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A581E100F4500760234 /* Extensions.swift */; };
 		C2335A5B1E103BDE00760234 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A5A1E103BDE00760234 /* Transitions.swift */; };
+		C23A74651E1780CD00113BD6 /* DashboardAccountItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A74641E1780CD00113BD6 /* DashboardAccountItemView.swift */; };
+		C23A74671E1780D700113BD6 /* DashboardAccountItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23A74661E1780D700113BD6 /* DashboardAccountItemView.xib */; };
 		C267813B1E14786200D85E05 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C26781391E14786200D85E05 /* Interface.storyboard */; };
 		C267813D1E14786200D85E05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C267813C1E14786200D85E05 /* Assets.xcassets */; };
 		C26781441E14786300D85E05 /* PortfolioView WatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C26781431E14786200D85E05 /* PortfolioView WatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -197,6 +199,8 @@
 		C2335A511E1001DC00760234 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
 		C2335A581E100F4500760234 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C2335A5A1E103BDE00760234 /* Transitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
+		C23A74641E1780CD00113BD6 /* DashboardAccountItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardAccountItemView.swift; sourceTree = "<group>"; };
+		C23A74661E1780D700113BD6 /* DashboardAccountItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardAccountItemView.xib; sourceTree = "<group>"; };
 		C26781371E14786200D85E05 /* PortfolioView WatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PortfolioView WatchApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C267813A1E14786200D85E05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		C267813C1E14786200D85E05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -485,6 +489,8 @@
 				C23208361E13094F00E54844 /* PopOverActionsVC.swift */,
 				C219A2391E16DC3F00B10C08 /* MarketItemView.xib */,
 				C219A23B1E16DF4F00B10C08 /* MarketItemView.swift */,
+				C23A74641E1780CD00113BD6 /* DashboardAccountItemView.swift */,
+				C23A74661E1780D700113BD6 /* DashboardAccountItemView.xib */,
 			);
 			path = PortfolioView;
 			sourceTree = "<group>";
@@ -824,6 +830,7 @@
 			files = (
 				C2F71B371E02CDAF00A99298 /* LaunchScreen.storyboard in Resources */,
 				C219A23A1E16DC3F00B10C08 /* MarketItemView.xib in Resources */,
+				C23A74671E1780D700113BD6 /* DashboardAccountItemView.xib in Resources */,
 				C2F71B341E02CDAF00A99298 /* Assets.xcassets in Resources */,
 				C2F71B321E02CDAF00A99298 /* Main.storyboard in Resources */,
 			);
@@ -1142,6 +1149,7 @@
 				C2335A5B1E103BDE00760234 /* Transitions.swift in Sources */,
 				C219A23C1E16DF4F00B10C08 /* MarketItemView.swift in Sources */,
 				C2F71B5B1E038AEA00A99298 /* DashboardViewController.swift in Sources */,
+				C23A74651E1780CD00113BD6 /* DashboardAccountItemView.swift in Sources */,
 				C2C201EC1E153C410020863D /* Extensions2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
