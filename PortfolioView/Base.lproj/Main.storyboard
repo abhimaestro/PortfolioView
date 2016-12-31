@@ -114,11 +114,27 @@
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6On-Xi-fPC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yGB-ty-4dJ">
+                                                        <rect key="frame" x="0.0" y="134" width="375" height="71"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="6On-Xi-fPC" firstAttribute="top" secondItem="DFw-lQ-ird" secondAttribute="top" id="Ixo-c0-UKP"/>
+                                                    <constraint firstItem="yGB-ty-4dJ" firstAttribute="top" secondItem="6On-Xi-fPC" secondAttribute="bottom" id="UjH-0a-cNM"/>
+                                                    <constraint firstItem="6On-Xi-fPC" firstAttribute="height" secondItem="DFw-lQ-ird" secondAttribute="height" multiplier="0.6" id="Y7h-55-RSV"/>
+                                                    <constraint firstItem="yGB-ty-4dJ" firstAttribute="bottom" secondItem="6SM-as-BaH" secondAttribute="top" id="ZeR-Q2-SNW"/>
+                                                    <constraint firstItem="yGB-ty-4dJ" firstAttribute="leading" secondItem="6On-Xi-fPC" secondAttribute="leading" id="bV9-5x-uqM"/>
                                                     <constraint firstAttribute="bottom" secondItem="6SM-as-BaH" secondAttribute="bottom" constant="5" id="cP5-c9-0Dx"/>
+                                                    <constraint firstItem="yGB-ty-4dJ" firstAttribute="trailing" secondItem="6On-Xi-fPC" secondAttribute="trailing" id="o8P-zd-tJ2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="6On-Xi-fPC" secondAttribute="trailing" id="qIn-Lp-Uis"/>
                                                     <constraint firstItem="6SM-as-BaH" firstAttribute="centerX" secondItem="DFw-lQ-ird" secondAttribute="centerX" id="rYa-JG-Gad"/>
+                                                    <constraint firstItem="6On-Xi-fPC" firstAttribute="leading" secondItem="DFw-lQ-ird" secondAttribute="leading" id="uCA-rM-45Q"/>
                                                 </constraints>
                                             </view>
                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POi-Rc-lBL">
@@ -524,8 +540,10 @@
                         <outlet property="bottomContainerPageControl" destination="RQf-bY-5Oe" id="yHR-RK-SXE"/>
                         <outlet property="chartTypeSegmentedControl" destination="KlY-Wd-t2s" id="HJ9-LU-p1d"/>
                         <outlet property="dateRangeLabel" destination="5H0-Hh-GSy" id="gwz-o7-Ai5"/>
+                        <outlet property="goalAccumulationContainer" destination="yGB-ty-4dJ" id="hrT-gv-79x"/>
                         <outlet property="goalAsOfDate" destination="6SM-as-BaH" id="osb-bW-kQG"/>
-                        <outlet property="goalChartContainer" destination="DFw-lQ-ird" id="VXU-yu-VQY"/>
+                        <outlet property="goalContainer" destination="DFw-lQ-ird" id="FMV-Sc-c8g"/>
+                        <outlet property="goalDialContainer" destination="6On-Xi-fPC" id="gfZ-aX-LFc"/>
                         <outlet property="indexNameLabel" destination="4QE-of-D6M" id="s9r-Na-wOM"/>
                         <outlet property="indexTotalReturnLabel" destination="05g-RK-HFd" id="shW-eE-Uv6"/>
                         <outlet property="landscapeLayoutContainer" destination="9vj-7U-ZjH" id="Aa7-Gc-ff1"/>

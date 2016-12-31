@@ -24,8 +24,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var allocationChartContainer: UIView!
     @IBOutlet weak var allocationChartLegendContainer: UIView!
     @IBOutlet weak var allocationChartDonutContainer: UIView!
-    @IBOutlet weak var goalChartContainer: UIView!
-    @IBOutlet weak var goalLegendContainer: UIView!
+    @IBOutlet weak var goalContainer: UIView!
+    @IBOutlet weak var goalDialContainer: UIView!
+    @IBOutlet weak var goalAccumulationContainer: UIView!
     @IBOutlet weak var bottomContainerPageControl: UIPageControl!
     @IBOutlet weak var chartTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var performanceChartLegendContainer: UIView!
@@ -54,6 +55,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     let trailingPeriodButtonSelectedFont = FontHelper.getDefaultFont(size: 13.0, bold: true)
     
     let radialGauge = TKRadialGauge()
+    let linearGauge = TKLinearGauge()
     let allocationChart = TKChart()
     var valueOverTimeChart = TKChart()
     var performanceChart = TKChart()
@@ -95,7 +97,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
 
        
         initializeGoalChart()
-
+        initializeGoalAccumulation()
+        
         initializeAllocationChart()
 
         addGestures()
@@ -219,7 +222,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let accounts = PortfolioData.getAccounts()
         let containerOrigin = accountContainer.frame.origin
         let containerWidth = accountContainer.frame.width
-        let containerHeight = allocationChartLegendContainer.frame.height
+        let containerHeight = accountContainer.frame.height
         let offset: CGFloat = 10
         let height: CGFloat = 62
         var y = getYPositionToCenterContentInContainer(containerHeight: containerHeight, height: height, offset: offset, noOfItems: accounts.count + 1, noOfCols: 2)
@@ -553,8 +556,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         radialGauge.labelSubtitle.text = "on track"
         radialGauge.labelTitle.font = FontHelper.getDefaultFont(size: 20.0)
         
-        goalChartContainer.addSubview(radialGauge)
-        goalChartContainer.bringSubview(toFront: radialGauge)
+        goalDialContainer.addSubview(radialGauge)
+        goalDialContainer.bringSubview(toFront: radialGauge)
         let scale = TKGaugeRadialScale(minimum: 0, maximum: 100)
         scale.startAngle = CGFloat(M_PI)
         scale.endAngle = CGFloat(2*M_PI)
@@ -615,6 +618,51 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
 
     }
     
+    func initializeGoalAccumulation() {
+        
+        goalAccumulationContainer.addSubview(self.linearGauge)
+        
+        let scale1 = TKGaugeLinearScale(minimum: 2010, maximum: 2040)
+        scale1.ticks.position = TKGaugeTicksPosition.inner
+        self.linearGauge.addScale(scale1)
+        
+        let currentYear = CGFloat(Calendar.current.dateComponents([.year], from: Date()).year!)
+        let completedSegment = TKGaugeSegment(minimum: 2010, maximum: currentYear)
+        completedSegment.width = 0.08
+        completedSegment.width2 = 0.08
+        completedSegment.location = 0.62
+        completedSegment.fill = TKSolidFill(color:  UIColor(red: 0.38, green: 0.73, blue: 0.00, alpha: 1.00))
+        scale1.addSegment(completedSegment)
+        
+        //self.setNeedle(scale1)
+        
+        let scale2 = TKGaugeLinearScale(minimum: 300000, maximum: 3000000)
+        self.linearGauge.addScale(scale2)
+        
+        scale2.ticks.position = TKGaugeTicksPosition.outer
+        scale2.ticks.majorTicksCount = 3
+        scale2.ticks.minorTicksCount = 0
+        scale2.labels.position = TKGaugeLabelsPosition.outer
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        currencyFormatter.maximumFractionDigits = 0
+        scale2.labels.formatter = currencyFormatter
+        scale2.labels.count = 2
+        scale2.labels.font = FontHelper.getDefaultFont(size: 8, light: true)
+        for i in 0..<self.linearGauge.scales.count {
+            let s = self.linearGauge.scales[i] as! TKGaugeLinearScale
+            s.stroke = TKStroke(color:UIColor.gray, width:2)
+            s.ticks.majorTicksStroke = TKStroke(color:UIColor.gray, width:1)
+            s.labels.color = UIColor.gray
+            s.ticks.offset = 0
+            s.offset = CGFloat(i)*0.12 + 0.60
+            s.ticks.minorTicksLength = 0
+        }
+        
+        //remove trial label
+        linearGauge.subviews[linearGauge.subviews.count - 1].removeFromSuperview()
+    }
+    
     func initializeAllocationChart() {
 
         let bounds = allocationChartDonutContainer.bounds
@@ -664,7 +712,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let height: CGFloat = 15
         var y = getYPositionToCenterContentInContainer(containerHeight: containerHeight, height: height, offset: offset, noOfItems: allocations.count + 1, noOfCols: 1)
         let column1X = offset
-        let width: CGFloat = containerWidth - 2*offset
+        let width: CGFloat = containerWidth - 3*offset
         
         for i in 0..<allocations.count {
             let allocation = allocations[i]
@@ -681,11 +729,13 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     
     private var _donutLabelAdded = false
     override func viewDidLayoutSubviews() {
-        let bounds = goalChartContainer.bounds
-        let size = goalChartContainer.bounds.size
-        let offset = CGFloat(20)
+        let bounds = goalDialContainer.bounds
+        let size = goalContainer.bounds.size
+        let offset = CGFloat(10)
         
-        radialGauge.frame = CGRect(x: offset*3, y: bounds.origin.y + 1.5*offset, width: size.width - offset*6, height: bottomContainer.frame.origin.y - bounds.origin.y - offset*8)
+        radialGauge.frame = CGRect(x: offset, y: bounds.origin.y + 2*offset, width: size.width - 2*offset, height: size.height)
+        
+        linearGauge.frame = CGRect(x: offset, y: goalAccumulationContainer.bounds.origin.y - 5, width: goalAccumulationContainer.bounds.size.width - 2*offset, height: goalAccumulationContainer.bounds.size.height)
     }
     
     private func addGestures(){
@@ -855,10 +905,10 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
                 toggleBetweenViews(viewsToShow: [accountContainer], viewsToHide: [marketDataContainer], toLeft: true)
                 _bottomContainerViewName = .Account
             case .Account:
-                toggleBetweenViews(viewsToShow: [goalChartContainer], viewsToHide: [accountContainer], toLeft: true)
+                toggleBetweenViews(viewsToShow: [goalContainer], viewsToHide: [accountContainer], toLeft: true)
                 _bottomContainerViewName = .Goal
             case .Goal:
-                toggleBetweenViews(viewsToShow: [allocationChartContainer], viewsToHide: [goalChartContainer], toLeft: true)
+                toggleBetweenViews(viewsToShow: [allocationChartContainer], viewsToHide: [goalContainer], toLeft: true)
                 _bottomContainerViewName = .Allocation
             case .Allocation:
                 break
@@ -871,10 +921,10 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
                 toggleBetweenViews(viewsToShow: [marketDataContainer], viewsToHide: [accountContainer], toLeft: false)
                 _bottomContainerViewName = .MarketData
             case .Goal:
-                toggleBetweenViews(viewsToShow: [accountContainer], viewsToHide: [goalChartContainer], toLeft: false)
+                toggleBetweenViews(viewsToShow: [accountContainer], viewsToHide: [goalContainer], toLeft: false)
                 _bottomContainerViewName = .Account
             case .Allocation:
-                toggleBetweenViews(viewsToShow: [goalChartContainer], viewsToHide: [allocationChartContainer], toLeft: false)
+                toggleBetweenViews(viewsToShow: [goalContainer], viewsToHide: [allocationChartContainer], toLeft: false)
                 _bottomContainerViewName = .Goal
             }
         default:
