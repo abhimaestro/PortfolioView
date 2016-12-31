@@ -182,6 +182,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     
     func initializeMarketDataView() {
         
+        marketAsOfDate.text = String("as of: \(PortfolioData.portfolioData_All!.marketDataAsOfDate.toDateTimeString())")
         let marketData = PortfolioData.getMarketData()
         let containerOrigin = marketDataContainer.frame.origin
         let containerWidth = marketDataContainer.frame.width
@@ -219,6 +220,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     }
     
     func initializeAccountView() {
+        
+        accountAsOfDate.text = String("as of: \(PortfolioData.portfolioData_All!.accountAsOfDate.toDateTimeString())")
         
         let accounts = PortfolioData.getAccounts()
         let containerOrigin = accountContainer.frame.origin
@@ -546,6 +549,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
 
     func initializeGoalChart() {
         
+        goalAsOfDate.text = String("as of: \(goalInfo.goalAsOfDate.toShortDateString())")
+        
         radialGauge.labelTitleOffset = CGPoint(x: radialGauge.labelTitle.bounds.origin.x, y: radialGauge.labelTitle.bounds.origin.y - 60)
         radialGauge.labelTitle.text = goalInfo.probability.toPercent()
         radialGauge.labelSubtitle.text = goalInfo.probability < 70 ? "off track" : "on track"
@@ -657,6 +662,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     
     func initializeAllocationChart() {
 
+        allocationAsOfDate.text = String("as of: \(PortfolioData.portfolioData_All!.allocationAsOfDate.toShortDateString())")
+        
         let bounds = allocationChartDonutContainer.bounds
 
         allocationChart.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width, height: bounds.size.height).insetBy(dx: 0, dy: 0)

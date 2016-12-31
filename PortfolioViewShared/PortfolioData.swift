@@ -68,6 +68,10 @@ public class PortfolioData {
     public var totalPortfolioReturnDollar: Double!
     public var totalPortfolioMarketValueDollar: Double!
     
+    public var marketDataAsOfDate: Date!
+    public var accountAsOfDate: Date!
+    public var allocationAsOfDate: Date!
+    
     public init(portfolioDataItems: [PortfolioDataItem]?) {
         
         if let portfolioDataItems = portfolioDataItems {
@@ -88,12 +92,13 @@ public class PortfolioData {
             self.totalPortfolioMarketValueDollar = endItem.marketValue
             self.inceptionDate = startItem.returnDate
             self.endDate = endItem.returnDate
+            self.marketDataAsOfDate = Date()
+            self.accountAsOfDate = Date()
+            self.allocationAsOfDate = Date.getYesterday()
         }
     }
 
     public static func load(trailingPeriod: TrailingPeriod = .All) -> PortfolioData? {
-        
-
         
         switch trailingPeriod {
         case .M1:
@@ -197,6 +202,7 @@ public enum TrailingPeriod : String {
 public class GoalInfo {
     public var probability: Double = 0.0
     public var retiremenGoal: RetirementGoal!
+    public var goalAsOfDate = Date.getYesterday()
     
     init(probability: Double, retirementYear: Int, startYear: Int, marketValueStart: Double, marketValueCurrent: Double, marketValueRetirement: Double) {
         self.probability = probability
