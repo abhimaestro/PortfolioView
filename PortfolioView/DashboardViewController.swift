@@ -181,12 +181,12 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let marketData = PortfolioData.getMarketData()
         let containerOrigin = marketDataContainer.frame.origin
         let containerWidth = marketDataContainer.frame.width
-
+        let containerHeight = allocationChartLegendContainer.frame.height
         let offset: CGFloat = 10
-
-        var y = containerOrigin.y + 2*offset
         let height: CGFloat = 62
-        let width: CGFloat = (containerWidth / 2) - 1.5*offset
+        var y = getYPositionToCenterContentInContainer(containerHeight: containerHeight, height: height, offset: offset, noOfItems: marketData.count + 1, noOfCols: 2)
+
+        let width = CGFloat(containerWidth/2 - 1.5*offset)
         
         let column1X = containerOrigin.x + offset
         let column2X = column1X + width + offset
@@ -208,16 +208,21 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         }
     }
     
+    func getYPositionToCenterContentInContainer(containerHeight: CGFloat, height: CGFloat, offset: CGFloat, noOfItems: Int, noOfCols: Int) -> CGFloat {
+        let noOfRows = CGFloat(noOfItems/noOfCols)
+        let y = CGFloat((containerHeight - noOfRows*height - (noOfRows - 1)*offset) / 2)
+        return y
+    }
+    
     func initializeAccountView() {
         
         let accounts = PortfolioData.getAccounts()
         let containerOrigin = accountContainer.frame.origin
         let containerWidth = accountContainer.frame.width
-        
+        let containerHeight = allocationChartLegendContainer.frame.height
         let offset: CGFloat = 10
-        
-        var y = containerOrigin.y + 2*offset
         let height: CGFloat = 62
+        var y = getYPositionToCenterContentInContainer(containerHeight: containerHeight, height: height, offset: offset, noOfItems: accounts.count + 1, noOfCols: 2)
         let width: CGFloat = (containerWidth / 2) - 1.5*offset
         
         let column1X = containerOrigin.x + offset
@@ -654,14 +659,12 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         
         let allocations = PortfolioData.getAllocations()
         let containerWidth = allocationChartLegendContainer.frame.width
-        
+        let containerHeight = allocationChartLegendContainer.frame.height
         let offset: CGFloat = 5
-        
-        var y = 4*offset
-        let column1X = offset
         let height: CGFloat = 15
+        var y = getYPositionToCenterContentInContainer(containerHeight: containerHeight, height: height, offset: offset, noOfItems: allocations.count + 1, noOfCols: 1)
+        let column1X = offset
         let width: CGFloat = containerWidth - 2*offset
-        
         
         for i in 0..<allocations.count {
             let allocation = allocations[i]
