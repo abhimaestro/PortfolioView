@@ -65,7 +65,9 @@ extension Int {
 
 extension String {
     
-    public func toAttributed(font: UIFont? = nil, color: UIColor? = nil) -> NSAttributedString {
+    public func toAttributed(font: UIFont? = nil, color: UIColor? = nil, upperCase: Bool = false) -> NSAttributedString {
+        
+        var value = self
         
         var attributes = [String : Any]()
         
@@ -76,8 +78,11 @@ extension String {
         if let color = color {
             attributes[NSForegroundColorAttributeName] = color
         }
+        if upperCase {
+            value = self.uppercased()
+        }
         
-        let attrString = NSAttributedString(string: self, attributes: attributes)
+        let attrString = NSAttributedString(string: value, attributes: attributes)
         return attrString
     }
 }

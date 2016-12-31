@@ -210,7 +210,7 @@ public class MarketItem {
 }
 
 public class Account {
-    public var name: String!
+    public var name: String = ""
     public var marketValue: Double = 0.0
     public var changeDollar: Double = 0.0
     public var changePercent: Double = 0.0
@@ -224,7 +224,7 @@ public class Account {
 }
 
 public class Allocation {
-    public var name: String!
+    public var name: String = ""
     public var percent: Double = 0.0
     public var dollar: Double = 0.0
     

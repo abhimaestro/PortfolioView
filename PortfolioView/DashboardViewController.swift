@@ -22,8 +22,10 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var marketDataContainer: UIView!
     @IBOutlet weak var accountContainer: UIView!
     @IBOutlet weak var allocationChartContainer: UIView!
+    @IBOutlet weak var allocationChartLegendContainer: UIView!
     @IBOutlet weak var allocationChartDonutContainer: UIView!
     @IBOutlet weak var goalChartContainer: UIView!
+    @IBOutlet weak var goalLegendContainer: UIView!
     @IBOutlet weak var bottomContainerPageControl: UIPageControl!
     @IBOutlet weak var chartTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var performanceChartLegendContainer: UIView!
@@ -141,6 +143,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         
         initializeMarketDataView()
         initializeAccountView()
+        initializeAllocationChartLegendView()
 
         let needle = radialGauge.scales[0].indicators[0] as! TKGaugeNeedle
         needle.setValueAnimated(80, withDuration: 1.5, mediaTimingFunction: kCAMediaTimingFunctionEaseInEaseOut)
@@ -647,6 +650,31 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         allocationChart.subviews[allocationChart.subviews.count - 1].removeFromSuperview()
     }
 
+    func initializeAllocationChartLegendView() {
+        
+        let allocations = PortfolioData.getAllocations()
+        let containerWidth = allocationChartLegendContainer.frame.width
+        
+        let offset: CGFloat = 3
+        
+        var y = 8*offset
+        let height: CGFloat = 20
+        let width: CGFloat = containerWidth - 3*offset
+        let column1X = offset
+        
+        for i in 0..<allocations.count {
+            let allocation = allocations[i]
+            
+            let legendItem = (name: allocation.name, value: allocation.percent.toPercent(), swatchColor: Color.palette[i])
+            let allocationLegendItemView = LegendItemView.load(legendItem: legendItem)
+            
+            allocationLegendItemView.frame = CGRect(x: column1X, y: y, width: width, height: height)
+            y += height + offset
+
+           allocationChartLegendContainer.addSubview(allocationLegendItemView)
+        }
+    }
+    
     private var _donutLabelAdded = false
     override func viewDidLayoutSubviews() {
         let bounds = goalChartContainer.bounds
