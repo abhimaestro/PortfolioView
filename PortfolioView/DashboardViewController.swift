@@ -655,12 +655,13 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let allocations = PortfolioData.getAllocations()
         let containerWidth = allocationChartLegendContainer.frame.width
         
-        let offset: CGFloat = 3
+        let offset: CGFloat = 5
         
-        var y = 8*offset
-        let height: CGFloat = 20
-        let width: CGFloat = containerWidth - 3*offset
+        var y = 4*offset
         let column1X = offset
+        let height: CGFloat = 15
+        let width: CGFloat = containerWidth - 2*offset
+        
         
         for i in 0..<allocations.count {
             let allocation = allocations[i]

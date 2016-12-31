@@ -138,9 +138,6 @@ public class PortfolioData {
         
         let path = Bundle(for: PortfolioData.self).path(forResource: fileName, ofType: "json")!
         
-        //print(Bundle.allFrameworks.)
-        //let path = Bundle.main.path(forResource: fileName, ofType: "json", inDirectory: "PortfolioViewShared")!
-        
         let jsonData = try? String(contentsOfFile: path, encoding: String.Encoding.utf8)
         
         let portfolioDataItems: [PortfolioDataItem]? = Mapper<PortfolioDataItem>().mapArray(JSONString: jsonData!)

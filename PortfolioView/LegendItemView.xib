@@ -23,14 +23,14 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="US STOCKS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8m-LE-D4S">
-                    <rect key="frame" x="0.0" y="4.5" width="74" height="15.5"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                    <rect key="frame" x="0.0" y="5" width="57" height="12"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                     <color key="textColor" red="0.76078431369999999" green="0.0" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45.2%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55z-BR-h6U">
-                    <rect key="frame" x="115.5" y="5.5" width="34.5" height="14.5"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                    <rect key="frame" x="121.5" y="5" width="28.5" height="12"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
                     <color key="textColor" red="0.76078431369999999" green="0.0" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -39,11 +39,11 @@
             <constraints>
                 <constraint firstItem="rzE-LW-MyA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7GO-xh-7UW"/>
                 <constraint firstAttribute="trailing" secondItem="rzE-LW-MyA" secondAttribute="trailing" id="CYF-Jf-HQo"/>
+                <constraint firstItem="55z-BR-h6U" firstAttribute="bottom" secondItem="e8m-LE-D4S" secondAttribute="bottom" id="brv-yF-HPB"/>
+                <constraint firstItem="e8m-LE-D4S" firstAttribute="bottom" secondItem="rzE-LW-MyA" secondAttribute="top" constant="-1" id="d3V-xl-Ldw"/>
                 <constraint firstAttribute="bottom" secondItem="rzE-LW-MyA" secondAttribute="bottom" id="dBu-ma-ZMH"/>
                 <constraint firstItem="e8m-LE-D4S" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dux-Mz-Mwy"/>
-                <constraint firstAttribute="bottom" secondItem="55z-BR-h6U" secondAttribute="bottom" id="eI6-Y4-8CX"/>
                 <constraint firstAttribute="trailing" secondItem="55z-BR-h6U" secondAttribute="trailing" id="o8G-NV-F6G"/>
-                <constraint firstAttribute="bottom" secondItem="e8m-LE-D4S" secondAttribute="bottom" id="tci-Uk-kwX"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
