@@ -682,7 +682,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let size = goalChartContainer.bounds.size
         let offset = CGFloat(20)
         
-        radialGauge.frame = CGRect(x: offset*2, y: bounds.origin.y + 1.5*offset, width: size.width - offset*4, height: bottomContainer.frame.origin.y - bounds.origin.y - offset*8)
+        radialGauge.frame = CGRect(x: offset*3, y: bounds.origin.y + 1.5*offset, width: size.width - offset*6, height: bottomContainer.frame.origin.y - bounds.origin.y - offset*8)
     }
     
     private func addGestures(){
