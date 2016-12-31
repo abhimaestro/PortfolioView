@@ -253,7 +253,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
 
         var portfolioReturns = [TKChartDataPoint]()
         var indexReturns = [TKChartDataPoint]()
-        var maxReturnValue: Double = 0.0, minReturnValue: Double = 0.0
+        var maxReturnValue: Double = 0.0, minReturnValue: Double = Double(Int.max)
         var indexName = ""
         let portfolioData = PortfolioData.load(trailingPeriod: _currentTrailingPeriod)
         
@@ -283,7 +283,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     func getValueData() -> (portfolioData: PortfolioData, portfolioValues: [TKChartDataPoint], minValue: Double, maxValue: Double) {
         
         var portfolioValues = [TKChartDataPoint]()
-        var maxValue: Double = 0.0, minValue: Double = 0.0
+        var maxValue: Double = 0.0, minValue: Double = Double(Int.max)
         
         let portfolioData = PortfolioData.load(trailingPeriod: _currentTrailingPeriod)
         
@@ -350,14 +350,15 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         xAxis.style.lineHidden = true
         xAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.top.rawValue)
         xAxis.style.labelStyle.textOffset = UIOffset(horizontal: 0, vertical: -2)
-        //  xAxis.style.labelStyle.firstLabelTextAlignment = .left
+        xAxis.style.labelStyle.firstLabelTextAlignment = .left
         
         performanceChart.xAxis = xAxis
         
         let yAxis = TKChartNumericAxis(minimum: performanceData.minReturnValue, andMaximum: performanceData.maxReturnValue)
         yAxis.style.labelStyle.font = FontHelper.getDefaultFont(size: 8.0, light: true)
         yAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.bottom.rawValue)
-        
+        yAxis.style.labelStyle.firstLabelTextAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.top.rawValue)
+
         yAxis.style.majorTickStyle.ticksHidden = true
         yAxis.style.lineHidden = true
         yAxis.labelFormat = "%.0f%%"
@@ -515,13 +516,14 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         xAxis.style.lineHidden = true
         xAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.top.rawValue)
         xAxis.style.labelStyle.textOffset = UIOffset(horizontal: 0, vertical: -2)
-        // xAxis.style.labelStyle.firstLabelTextAlignment = .left //hide to left
+        xAxis.style.labelStyle.firstLabelTextAlignment = .left //hide to left
         
         valueOverTimeChart.xAxis = xAxis
         
         let yAxis = TKChartNumericAxis(minimum: valueData.minValue, andMaximum: valueData.maxValue)
         yAxis.style.labelStyle.font = FontHelper.getDefaultFont(size: 8.0, light: true)
         yAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.bottom.rawValue)
+        yAxis.style.labelStyle.firstLabelTextAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.top.rawValue)
         
         yAxis.style.majorTickStyle.ticksHidden = true
         yAxis.style.lineHidden = true
