@@ -41,3 +41,26 @@ extension UISegmentedControl {
         return image!
     }
 }
+
+extension UITextField {
+    func underlined(){
+        let border = CALayer()
+        let width = CGFloat(1.0)
+        border.borderColor = UIColor.gray.cgColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
+        border.borderWidth = width
+        self.layer.addSublayer(border)
+        self.layer.masksToBounds = true
+    }
+    
+    func addIcon(imageName: String) {
+        self.leftViewMode = .always
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        imageView.image = UIImage(named: imageName)
+        
+        var containerView = UIView(frame: CGRect(0, 0, 30, 20))
+        containerView.addSubview(imageView)
+
+        self.leftView = containerView
+    }
+}
