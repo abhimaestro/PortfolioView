@@ -48,13 +48,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6r-7O-gZt">
-                                <rect key="frame" x="74" y="158.5" width="226" height="44"/>
+                                <rect key="frame" x="111.5" y="158.5" width="153.5" height="43"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Portfolio">
                                         <attributes>
                                             <color key="NSColor" red="0.050980392156862744" green="0.21176470588235294" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="36" name="HelveticaNeue"/>
-                                            <font key="NSOriginalFont" size="36" name="HelveticaNeue"/>
+                                            <font key="NSFont" size="24" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="24" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -69,8 +69,8 @@
                                     <fragment content="View">
                                         <attributes>
                                             <color key="NSColor" red="0.050980392156862744" green="0.21176470588235294" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="36" name="HelveticaNeue-BoldItalic"/>
-                                            <font key="NSOriginalFont" size="36" name="HelveticaNeue-BoldItalic"/>
+                                            <font key="NSFont" size="24" name="HelveticaNeue-BoldItalic"/>
+                                            <font key="NSOriginalFont" size="24" name="HelveticaNeue-BoldItalic"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -78,7 +78,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IVY-ww-kvw">
-                                <rect key="frame" x="47" y="239" width="281" height="35"/>
+                                <rect key="frame" x="47" y="238" width="281" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Y6w-45-mKP"/>
                                 </constraints>
@@ -87,7 +87,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sex-Eu-GNC">
-                                <rect key="frame" x="47" y="295" width="281" height="35"/>
+                                <rect key="frame" x="47" y="294" width="281" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="N9R-kj-aNw"/>
                                 </constraints>
@@ -96,9 +96,9 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shl-Nq-vlG">
-                                <rect key="frame" x="47" y="363" width="281" height="36"/>
+                                <rect key="frame" x="47" y="362" width="281" height="40"/>
                                 <color key="backgroundColor" red="0.050980392156862744" green="0.21176470588235294" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -107,21 +107,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWX-cO-EvC">
-                                <rect key="frame" x="70" y="429.5" width="107" height="29"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <rect key="frame" x="70" y="432.5" width="107" height="29"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
                                 <state key="normal" title="forgot username?">
                                     <color key="titleColor" red="0.050980392156862744" green="0.21176470588235294" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaY-Xg-TDN">
-                                <rect key="frame" x="198" y="429.5" width="100" height="29"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <rect key="frame" x="198" y="432.5" width="100" height="29"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
                                 <state key="normal" title="forgot pasword?">
                                     <color key="titleColor" red="0.050980392159999999" green="0.21176470589999999" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9l-sn-PBv">
-                                <rect key="frame" x="187" y="429" width="1" height="30"/>
+                                <rect key="frame" x="187" y="432" width="1" height="30"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Qbp-tQ-1Hn"/>

@@ -16,9 +16,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        userNameTextField.underlined()
+        userNameTextField.underlined(color: UIColor.lightGray)
         userNameTextField.addIcon(imageName: "username")
-        passwordTextField.underlined()
+        passwordTextField.underlined(color: UIColor.lightGray)
         passwordTextField.addIcon(imageName: "password")
         // Do any additional setup after loading the view.
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
