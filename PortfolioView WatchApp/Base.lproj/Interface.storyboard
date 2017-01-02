@@ -9,10 +9,17 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
     </dependencies>
     <scenes>
+        <!--stagingIC-->
+        <scene sceneID="fRZ-XY-zeU">
+            <objects>
+                <controller identifier="stagingIC" id="2Z2-Wt-UH6" customClass="StagingInterfaceController" customModule="PortfolioView_WatchApp_Extension"/>
+            </objects>
+            <point key="canvasLocation" x="-33" y="66"/>
+        </scene>
         <!--summary-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller title="summary" id="AgC-eL-Hgc" customClass="DashboardInterfaceController" customModule="PortfolioView_WatchApp_Extension">
+                <controller identifier="summaryIC" title="summary" id="AgC-eL-Hgc" customClass="DashboardInterfaceController" customModule="PortfolioView_WatchApp_Extension">
                     <items>
                         <group width="1" alignment="center" animationDuration="5" layout="vertical" spacing="0.0" id="vhX-ZJ-A7g">
                             <items>

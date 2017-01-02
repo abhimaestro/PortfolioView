@@ -8,18 +8,42 @@
 
 import UIKit
 import VENTouchLock
+import WatchConnectivity
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, WCSessionDelegate {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
 
+    let session = WCSession.default()
+
     private var _userName: String?
     private var _password: String?
+    
+    /** Called when all delegate callbacks for the previously selected watch has occurred. The session can be re-activated for the now selected watch using activateSession. */
+    @available(iOS 9.3, *)
+    public func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
+    /** Called when the session can no longer be used to modify or add any new transfers and, all interactive messages will be cancelled, but delegate callbacks for background transfers can still occur. This will happen when the selected watch is being changed. */
+    @available(iOS 9.3, *)
+    public func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    /** Called when the session has completed activation. If session state is WCSessionActivationStateNotActivated there will be an error with more details. */
+    @available(iOS 9.3, *)
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        session.delegate = self
+        session.activate()
+        
         UserDefaultValues.isUserLoggedIn = false
         UserDefaultValues.loggedInUserName = ""
         
@@ -55,6 +79,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         UserDefaultValues.loggedInUserName = ""
         
         VENTouchLock.sharedInstance().deletePasscode()
+    
+        do {
+        try session.updateApplicationContext(["userLoggedOut": true])
+    }
+catch {
+    
+    }
+
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

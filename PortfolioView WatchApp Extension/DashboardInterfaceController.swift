@@ -10,8 +10,9 @@ import WatchKit
 import Foundation
 import YOChartImageKit
 import PortfolioViewShared
+import WatchConnectivity
 
-class DashboardInterfaceController: WKInterfaceController {
+class DashboardInterfaceController: WKInterfaceController, WCSessionDelegate {
 
     @IBOutlet weak var chartImageView: WKInterfaceImage!
     @IBOutlet var portfolioMarketValueTitleLabel: WKInterfaceLabel!
@@ -31,11 +32,18 @@ class DashboardInterfaceController: WKInterfaceController {
     let buttonSelectedFont = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightHeavy)
     let valueFont = UIFont.systemFont(ofSize: 24.0, weight: UIFontWeightMedium)
     let value2Font = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightMedium)
+    let session = WCSession.default()
+    
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
 
         updateForTrailing3M()
+        session.delegate = self
+        session.activate()
     }
     
     override func willActivate() {
@@ -117,5 +125,14 @@ class DashboardInterfaceController: WKInterfaceController {
     
     func updateDateRangeLabel() {
         dateRangeLabel.setText("\(portfolioData.inceptionDate.toShortDateString()) - \(portfolioData.endDate.toShortDateString())")
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        
+        guard let userLoggedOut = applicationContext["userLoggedOut"] as? Bool else { return }
+        
+        if userLoggedOut  {
+            WKInterfaceController.reloadRootControllers(withNames: ["stagingIC"], contexts: nil)
+        }
     }
 }

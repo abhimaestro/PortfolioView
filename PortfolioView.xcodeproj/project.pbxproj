@@ -17,6 +17,7 @@
 		C219A2381E16ADE200B10C08 /* MarketInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C219A2371E16ADE200B10C08 /* MarketInterfaceController.swift */; };
 		C219A23A1E16DC3F00B10C08 /* MarketItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C219A2391E16DC3F00B10C08 /* MarketItemView.xib */; };
 		C219A23C1E16DF4F00B10C08 /* MarketItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C219A23B1E16DF4F00B10C08 /* MarketItemView.swift */; };
+		C21D97BB1E1B013900B3B4AD /* StagingInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21D97BA1E1B013900B3B4AD /* StagingInterfaceController.swift */; };
 		C223547F1E1A862200E9368E /* AlertRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223547E1E1A862200E9368E /* AlertRenderer.swift */; };
 		C22354811E1A95A800E9368E /* UserDefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22354801E1A95A800E9368E /* UserDefaultValues.swift */; };
 		C23208351E12E32600E54844 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208341E12E32600E54844 /* FontHelper.swift */; };
@@ -205,6 +206,7 @@
 		C219A2371E16ADE200B10C08 /* MarketInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketInterfaceController.swift; sourceTree = "<group>"; };
 		C219A2391E16DC3F00B10C08 /* MarketItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarketItemView.xib; sourceTree = "<group>"; };
 		C219A23B1E16DF4F00B10C08 /* MarketItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketItemView.swift; sourceTree = "<group>"; };
+		C21D97BA1E1B013900B3B4AD /* StagingInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StagingInterfaceController.swift; sourceTree = "<group>"; };
 		C223547E1E1A862200E9368E /* AlertRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertRenderer.swift; sourceTree = "<group>"; };
 		C22354801E1A95A800E9368E /* UserDefaultValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultValues.swift; sourceTree = "<group>"; };
 		C23208341E12E32600E54844 /* FontHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 				C2C201F31E1581D00020863D /* Helper.swift */,
 				C2C201F71E1595560020863D /* AccountsInterfaceController.swift */,
 				C219A2371E16ADE200B10C08 /* MarketInterfaceController.swift */,
+				C21D97BA1E1B013900B3B4AD /* StagingInterfaceController.swift */,
 			);
 			path = "PortfolioView WatchApp Extension";
 			sourceTree = "<group>";
@@ -1163,6 +1166,7 @@
 			files = (
 				C267814F1E14786300D85E05 /* NotificationController.swift in Sources */,
 				C2C201F41E1581D00020863D /* Helper.swift in Sources */,
+				C21D97BB1E1B013900B3B4AD /* StagingInterfaceController.swift in Sources */,
 				C219A2381E16ADE200B10C08 /* MarketInterfaceController.swift in Sources */,
 				C2C201F21E157F870020863D /* AllocationInterfaceController.swift in Sources */,
 				C2C201F81E1595560020863D /* AccountsInterfaceController.swift in Sources */,
