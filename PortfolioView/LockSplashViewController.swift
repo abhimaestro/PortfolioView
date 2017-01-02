@@ -38,7 +38,7 @@ class LockSplashViewController: VENTouchLockSplashViewController {
                 print("\(logString)")
             }
             else {
-                UIAlertView(title: "Limit Exceeded", message: "You have exceeded the maximum number of passcode attempts", delegate: nil, cancelButtonTitle: "OK", otherButtonTitles: "").show()
+                let _ = self.showAlert(title: "Limit Exceeded", message: "You have exceeded the maximum number of passcode attempts")
             }
         }
 

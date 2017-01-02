@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //navBarAppearance.setBackgroundImage(whiteBackground, for: .default)
         navBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName : color, NSFontAttributeName: FontHelper.getDefaultFont(size: 18.0)]
         
-        VENTouchLock.sharedInstance().setKeychainService("PortfolioView", keychainAccount: "", touchIDReason: "Scan your fingerprint to use the app", passcodeAttemptLimit: 3, splashViewControllerClass: LockSplashViewController.self)
+        VENTouchLock.sharedInstance().setKeychainService("PortfolioView", keychainAccount: "", touchIDReason: "Scan your fingerprint to unlock", passcodeAttemptLimit: 3, splashViewControllerClass: LockSplashViewController.self)
 
         
         return true

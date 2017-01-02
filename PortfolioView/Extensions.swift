@@ -8,6 +8,10 @@
 
 import Foundation
 
+func autoExecuteAfter(seconds waitSeconds: Int = 2, action: @escaping (() -> ())) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(100), execute: action)
+}
+
 public extension UIImage {
     static func imageWithColor(color: UIColor, origin: CGPoint = CGPoint.zero, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
         
