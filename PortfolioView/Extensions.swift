@@ -62,7 +62,7 @@ extension UITextField {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         imageView.image = UIImage(named: imageName)
         
-        var containerView = UIView(frame: CGRect(0, 0, 30, 20))
+        let containerView = UIView(frame: CGRect(0, 0, 30, 20))
         containerView.addSubview(imageView)
 
         self.leftView = containerView

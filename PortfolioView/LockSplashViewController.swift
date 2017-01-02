@@ -13,16 +13,21 @@ class LockSplashViewController: VENTouchLockSplashViewController {
 
     @IBOutlet weak var touchIdButton: UIButton!
     
+    deinit {
+        self.touchLock.backgroundLockVisible = true
+    }
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
     
-    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: Bundle!) {
-        super.init(nibName: nibNameOrNil, bundle: nil)
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: "LockSplashViewController", bundle: nil)
         
-       
         self.didFinishWithSuccess = {(_ success: Bool, _ unlockType: VENTouchLockSplashViewControllerUnlockType) -> Void in
             if success {
+                
+                self.touchLock.backgroundLockVisible = false
                 var logString = "Sample App Unlocked"
                 switch unlockType {
                 case .touchID:
@@ -41,24 +46,22 @@ class LockSplashViewController: VENTouchLockSplashViewController {
                 let _ = self.showAlert(title: "Limit Exceeded", message: "You have exceeded the maximum number of passcode attempts")
             }
         }
-
     }
     
-    convenience init() {
-
-        self.init(nibName: "LockSplashViewController", bundle: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        VENTouchLock.sharedInstance().appearance().passcodeViewControllerShouldEmbedInNavigationController = true
-        VENTouchLock.sharedInstance().appearance().enterPasscodeInitialLabelText = "Please enter your 4-digit PIN to unlock"
-        VENTouchLock.sharedInstance().appearance().enterPasscodeViewControllerTitle = "Unlock PortfolioView"
+
         VENTouchLock.sharedInstance().appearance().cancelBarButtonItemTitle = "Cancel"
         
-        self.touchIdButton.isHidden = VENTouchLock.shouldUseTouchID()
+        self.touchIdButton.isHidden = !VENTouchLock.shouldUseTouchID()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.showTouchID()
+    }
+    
     @IBAction func showTouchIdClicked(_ sender: Any) {
         self.showTouchID()
     }

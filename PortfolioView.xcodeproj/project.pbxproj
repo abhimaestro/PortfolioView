@@ -18,6 +18,7 @@
 		C219A23A1E16DC3F00B10C08 /* MarketItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C219A2391E16DC3F00B10C08 /* MarketItemView.xib */; };
 		C219A23C1E16DF4F00B10C08 /* MarketItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C219A23B1E16DF4F00B10C08 /* MarketItemView.swift */; };
 		C223547F1E1A862200E9368E /* AlertRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223547E1E1A862200E9368E /* AlertRenderer.swift */; };
+		C22354811E1A95A800E9368E /* UserDefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22354801E1A95A800E9368E /* UserDefaultValues.swift */; };
 		C23208351E12E32600E54844 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208341E12E32600E54844 /* FontHelper.swift */; };
 		C23208371E13094F00E54844 /* PopOverActionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208361E13094F00E54844 /* PopOverActionsVC.swift */; };
 		C2335A591E100F4500760234 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A581E100F4500760234 /* Extensions.swift */; };
@@ -205,6 +206,7 @@
 		C219A2391E16DC3F00B10C08 /* MarketItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarketItemView.xib; sourceTree = "<group>"; };
 		C219A23B1E16DF4F00B10C08 /* MarketItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketItemView.swift; sourceTree = "<group>"; };
 		C223547E1E1A862200E9368E /* AlertRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertRenderer.swift; sourceTree = "<group>"; };
+		C22354801E1A95A800E9368E /* UserDefaultValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultValues.swift; sourceTree = "<group>"; };
 		C23208341E12E32600E54844 /* FontHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		C23208361E13094F00E54844 /* PopOverActionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverActionsVC.swift; sourceTree = "<group>"; };
 		C2335A511E1001DC00760234 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
@@ -389,11 +391,12 @@
 		C20582931E18175100BE04D7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C2335A581E100F4500760234 /* Extensions.swift */,
 				C2335A5A1E103BDE00760234 /* Transitions.swift */,
+				C2335A581E100F4500760234 /* Extensions.swift */,
 				C23208341E12E32600E54844 /* FontHelper.swift */,
 				C23208361E13094F00E54844 /* PopOverActionsVC.swift */,
 				C223547E1E1A862200E9368E /* AlertRenderer.swift */,
+				C22354801E1A95A800E9368E /* UserDefaultValues.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1209,6 +1212,7 @@
 				C205829B1E18198300BE04D7 /* DisclaimerViewController.swift in Sources */,
 				C2335A5B1E103BDE00760234 /* Transitions.swift in Sources */,
 				C2C7697A1E19DBFC00B97EB8 /* LockSplashViewController.swift in Sources */,
+				C22354811E1A95A800E9368E /* UserDefaultValues.swift in Sources */,
 				C219A23C1E16DF4F00B10C08 /* MarketItemView.swift in Sources */,
 				C2F71B5B1E038AEA00A99298 /* DashboardViewController.swift in Sources */,
 				C23A74651E1780CD00113BD6 /* DashboardAccountItemView.swift in Sources */,

@@ -20,8 +20,7 @@ class PasscodeStagingViewController: UIViewController {
         VENTouchLock.sharedInstance().appearance().cancelBarButtonItemTitle = "Skip"
         VENTouchLock.sharedInstance().appearance().createPasscodeInitialLabelText = "Set up a new 4-digit PIN for maximum security"
         VENTouchLock.sharedInstance().appearance().passcodeViewControllerBackgroundColor = UIColor.white
-        VENTouchLock.sharedInstance().setKeychainService("PortfolioView", keychainAccount: "loggedinuserid", touchIDReason: "Scan your fingerprint to unlock", passcodeAttemptLimit: 3,
-                                                         splashViewControllerClass: LockSplashViewController.self)
+        //VENTouchLock.sharedInstance().setKeychainService("PortfolioView", keychainAccount: UserDefaultValues.loggedInUserName, touchIDReason: "Scan your fingerprint to unlock", passcodeAttemptLimit: 3, splashViewControllerClass: LockSplashViewController.self)
         
         VENTouchLock.setShouldUseTouchID(true)
     }
@@ -38,10 +37,10 @@ class PasscodeStagingViewController: UIViewController {
             createPasscodeVC.willFinishWithResult =  {
                 (success: Bool) in
             
-                createPasscodeVC.dismiss(animated: false, completion: {
-                self.performSegue(withIdentifier: "passcodeStagingToDashboardSegue", sender: self)
-            })
-        }
+                    createPasscodeVC.dismiss(animated: false, completion: {
+                        self.performSegue(withIdentifier: "passcodeStagingToDashboardSegue", sender: self)
+                })
+            }
         }
     }
 }
