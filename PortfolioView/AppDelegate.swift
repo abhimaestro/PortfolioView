@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VENTouchLock
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navBarAppearance.barTintColor =  UIColor.white
         //navBarAppearance.setBackgroundImage(whiteBackground, for: .default)
         navBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName : color, NSFontAttributeName: FontHelper.getDefaultFont(size: 18.0)]
+        
+        VENTouchLock.sharedInstance().setKeychainService("PortfolioView", keychainAccount: "loggedinuserid2", touchIDReason: "Scan your fingerprint to use the app", passcodeAttemptLimit: 3, splashViewControllerClass: LockSplashViewController.self)
+
         
         return true
     }
