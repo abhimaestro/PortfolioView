@@ -49,9 +49,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nuf-CD-jr3">
-                    <rect key="frame" x="85.5" y="295" width="72" height="71"/>
+                    <rect key="frame" x="107.5" y="295" width="50" height="49"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="72" id="EtM-lA-7ol"/>
+                        <constraint firstAttribute="width" constant="50" id="EtM-lA-7ol"/>
                         <constraint firstAttribute="width" secondItem="Nuf-CD-jr3" secondAttribute="height" multiplier="1:1" constant="1" id="UvR-jX-fk9"/>
                     </constraints>
                     <state key="normal" backgroundImage="touchid">
@@ -68,9 +68,9 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49s-2c-bY5">
-                    <rect key="frame" x="197.5" y="263" width="132" height="135"/>
+                    <rect key="frame" x="197.5" y="268.5" width="100" height="102"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="132" id="AcU-zZ-nNN"/>
+                        <constraint firstAttribute="width" constant="100" id="AcU-zZ-nNN"/>
                         <constraint firstAttribute="width" secondItem="49s-2c-bY5" secondAttribute="height" multiplier="44:45" id="nM7-Wn-cYE"/>
                     </constraints>
                     <state key="normal" image="passcode">
