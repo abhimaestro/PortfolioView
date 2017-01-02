@@ -6,8 +6,9 @@ target 'PortfolioView' do
 
   use_frameworks!
 
-  # Pods for PortfolioView
- pod 'ObjectMapper', '~> 2.2'
+# Pods for PortfolioView
+pod 'ObjectMapper', '~> 2.2'
+pod 'VENTouchLock', '~> 1.0'
 
 target 'PortfolioViewShared (iOS)' do
     inherit! :search_paths

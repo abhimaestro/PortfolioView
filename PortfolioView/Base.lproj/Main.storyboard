@@ -103,7 +103,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="9CU-Tr-aDW" kind="show" id="SqT-ui-YRj"/>
+                                    <action selector="loginButtonClicked:" destination="zM6-Bl-oAE" eventType="touchUpInside" id="gHs-eh-tOy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWX-cO-EvC">
@@ -157,11 +157,33 @@
                         <outlet property="loginButton" destination="shl-Nq-vlG" id="WwA-PA-vKk"/>
                         <outlet property="passwordTextField" destination="Sex-Eu-GNC" id="If5-er-8Xt"/>
                         <outlet property="userNameTextField" destination="IVY-ww-kvw" id="iHD-Ao-xus"/>
+                        <segue destination="agM-QO-wNd" kind="show" identifier="loginToPasscodeStagingSegue" animates="NO" id="Z4c-yW-BMT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTm-f1-vKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2050.4000000000001" y="221.73913043478262"/>
+            <point key="canvasLocation" x="-2770" y="214"/>
+        </scene>
+        <!--Passcode Staging View Controller-->
+        <scene sceneID="q4M-4U-jRT">
+            <objects>
+                <viewController id="agM-QO-wNd" customClass="PasscodeStagingViewController" customModule="PortfolioView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wl3-0S-vDH"/>
+                        <viewControllerLayoutGuide type="bottom" id="2mo-ux-an6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Iy-T1-Jjt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="9CU-Tr-aDW" kind="show" identifier="passcodeStagingToDashboardSegue" animates="NO" id="9ke-Ci-AhB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mqg-Gd-hvZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1874" y="214"/>
         </scene>
         <!--Portfolio Summary-->
         <scene sceneID="OQv-fe-skZ">

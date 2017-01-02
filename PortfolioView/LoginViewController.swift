@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class LoginViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -24,6 +25,10 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
     }
 
+    @IBAction func loginButtonClicked(_ sender: Any) {
+
+        self.performSegue(withIdentifier: "loginToPasscodeStagingSegue", sender: self)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
