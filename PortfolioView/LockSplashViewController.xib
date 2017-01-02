@@ -6,11 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SampleLockSplashViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LockSplashViewController" customModule="PortfolioView" customModuleProvider="target">
             <connections>
+                <outlet property="touchIdButton" destination="Nuf-CD-jr3" id="tUd-Ef-4Mz"/>
                 <outlet property="view" destination="Cdx-57-LM8" id="uqQ-U1-gFM"/>
             </connections>
         </placeholder>
@@ -19,35 +22,82 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample Splash" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0R-Rp-Xtw">
-                    <rect key="frame" x="110.5" y="74" width="155" height="27"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0R-Rp-Xtw">
+                    <rect key="frame" x="76.5" y="152" width="223" height="29"/>
+                    <attributedString key="attributedText">
+                        <fragment content="Unlock ">
+                            <attributes>
+                                <font key="NSFont" size="23" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="Portfolio">
+                            <attributes>
+                                <color key="NSColor" red="0.050980392156862744" green="0.21176470588235294" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="24" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="View">
+                            <attributes>
+                                <color key="NSColor" red="0.050980392156862744" green="0.21176470588235294" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="24" name="HelveticaNeue-BoldItalic"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49s-2c-bY5">
-                    <rect key="frame" x="134.5" y="578" width="107" height="30"/>
-                    <state key="normal" title="Enter Passcode">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nuf-CD-jr3">
+                    <rect key="frame" x="85.5" y="295" width="72" height="71"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="72" id="EtM-lA-7ol"/>
+                        <constraint firstAttribute="width" secondItem="Nuf-CD-jr3" secondAttribute="height" multiplier="1:1" constant="1" id="UvR-jX-fk9"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="touchid">
                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="showTouchIdClicked:" destination="-1" eventType="touchUpInside" id="HE6-KL-30l"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nuf-CD-jr3">
-                    <rect key="frame" x="141.5" y="532" width="92" height="30"/>
-                    <state key="normal" title="Use Touch ID">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="XzM-vN-kP6">
+                    <rect key="frame" x="149" y="56" width="76" height="76"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="XzM-vN-kP6" secondAttribute="height" multiplier="1:1" id="Fkv-YT-EEt"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49s-2c-bY5">
+                    <rect key="frame" x="197.5" y="263" width="132" height="135"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="132" id="AcU-zZ-nNN"/>
+                        <constraint firstAttribute="width" secondItem="49s-2c-bY5" secondAttribute="height" multiplier="44:45" id="nM7-Wn-cYE"/>
+                    </constraints>
+                    <state key="normal" image="passcode">
                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="showPasscodeClicked:" destination="-1" eventType="touchUpInside" id="wuF-ux-9k6"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="49s-2c-bY5" secondAttribute="bottom" constant="59" id="2Pt-Il-pDH"/>
-                <constraint firstItem="E0R-Rp-Xtw" firstAttribute="top" secondItem="Cdx-57-LM8" secondAttribute="top" constant="74" id="EbX-ol-ZhM"/>
-                <constraint firstAttribute="centerX" secondItem="E0R-Rp-Xtw" secondAttribute="centerX" constant="-0.5" id="RmQ-Qj-5gq"/>
-                <constraint firstAttribute="centerX" secondItem="49s-2c-bY5" secondAttribute="centerX" constant="-0.5" id="Ym1-2H-CQX"/>
-                <constraint firstItem="49s-2c-bY5" firstAttribute="top" secondItem="Nuf-CD-jr3" secondAttribute="bottom" constant="16" id="Zmr-KK-GDX"/>
-                <constraint firstAttribute="centerX" secondItem="Nuf-CD-jr3" secondAttribute="centerX" id="bq2-vE-EQ0"/>
+                <constraint firstItem="Nuf-CD-jr3" firstAttribute="centerY" secondItem="49s-2c-bY5" secondAttribute="centerY" id="F8c-ch-iGE"/>
+                <constraint firstItem="XzM-vN-kP6" firstAttribute="centerX" secondItem="Cdx-57-LM8" secondAttribute="centerX" id="WMd-aQ-YIw"/>
+                <constraint firstItem="XzM-vN-kP6" firstAttribute="top" secondItem="Cdx-57-LM8" secondAttribute="top" constant="56" id="Y9W-hc-fh8"/>
+                <constraint firstItem="E0R-Rp-Xtw" firstAttribute="top" secondItem="XzM-vN-kP6" secondAttribute="bottom" constant="20" id="aUP-29-ehX"/>
+                <constraint firstItem="E0R-Rp-Xtw" firstAttribute="centerX" secondItem="Cdx-57-LM8" secondAttribute="centerX" id="d6f-3Q-nsO"/>
+                <constraint firstItem="Nuf-CD-jr3" firstAttribute="top" secondItem="E0R-Rp-Xtw" secondAttribute="bottom" constant="114" id="ubs-PF-Cw7"/>
+                <constraint firstAttribute="centerX" secondItem="Nuf-CD-jr3" secondAttribute="trailing" constant="30" id="zYV-hh-sc8"/>
+                <constraint firstItem="49s-2c-bY5" firstAttribute="leading" secondItem="Cdx-57-LM8" secondAttribute="centerX" constant="10" id="zg1-5V-eXG"/>
             </constraints>
-            <point key="canvasLocation" x="100" y="182"/>
+            <point key="canvasLocation" x="99.5" y="181.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="logo" width="76" height="76"/>
+        <image name="passcode" width="256" height="256"/>
+        <image name="touchid" width="256" height="256"/>
+    </resources>
 </document>

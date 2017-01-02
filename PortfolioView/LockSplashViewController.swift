@@ -11,6 +11,8 @@ import VENTouchLock
 
 class LockSplashViewController: VENTouchLockSplashViewController {
 
+    @IBOutlet weak var touchIdButton: UIButton!
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
@@ -18,6 +20,7 @@ class LockSplashViewController: VENTouchLockSplashViewController {
     override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: Bundle!) {
         super.init(nibName: nibNameOrNil, bundle: nil)
         
+       
         self.didFinishWithSuccess = {(_ success: Bool, _ unlockType: VENTouchLockSplashViewControllerUnlockType) -> Void in
             if success {
                 var logString = "Sample App Unlocked"
@@ -42,27 +45,26 @@ class LockSplashViewController: VENTouchLockSplashViewController {
     }
     
     convenience init() {
+
         self.init(nibName: "LockSplashViewController", bundle: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        VENTouchLock.sharedInstance().appearance().passcodeViewControllerShouldEmbedInNavigationController = true
+        VENTouchLock.sharedInstance().appearance().enterPasscodeInitialLabelText = "Please enter your 4-digit PIN to unlock"
+        VENTouchLock.sharedInstance().appearance().enterPasscodeViewControllerTitle = "Unlock PortfolioView"
+        VENTouchLock.sharedInstance().appearance().cancelBarButtonItemTitle = "Cancel"
+        
+        self.touchIdButton.isHidden = VENTouchLock.shouldUseTouchID()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func showTouchIdClicked(_ sender: Any) {
+        self.showTouchID()
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func showPasscodeClicked(_ sender: Any) {
+        self.showPasscode(animated: true)
     }
-    */
 
 }
