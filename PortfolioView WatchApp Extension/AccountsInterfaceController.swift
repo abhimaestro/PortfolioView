@@ -18,7 +18,7 @@ class AccountsInterfaceController: WKInterfaceController {
     @IBOutlet weak var chartImageView: WKInterfaceImage!
 
     let chartLabelFont = UIFont.systemFont(ofSize: 10.0, weight: UIFontWeightLight)
-    let accounts = PortfolioData.getAccounts()
+    let accountData = PortfolioData.getAccounts()
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -47,7 +47,7 @@ class AccountsInterfaceController: WKInterfaceController {
         image.labelFont = chartLabelFont
         image.labelText = "portfolio\naccounts"
         image.labelColor = UIColor.darkGray
-        image.values = accounts.map({$0.marketValue as NSNumber})
+        image.values = accountData.accounts.map({$0.marketValue as NSNumber})
         image.colors = Color.palette
         
         let chartImage = image.draw(frame, scale: scale)
@@ -56,11 +56,11 @@ class AccountsInterfaceController: WKInterfaceController {
     }
     
     func updateTable() {
-        accountsTable.setNumberOfRows(accounts.count, withRowType: "AccountRow")
+        accountsTable.setNumberOfRows(accountData.accounts.count, withRowType: "AccountRow")
         
         for index in 0..<accountsTable.numberOfRows {
             if let controller = accountsTable.rowController(at: index) as? AccountRowController {
-                let account = accounts[index]
+                let account = accountData.accounts[index]
                 controller.setAaccount(color: Color.palette[index], account: account)
             }
         }

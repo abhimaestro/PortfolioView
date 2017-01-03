@@ -295,22 +295,6 @@
                                                     <constraint firstItem="6On-Xi-fPC" firstAttribute="leading" secondItem="DFw-lQ-ird" secondAttribute="leading" id="uCA-rM-45Q"/>
                                                 </constraints>
                                             </view>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POi-Rc-lBL">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="as of 11/29/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qik-Sc-cWw" userLabel="as of 11/29/2016">
-                                                        <rect key="frame" x="146" y="207" width="82.5" height="13"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
-                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="Qik-Sc-cWw" secondAttribute="bottom" constant="5" id="YpQ-Vm-EPp"/>
-                                                    <constraint firstItem="Qik-Sc-cWw" firstAttribute="centerX" secondItem="POi-Rc-lBL" secondAttribute="centerX" id="w7W-U7-hbu"/>
-                                                </constraints>
-                                            </view>
                                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="RQf-bY-5Oe">
                                                 <rect key="frame" x="160" y="-10" width="55" height="37"/>
                                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -329,13 +313,9 @@
                                             <constraint firstAttribute="trailing" secondItem="KZI-gf-k2Z" secondAttribute="trailing" id="QzD-VP-xfb"/>
                                             <constraint firstItem="DFw-lQ-ird" firstAttribute="top" secondItem="KZI-gf-k2Z" secondAttribute="top" id="TWv-na-rSs"/>
                                             <constraint firstItem="RQf-bY-5Oe" firstAttribute="top" secondItem="uBb-WJ-QSv" secondAttribute="top" constant="-10" id="Tik-SI-jGG"/>
-                                            <constraint firstItem="POi-Rc-lBL" firstAttribute="leading" secondItem="KZI-gf-k2Z" secondAttribute="leading" id="Tsa-iK-9dL"/>
                                             <constraint firstItem="KZI-gf-k2Z" firstAttribute="leading" secondItem="uBb-WJ-QSv" secondAttribute="leading" id="YZk-IC-01H"/>
                                             <constraint firstItem="KZI-gf-k2Z" firstAttribute="top" secondItem="uBb-WJ-QSv" secondAttribute="top" id="Z8x-CT-jai"/>
-                                            <constraint firstItem="POi-Rc-lBL" firstAttribute="trailing" secondItem="KZI-gf-k2Z" secondAttribute="trailing" id="iu2-hI-eIg"/>
                                             <constraint firstItem="DFw-lQ-ird" firstAttribute="leading" secondItem="KZI-gf-k2Z" secondAttribute="leading" id="lW0-d1-hqs"/>
-                                            <constraint firstItem="POi-Rc-lBL" firstAttribute="bottom" secondItem="KZI-gf-k2Z" secondAttribute="bottom" id="rH7-u2-ZRf"/>
-                                            <constraint firstItem="POi-Rc-lBL" firstAttribute="top" secondItem="KZI-gf-k2Z" secondAttribute="top" id="vdw-4Y-FjQ"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b29-dg-CAg" userLabel="topContainer">
@@ -669,8 +649,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="accountAsOfDate" destination="Qik-Sc-cWw" id="pUE-7P-edd"/>
-                        <outlet property="accountContainer" destination="POi-Rc-lBL" id="QMV-4D-C8T"/>
                         <outlet property="allocationAsOfDate" destination="Szh-ex-pnL" id="eo3-Yp-It6"/>
                         <outlet property="allocationChartContainer" destination="KZI-gf-k2Z" id="Dru-jW-qmc"/>
                         <outlet property="allocationChartDonutContainer" destination="o3O-MY-3qC" id="MnG-4u-qb7"/>

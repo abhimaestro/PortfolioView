@@ -20,7 +20,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var topContainer: UIView!
     @IBOutlet weak var bottomContainer: UIView!
     
-    @IBOutlet weak var accountContainer: UIView!
+
     @IBOutlet weak var allocationChartContainer: UIView!
     @IBOutlet weak var allocationChartLegendContainer: UIView!
     @IBOutlet weak var allocationChartDonutContainer: UIView!
@@ -52,6 +52,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var marketAsOfDate: UILabel!
 
     var marketDataContainer: UIView!
+    var accountDataContainer: UIView!
     
     let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
     let trailingPeriodButtonSelectedFont = FontHelper.getDefaultFont(size: 13.0, bold: true)
@@ -148,7 +149,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         super.viewDidAppear(animated)
         
         self.marketDataContainer = MarketDataView.load(marketData: PortfolioData.getMarketData(), container: self.bottomContainer)
-        initializeAccountView()
+        self.accountDataContainer = AccountDataView.load(accountData: PortfolioData.getAccounts(), container: self.bottomContainer)
+        self.accountDataContainer.isHidden = true
+        
         initializeAllocationChartLegendView()
 
         let needle = radialGauge.scales[0].indicators[0] as! TKGaugeNeedle
@@ -186,39 +189,6 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let noOfRows = CGFloat(noOfItems/noOfCols)
         let y = CGFloat((containerHeight - noOfRows*height - (noOfRows - 1)*offset) / 2)
         return y
-    }
-    
-    func initializeAccountView() {
-        
-        accountAsOfDate.text = String("as of: \(PortfolioData.portfolioData_All!.accountAsOfDate.toDateTimeString())")
-        
-        let accounts = PortfolioData.getAccounts()
-        let containerOrigin = accountContainer.frame.origin
-        let containerWidth = accountContainer.frame.width
-        let containerHeight = accountContainer.frame.height
-        let offset: CGFloat = 10
-        let height: CGFloat = 62
-        var y = getYPositionToCenterContentInContainer(containerHeight: containerHeight, height: height, offset: offset, noOfItems: accounts.count + 1, noOfCols: 2)
-        let width: CGFloat = (containerWidth / 2) - 1.5*offset
-        
-        let column1X = containerOrigin.x + offset
-        let column2X = column1X + width + offset
-        
-        for i in 0..<accounts.count {
-            let account = accounts[i]
-            
-            let accountItemView = DashboardAccountItemView.load(accountItem:  account, swatchColor: Color.palette[i])
-            
-            if i % 2 == 0 {
-                accountItemView.frame = CGRect(x: column1X, y: y, width: width, height: height)
-            }
-            else {
-                accountItemView.frame = CGRect(x: column2X, y: y, width: width, height: height)
-                y += height + offset
-            }
-            
-            accountContainer.addSubview(accountItemView)
-        }
     }
     
     func getPerformanceData() -> (portfolioData: PortfolioData, portfolioReturns: [TKChartDataPoint], indexReturns: [TKChartDataPoint], indexName: String, minReturnValue: Double, maxReturnValue: Double) {
@@ -870,10 +840,10 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         case UISwipeGestureRecognizerDirection.left:
             switch _bottomContainerViewName {
             case .MarketData:
-                toggleBetweenViews(viewsToShow: [accountContainer], viewsToHide: [marketDataContainer], toLeft: true)
+                toggleBetweenViews(viewsToShow: [accountDataContainer], viewsToHide: [marketDataContainer], toLeft: true)
                 _bottomContainerViewName = .Account
             case .Account:
-                toggleBetweenViews(viewsToShow: [goalContainer], viewsToHide: [accountContainer], toLeft: true)
+                toggleBetweenViews(viewsToShow: [goalContainer], viewsToHide: [accountDataContainer], toLeft: true)
                 _bottomContainerViewName = .Goal
             case .Goal:
                 toggleBetweenViews(viewsToShow: [allocationChartContainer], viewsToHide: [goalContainer], toLeft: true)
@@ -886,10 +856,10 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             case .MarketData:
                break
             case .Account:
-                toggleBetweenViews(viewsToShow: [marketDataContainer], viewsToHide: [accountContainer], toLeft: false)
+                toggleBetweenViews(viewsToShow: [marketDataContainer], viewsToHide: [accountDataContainer], toLeft: false)
                 _bottomContainerViewName = .MarketData
             case .Goal:
-                toggleBetweenViews(viewsToShow: [accountContainer], viewsToHide: [goalContainer], toLeft: false)
+                toggleBetweenViews(viewsToShow: [accountDataContainer], viewsToHide: [goalContainer], toLeft: false)
                 _bottomContainerViewName = .Account
             case .Allocation:
                 toggleBetweenViews(viewsToShow: [goalContainer], viewsToHide: [allocationChartContainer], toLeft: false)

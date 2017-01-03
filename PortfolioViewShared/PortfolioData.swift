@@ -165,12 +165,14 @@ public class PortfolioData {
             Allocation(name: "Unclassified", percent: 2.0, portfolioMarketValue: 390000.0)]
     }
     
-    public static func getAccounts() -> [Account] {
-        return [
+    public static func getAccounts() -> AccountData {
+        let accounts = [
             Account(name: "John Doe Brokerage for retirement", marketValue: 295475, changePercent: 1.05),
             Account(name: "Jane Doe IRA", marketValue: 215016, changePercent: 2.41),
             Account(name: "Elizabeth Doe MWP", marketValue: 167000, changePercent: -2.76),
             Account(name: "Jen SMA", marketValue: 45186, changePercent: 0.87)]
+        
+        return AccountData(asOfDate: Date(), accounts: accounts)
     }
     
     public static func getMarketData() -> MarketData {
@@ -256,6 +258,17 @@ public class MarketItem {
         self.changeDollar = marketValue * changePercent/100
     }
 }
+
+public class AccountData {
+    public var accounts = [Account]()
+    public var asOfDate: Date!
+    
+    init(asOfDate: Date, accounts: [Account]) {
+        self.asOfDate = asOfDate
+        self.accounts = accounts
+    }
+}
+
 
 public class Account {
     public var name: String = ""

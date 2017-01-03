@@ -22,6 +22,8 @@
 		C22354811E1A95A800E9368E /* UserDefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22354801E1A95A800E9368E /* UserDefaultValues.swift */; };
 		C228EF731E1C2A4B0023ED1D /* MarketDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C228EF721E1C2A4B0023ED1D /* MarketDataView.swift */; };
 		C228EF751E1C2A6D0023ED1D /* MarketDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C228EF741E1C2A6D0023ED1D /* MarketDataView.xib */; };
+		C228EF771E1C38300023ED1D /* AccountDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C228EF761E1C38300023ED1D /* AccountDataView.xib */; };
+		C228EF791E1C38830023ED1D /* AccountDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C228EF781E1C38830023ED1D /* AccountDataView.swift */; };
 		C23208351E12E32600E54844 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208341E12E32600E54844 /* FontHelper.swift */; };
 		C23208371E13094F00E54844 /* PopOverActionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208361E13094F00E54844 /* PopOverActionsVC.swift */; };
 		C2335A591E100F4500760234 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A581E100F4500760234 /* Extensions.swift */; };
@@ -213,6 +215,8 @@
 		C22354801E1A95A800E9368E /* UserDefaultValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultValues.swift; sourceTree = "<group>"; };
 		C228EF721E1C2A4B0023ED1D /* MarketDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketDataView.swift; sourceTree = "<group>"; };
 		C228EF741E1C2A6D0023ED1D /* MarketDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarketDataView.xib; sourceTree = "<group>"; };
+		C228EF761E1C38300023ED1D /* AccountDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountDataView.xib; sourceTree = "<group>"; };
+		C228EF781E1C38830023ED1D /* AccountDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDataView.swift; sourceTree = "<group>"; };
 		C23208341E12E32600E54844 /* FontHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		C23208361E13094F00E54844 /* PopOverActionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverActionsVC.swift; sourceTree = "<group>"; };
 		C2335A511E1001DC00760234 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
@@ -392,6 +396,8 @@
 				C2F71B5A1E038AEA00A99298 /* DashboardViewController.swift */,
 				C228EF721E1C2A4B0023ED1D /* MarketDataView.swift */,
 				C228EF741E1C2A6D0023ED1D /* MarketDataView.xib */,
+				C228EF761E1C38300023ED1D /* AccountDataView.xib */,
+				C228EF781E1C38830023ED1D /* AccountDataView.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -904,6 +910,7 @@
 				C23A746B1E17914900113BD6 /* LegendItemView.xib in Resources */,
 				C2F71B321E02CDAF00A99298 /* Main.storyboard in Resources */,
 				C2C7697C1E19DC5100B97EB8 /* LockSplashViewController.xib in Resources */,
+				C228EF771E1C38300023ED1D /* AccountDataView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1218,6 +1225,7 @@
 				C2C769781E19D6F800B97EB8 /* PasscodeStagingViewController.swift in Sources */,
 				C2F71B2B1E02CDAE00A99298 /* AppDelegate.swift in Sources */,
 				C23208371E13094F00E54844 /* PopOverActionsVC.swift in Sources */,
+				C228EF791E1C38830023ED1D /* AccountDataView.swift in Sources */,
 				C2335A591E100F4500760234 /* Extensions.swift in Sources */,
 				C23A74691E17913900113BD6 /* LegendItemView.swift in Sources */,
 				C205829B1E18198300BE04D7 /* DisclaimerViewController.swift in Sources */,
