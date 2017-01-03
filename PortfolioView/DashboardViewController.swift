@@ -34,7 +34,6 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     var performanceContainer: PerformanceView!
     var valueOverTimeContainer: ValueOverTimeView!
     
-    let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
     let trailingPeriodButtonSelectedFont = FontHelper.getDefaultFont(size: 13.0, bold: true)
 
     private enum TopContainerViewName: Int {
@@ -220,7 +219,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         
         resetTrailingPeriodButtonsStyle()
         sender.titleLabel?.font = trailingPeriodButtonSelectedFont
-        sender.setTitleColor(selectedBlueColor, for: .normal)
+        sender.setTitleColor(Color.darkBlue, for: .normal)
         _currentTrailingPeriod = .M1
         initializePerformanceChart()
         initializeValueOverTimeChart()
@@ -229,7 +228,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     @IBAction func trailingPeriodChangedTo3M(_ sender: UIButton) {
         resetTrailingPeriodButtonsStyle()
         sender.titleLabel?.font = trailingPeriodButtonSelectedFont
-        sender.setTitleColor(selectedBlueColor, for: .normal)
+        sender.setTitleColor(Color.darkBlue, for: .normal)
         _currentTrailingPeriod = .M3
         initializePerformanceChart()
         initializeValueOverTimeChart()
@@ -238,7 +237,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     @IBAction func trailingPeriodChangedTo1Yr(_ sender: UIButton) {
         resetTrailingPeriodButtonsStyle()
         sender.titleLabel?.font = trailingPeriodButtonSelectedFont
-        sender.setTitleColor(selectedBlueColor, for: .normal)
+        sender.setTitleColor(Color.darkBlue, for: .normal)
         _currentTrailingPeriod = .Y1
         initializePerformanceChart()
         initializeValueOverTimeChart()
@@ -247,7 +246,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     @IBAction func trailingPeriodChangedTo3Yr(_ sender: UIButton) {
         resetTrailingPeriodButtonsStyle()
         sender.titleLabel?.font = trailingPeriodButtonSelectedFont
-        sender.setTitleColor(selectedBlueColor, for: .normal)
+        sender.setTitleColor(Color.darkBlue, for: .normal)
         _currentTrailingPeriod = .Y3
         initializePerformanceChart()
         initializeValueOverTimeChart()
@@ -256,7 +255,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     @IBAction func trailingPeriodChangedTo5Yr(_ sender: UIButton) {
         resetTrailingPeriodButtonsStyle()
         sender.titleLabel?.font = trailingPeriodButtonSelectedFont
-        sender.setTitleColor(selectedBlueColor, for: .normal)
+        sender.setTitleColor(Color.darkBlue, for: .normal)
         _currentTrailingPeriod = .Y5
         initializePerformanceChart()
         initializeValueOverTimeChart()
@@ -265,7 +264,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     @IBAction func trailingPeriodChangedToAll(_ sender: UIButton) {
         resetTrailingPeriodButtonsStyle()
         sender.titleLabel?.font = FontHelper.getDefaultFont(size: 12.0, bold: true)
-        sender.setTitleColor(selectedBlueColor, for: .normal)
+        sender.setTitleColor(Color.darkBlue, for: .normal)
         _currentTrailingPeriod = .All
         initializePerformanceChart()
         initializeValueOverTimeChart()

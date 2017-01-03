@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PortfolioViewShared
 
 class PopOverMenuVC: UIViewController {
     
@@ -38,8 +39,7 @@ class PopOverMenuVC: UIViewController {
     }
     
     private func formatView(){
-        let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 0.8)
-        self.view.backgroundColor = selectedBlueColor
+        self.view.backgroundColor = Color.darkBlue
         self.popoverPresentationController!.backgroundColor = self.view.backgroundColor
         self.preferredContentSize = CGSize(width: 150, height: (30*menuItems.count + 15 + 15)) //height = (heightOfButton * #ofButtons) + topPadding + bottomPadding
     }

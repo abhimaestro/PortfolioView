@@ -17,7 +17,6 @@ class ValueOverTimeView: UIView, TKChartDelegate {
     @IBOutlet weak var dateRangeLabel: UILabel!
 
     var valueOverTimeChart = TKChart()
-    let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
     
     class func load(portfolioData: PortfolioData, container: UIView) -> ValueOverTimeView {
         
@@ -33,7 +32,6 @@ class ValueOverTimeView: UIView, TKChartDelegate {
     
     
     func initializeValueOverTimeChart(portfolioData: PortfolioData) {
-        
         self.valueOverTimeChart =  getValueOverTimeChart(inView: valueOverTimeChartContainer, portfolioData: portfolioData)
     }
 
@@ -50,8 +48,7 @@ class ValueOverTimeView: UIView, TKChartDelegate {
         
         portfolioTotalReturnDollarValue.textColor = Color.getValueColor(value: valueData.portfolioData.totalPortfolioReturnDollar)
         
-        //portfolioTotalMarketValueLabel.text = valueData.portfolioData.totalPortfolioMarketValueDollar.toCurrency()
-        
+       
         updateDateRangeLevel(portfolioData: valueData.portfolioData)
         
         let series = TKChartAreaSeries(items:valueData.portfolioValues)
@@ -62,8 +59,8 @@ class ValueOverTimeView: UIView, TKChartDelegate {
         
         let fillBlueColor = UIColor(red: 216/255.0, green: 231/255.0, blue: 255/255.0, alpha: 0.5)
         let paletteItem = TKChartPaletteItem()
-        paletteItem.stroke = TKStroke(color: selectedBlueColor)
-        paletteItem.fill = TKLinearGradientFill(colors: [selectedBlueColor, fillBlueColor, UIColor.white])
+        paletteItem.stroke = TKStroke(color: Color.darkBlue)
+        paletteItem.fill = TKLinearGradientFill(colors: [Color.darkBlue, fillBlueColor, UIColor.white])
         series.style.palette!.addItem(paletteItem)
         
         

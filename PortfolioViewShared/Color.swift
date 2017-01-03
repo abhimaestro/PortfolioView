@@ -14,7 +14,8 @@ public class Color {
     
     public static let redValue = UIColor(red: 255/255.0, green: 55/255.0, blue: 82/255.0, alpha: 1.0)
     public static let greenValue = UIColor(red: 30/255.0, green: 116/255.0, blue: 0/255.0, alpha: 1.0)
-
+    public static let darkBlue = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
+    
     public static let palette = [
         UIColor(red: 106/255.0, green: 213/255.0, blue: 207/255.0, alpha: 1.0),
         UIColor(red: 148/255.0, green: 120/255.0, blue: 162/255.0, alpha: 1.0),
