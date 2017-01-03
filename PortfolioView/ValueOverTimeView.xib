@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ValueOverTimeView" customModule="PortfolioView" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEw-H5-pcS">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dz8-Q1-1Ne" userLabel="yourPortfolioLegend">
+                            <rect key="frame" x="94" y="0.0" width="188" height="25"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jd5-oD-t9P" userLabel="yourPortfolioMarker">
+                                    <rect key="frame" x="15.5" y="12" width="20" height="2"/>
+                                    <color key="backgroundColor" red="0.1647058824" green="0.30588235289999999" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="Ms6-nU-XWo"/>
+                                        <constraint firstAttribute="height" constant="2" id="qxL-OV-Cqe"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Portfolio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbl-bp-f1P">
+                                    <rect key="frame" x="40.5" y="5.5" width="72.5" height="14.5"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ $45,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5T-Vk-DHv">
+                                    <rect key="frame" x="118" y="4.5" width="63" height="16.5"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                    <color key="textColor" red="0.057676174500000003" green="0.35497063760000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="G5T-Vk-DHv" firstAttribute="leading" secondItem="sbl-bp-f1P" secondAttribute="trailing" constant="5" id="2L1-qz-PkZ"/>
+                                <constraint firstItem="sbl-bp-f1P" firstAttribute="centerY" secondItem="dz8-Q1-1Ne" secondAttribute="centerY" id="37a-Wc-fHM"/>
+                                <constraint firstItem="jd5-oD-t9P" firstAttribute="trailing" secondItem="sbl-bp-f1P" secondAttribute="leading" constant="-5" id="H69-pk-YPg"/>
+                                <constraint firstAttribute="trailing" secondItem="G5T-Vk-DHv" secondAttribute="trailing" constant="7" id="fYo-Op-H3U"/>
+                                <constraint firstItem="jd5-oD-t9P" firstAttribute="centerY" secondItem="dz8-Q1-1Ne" secondAttribute="centerY" id="rVB-HH-wmS"/>
+                                <constraint firstItem="G5T-Vk-DHv" firstAttribute="centerY" secondItem="dz8-Q1-1Ne" secondAttribute="centerY" id="sae-yJ-xGc"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="dz8-Q1-1Ne" firstAttribute="width" secondItem="gEw-H5-pcS" secondAttribute="width" multiplier="0.5" id="0rK-gP-GDk"/>
+                        <constraint firstAttribute="bottom" secondItem="dz8-Q1-1Ne" secondAttribute="bottom" id="AWL-18-zIn"/>
+                        <constraint firstAttribute="height" constant="25" id="Bxj-ZC-oVe"/>
+                        <constraint firstItem="dz8-Q1-1Ne" firstAttribute="top" secondItem="gEw-H5-pcS" secondAttribute="top" id="I9L-hN-FyR"/>
+                        <constraint firstAttribute="centerX" secondItem="dz8-Q1-1Ne" secondAttribute="centerX" id="Zzc-aS-heK"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVN-as-2Y3">
+                    <rect key="frame" x="0.0" y="25" width="375" height="260"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wef-y4-yEW" userLabel="dateRangeContainer">
+                    <rect key="frame" x="0.0" y="285" width="375" height="15"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Range: 1/1/1008 - 12/12/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnK-oF-nvz">
+                            <rect key="frame" x="109" y="1.5" width="157" height="12"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="hnK-oF-nvz" firstAttribute="centerX" secondItem="wef-y4-yEW" secondAttribute="centerX" id="0LM-lI-VGb"/>
+                        <constraint firstItem="hnK-oF-nvz" firstAttribute="centerY" secondItem="wef-y4-yEW" secondAttribute="centerY" id="2ee-ly-1UE"/>
+                        <constraint firstAttribute="height" constant="15" id="706-N2-qY5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="gEw-H5-pcS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2BO-QC-xe1"/>
+                <constraint firstItem="wef-y4-yEW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4S8-xE-TYo"/>
+                <constraint firstItem="wef-y4-yEW" firstAttribute="top" secondItem="FVN-as-2Y3" secondAttribute="bottom" id="Dx2-lW-6Xu"/>
+                <constraint firstAttribute="trailing" secondItem="gEw-H5-pcS" secondAttribute="trailing" id="Jxu-M6-Ke3"/>
+                <constraint firstItem="gEw-H5-pcS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="SVC-Ru-Pxa"/>
+                <constraint firstAttribute="trailing" secondItem="FVN-as-2Y3" secondAttribute="trailing" id="VWF-Ex-GTG"/>
+                <constraint firstAttribute="bottom" secondItem="wef-y4-yEW" secondAttribute="bottom" id="cGC-Bk-Cuy"/>
+                <constraint firstItem="FVN-as-2Y3" firstAttribute="top" secondItem="gEw-H5-pcS" secondAttribute="bottom" id="lYO-Qm-B4k"/>
+                <constraint firstItem="FVN-as-2Y3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mO6-WC-jnT"/>
+                <constraint firstAttribute="trailing" secondItem="wef-y4-yEW" secondAttribute="trailing" id="neY-si-yph"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="dateRangeLabel" destination="hnK-oF-nvz" id="Cxb-t6-QLX"/>
+                <outlet property="portfolioTotalReturnDollarValue" destination="G5T-Vk-DHv" id="DHj-8J-ZXt"/>
+                <outlet property="valueOverTimeChartContainer" destination="FVN-as-2Y3" id="rO1-us-udj"/>
+                <outlet property="valueOverTimeChartLegendContainer" destination="gEw-H5-pcS" id="fEB-PN-iUy"/>
+            </connections>
+            <point key="canvasLocation" x="26.5" y="52"/>
+        </view>
+    </objects>
+</document>

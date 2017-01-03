@@ -10,42 +10,32 @@ import UIKit
 import Foundation
 import PortfolioViewShared
 
-class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPresentationControllerDelegate {
-
+class DashboardViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     
-    @IBOutlet weak var performanceChartContainer: UIView!
-    @IBOutlet weak var valueOverTimeChartContainer: UIView!
+    @IBOutlet weak var portfolioTotalMarketValueLabel: UILabel!
+    @IBOutlet weak var topChartContainer: UIView!
     @IBOutlet weak var portraitLayoutContainer: UIView!
     @IBOutlet weak var landscapeLayoutContainer: UIView!
     @IBOutlet weak var topContainer: UIView!
     @IBOutlet weak var bottomContainer: UIView!
     @IBOutlet weak var bottomContainerPageControl: UIPageControl!
     @IBOutlet weak var chartTypeSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var performanceChartLegendContainer: UIView!
-    @IBOutlet weak var valueOverTimeChartLegendContainer: UIView!
-    @IBOutlet weak var portfolioTotalReturnLabel: UILabel!
-    @IBOutlet weak var indexNameLabel: UILabel!
-    @IBOutlet weak var indexTotalReturnLabel: UILabel!
-    @IBOutlet weak var portfolioTotalReturnDollarValue: UILabel!
-    @IBOutlet weak var portfolioTotalMarketValueLabel: UILabel!
     @IBOutlet weak var trailingPeriod1MButton: UIButton!
     @IBOutlet weak var trailingPeriod3MButton: UIButton!
     @IBOutlet weak var trailingPeriod1YrButton: UIButton!
     @IBOutlet weak var trailingPeriod3YrButton: UIButton!
     @IBOutlet weak var trailingPeriod5YrButton: UIButton!
     @IBOutlet weak var trailingPeriodAllButton: UIButton!
-    @IBOutlet weak var dateRangeLabel: UILabel!
 
     var marketDataContainer: MarketDataView!
     var accountDataContainer: AccountDataView!
     var allocationDataContainer: AllocationView!
     var goalContainer: GoalView!
+    var performanceContainer: PerformanceView!
+    var valueOverTimeContainer: ValueOverTimeView!
     
     let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
     let trailingPeriodButtonSelectedFont = FontHelper.getDefaultFont(size: 13.0, bold: true)
-
-    var valueOverTimeChart = TKChart()
-    var performanceChart = TKChart()
 
     private enum TopContainerViewName: Int {
         case Performance = 0
@@ -78,11 +68,17 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
 
         super.viewDidLoad()
 
-        initializePerformanceChart()
+        let portfolioData = getCurrentPortfolioData()
+        self.performanceContainer = PerformanceView.load(portfolioData: portfolioData, indexType: _currentIndexType, container: self.topChartContainer)
+        self.valueOverTimeContainer = ValueOverTimeView.load(portfolioData: portfolioData, container: self.topChartContainer)
 
-        initializeValueOverTimeChart()
-
+        portfolioTotalMarketValueLabel.text = portfolioData.totalPortfolioMarketValueDollar.toCurrency()
+        
         addGestures()
+    }
+    
+    func getCurrentPortfolioData() -> PortfolioData {
+        return PortfolioData.load(trailingPeriod: _currentTrailingPeriod)!
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -104,10 +100,10 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
                 }
                
                 if (self._topContainerViewName == .Performance) {
-                    let _ = self.getPerformanceChart(inView: self.landscapeLayoutContainer)
+                    let _ = self.performanceContainer.getPerformanceChart(inView: self.landscapeLayoutContainer, portfolioData: self.getCurrentPortfolioData(), indexType: self._currentIndexType)
                 }
                 else {
-                    let _ = self.getValueOverTimeChart(inView: self.landscapeLayoutContainer)
+                    let _ = self.valueOverTimeContainer.getValueOverTimeChart(inView: self.landscapeLayoutContainer, portfolioData: self.getCurrentPortfolioData())
                 }
             }
             else {
@@ -161,165 +157,31 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         }
     }
     
-    func getPerformanceData() -> (portfolioData: PortfolioData, portfolioReturns: [TKChartDataPoint], indexReturns: [TKChartDataPoint], indexName: String, minReturnValue: Double, maxReturnValue: Double) {
-
-        var portfolioReturns = [TKChartDataPoint]()
-        var indexReturns = [TKChartDataPoint]()
-        var maxReturnValue: Double = 0.0, minReturnValue: Double = Double(Int.max)
-        var indexName = ""
-        let portfolioData = PortfolioData.load(trailingPeriod: _currentTrailingPeriod)
-        
-        for portfolioDataItem in (portfolioData?.portfolioDataItems)! {
-           portfolioReturns.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.portfolioReturnPercent))
-
-
-            switch _currentIndexType {
-            case .Index2:
-                indexReturns.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.index2ReturnPercent))
-                indexName = portfolioData!.index2Name
-            case .Index3:
-                indexReturns.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.index3ReturnPercent))
-                indexName = portfolioData!.index3Name
-            default:
-                indexReturns.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.index1ReturnPercent))
-                indexName = portfolioData!.index1Name
-            }
-
-            minReturnValue = min(minReturnValue, portfolioDataItem.portfolioReturnPercent, portfolioDataItem.index1ReturnPercent)
-            maxReturnValue = max(maxReturnValue, portfolioDataItem.portfolioReturnPercent, portfolioDataItem.index1ReturnPercent)
-        }
-        
-        return (portfolioData: portfolioData!, portfolioReturns, indexReturns, indexName: indexName, minReturnValue, maxReturnValue)
-    }
-    
-    func getValueData() -> (portfolioData: PortfolioData, portfolioValues: [TKChartDataPoint], minValue: Double, maxValue: Double) {
-        
-        var portfolioValues = [TKChartDataPoint]()
-        var maxValue: Double = 0.0, minValue: Double = Double(Int.max)
-        
-        let portfolioData = PortfolioData.load(trailingPeriod: _currentTrailingPeriod)
-        
-        for portfolioDataItem in (portfolioData?.portfolioDataItems)! {
-            portfolioValues.append(TKChartDataPoint(x: portfolioDataItem.returnDate, y: portfolioDataItem.marketValue))
-            
-            minValue = min(minValue, portfolioDataItem.marketValue)
-            maxValue = max(maxValue, portfolioDataItem.marketValue)
-        }
-        
-        return (portfolioData: portfolioData!, portfolioValues, minValue, maxValue)
-    }
-    
-    func updateDateRangeLevel(portfolioData: PortfolioData) {
-        dateRangeLabel.text = "Date range: \(portfolioData.inceptionDate.toShortDateString()) - \(portfolioData.endDate.toShortDateString())"
-    }
-    
-    func initializePerformanceChart() {
-        
-        self.performanceChart = getPerformanceChart(inView: performanceChartContainer)
-    }
-    
-    func getPerformanceChart(inView: UIView) -> TKChart {
-        
-        let performanceChart = TKChart(frame: inView.bounds)
-        
-        performanceChart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
-        //performanceChart.allowAnimations = true
-        inView.addSubview(performanceChart)
-        
-        
-        let performanceData = getPerformanceData()
-        
-        portfolioTotalReturnLabel.text = performanceData.portfolioData.totalPortfolioReturnPercent.toPercent(noOfDecimals: 1)
-        portfolioTotalReturnLabel.textColor = Color.getValueColor(value: performanceData.portfolioData.totalPortfolioReturnPercent)
-        
-        indexTotalReturnLabel.text = performanceData.portfolioData.totalIndex1ReturnPercent.toPercent(noOfDecimals: 1)
-        indexTotalReturnLabel.textColor = Color.getValueColor(value: performanceData.portfolioData.totalIndex1ReturnPercent)
-        
-        updateDateRangeLevel(portfolioData: performanceData.portfolioData)
-        
-        let series = TKChartAreaSeries(items:performanceData.portfolioReturns)
-        series.title = "Your Portfolio"
-        
-        let series2 = TKChartLineSeries(items:performanceData.indexReturns)
-        series2.title = performanceData.indexName
-        
-        series.style.palette = TKChartPalette()
-        let paletteItem1 = TKChartPaletteItem()
-        paletteItem1.stroke = TKStroke(color: UIColor(red: 0/255.0, green: 83/255.0, blue: 146/255.0, alpha: 1.00))
-        series.style.palette!.addItem(paletteItem1)
-        
-        series2.style.palette = TKChartPalette()
-        let paletteItem2 = TKChartPaletteItem()
-        paletteItem2.stroke = TKStroke(color: UIColor(red: 154/255.0, green: 181/255.0, blue: 170/255.0, alpha: 1.00))
-        series2.style.palette!.addItem(paletteItem2)
-        
-        let xAxis = TKChartDateTimeAxis(minimumDate: performanceData.portfolioData.inceptionDate, andMaximumDate: performanceData.portfolioData.endDate)
-        //xAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.custom
-        xAxis.majorTickInterval = 2
-        xAxis.style.labelStyle.font = FontHelper.getDefaultFont(size: 9.0, light: true)
-        xAxis.setPlotMode(TKChartAxisPlotMode.onTicks)
-        xAxis.style.majorTickStyle.ticksHidden = true
-        xAxis.style.lineHidden = true
-        xAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.top.rawValue)
-        xAxis.style.labelStyle.textOffset = UIOffset(horizontal: 0, vertical: -2)
-        xAxis.style.labelStyle.firstLabelTextAlignment = .left
-        
-        performanceChart.xAxis = xAxis
-        
-        let yAxis = TKChartNumericAxis(minimum: performanceData.minReturnValue, andMaximum: performanceData.maxReturnValue)
-        yAxis.style.labelStyle.font = FontHelper.getDefaultFont(size: 8.0, light: true)
-        yAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.bottom.rawValue)
-        yAxis.style.labelStyle.firstLabelTextAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.top.rawValue)
-
-        yAxis.style.majorTickStyle.ticksHidden = true
-        yAxis.style.lineHidden = true
-        yAxis.labelFormat = "%.0f%%"
-        yAxis.style.lineStroke = TKStroke(color:UIColor(white:0.85, alpha:1.0), width:2)
-        
-        performanceChart.yAxis = yAxis
-        
-        performanceChart.addSeries(series)
-        performanceChart.addSeries(series2)
-        
-        performanceChart.allowTrackball = true
-        performanceChart.trackball.snapMode = TKChartTrackballSnapMode.allClosestPoints
-        performanceChart.delegate = self
-        performanceChart.trackball.tooltip.style.textAlignment = NSTextAlignment.left
-        performanceChart.trackball.tooltip.style.font = FontHelper.getDefaultFont(size: 11.0, light: true)
-        
-        performanceChart.insets = UIEdgeInsets.zero
-        performanceChart.gridStyle.horizontalFill = nil
-        
-        //remove trial label
-        performanceChart.subviews[4].removeFromSuperview()
-        
-        return performanceChart
-    }
-    
+   
     private func openPopoverMenu() {
         let pomVC = PopOverMenuVC()
         
-        pomVC.popoverPresentationController!.sourceView = self.indexNameLabel
+        pomVC.popoverPresentationController!.sourceView = self.performanceContainer.indexNameLabel
         pomVC.popoverPresentationController!.sourceRect = CGRect(x: 0, y: 10, width: 10, height: 10)
         pomVC.popoverPresentationController!.delegate = self
         
         pomVC.menuItems.append((text: PortfolioData.portfolioData_All!.index1Name, action: {
             [unowned self] in
-            self.indexNameLabel.text = PortfolioData.portfolioData_All!.index1Name
+            self.performanceContainer.indexNameLabel.text = PortfolioData.portfolioData_All!.index1Name
             self._currentIndexType = .Index1
             self.initializePerformanceChart()
         }))
 
         pomVC.menuItems.append((text: PortfolioData.portfolioData_All!.index2Name, action: {
             [unowned self] in
-            self.indexNameLabel.text = PortfolioData.portfolioData_All!.index2Name
+            self.performanceContainer.indexNameLabel.text = PortfolioData.portfolioData_All!.index2Name
             self._currentIndexType = .Index2
             self.initializePerformanceChart()
         }))
         
         pomVC.menuItems.append((text: PortfolioData.portfolioData_All!.index3Name, action: {
             [unowned self] in
-            self.indexNameLabel.text = PortfolioData.portfolioData_All!.index3Name
+            self.performanceContainer.indexNameLabel.text = PortfolioData.portfolioData_All!.index3Name
             self._currentIndexType = .Index3
             self.initializePerformanceChart()
         }))
@@ -331,118 +193,16 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         return UIModalPresentationStyle.none
     }
     
-    func chart(_ chart: TKChart, trackballDidTrackSelection selection: [Any]) {
-        let str = NSMutableString()
-        var i = 0
-        let count = selection.count
-        
-        let allData = selection as! [TKChartSelectionInfo]
-       
-        str.append("\((allData[0].dataPoint!.dataXValue as! Date).toShortDateString())\n")
-        
-        if _topContainerViewName == .Performance {
-        for info in allData {
-            let data = info.dataPoint as TKChartData!
-           
-            str.append("\(info.series!.title!): \((data!.dataYValue as! Double).toPercent(noOfDecimals: 1))")
-            // str.append("\(data?.dataYValue as! Float)")
-            if (i<count-1) {
-                str.append("\n");
-            }
-            i += 1
-            }
-        }
-        else if _topContainerViewName == .ValueOverTime {
-            let data = allData[0].dataPoint as TKChartData!
-            str.append("\(allData[0].series!.title!): \((data!.dataYValue as! Double).toCurrency()) \n")
-        }
-        
-        chart.trackball.tooltip.text = str as String
+    
+    private func initializePerformanceChart() {
+        self.performanceContainer.initializePerformanceChart(portfolioData: self.getCurrentPortfolioData(), indexType: self._currentIndexType)
     }
     
-    func initializeValueOverTimeChart() {
-        
-        self.valueOverTimeChart =  getValueOverTimeChart(inView: valueOverTimeChartContainer)
+    private func initializeValueOverTimeChart() {
+        self.valueOverTimeContainer.initializeValueOverTimeChart(portfolioData: self.getCurrentPortfolioData())
     }
-
-    func getValueOverTimeChart(inView: UIView) -> TKChart {
-        let valueOverTimeChart = TKChart(frame: inView.bounds)
-        valueOverTimeChart.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.flexibleWidth.rawValue | UIViewAutoresizing.flexibleHeight.rawValue)
-        inView.addSubview(valueOverTimeChart)
-        
-        valueOverTimeChart.gridStyle.horizontalFill = nil
-        
-        let valueData = getValueData()
-        
-        
-        portfolioTotalReturnDollarValue.text = valueData.portfolioData.totalPortfolioReturnDollar.toCurrency()
-        
-        portfolioTotalReturnDollarValue.textColor = Color.getValueColor(value: valueData.portfolioData.totalPortfolioReturnDollar)
-        
-        portfolioTotalMarketValueLabel.text = valueData.portfolioData.totalPortfolioMarketValueDollar.toCurrency()
-        
-        updateDateRangeLevel(portfolioData: valueData.portfolioData)
-        
-        let series = TKChartAreaSeries(items:valueData.portfolioValues)
-        series.title = "Market Value"
-        series.selection = TKChartSeriesSelection.series
-        
-        series.style.palette = TKChartPalette()
-        
-        let fillBlueColor = UIColor(red: 216/255.0, green: 231/255.0, blue: 255/255.0, alpha: 0.5)
-        let paletteItem = TKChartPaletteItem()
-        paletteItem.stroke = TKStroke(color: selectedBlueColor)
-        paletteItem.fill = TKLinearGradientFill(colors: [selectedBlueColor, fillBlueColor, UIColor.white])
-        series.style.palette!.addItem(paletteItem)
-        
-        
-        // >> chart-axis-datetime-swift
-        let xAxis = TKChartDateTimeAxis(minimumDate: valueData.portfolioData.inceptionDate, andMaximumDate: valueData.portfolioData.endDate)
-        //xAxis.majorTickIntervalUnit = TKChartDateTimeAxisIntervalUnit.custom
-        xAxis.majorTickInterval = 2
-        xAxis.style.labelStyle.font = FontHelper.getDefaultFont(size: 9.0, light: true)
-        xAxis.setPlotMode(TKChartAxisPlotMode.onTicks)
-        xAxis.style.majorTickStyle.ticksHidden = true
-        xAxis.style.lineHidden = true
-        xAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.top.rawValue)
-        xAxis.style.labelStyle.textOffset = UIOffset(horizontal: 0, vertical: -2)
-        xAxis.style.labelStyle.firstLabelTextAlignment = .left //hide to left
-        
-        valueOverTimeChart.xAxis = xAxis
-        
-        let yAxis = TKChartNumericAxis(minimum: valueData.minValue, andMaximum: valueData.maxValue)
-        yAxis.style.labelStyle.font = FontHelper.getDefaultFont(size: 8.0, light: true)
-        yAxis.style.labelStyle.textAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.bottom.rawValue)
-        yAxis.style.labelStyle.firstLabelTextAlignment = TKChartAxisLabelAlignment(rawValue: TKChartAxisLabelAlignment.right.rawValue | TKChartAxisLabelAlignment.top.rawValue)
-        
-        yAxis.style.majorTickStyle.ticksHidden = true
-        yAxis.style.lineHidden = true
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = .currency
-        currencyFormatter.maximumFractionDigits = 0
-        yAxis.labelFormatter = currencyFormatter
-        yAxis.style.lineStroke = TKStroke(color:UIColor(white:0.85, alpha:1.0), width:2)
-        
-        valueOverTimeChart.yAxis = yAxis
-        
-        
-        valueOverTimeChart.addSeries(series)
-        
-        valueOverTimeChart.insets = UIEdgeInsets.zero
-        
-        valueOverTimeChart.allowTrackball = true
-        valueOverTimeChart.trackball.snapMode = TKChartTrackballSnapMode.allClosestPoints
-        valueOverTimeChart.delegate = self
-        valueOverTimeChart.trackball.tooltip.style.textAlignment = NSTextAlignment.left
-        valueOverTimeChart.trackball.tooltip.style.font = FontHelper.getDefaultFont(size: 11.0, light: true)
-        //valueOverTimeChart.allowAnimations = true
-        //remove trial label
-        valueOverTimeChart.subviews[4].removeFromSuperview()
-        
-        return valueOverTimeChart
-    }
-
-    private func addGestures(){
+    
+   private func addGestures(){
         let bottomContainerSwipeRightGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.bottomContainerSwipe(swipeGesture:)))
         bottomContainerSwipeRightGesture.direction = .right
         bottomContainer.addGestureRecognizer(bottomContainerSwipeRightGesture)
@@ -459,9 +219,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         topContainerSwipeLeftGesture.direction = .left
         topContainer.addGestureRecognizer(topContainerSwipeLeftGesture)
 
-        indexNameLabel.isUserInteractionEnabled = true
+        self.performanceContainer.indexNameLabel.isUserInteractionEnabled = true
         let  indexNameTouchedGesture = UITapGestureRecognizer(target: self, action: #selector(self.indexNameTap(tapGesture:)))
-        indexNameLabel.addGestureRecognizer(indexNameTouchedGesture)
+        self.performanceContainer.indexNameLabel.addGestureRecognizer(indexNameTouchedGesture)
 
     }
     
@@ -558,7 +318,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
 
             switch _topContainerViewName {
             case .Performance:
-                toggleBetweenViews(viewsToShow: [valueOverTimeChartContainer, valueOverTimeChartLegendContainer], viewsToHide: [performanceChartContainer, performanceChartLegendContainer], toLeft: true)
+                toggleBetweenViews(viewsToShow: [valueOverTimeContainer], viewsToHide: [performanceContainer], toLeft: true)
                 _topContainerViewName = .ValueOverTime
             case .ValueOverTime:
                 break
@@ -570,7 +330,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             case .Performance:
                 break
             case .ValueOverTime:
-                toggleBetweenViews(viewsToShow: [performanceChartContainer, performanceChartLegendContainer], viewsToHide: [valueOverTimeChartContainer, valueOverTimeChartLegendContainer], toLeft: false)
+                toggleBetweenViews(viewsToShow: [performanceContainer], viewsToHide: [valueOverTimeContainer], toLeft: false)
                 _topContainerViewName = .Performance
                 break
             }
