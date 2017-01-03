@@ -26,26 +26,6 @@ public extension UIImage {
     }
 }
 
-extension UISegmentedControl {
-    func removeBorders() {
-        setBackgroundImage(imageWithColor(color: .white), for: .normal, barMetrics: .default)
-        setBackgroundImage(imageWithColor(color: .white), for: .selected, barMetrics: .default)
-        setDividerImage(imageWithColor(color: UIColor.clear), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
-    }
-    
-    // create a 1x1 image with this color
-    private func imageWithColor(color: UIColor) -> UIImage {
-        let rect = CGRect(0.0, 0.0, 1.0, 1.0)
-        UIGraphicsBeginImageContext(rect.size)
-        let context = UIGraphicsGetCurrentContext()
-        context!.setFillColor(color.cgColor);
-        context!.fill(rect);
-        let image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        return image!
-    }
-}
-
 extension UITextField {
     func underlined(color: UIColor){
         let border = CALayer()
