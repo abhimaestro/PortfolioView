@@ -157,7 +157,7 @@ class PerformanceView: UIView, TKChartDelegate {
         
         str.append("\((allData[0].dataPoint!.dataXValue as! Date).toShortDateString())\n")
         
-        if chart == performanceChart {
+
             for info in allData {
                 let data = info.dataPoint as TKChartData!
                 
@@ -168,7 +168,7 @@ class PerformanceView: UIView, TKChartDelegate {
                 }
                 i += 1
             }
-        }
+        
         
         chart.trackball.tooltip.text = str as String
     }

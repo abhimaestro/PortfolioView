@@ -139,10 +139,10 @@ class ValueOverTimeView: UIView, TKChartDelegate {
         
         str.append("\((allData[0].dataPoint!.dataXValue as! Date).toShortDateString())\n")
         
-        if chart == valueOverTimeChart {
-            let data = allData[0].dataPoint as TKChartData!
-            str.append("\(allData[0].series!.title!): \((data!.dataYValue as! Double).toCurrency()) \n")
-        }
+
+        let data = allData[0].dataPoint as TKChartData!
+        str.append("\(allData[0].series!.title!): \((data!.dataYValue as! Double).toCurrency()) \n")
+
         
         chart.trackball.tooltip.text = str as String
     }
