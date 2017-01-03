@@ -19,7 +19,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var landscapeLayoutContainer: UIView!
     @IBOutlet weak var topContainer: UIView!
     @IBOutlet weak var bottomContainer: UIView!
-    @IBOutlet weak var marketDataContainer: UIView!
+    
     @IBOutlet weak var accountContainer: UIView!
     @IBOutlet weak var allocationChartContainer: UIView!
     @IBOutlet weak var allocationChartLegendContainer: UIView!
@@ -51,6 +51,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var accountAsOfDate: UILabel!
     @IBOutlet weak var marketAsOfDate: UILabel!
 
+    var marketDataContainer: UIView!
+    
     let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
     let trailingPeriodButtonSelectedFont = FontHelper.getDefaultFont(size: 13.0, bold: true)
     
@@ -145,7 +147,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        initializeMarketDataView()
+        self.marketDataContainer = MarketDataView.load(marketData: PortfolioData.getMarketData(), container: self.bottomContainer)
         initializeAccountView()
         initializeAllocationChartLegendView()
 
@@ -177,39 +179,6 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
             upperBorder.frame = CGRect.init(x: 0, y: borderview.frame.size.height-1, width: borderview.frame.size.width, height: 1.0);
             borderview.layer.removeAllAnimations()
             borderview.layer.addSublayer(upperBorder);
-        }
-    }
-    
-    func initializeMarketDataView() {
-        
-        marketAsOfDate.text = String("as of: \(PortfolioData.portfolioData_All!.marketDataAsOfDate.toDateTimeString())")
-        let marketData = PortfolioData.getMarketData()
-        let containerOrigin = marketDataContainer.frame.origin
-        let containerWidth = marketDataContainer.frame.width
-        let containerHeight = allocationChartLegendContainer.frame.height
-        let offset: CGFloat = 10
-        let height: CGFloat = 62
-        var y = getYPositionToCenterContentInContainer(containerHeight: containerHeight, height: height, offset: offset, noOfItems: marketData.count + 1, noOfCols: 2)
-
-        let width = CGFloat(containerWidth/2 - 1.5*offset)
-        
-        let column1X = containerOrigin.x + offset
-        let column2X = column1X + width + offset
-        
-        for i in 0..<marketData.count {
-            let marketItem = marketData[i]
-            
-            let marketItemView = MarketItemView.load(marketItem: marketItem)
-            
-            if i % 2 == 0 {
-                marketItemView.frame = CGRect(x: column1X, y: y, width: width, height: height)
-            }
-            else {
-                marketItemView.frame = CGRect(x: column2X, y: y, width: width, height: height)
-                y += height + offset
-            }
-            
-            marketDataContainer.addSubview(marketItemView)
         }
     }
     
@@ -732,7 +701,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         let size = goalContainer.bounds.size
         let offset = CGFloat(10)
         
-        radialGauge.frame = CGRect(x: offset, y: bounds.origin.y + 2*offset, width: size.width - 2*offset, height: size.height)
+        radialGauge.frame = CGRect(x: offset, y: bounds.origin.y + 3*offset, width: size.width - 2*offset, height: size.height)
         
         linearGauge.frame = CGRect(x: offset, y: goalAccumulationContainer.bounds.origin.y - 5, width: goalAccumulationContainer.bounds.size.width - 2*offset, height: goalAccumulationContainer.bounds.size.height)
     }

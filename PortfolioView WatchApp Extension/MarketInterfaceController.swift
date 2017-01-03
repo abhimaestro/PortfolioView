@@ -20,7 +20,7 @@ class MarketInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        asOfDate.setText("as of: \(Date().toDateTimeString())")
+        asOfDate.setText("as of: \(marketData.asOfDate.toDateTimeString())")
         
         updateTable()
     }
@@ -36,11 +36,11 @@ class MarketInterfaceController: WKInterfaceController {
     }
 
     func updateTable() {
-        marketDataTable.setNumberOfRows(marketData.count, withRowType: "MarketRow")
+        marketDataTable.setNumberOfRows(marketData.marketItems.count, withRowType: "MarketRow")
         
         for index in 0..<marketDataTable.numberOfRows {
             if let controller = marketDataTable.rowController(at: index) as? MarketRowController {
-                let marketItem = marketData[index]
+                let marketItem = marketData.marketItems[index]
                 controller.setItem(marketItem: marketItem)
             }
         }
