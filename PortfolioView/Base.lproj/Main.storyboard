@@ -234,7 +234,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZ8-na-srv" userLabel="chartTypeContainer">
                                                 <rect key="frame" x="0.0" y="46" width="375" height="25"/>
                                                 <subviews>
-                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KlY-Wd-t2s">
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KlY-Wd-t2s" customClass="ChartTypeSegmentedControl" customModule="PortfolioView" customModuleProvider="target">
                                                         <rect key="frame" x="61" y="-2" width="253" height="29"/>
                                                         <segments>
                                                             <segment title="Total Return %"/>

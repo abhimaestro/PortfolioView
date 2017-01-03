@@ -32,6 +32,7 @@
 		C228EF851E1C50090023ED1D /* PerformanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C228EF841E1C50090023ED1D /* PerformanceView.swift */; };
 		C228EF871E1C512A0023ED1D /* ValueOverTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C228EF861E1C512A0023ED1D /* ValueOverTimeView.swift */; };
 		C228EF891E1C513A0023ED1D /* ValueOverTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C228EF881E1C513A0023ED1D /* ValueOverTimeView.xib */; };
+		C228EF8B1E1C62080023ED1D /* ChartTypeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C228EF8A1E1C62080023ED1D /* ChartTypeSegmentedControl.swift */; };
 		C23208351E12E32600E54844 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208341E12E32600E54844 /* FontHelper.swift */; };
 		C23208371E13094F00E54844 /* PopOverActionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208361E13094F00E54844 /* PopOverActionsVC.swift */; };
 		C2335A591E100F4500760234 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A581E100F4500760234 /* Extensions.swift */; };
@@ -233,6 +234,7 @@
 		C228EF841E1C50090023ED1D /* PerformanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceView.swift; sourceTree = "<group>"; };
 		C228EF861E1C512A0023ED1D /* ValueOverTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueOverTimeView.swift; sourceTree = "<group>"; };
 		C228EF881E1C513A0023ED1D /* ValueOverTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ValueOverTimeView.xib; sourceTree = "<group>"; };
+		C228EF8A1E1C62080023ED1D /* ChartTypeSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartTypeSegmentedControl.swift; sourceTree = "<group>"; };
 		C23208341E12E32600E54844 /* FontHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		C23208361E13094F00E54844 /* PopOverActionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverActionsVC.swift; sourceTree = "<group>"; };
 		C2335A511E1001DC00760234 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 				C228EF841E1C50090023ED1D /* PerformanceView.swift */,
 				C228EF861E1C512A0023ED1D /* ValueOverTimeView.swift */,
 				C228EF881E1C513A0023ED1D /* ValueOverTimeView.xib */,
+				C228EF8A1E1C62080023ED1D /* ChartTypeSegmentedControl.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -1258,6 +1261,7 @@
 				C2335A591E100F4500760234 /* Extensions.swift in Sources */,
 				C228EF7F1E1C46740023ED1D /* GoalView.swift in Sources */,
 				C23A74691E17913900113BD6 /* LegendItemView.swift in Sources */,
+				C228EF8B1E1C62080023ED1D /* ChartTypeSegmentedControl.swift in Sources */,
 				C228EF871E1C512A0023ED1D /* ValueOverTimeView.swift in Sources */,
 				C228EF851E1C50090023ED1D /* PerformanceView.swift in Sources */,
 				C205829B1E18198300BE04D7 /* DisclaimerViewController.swift in Sources */,

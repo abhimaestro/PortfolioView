@@ -69,9 +69,9 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         super.viewDidLoad()
 
         let portfolioData = getCurrentPortfolioData()
-        self.performanceContainer = PerformanceView.load(portfolioData: portfolioData, indexType: _currentIndexType, container: self.topChartContainer)
         self.valueOverTimeContainer = ValueOverTimeView.load(portfolioData: portfolioData, container: self.topChartContainer)
-
+        self.performanceContainer = PerformanceView.load(portfolioData: portfolioData, indexType: _currentIndexType, container: self.topChartContainer)
+        
         portfolioTotalMarketValueLabel.text = portfolioData.totalPortfolioMarketValueDollar.toCurrency()
         
         addGestures()
@@ -128,36 +128,8 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         self.allocationDataContainer.isHidden = true
         self.goalContainer = GoalView.load(goalInfo: PortfolioData.getGoalInfo(), container: self.bottomContainer)
         self.goalContainer.isHidden = true
-        
-        bottomContainerPageControl.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-
-        let chartTypeSegmentedControlHeight = chartTypeSegmentedControl.frame.size.height
-        let helveticsNeue13 = FontHelper.getDefaultFont(size: 13.0, bold: true)
-        let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.00)
-        let imageWithColorOrigin = CGPoint(x: 0, y: chartTypeSegmentedControlHeight - 1)
-        let imageWithColorSize = CGSize(width: 1, height: chartTypeSegmentedControlHeight)
-
-        chartTypeSegmentedControl.setTitleTextAttributes([NSFontAttributeName: helveticsNeue13,NSForegroundColorAttributeName:UIColor.lightGray], for:UIControlState.normal)
-        chartTypeSegmentedControl.setTitleTextAttributes([NSFontAttributeName:helveticsNeue13,NSForegroundColorAttributeName: selectedBlueColor], for:UIControlState.selected)
-        chartTypeSegmentedControl.setDividerImage(UIImage.imageWithColor(color: UIColor.clear, origin: imageWithColorOrigin, size: imageWithColorSize), forLeftSegmentState: UIControlState.normal, rightSegmentState: UIControlState.normal, barMetrics: UIBarMetrics.default)
-        chartTypeSegmentedControl.setBackgroundImage(UIImage.imageWithColor(color: UIColor.lightGray, origin: imageWithColorOrigin, size: imageWithColorSize), for:UIControlState.normal, barMetrics:UIBarMetrics.default)
-        chartTypeSegmentedControl.setBackgroundImage(UIImage.imageWithColor(color: selectedBlueColor, origin: imageWithColorOrigin, size: imageWithColorSize), for:UIControlState.selected, barMetrics:UIBarMetrics.default);
     }
 
-    func setChartTypeBorder() {
-
-        for  borderview in chartTypeSegmentedControl.subviews {
-            
-            let upperBorder: CALayer = CALayer()
-            upperBorder.backgroundColor = UIColor.gray.cgColor
-
-            upperBorder.frame = CGRect.init(x: 0, y: borderview.frame.size.height-1, width: borderview.frame.size.width, height: 1.0);
-            borderview.layer.removeAllAnimations()
-            borderview.layer.addSublayer(upperBorder);
-        }
-    }
-    
-   
     private func openPopoverMenu() {
         let pomVC = PopOverMenuVC()
         
@@ -192,7 +164,6 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.none
     }
-    
     
     private func initializePerformanceChart() {
         self.performanceContainer.initializePerformanceChart(portfolioData: self.getCurrentPortfolioData(), indexType: self._currentIndexType)
@@ -343,7 +314,6 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
         openPopoverMenu()
     }
 
-    
     func topContainerSwipe(swipeGesture: UISwipeGestureRecognizer) {
         changeTopPage(direction: swipeGesture.direction)
     }
