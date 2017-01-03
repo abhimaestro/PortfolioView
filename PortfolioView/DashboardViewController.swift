@@ -19,11 +19,6 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var landscapeLayoutContainer: UIView!
     @IBOutlet weak var topContainer: UIView!
     @IBOutlet weak var bottomContainer: UIView!
-    
-
-    @IBOutlet weak var allocationChartContainer: UIView!
-    @IBOutlet weak var allocationChartLegendContainer: UIView!
-    @IBOutlet weak var allocationChartDonutContainer: UIView!
     @IBOutlet weak var goalContainer: UIView!
     @IBOutlet weak var goalDialContainer: UIView!
     @IBOutlet weak var goalAccumulationContainer: UIView!
@@ -43,23 +38,17 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
     @IBOutlet weak var trailingPeriod5YrButton: UIButton!
     @IBOutlet weak var trailingPeriodAllButton: UIButton!
     @IBOutlet weak var dateRangeLabel: UILabel!
-    @IBOutlet weak var allocationClassNameLabel: UILabel!
-    @IBOutlet weak var allocationClassValueLabel: UILabel!
-    @IBOutlet weak var allocationClassDollarValueLabel: UILabel!
     @IBOutlet weak var goalAsOfDate: UILabel!
-    @IBOutlet weak var allocationAsOfDate: UILabel!
-    @IBOutlet weak var accountAsOfDate: UILabel!
-    @IBOutlet weak var marketAsOfDate: UILabel!
 
-    var marketDataContainer: UIView!
-    var accountDataContainer: UIView!
+    var marketDataContainer: MarketDataView!
+    var accountDataContainer: AccountDataView!
+    var allocationDataContainer: AllocationView!
     
     let selectedBlueColor = UIColor(red: 42/255.0, green: 78/255.0, blue: 133/255.0, alpha: 1.0)
     let trailingPeriodButtonSelectedFont = FontHelper.getDefaultFont(size: 13.0, bold: true)
     
     let radialGauge = TKRadialGauge()
     let linearGauge = TKLinearGauge()
-    let allocationChart = TKChart()
     var valueOverTimeChart = TKChart()
     var performanceChart = TKChart()
     let goalInfo = PortfolioData.getGoalInfo()
@@ -102,8 +91,6 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
        
         initializeGoalChart()
         initializeGoalAccumulation()
-        
-        initializeAllocationChart()
 
         addGestures()
     }
@@ -151,9 +138,9 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         self.marketDataContainer = MarketDataView.load(marketData: PortfolioData.getMarketData(), container: self.bottomContainer)
         self.accountDataContainer = AccountDataView.load(accountData: PortfolioData.getAccounts(), container: self.bottomContainer)
         self.accountDataContainer.isHidden = true
+        self.allocationDataContainer = AllocationView.load(allocationData: PortfolioData.getAllocations(), container: self.bottomContainer)
+        self.allocationDataContainer.isHidden = true
         
-        initializeAllocationChartLegendView()
-
         let needle = radialGauge.scales[0].indicators[0] as! TKGaugeNeedle
         needle.setValueAnimated(80, withDuration: 1.5, mediaTimingFunction: kCAMediaTimingFunctionEaseInEaseOut)
         
@@ -357,22 +344,8 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         self.present(pomVC, animated: true, completion: nil)
     }
     
-    private func setAllocationCenterLabel(point: TKChartData) {
-        allocationChartContainer.bringSubview(toFront: allocationClassNameLabel)
-        allocationChartContainer.bringSubview(toFront: allocationClassValueLabel)
-        allocationClassNameLabel.text = point.dataName
-        allocationClassValueLabel.text = (point.dataXValue as! Double).toPercent(noOfDecimals: 1)
-        allocationClassDollarValueLabel.text = (point.dataYValue as! Double).toCurrency()
-    }
-    
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.none
-    }
-    
-        func chart(_ chart: TKChart, didSelectPoint point: TKChartData, in series: TKChartSeries, at index: Int) {
-        if chart == allocationChart {
-            setAllocationCenterLabel(point: point)
-        }
     }
     
     func chart(_ chart: TKChart, trackballDidTrackSelection selection: [Any]) {
@@ -599,73 +572,6 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
         linearGauge.subviews[linearGauge.subviews.count - 1].removeFromSuperview()
     }
     
-    func initializeAllocationChart() {
-
-        allocationAsOfDate.text = String("as of: \(PortfolioData.portfolioData_All!.allocationAsOfDate.toShortDateString())")
-        
-        let bounds = allocationChartDonutContainer.bounds
-
-        allocationChart.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width, height: bounds.size.height).insetBy(dx: 0, dy: 0)
-        allocationChart.autoresizingMask = UIViewAutoresizing(rawValue:~UIViewAutoresizing().rawValue)
-
-        allocationChart.legend.isHidden = true
-
-        allocationChart.legend.style.insets = UIEdgeInsets.zero
-        allocationChart.legend.style.offset = UIOffset.zero
-        allocationChartDonutContainer.addSubview(allocationChart)
-
-        let array:[TKChartDataPoint] = PortfolioData.getAllocations().map({TKChartDataPoint(x: $0.percent, y: $0.dollar, name: $0.name)})
-        let allocationSeries = TKChartDonutSeries(items:array)
-
-        allocationSeries.style.paletteMode = .useItemIndex
-        allocationSeries.style.palette = TKChartPalette()
-
-        for color in Color.palette {
-            let paletteItem = TKChartPaletteItem(fill: TKSolidFill(color: color))
-            allocationSeries.style.palette!.addItem(paletteItem)
-        }
-
-        allocationSeries.selection = TKChartSeriesSelection.dataPoint
-        allocationSeries.innerRadius = 0.7
-        allocationSeries.expandRadius = 1.1
-        allocationSeries.rotationEnabled = false
-        allocationSeries.labelDisplayMode = .outside
-
-        allocationChart.addSeries(allocationSeries)
-
-        allocationChart.delegate = self
-        
-        setAllocationCenterLabel(point: array[0])
-
-        //remove trial label
-        allocationChart.subviews[allocationChart.subviews.count - 1].removeFromSuperview()
-    }
-
-    func initializeAllocationChartLegendView() {
-        
-        let allocations = PortfolioData.getAllocations()
-        let containerWidth = allocationChartLegendContainer.frame.width
-        let containerHeight = allocationChartLegendContainer.frame.height
-        let offset: CGFloat = 5
-        let height: CGFloat = 15
-        var y = getYPositionToCenterContentInContainer(containerHeight: containerHeight, height: height, offset: offset, noOfItems: allocations.count + 1, noOfCols: 1)
-        let column1X = offset
-        let width: CGFloat = containerWidth - 3*offset
-        
-        for i in 0..<allocations.count {
-            let allocation = allocations[i]
-            
-            let legendItem = (name: allocation.name, value: allocation.percent.toPercent(), swatchColor: Color.palette[i])
-            let allocationLegendItemView = LegendItemView.load(legendItem: legendItem)
-            
-            allocationLegendItemView.frame = CGRect(x: column1X, y: y, width: width, height: height)
-            y += height + offset
-
-           allocationChartLegendContainer.addSubview(allocationLegendItemView)
-        }
-    }
-    
-    private var _donutLabelAdded = false
     override func viewDidLayoutSubviews() {
         let bounds = goalDialContainer.bounds
         let size = goalContainer.bounds.size
@@ -846,7 +752,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
                 toggleBetweenViews(viewsToShow: [goalContainer], viewsToHide: [accountDataContainer], toLeft: true)
                 _bottomContainerViewName = .Goal
             case .Goal:
-                toggleBetweenViews(viewsToShow: [allocationChartContainer], viewsToHide: [goalContainer], toLeft: true)
+                toggleBetweenViews(viewsToShow: [allocationDataContainer], viewsToHide: [goalContainer], toLeft: true)
                 _bottomContainerViewName = .Allocation
             case .Allocation:
                 break
@@ -862,7 +768,7 @@ class DashboardViewController: UIViewController, TKChartDelegate, UIPopoverPrese
                 toggleBetweenViews(viewsToShow: [accountDataContainer], viewsToHide: [goalContainer], toLeft: false)
                 _bottomContainerViewName = .Account
             case .Allocation:
-                toggleBetweenViews(viewsToShow: [goalContainer], viewsToHide: [allocationChartContainer], toLeft: false)
+                toggleBetweenViews(viewsToShow: [goalContainer], viewsToHide: [allocationDataContainer], toLeft: false)
                 _bottomContainerViewName = .Goal
             }
         default:

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AllocationView" customModule="PortfolioView" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qdi-ml-iRc">
+                    <rect key="frame" x="0.0" y="0.0" width="225" height="300"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="US Stocks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bK-sX-X8T">
+                    <rect key="frame" x="81.5" y="122.5" width="62" height="15.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zva-Dn-j1Z">
+                    <rect key="frame" x="99.5" y="143" width="26" height="13"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7KR-bm-jme">
+                    <rect key="frame" x="225" y="0.0" width="150" height="300"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="as of 12/31/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTR-Wu-VUo">
+                    <rect key="frame" x="146" y="282" width="82.5" height="13"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aU8-U2-fbH">
+                    <rect key="frame" x="101" y="158" width="23.5" height="12"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5bK-sX-X8T" firstAttribute="centerX" secondItem="zva-Dn-j1Z" secondAttribute="centerX" id="43F-SB-Gsw"/>
+                <constraint firstItem="zva-Dn-j1Z" firstAttribute="centerY" secondItem="Qdi-ml-iRc" secondAttribute="centerY" id="6al-4Z-tcA"/>
+                <constraint firstItem="aTR-Wu-VUo" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7PL-pH-9eW"/>
+                <constraint firstAttribute="bottom" secondItem="aTR-Wu-VUo" secondAttribute="bottom" constant="5" id="8oy-IC-jRc"/>
+                <constraint firstItem="zva-Dn-j1Z" firstAttribute="centerX" secondItem="Qdi-ml-iRc" secondAttribute="centerX" id="BIS-t4-4GP"/>
+                <constraint firstItem="aU8-U2-fbH" firstAttribute="centerX" secondItem="zva-Dn-j1Z" secondAttribute="centerX" id="BRK-N2-KFP"/>
+                <constraint firstItem="Qdi-ml-iRc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NwF-sW-OTC"/>
+                <constraint firstItem="7KR-bm-jme" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PaY-Ct-6x6"/>
+                <constraint firstItem="Qdi-ml-iRc" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.6" id="Uqb-m5-wTs"/>
+                <constraint firstItem="aU8-U2-fbH" firstAttribute="top" secondItem="zva-Dn-j1Z" secondAttribute="bottom" constant="2" id="eni-FD-213"/>
+                <constraint firstItem="Qdi-ml-iRc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gjQ-p3-Kj9"/>
+                <constraint firstAttribute="bottom" secondItem="7KR-bm-jme" secondAttribute="bottom" id="gya-x4-4Mq"/>
+                <constraint firstAttribute="trailing" secondItem="7KR-bm-jme" secondAttribute="trailing" id="l79-fm-A2C"/>
+                <constraint firstItem="7KR-bm-jme" firstAttribute="leading" secondItem="Qdi-ml-iRc" secondAttribute="trailing" id="lZl-Lh-LDQ"/>
+                <constraint firstAttribute="bottom" secondItem="Qdi-ml-iRc" secondAttribute="bottom" id="oRY-Ch-nEj"/>
+                <constraint firstItem="5bK-sX-X8T" firstAttribute="bottom" secondItem="zva-Dn-j1Z" secondAttribute="top" constant="-5" id="vua-Gz-3ne"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="allocationAsOfDate" destination="aTR-Wu-VUo" id="Yer-ZG-pEQ"/>
+                <outlet property="allocationChartDonutContainer" destination="Qdi-ml-iRc" id="qOY-qj-cHH"/>
+                <outlet property="allocationChartLegendContainer" destination="7KR-bm-jme" id="FdY-N1-8o8"/>
+                <outlet property="allocationClassDollarValueLabel" destination="aU8-U2-fbH" id="VY6-yB-3bX"/>
+                <outlet property="allocationClassNameLabel" destination="5bK-sX-X8T" id="dIg-BT-vZZ"/>
+                <outlet property="allocationClassValueLabel" destination="zva-Dn-j1Z" id="oRC-RE-Aar"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="52"/>
+        </view>
+    </objects>
+</document>

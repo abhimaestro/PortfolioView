@@ -14,7 +14,7 @@ import PortfolioViewShared
 class AllocationInterfaceController: WKInterfaceController {
 
     let chartLabelFont = UIFont.systemFont(ofSize: 10.0, weight: UIFontWeightLight)
-    let allocations = PortfolioData.getAllocations()
+    let allocationData = PortfolioData.getAllocations()
 
     @IBOutlet weak var chartImageView: WKInterfaceImage!
     @IBOutlet var allocationsTable: WKInterfaceTable!
@@ -34,11 +34,11 @@ class AllocationInterfaceController: WKInterfaceController {
     }
 
     func updateTable() {
-        allocationsTable.setNumberOfRows(allocations.count, withRowType: "AllocationRow")
+        allocationsTable.setNumberOfRows(allocationData.allocations.count, withRowType: "AllocationRow")
         
         for index in 0..<allocationsTable.numberOfRows {
             if let controller = allocationsTable.rowController(at: index) as? AllocationRowController {
-                controller.setAllocation(color: Color.palette[index], allocation: allocations[index])
+                controller.setAllocation(color: Color.palette[index], allocation: allocationData.allocations[index])
             }
         }
     }
@@ -53,7 +53,7 @@ class AllocationInterfaceController: WKInterfaceController {
         image.labelFont = chartLabelFont
         image.labelText = " portfolio\nallocation"
         image.labelColor = UIColor.darkGray
-        image.values = allocations.map({$0.percent as NSNumber})
+        image.values = allocationData.allocations.map({$0.percent as NSNumber})
         image.colors = Color.palette
         
         let chartImage = image.draw(frame, scale: scale)

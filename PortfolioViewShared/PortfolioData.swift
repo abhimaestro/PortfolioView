@@ -68,8 +68,6 @@ public class PortfolioData {
     public var totalPortfolioReturnDollar: Double!
     public var totalPortfolioMarketValueDollar: Double!
     
-    public var marketDataAsOfDate: Date!
-    public var accountAsOfDate: Date!
     public var allocationAsOfDate: Date!
     
     public init(portfolioDataItems: [PortfolioDataItem]?) {
@@ -92,8 +90,6 @@ public class PortfolioData {
             self.totalPortfolioMarketValueDollar = endItem.marketValue
             self.inceptionDate = startItem.returnDate
             self.endDate = endItem.returnDate
-            self.marketDataAsOfDate = Date()
-            self.accountAsOfDate = Date()
             self.allocationAsOfDate = Date.getYesterday()
         }
     }
@@ -154,8 +150,8 @@ public class PortfolioData {
         return GoalInfo(probability: 80.0, retirementYear: 2042, startYear: 2010, marketValueStart: 200000, marketValueCurrent: 600789, marketValueRetirement: 2500000)
     }
     
-    public static func getAllocations() -> [Allocation] {
-        return [
+    public static func getAllocations() -> AllocationData {
+        let allocations = [
             Allocation(name: "US Stocks", percent: 40.0, portfolioMarketValue: 390000.0),
             Allocation(name: "Bonds", percent: 25.0, portfolioMarketValue: 390000.0),
             Allocation(name:"Non-US Stocks", percent: 15.0, portfolioMarketValue: 390000.0),
@@ -163,6 +159,8 @@ public class PortfolioData {
             Allocation(name:"Cash", percent: 5.0, portfolioMarketValue: 390000.0),
             Allocation(name:"Other", percent: 3.0, portfolioMarketValue: 390000.0),
             Allocation(name: "Unclassified", percent: 2.0, portfolioMarketValue: 390000.0)]
+        
+        return AllocationData(asOfDate: Date.getYesterday(), allocations: allocations)
     }
     
     public static func getAccounts() -> AccountData {
@@ -281,6 +279,16 @@ public class Account {
         self.marketValue = marketValue
         self.changePercent = changePercent
         self.changeDollar = marketValue * changePercent/100
+    }
+}
+
+public class AllocationData {
+    public var allocations = [Allocation]()
+    public var asOfDate: Date!
+    
+    init(asOfDate: Date, allocations: [Allocation]) {
+        self.asOfDate = asOfDate
+        self.allocations = allocations
     }
 }
 

@@ -72,7 +72,7 @@ extension UITextField {
 public extension UIView {
     func getYPositionToCenterContentInContainer(height: CGFloat, offset: CGFloat, noOfItems: Int, noOfCols: Int) -> CGFloat {
         let noOfRows = CGFloat(noOfItems/noOfCols)
-        let y = CGFloat((self.frame.height - noOfRows*height - (noOfRows - 1)*offset) / 2)
+        let y = CGFloat((self.frame.height - noOfRows*height - (noOfRows - 1)*offset) / 2.0)
         return y
     }
 }
