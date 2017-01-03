@@ -26,6 +26,8 @@
 		C228EF791E1C38830023ED1D /* AccountDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C228EF781E1C38830023ED1D /* AccountDataView.swift */; };
 		C228EF7B1E1C3AB40023ED1D /* AllocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C228EF7A1E1C3AB40023ED1D /* AllocationView.xib */; };
 		C228EF7D1E1C3B3D0023ED1D /* AllocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C228EF7C1E1C3B3D0023ED1D /* AllocationView.swift */; };
+		C228EF7F1E1C46740023ED1D /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C228EF7E1E1C46740023ED1D /* GoalView.swift */; };
+		C228EF811E1C46820023ED1D /* GoalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C228EF801E1C46820023ED1D /* GoalView.xib */; };
 		C23208351E12E32600E54844 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208341E12E32600E54844 /* FontHelper.swift */; };
 		C23208371E13094F00E54844 /* PopOverActionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23208361E13094F00E54844 /* PopOverActionsVC.swift */; };
 		C2335A591E100F4500760234 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2335A581E100F4500760234 /* Extensions.swift */; };
@@ -221,6 +223,8 @@
 		C228EF781E1C38830023ED1D /* AccountDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDataView.swift; sourceTree = "<group>"; };
 		C228EF7A1E1C3AB40023ED1D /* AllocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllocationView.xib; sourceTree = "<group>"; };
 		C228EF7C1E1C3B3D0023ED1D /* AllocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllocationView.swift; sourceTree = "<group>"; };
+		C228EF7E1E1C46740023ED1D /* GoalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
+		C228EF801E1C46820023ED1D /* GoalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoalView.xib; sourceTree = "<group>"; };
 		C23208341E12E32600E54844 /* FontHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		C23208361E13094F00E54844 /* PopOverActionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverActionsVC.swift; sourceTree = "<group>"; };
 		C2335A511E1001DC00760234 /* TelerikUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TelerikUI.framework; sourceTree = "<group>"; };
@@ -404,6 +408,8 @@
 				C228EF781E1C38830023ED1D /* AccountDataView.swift */,
 				C228EF7A1E1C3AB40023ED1D /* AllocationView.xib */,
 				C228EF7C1E1C3B3D0023ED1D /* AllocationView.swift */,
+				C228EF7E1E1C46740023ED1D /* GoalView.swift */,
+				C228EF801E1C46820023ED1D /* GoalView.xib */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -914,6 +920,7 @@
 				C2F71B341E02CDAF00A99298 /* Assets.xcassets in Resources */,
 				C228EF751E1C2A6D0023ED1D /* MarketDataView.xib in Resources */,
 				C23A746B1E17914900113BD6 /* LegendItemView.xib in Resources */,
+				C228EF811E1C46820023ED1D /* GoalView.xib in Resources */,
 				C2F71B321E02CDAF00A99298 /* Main.storyboard in Resources */,
 				C2C7697C1E19DC5100B97EB8 /* LockSplashViewController.xib in Resources */,
 				C228EF7B1E1C3AB40023ED1D /* AllocationView.xib in Resources */,
@@ -1235,6 +1242,7 @@
 				C23208371E13094F00E54844 /* PopOverActionsVC.swift in Sources */,
 				C228EF791E1C38830023ED1D /* AccountDataView.swift in Sources */,
 				C2335A591E100F4500760234 /* Extensions.swift in Sources */,
+				C228EF7F1E1C46740023ED1D /* GoalView.swift in Sources */,
 				C23A74691E17913900113BD6 /* LegendItemView.swift in Sources */,
 				C205829B1E18198300BE04D7 /* DisclaimerViewController.swift in Sources */,
 				C2335A5B1E103BDE00760234 /* Transitions.swift in Sources */,

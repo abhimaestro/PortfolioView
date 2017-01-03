@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GoalView" customModule="PortfolioView" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkA-xi-QWy">
+                    <rect key="frame" x="7" y="9" width="375" height="180"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m4V-cS-vvW">
+                    <rect key="frame" x="7" y="189" width="375" height="93"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="as of 11/29/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTg-ew-R31" userLabel="as of 11/29/2016">
+                    <rect key="frame" x="146.5" y="282" width="82.5" height="13"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="BTg-ew-R31" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Aqt-S2-7pA"/>
+                <constraint firstItem="zkA-xi-QWy" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.6" id="DJ5-3I-bZw"/>
+                <constraint firstAttribute="trailing" secondItem="zkA-xi-QWy" secondAttribute="trailing" constant="-7" id="E8O-ZI-w8x"/>
+                <constraint firstItem="m4V-cS-vvW" firstAttribute="trailing" secondItem="zkA-xi-QWy" secondAttribute="trailing" id="Egz-pH-V14"/>
+                <constraint firstItem="m4V-cS-vvW" firstAttribute="leading" secondItem="zkA-xi-QWy" secondAttribute="leading" id="Fvb-Rg-NgC"/>
+                <constraint firstItem="m4V-cS-vvW" firstAttribute="top" secondItem="zkA-xi-QWy" secondAttribute="bottom" id="LRg-ck-WWx"/>
+                <constraint firstItem="zkA-xi-QWy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="YQa-lb-DcT"/>
+                <constraint firstItem="m4V-cS-vvW" firstAttribute="bottom" secondItem="BTg-ew-R31" secondAttribute="top" id="Zyn-dk-tj4"/>
+                <constraint firstAttribute="bottom" secondItem="BTg-ew-R31" secondAttribute="bottom" constant="5" id="fw2-WU-B3e"/>
+                <constraint firstItem="zkA-xi-QWy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="7" id="tki-rc-ei7"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="goalAccumulationContainer" destination="m4V-cS-vvW" id="BN9-Mk-2Oq"/>
+                <outlet property="goalAsOfDate" destination="BTg-ew-R31" id="R1u-Dt-21h"/>
+                <outlet property="goalDialContainer" destination="zkA-xi-QWy" id="fnf-gK-ar5"/>
+            </connections>
+        </view>
+    </objects>
+</document>

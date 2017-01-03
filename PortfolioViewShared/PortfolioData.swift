@@ -68,8 +68,6 @@ public class PortfolioData {
     public var totalPortfolioReturnDollar: Double!
     public var totalPortfolioMarketValueDollar: Double!
     
-    public var allocationAsOfDate: Date!
-    
     public init(portfolioDataItems: [PortfolioDataItem]?) {
         
         if let portfolioDataItems = portfolioDataItems {
@@ -90,7 +88,6 @@ public class PortfolioData {
             self.totalPortfolioMarketValueDollar = endItem.marketValue
             self.inceptionDate = startItem.returnDate
             self.endDate = endItem.returnDate
-            self.allocationAsOfDate = Date.getYesterday()
         }
     }
 
