@@ -55,8 +55,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, WCSessionDeleg
         passwordTextField.addIcon(imageName: "password")
         // Do any additional setup after loading the view.
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
-        
-        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -80,13 +78,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, WCSessionDeleg
         
         VENTouchLock.sharedInstance().deletePasscode()
     
-        do {
-        try session.updateApplicationContext(["userLoggedOut": true])
-    }
-catch {
-    
-    }
-
+        sendUserLoggedInStatusToWatch()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -98,6 +90,19 @@ catch {
         }
         
         return true
+    }
+    
+    func sendUserLoggedInStatusToWatch() {
+        
+        if session.isPaired {
+            do {
+
+                try session.updateApplicationContext(["isUserLoggedIn": UserDefaultValues.isUserLoggedIn])
+            }
+            catch {
+                print("error sending application context - user logged out")
+            }
+        }
     }
     
     func login() {
@@ -122,6 +127,7 @@ catch {
         }
         
         UserDefaultValues.isUserLoggedIn = true
+        sendUserLoggedInStatusToWatch()
         self.performSegue(withIdentifier: "loginToPasscodeStagingSegue", sender: self)
     }
 }

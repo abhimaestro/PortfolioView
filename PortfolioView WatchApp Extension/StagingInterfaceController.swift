@@ -18,15 +18,10 @@ class StagingInterfaceController: WKInterfaceController , WCSessionDelegate {
     }
     
     let session = WCSession.default()
-    
-    var count = 0
-    
-    @IBOutlet var label: WKInterfaceLabel!
-    
+
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        // Initialize the `WCSession`.
         session.delegate = self
         session.activate()
     }
@@ -41,12 +36,12 @@ class StagingInterfaceController: WKInterfaceController , WCSessionDelegate {
         super.didDeactivate()
     }
 
-//    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-//        
-//        guard let userLoggedOut = applicationContext["userLoggedOut"] as? Bool else { return }
-//        
-//        if userLoggedOut  {
-//            WKInterfaceController.reloadRootControllers(withNames: ["stagingIC"], contexts: nil)
-//        }
-//    }
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        
+        guard let isUserLoggedIn = applicationContext["isUserLoggedIn"] as? Bool else { return }
+        
+        if isUserLoggedIn  {
+            WKInterfaceController.reloadRootControllers(withNames: ["summaryIC", "marketIC", "accountsIC", "allocationIC"], contexts: nil)
+        }
+    }
 }

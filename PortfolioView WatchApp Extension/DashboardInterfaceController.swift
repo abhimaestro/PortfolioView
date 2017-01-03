@@ -129,9 +129,9 @@ class DashboardInterfaceController: WKInterfaceController, WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         
-        guard let userLoggedOut = applicationContext["userLoggedOut"] as? Bool else { return }
+        guard let isUserLoggedIn = applicationContext["isUserLoggedIn"] as? Bool else { return }
         
-        if userLoggedOut  {
+        if !isUserLoggedIn  {
             WKInterfaceController.reloadRootControllers(withNames: ["stagingIC"], contexts: nil)
         }
     }

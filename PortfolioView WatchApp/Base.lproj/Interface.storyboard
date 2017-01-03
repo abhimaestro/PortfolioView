@@ -12,7 +12,12 @@
         <!--stagingIC-->
         <scene sceneID="fRZ-XY-zeU">
             <objects>
-                <controller identifier="stagingIC" id="2Z2-Wt-UH6" customClass="StagingInterfaceController" customModule="PortfolioView_WatchApp_Extension"/>
+                <controller identifier="stagingIC" id="2Z2-Wt-UH6" customClass="StagingInterfaceController" customModule="PortfolioView_WatchApp_Extension">
+                    <items>
+                        <imageView width="0.29999999999999999" height="0.29999999999999999" alignment="center" image="logo" id="ONt-FA-gGV"/>
+                        <label alignment="center" verticalAlignment="center" text="Please login using the PortfolioView app on your phone" textAlignment="center" numberOfLines="0" id="a4u-Xx-Pjn"/>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="-33" y="66"/>
         </scene>
@@ -160,7 +165,7 @@
         <!--market-->
         <scene sceneID="wKu-QL-VbW">
             <objects>
-                <controller title="market" id="fUb-Pw-T5m" customClass="MarketInterfaceController" customModule="PortfolioView_WatchApp_Extension">
+                <controller identifier="marketIC" title="market" id="fUb-Pw-T5m" customClass="MarketInterfaceController" customModule="PortfolioView_WatchApp_Extension">
                     <items>
                         <table alignment="left" id="rFz-UR-3Ko">
                             <items>
@@ -235,7 +240,7 @@
         <!--allocation-->
         <scene sceneID="bRz-NQ-fmA">
             <objects>
-                <controller title="allocation" id="Uis-Zi-zOU" customClass="AllocationInterfaceController" customModule="PortfolioView_WatchApp_Extension">
+                <controller identifier="allocationIC" title="allocation" id="Uis-Zi-zOU" customClass="AllocationInterfaceController" customModule="PortfolioView_WatchApp_Extension">
                     <items>
                         <imageView alignment="center" id="S8y-JM-wfZ"/>
                         <table alignment="left" id="Bsc-ve-Yl2">
@@ -302,7 +307,7 @@
         <!--accounts-->
         <scene sceneID="7uX-EP-ktL">
             <objects>
-                <controller title="accounts" id="dDZ-Y8-vDY" customClass="AccountsInterfaceController" customModule="PortfolioView_WatchApp_Extension">
+                <controller identifier="accountsIC" title="accounts" id="dDZ-Y8-vDY" customClass="AccountsInterfaceController" customModule="PortfolioView_WatchApp_Extension">
                     <items>
                         <imageView alignment="left" id="n3T-e1-ZVT"/>
                         <table alignment="left" id="cJP-xP-8bp">
