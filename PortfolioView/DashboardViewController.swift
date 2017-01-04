@@ -35,6 +35,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
     var valueOverTimeContainer: ValueOverTimeView!
     
     let trailingPeriodButtonSelectedFont = FontHelper.getDefaultFont(size: 13.0, bold: true)
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     private enum TopContainerViewName: Int {
         case Performance = 0
@@ -67,6 +68,7 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
 
         super.viewDidLoad()
 
+       
         let portfolioData = getCurrentPortfolioData()
         self.valueOverTimeContainer = ValueOverTimeView.load(portfolioData: portfolioData, container: self.topChartContainer)
         self.performanceContainer = PerformanceView.load(portfolioData: portfolioData, indexType: _currentIndexType, container: self.topChartContainer)
@@ -115,6 +117,16 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
             }
         })
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        appDelegate.shouldRotate = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        appDelegate.shouldRotate = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
