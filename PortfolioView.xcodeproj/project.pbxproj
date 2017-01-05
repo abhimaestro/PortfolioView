@@ -255,6 +255,7 @@
 		C26781501E14786300D85E05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C26781521E14786300D85E05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C26781631E147AC000D85E05 /* TelerikUI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TelerikUI-Bridging-Header.h"; sourceTree = "<group>"; };
+		C26C8C211E1EEE5C00D9DB64 /* PortfolioView.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PortfolioView.entitlements; sourceTree = "<group>"; };
 		C2C201691E1506420020863D /* PortfolioViewShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PortfolioViewShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C2016C1E1506420020863D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2C201711E1506420020863D /* PortfolioViewSharedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortfolioViewSharedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -583,6 +584,7 @@
 		C2F71B291E02CDAE00A99298 /* PortfolioView */ = {
 			isa = PBXGroup;
 			children = (
+				C26C8C211E1EEE5C00D9DB64 /* PortfolioView.entitlements */,
 				C20582991E18197300BE04D7 /* Disclaimer */,
 				C20582941E18178500BE04D7 /* Login */,
 				C20582931E18175100BE04D7 /* Common */,
@@ -840,6 +842,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = WEWC6Q3ZN7;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+						};
 					};
 					C2F71B3C1E02CDAF00A99298 = {
 						CreatedOnToolsVersion = 8.0;
@@ -1697,6 +1704,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PortfolioView/PortfolioView.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = WEWC6Q3ZN7;
 				ENABLE_BITCODE = NO;
@@ -1719,6 +1727,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PortfolioView/PortfolioView.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = WEWC6Q3ZN7;
 				ENABLE_BITCODE = NO;
