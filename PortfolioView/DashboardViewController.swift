@@ -100,11 +100,13 @@ class DashboardViewController: UIViewController, UIPopoverPresentationController
                     self.landscapeLayoutContainer.subviews[i].removeFromSuperview()
                 }
                
+                let portfolioData = self.getCurrentPortfolioData()
+                
                 if (self._topContainerViewName == .Performance) {
-                    let _ = self.performanceContainer.getPerformanceChart(inView: self.landscapeLayoutContainer, portfolioData: self.getCurrentPortfolioData(), indexType: self._currentIndexType)
+                    let _ = PerformanceView.load(portfolioData: portfolioData, indexType: self._currentIndexType, container: self.landscapeLayoutContainer)
                 }
                 else {
-                    let _ = self.valueOverTimeContainer.getValueOverTimeChart(inView: self.landscapeLayoutContainer, portfolioData: self.getCurrentPortfolioData())
+                    let _ = ValueOverTimeView.load(portfolioData: portfolioData, container: self.landscapeLayoutContainer)
                 }
             }
             else {
